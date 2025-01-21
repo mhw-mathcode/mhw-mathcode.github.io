@@ -7,15 +7,7 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>mhw-mathcode</copyright>
-        <lastBuildDate>Tue, 21 Jan 2025 09:59:29 +0800</lastBuildDate><atom:link href="https://mhw-mathcode.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>New</title>
-        <link>https://mhw-mathcode.github.io/p/new/</link>
-        <pubDate>Tue, 21 Jan 2025 09:59:29 +0800</pubDate>
-        
-        <guid>https://mhw-mathcode.github.io/p/new/</guid>
-        <description></description>
-        </item>
-        <item>
+        <lastBuildDate>Tue, 28 May 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://mhw-mathcode.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Archives</title>
         <link>https://mhw-mathcode.github.io/archives/</link>
         <pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate>
@@ -366,6 +358,20 @@ $$</description>
 date = &amp;lsquo;2025-01-20T15:37:42+08:00&amp;rsquo;
 draft = true
 title = &amp;lsquo;MyFirstBlog&amp;rsquo;
++++&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title></title>
+        <link>https://mhw-mathcode.github.io/p/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://mhw-mathcode.github.io/p/</guid>
+        <description>&lt;p&gt;检验一下修改功能&lt;/p&gt;
+&lt;p&gt;+++
+date = &amp;lsquo;2025-01-21T09:59:29+08:00&amp;rsquo;
+draft = true
+title = &amp;lsquo;New&amp;rsquo;
 +++&lt;/p&gt;
 </description>
         </item>

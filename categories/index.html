@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="mathcode">
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="真正的勇敢，不是无所畏惧，而是带着恐惧前行">
 <title>Categories</title>
 
 <link rel='canonical' href='https://mhw-mathcode.github.io/categories/'>
 
 <link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="Categories">
-<meta property='og:description' content="mathcode">
+<meta property='og:description' content="真正的勇敢，不是无所畏惧，而是带着恐惧前行">
 <meta property='og:url' content='https://mhw-mathcode.github.io/categories/'>
 <meta property='og:site_name' content='mhw'>
 <meta property='og:type' content='website'><meta property='og:updated_time' content=' 2025-01-21T10:09:52&#43;08:00 '/>
 <meta name="twitter:title" content="Categories">
-<meta name="twitter:description" content="mathcode"><link rel="alternate" type="application/rss&#43;xml" href="https://mhw-mathcode.github.io/categories/index.xml">
+<meta name="twitter:description" content="真正的勇敢，不是无所畏惧，而是带着恐惧前行"><link rel="alternate" type="application/rss&#43;xml" href="https://mhw-mathcode.github.io/categories/index.xml">
     <link rel="shortcut icon" href="/favicon.ico" />
 
     </head>
@@ -70,7 +70,7 @@
         
         <div class="site-meta">
             <h1 class="site-name"><a href="/">mhw</a></h1>
-            <h2 class="site-description">mathcode</h2>
+            <h2 class="site-description">真正的勇敢，不是无所畏惧，而是带着恐惧前行</h2>
         </div>
     </header><ol class="menu-social">
             
@@ -395,6 +395,10 @@
 </section>
             
         
+            
+                
+            
+        
     </aside>
 
 
@@ -509,6 +513,74 @@
         document.head.appendChild(customFont);
     }());
 </script>
+<style>
+    #backTopBtn {
+        display: none;
+        position: fixed;
+        bottom: 30px;
+        right: 30px;  
+        z-index: 99;
+        cursor: pointer;
+        width: 30px;
+        height: 30px;
+        background-image: url(https://mhw-mathcode.github.io/icons/backTop.svg);
 
+    }
+</style>
+
+<script>
+    
+
+    function initScrollTop() {
+        let rightSideBar = document.querySelector(".right-sidebar");
+        if (!rightSideBar) {
+            console.error("右侧边栏未找到，无法添加返回顶部按钮");
+            return;
+        }
+
+        
+        let btn = document.createElement("div");
+        btn.id = "backTopBtn";
+        btn.onclick = backToTop; 
+        rightSideBar.appendChild(btn);
+
+        
+        window.onscroll = function() {
+            
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                btn.style.display = "block";
+            } else {
+                btn.style.display = "none";
+            }
+        };
+    }
+
+    
+
+    function backToTop() {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    
+    window.onload = function() {
+        initScrollTop();
+    };
+</script>
+
+
+<script src=https://mhw-mathcode.github.io/background/sakura.js></script>
+
+<style>
+    @font-face {
+      font-family: '昆明海鸥体';
+      src: url(https://mhw-mathcode.github.io/font/%E6%98%86%E6%98%8E%E6%B5%B7%E9%B8%A5%E4%BD%93.ttf) format('truetype');
+    }
+  
+    :root {
+      --base-font-family: '昆明海鸥体';
+      --code-font-family: '昆明海鸥体';
+    }
+</style>
+  
     </body>
 </html>

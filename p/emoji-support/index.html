@@ -6,11 +6,11 @@
 
 <link rel='canonical' href='https://mhw-mathcode.github.io/p/emoji-support/'>
 
-<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="Emoji Support">
+<link rel="stylesheet" href="/scss/style.min.a7f637593c1d99350f36f270c9abc65cf39ec34b45847eb2fa40efef51b94c92.css"><meta property='og:title' content="Emoji Support">
 <meta property='og:description' content="Guide to emoji usage in Hugo">
 <meta property='og:url' content='https://mhw-mathcode.github.io/p/emoji-support/'>
 <meta property='og:site_name' content='mhw'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='emoji' /><meta property='article:published_time' content='2019-03-05T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2019-03-05T00:00:00&#43;00:00'/><meta property='og:image' content='https://mhw-mathcode.github.io/p/emoji-support/the-creative-exchange-d2zvqp3fpro-unsplash.jpg' />
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='emoji' /><meta property='article:published_time' content='2019-03-05T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-01-21T09:45:54&#43;08:00'/><meta property='og:image' content='https://mhw-mathcode.github.io/p/emoji-support/the-creative-exchange-d2zvqp3fpro-unsplash.jpg' />
 <meta name="twitter:title" content="Emoji Support">
 <meta name="twitter:description" content="Guide to emoji usage in Hugo"><meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content='https://mhw-mathcode.github.io/p/emoji-support/the-creative-exchange-d2zvqp3fpro-unsplash.jpg' />
@@ -155,7 +155,7 @@
 
 
                 
-                <span>Archives</span>
+                <span>归档</span>
             </a>
         </li>
         
@@ -174,13 +174,13 @@
 
 
                 
-                <span>Search</span>
+                <span>搜索</span>
             </a>
         </li>
         
         
         <li >
-            <a href='/links/' >
+            <a href='/%E9%93%BE%E6%8E%A5/' >
                 
                 
                 
@@ -193,7 +193,7 @@
 
 
                 
-                <span>Links</span>
+                <span>链接</span>
             </a>
         </li>
         
@@ -358,7 +358,19 @@
     </section>
 
 
-    </footer>
+    <section class="article-lastmod">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <span>
+            最后更新于 2025-01-21 09:45 &#43;0800
+        </span>
+    </section></footer>
 
 
     
@@ -659,5 +671,71 @@
     }
 </style>
   
+<style>
+    #TableOfContents > ul, ol {
+        ul, ol {
+            display: none;
+        }
+        .open {
+            display: block;
+        }
+    }
+</style>
+
+<script>
+    function initTocHide() {
+        
+        let toc = document.querySelector(".widget--toc");
+        if (!toc) {
+            return;
+        }
+        
+        window.addEventListener('scroll', function() {
+            
+            let currentLi = document.querySelector(".active-class");
+            if (!currentLi) {
+                return
+            }
+            
+            let elementsByClassName = document.querySelectorAll(".open");
+            if (elementsByClassName.length > 0) {
+                elementsByClassName.forEach((ul) => {
+                    ul.classList.remove("open")
+                })
+            }
+            
+            if (currentLi.children.length > 1) {
+                currentLi.children[1].classList.add("open")
+            }
+            
+            let ul = currentLi.parentElement;
+            do {
+                ul.classList.add("open");
+                ul = ul.parentElement.parentElement
+            } while (ul !== undefined && (ul.localName === 'ul' || ul.localName === 'ol'))
+        });
+    }
+    initTocHide()
+</script>
+
+<script
+    src="https://cdn.jsdelivr.net/gh/zhixuan2333/gh-blog@v0.1.0/js/nprogress.min.js"
+    integrity="sha384-bHDlAEUFxsRI7JfULv3DTpL2IXbbgn4JHQJibgo5iiXSK6Iu8muwqHANhun74Cqg"
+    crossorigin="anonymous"
+></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/zhixuan2333/gh-blog@v0.1.0/css/nprogress.css"
+    integrity="sha384-KJyhr2syt5+4M9Pz5dipCvTrtvOmLk/olWVdfhAp858UCa64Ia5GFpTN7+G4BWpE"
+    crossorigin="anonymous"
+/>
+<script>
+    NProgress.start();
+    document.addEventListener("readystatechange", () => {
+        if (document.readyState === "interactive") NProgress.inc(0.8);
+        if (document.readyState === "complete") NProgress.done();
+    });
+</script>
+
     </body>
 </html>

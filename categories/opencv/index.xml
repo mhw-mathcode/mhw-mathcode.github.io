@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>opencv on mhw</title>
+        <link>https://mhw-mathcode.github.io/categories/opencv/</link>
+        <description>Recent content in opencv on mhw</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>mhw-mathcode</copyright><atom:link href="https://mhw-mathcode.github.io/categories/opencv/index.xml" rel="self" type="application/rss+xml" />
+    </channel>
+</rss>

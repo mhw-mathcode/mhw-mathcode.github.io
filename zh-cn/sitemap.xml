@@ -2,30 +2,8 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://mhw-mathcode.github.io/p/myfirstblog/</loc>
-    <lastmod>2025-01-22T17:20:58+08:00</lastmod>
-  </url><url>
-    <loc>https://mhw-mathcode.github.io/post/</loc>
-    <lastmod>2025-01-22T17:20:58+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://mhw-mathcode.github.io/en/post/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://mhw-mathcode.github.io/post/"
-                />
-  </url><url>
-    <loc>https://mhw-mathcode.github.io/page/</loc>
-    <lastmod>2025-01-22T17:20:58+08:00</lastmod>
-  </url><url>
-    <loc>https://mhw-mathcode.github.io/archives/</loc>
-    <lastmod>2025-01-22T17:20:58+08:00</lastmod>
-  </url><url>
     <loc>https://mhw-mathcode.github.io/categories/</loc>
-    <lastmod>2025-01-21T09:45:54+08:00</lastmod>
+    <lastmod>2025-05-26T12:42:52+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -37,23 +15,11 @@
                 href="https://mhw-mathcode.github.io/categories/"
                 />
   </url><url>
-    <loc>https://mhw-mathcode.github.io/tags/css/</loc>
-    <lastmod>2025-01-21T09:45:54+08:00</lastmod>
-  </url><url>
-    <loc>https://mhw-mathcode.github.io/tags/html/</loc>
-    <lastmod>2025-01-21T09:45:54+08:00</lastmod>
-  </url><url>
-    <loc>https://mhw-mathcode.github.io/tags/markdown/</loc>
-    <lastmod>2025-01-21T09:45:54+08:00</lastmod>
-  </url><url>
-    <loc>https://mhw-mathcode.github.io/p/markdown-syntax-guide/</loc>
-    <lastmod>2025-01-21T09:45:54+08:00</lastmod>
-  </url><url>
-    <loc>https://mhw-mathcode.github.io/categories/syntax/</loc>
-    <lastmod>2025-01-21T09:45:54+08:00</lastmod>
+    <loc>https://mhw-mathcode.github.io/post/</loc>
+    <lastmod>2025-05-26T12:42:52+00:00</lastmod>
   </url><url>
     <loc>https://mhw-mathcode.github.io/tags/</loc>
-    <lastmod>2025-01-21T09:45:54+08:00</lastmod>
+    <lastmod>2025-05-26T12:42:52+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -65,32 +31,23 @@
                 href="https://mhw-mathcode.github.io/tags/"
                 />
   </url><url>
-    <loc>https://mhw-mathcode.github.io/tags/themes/</loc>
-    <lastmod>2025-01-21T09:45:54+08:00</lastmod>
+    <loc>https://mhw-mathcode.github.io/p/vscode-%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%E5%AE%9E%E9%AA%8C%E5%AE%A4%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9E%8B/</loc>
+    <lastmod>2025-05-26T12:42:52+00:00</lastmod>
   </url><url>
-    <loc>https://mhw-mathcode.github.io/categories/themes/</loc>
-    <lastmod>2025-01-21T09:45:54+08:00</lastmod>
+    <loc>https://mhw-mathcode.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/</loc>
+    <lastmod>2025-05-26T12:42:52+00:00</lastmod>
   </url><url>
-    <loc>https://mhw-mathcode.github.io/p/placeholder-text/</loc>
-    <lastmod>2025-01-21T09:45:54+08:00</lastmod>
+    <loc>https://mhw-mathcode.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/</loc>
+    <lastmod>2025-05-26T12:42:52+00:00</lastmod>
   </url><url>
-    <loc>https://mhw-mathcode.github.io/tags/tag-with-whitespaces/</loc>
-    <lastmod>2025-01-21T09:45:54+08:00</lastmod>
+    <loc>https://mhw-mathcode.github.io/p/myfirstblog/</loc>
+    <lastmod>2025-05-26T20:16:42+08:00</lastmod>
   </url><url>
-    <loc>https://mhw-mathcode.github.io/categories/test-with-whitespaces/</loc>
-    <lastmod>2025-01-21T09:45:54+08:00</lastmod>
+    <loc>https://mhw-mathcode.github.io/page/</loc>
+    <lastmod>2025-01-22T17:20:58+08:00</lastmod>
   </url><url>
-    <loc>https://mhw-mathcode.github.io/tags/text/</loc>
-    <lastmod>2025-01-21T09:45:54+08:00</lastmod>
-  </url><url>
-    <loc>https://mhw-mathcode.github.io/p/math-typesetting/</loc>
-    <lastmod>2025-01-21T09:45:54+08:00</lastmod>
-  </url><url>
-    <loc>https://mhw-mathcode.github.io/tags/emoji/</loc>
-    <lastmod>2025-01-21T09:45:54+08:00</lastmod>
-  </url><url>
-    <loc>https://mhw-mathcode.github.io/p/emoji-support/</loc>
-    <lastmod>2025-01-21T09:45:54+08:00</lastmod>
+    <loc>https://mhw-mathcode.github.io/archives/</loc>
+    <lastmod>2025-01-22T17:20:58+08:00</lastmod>
   </url><url>
     <loc>https://mhw-mathcode.github.io/</loc>
     <lastmod>2025-01-21T09:45:54+08:00</lastmod>
@@ -105,18 +62,11 @@
                 href="https://mhw-mathcode.github.io/"
                 />
   </url><url>
-    <loc>https://mhw-mathcode.github.io/categories/test/</loc>
-    <lastmod>2025-01-21T09:45:54+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://mhw-mathcode.github.io/en/categories/test/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://mhw-mathcode.github.io/categories/test/"
-                />
+    <loc>https://mhw-mathcode.github.io/categories/opencv/</loc>
+    <lastmod>2025-05-26T20:06:57+08:00</lastmod>
+  </url><url>
+    <loc>https://mhw-mathcode.github.io/categories/vscode/</loc>
+    <lastmod>2025-05-26T20:06:57+08:00</lastmod>
   </url><url>
     <loc>https://mhw-mathcode.github.io/%E5%85%B3%E4%BA%8E/</loc>
     <lastmod>2025-01-22T17:20:58+08:00</lastmod>

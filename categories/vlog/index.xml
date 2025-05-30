@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-        <title>Vlog on mhw</title>
+        <title>vlog on mhw</title>
         <link>https://mhw-mathcode.github.io/categories/vlog/</link>
-        <description>Recent content in Vlog on mhw</description>
+        <description>Recent content in vlog on mhw</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <copyright>mhw-mathcode</copyright>
-        <lastBuildDate>Fri, 30 May 2025 13:16:47 +0000</lastBuildDate><atom:link href="https://mhw-mathcode.github.io/categories/vlog/index.xml" rel="self" type="application/rss+xml" /><item>
+        <copyright>mhw-mathcode</copyright><atom:link href="https://mhw-mathcode.github.io/categories/vlog/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>2024ICPC昆明区域赛vlog</title>
         <link>https://mhw-mathcode.github.io/p/2024icpc%E6%98%86%E6%98%8E%E5%8C%BA%E5%9F%9F%E8%B5%9Bvlog/</link>
         <pubDate>Fri, 30 May 2025 20:02:21 +0800</pubDate>

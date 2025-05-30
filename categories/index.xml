@@ -7,21 +7,13 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>mhw-mathcode</copyright>
-        <lastBuildDate>Fri, 30 May 2025 13:16:47 +0000</lastBuildDate><atom:link href="https://mhw-mathcode.github.io/categories/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>Vlog</title>
-        <link>https://mhw-mathcode.github.io/categories/vlog/</link>
-        <pubDate>Fri, 30 May 2025 20:02:21 +0800</pubDate>
-        
-        <guid>https://mhw-mathcode.github.io/categories/vlog/</guid>
-        <description></description>
-        </item>
-        <item>
+        <lastBuildDate>Fri, 30 May 2025 21:34:16 +0800</lastBuildDate><atom:link href="https://mhw-mathcode.github.io/categories/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>LLM</title>
         <link>https://mhw-mathcode.github.io/categories/llm/</link>
-        <pubDate>Fri, 30 May 2025 11:12:02 +0800</pubDate>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
         <guid>https://mhw-mathcode.github.io/categories/llm/</guid>
-        <description></description>
+        <description>&lt;img src="https://mhw-mathcode.github.io/categories/llm/image.png" alt="Featured image of post LLM" /&gt;</description>
         </item>
         <item>
         <title>opencv</title>
@@ -30,6 +22,14 @@
         
         <guid>https://mhw-mathcode.github.io/categories/opencv/</guid>
         <description>&lt;img src="https://mhw-mathcode.github.io/categories/opencv/image.png" alt="Featured image of post opencv" /&gt;</description>
+        </item>
+        <item>
+        <title>vlog</title>
+        <link>https://mhw-mathcode.github.io/categories/vlog/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://mhw-mathcode.github.io/categories/vlog/</guid>
+        <description>&lt;img src="https://mhw-mathcode.github.io/categories/vlog/image.jpg" alt="Featured image of post vlog" /&gt;</description>
         </item>
         <item>
         <title>vscode</title>

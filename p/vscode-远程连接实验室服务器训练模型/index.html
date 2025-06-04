@@ -10,7 +10,7 @@
 <meta property='og:description' content="The specific solution process of remotely connecting vscode to the laboratory server to run deep learning code from scratch.">
 <meta property='og:url' content='https://mhw-mathcode.github.io/p/vscode-%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%E5%AE%9E%E9%AA%8C%E5%AE%A4%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9E%8B/'>
 <meta property='og:site_name' content='mhw'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='服务器' /><meta property='article:tag' content='深度学习' /><meta property='article:published_time' content='2025-05-26T18:25:36&#43;08:00'/><meta property='article:modified_time' content='2025-05-30T14:07:14&#43;00:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='服务器' /><meta property='article:tag' content='深度学习' /><meta property='article:published_time' content='2025-05-26T18:25:36&#43;08:00'/><meta property='article:modified_time' content='2025-06-04T08:02:00&#43;00:00'/>
 <meta name="twitter:title" content="Vscode 远程连接实验室服务器训练模型">
 <meta name="twitter:description" content="The specific solution process of remotely connecting vscode to the laboratory server to run deep learning code from scratch.">
     <link rel="shortcut icon" href="/favicon.ico" />
@@ -276,9 +276,10 @@
     <li><a href="#配置环境">配置环境</a></li>
     <li><a href="#trick">trick</a>
       <ul>
-        <li><a href="#trick1">trick（1）</a></li>
-        <li><a href="#trick2">trick（2）</a></li>
-        <li><a href="#trick3">trick（3）</a></li>
+        <li><a href="#trick-1">trick (1)</a></li>
+        <li><a href="#trick-2">trick (2)</a></li>
+        <li><a href="#trick-3">trick (3)</a></li>
+        <li><a href="#trick-4">trick (4)</a></li>
       </ul>
     </li>
     <li><a href="#虚拟机联网小插曲">虚拟机联网（小插曲）</a></li>
@@ -574,7 +575,7 @@
 ></p>
 <p>得到了 pytorch 版本号！</p>
 <h2 id="trick">trick
-</h2><h3 id="trick1">trick（1）
+</h2><h3 id="trick-1">trick (1)
 </h3><p>控制使用的显卡 id</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -586,15 +587,113 @@
 </span></span><span class="line"><span class="cl"><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;CUDA_VISIBLE_DEVICES&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;1&#39;</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="trick2">trick（2）
+</div><h3 id="trick-2">trick (2)
 </h3><p>使用 jupyter</p>
 <p>终端执行命令 <code>conda install jupyter</code></p>
 <p>vscode 中安装插件 jupyter</p>
-<h3 id="trick3">trick（3）
+<h3 id="trick-3">trick (3)
 </h3><p>在连接服务器的 vscode 上使用 copilot</p>
 <p>参考 <a class="link" href="https://blog.csdn.net/qq_32057921/article/details/145764603"  target="_blank" rel="noopener"
     >这篇文章</a> ，秒解决~</p>
-<h2 id="虚拟机联网小插曲">虚拟机联网（小插曲）
+<h3 id="trick-4">trick (4)
+</h3><p>在本地通过 py 代码控制服务器运行指令或者下载文件与文件夹</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">paramiko</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">scp</span> <span class="kn">import</span> <span class="n">SCPClient</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 连接参数</span>
+</span></span><span class="line"><span class="cl"><span class="n">hostname</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>      <span class="c1"># 云服务器 IP</span>
+</span></span><span class="line"><span class="cl"><span class="n">port</span> <span class="o">=</span> <span class="mi">22</span>                     <span class="c1"># 一般是 22</span>
+</span></span><span class="line"><span class="cl"><span class="n">username</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>           <span class="c1"># 云服务器用户名（如 root）</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># password = &#39;your_password&#39;       # 云服务器密码</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">control</span><span class="p">(</span><span class="n">command</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 创建 SSH 客户端</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ssh</span> <span class="o">=</span> <span class="n">paramiko</span><span class="o">.</span><span class="n">SSHClient</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ssh</span><span class="o">.</span><span class="n">set_missing_host_key_policy</span><span class="p">(</span><span class="n">paramiko</span><span class="o">.</span><span class="n">AutoAddPolicy</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ssh</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">hostname</span><span class="p">,</span> <span class="n">port</span><span class="p">,</span> <span class="n">username</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 控制服务器执行远程命令</span>
+</span></span><span class="line"><span class="cl">    <span class="k">try</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">stdin</span><span class="p">,</span> <span class="n">stdout</span><span class="p">,</span> <span class="n">stderr</span> <span class="o">=</span> <span class="n">ssh</span><span class="o">.</span><span class="n">exec_command</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;命令执行失败: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">out</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">stdout</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(),</span> <span class="n">stderr</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ssh</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">out</span><span class="p">,</span> <span class="n">err</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">download</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 创建SCP客户端</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ssh</span> <span class="o">=</span> <span class="n">paramiko</span><span class="o">.</span><span class="n">SSHClient</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ssh</span><span class="o">.</span><span class="n">set_missing_host_key_policy</span><span class="p">(</span><span class="n">paramiko</span><span class="o">.</span><span class="n">AutoAddPolicy</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ssh</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">hostname</span><span class="p">,</span> <span class="n">port</span><span class="p">,</span> <span class="n">username</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">scp</span> <span class="o">=</span> <span class="n">SCPClient</span><span class="p">(</span><span class="n">ssh</span><span class="o">.</span><span class="n">get_transport</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 下载文件与文件夹</span>
+</span></span><span class="line"><span class="cl">    <span class="k">try</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 想要下载的文件或者文件夹  下载的目录</span>
+</span></span><span class="line"><span class="cl">        <span class="n">scp</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">scp</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">recursive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;文件下载成功&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;文件下载失败: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 关闭SCP和SSH连接</span>
+</span></span><span class="line"><span class="cl">    <span class="n">scp</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ssh</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="虚拟机联网小插曲">虚拟机联网（小插曲）
 </h2><p>当时试了很多方法也没有让服务器连接上网络，于是我决定去自己的虚拟机上先配置好深度学习的环境，然后把环境文件直接传输到服务器上。然后很逆天的发现，自己的虚拟机也连不上网络？然后有试了很多乱七八糟的方法，直到我看到了 <a class="link" href="https://blog.csdn.net/hhc550056259/article/details/123916999"  target="_blank" rel="noopener"
     >这篇文章</a> ，直接还原默认设置，完美解决了！</p>
 <p><img src="/p/vscode-%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%E5%AE%9E%E9%AA%8C%E5%AE%A4%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9E%8B/11.png"
@@ -637,7 +736,7 @@
 
 
         <span>
-            最后更新于 2025-05-30 14:07 UTC
+            最后更新于 2025-06-04 08:02 UTC
         </span>
     </section></footer>
 

@@ -7,12 +7,12 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>mhw-mathcode</copyright>
-        <lastBuildDate>Mon, 16 Jun 2025 14:28:40 +0000</lastBuildDate><atom:link href="https://mhw-mathcode.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>机器学习学习笔记</title>
-        <link>https://mhw-mathcode.github.io/p/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+        <lastBuildDate>Mon, 16 Jun 2025 14:32:10 +0000</lastBuildDate><atom:link href="https://mhw-mathcode.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>学习笔记-机器学习</title>
+        <link>https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</link>
         <pubDate>Mon, 16 Jun 2025 19:29:56 +0800</pubDate>
         
-        <guid>https://mhw-mathcode.github.io/p/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+        <guid>https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</guid>
         <description>&lt;h2 id=&#34;1-1-什么是机器学习&#34;&gt;1-1 什么是机器学习
 &lt;/h2&gt;&lt;p&gt;一个好的学习问题定义如下：一个程序被认为能从经验 E 中学习，解决任务 T ，达到性能度量值 P ，当且仅当，有了经验 E 后，经过 P 评判，程序在处理 T 时的性能有所提升。&lt;/p&gt;
 &lt;p&gt;目前存在几种不同类型的学习算法，其中主要的两种类型被我们称之为：&lt;strong&gt;监督学习&lt;/strong&gt;和&lt;strong&gt;无监督学习&lt;/strong&gt;。&lt;/p&gt;
@@ -20,7 +20,7 @@
 &lt;/h2&gt;&lt;p&gt;监督学习：给定带有标签的数据，模型通过学习输入和标签之间的关系来做预测。&lt;/p&gt;
 &lt;p&gt;回归 (regression) 问题：推测出这一系列连续值属性。&lt;/p&gt;
 &lt;p&gt;分类 (classification) 问题：推测出离散的输出值。&lt;/p&gt;
-&lt;h2 id=&#34;14-无监督学习&#34;&gt;1.4 无监督学习
+&lt;h2 id=&#34;13-无监督学习&#34;&gt;1.3 无监督学习
 &lt;/h2&gt;&lt;p&gt;无监督学习：没有标签的数据，模型通过探索数据中的结构或模式来进行学习。&lt;/p&gt;
 &lt;p&gt;聚类算法：将数据集划分成两个不同的簇。&lt;/p&gt;
 &lt;p&gt;鸡尾酒算法：分离两种声音。（一个具体实例，仅仅只需要一行代码实现）&lt;/p&gt;

@@ -7,6 +7,33 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>mhw-mathcode</copyright><atom:link href="https://mhw-mathcode.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>机器学习学习笔记</title>
+        <link>https://mhw-mathcode.github.io/p/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+        <pubDate>Mon, 16 Jun 2025 19:29:56 +0800</pubDate>
+        
+        <guid>https://mhw-mathcode.github.io/p/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+        <description>&lt;h2 id=&#34;1-1-什么是机器学习&#34;&gt;1-1 什么是机器学习
+&lt;/h2&gt;&lt;p&gt;一个好的学习问题定义如下：一个程序被认为能从经验 E 中学习，解决任务 T ，达到性能度量值 P ，当且仅当，有了经验 E 后，经过 P 评判，程序在处理 T 时的性能有所提升。&lt;/p&gt;
+&lt;p&gt;目前存在几种不同类型的学习算法，其中主要的两种类型被我们称之为：&lt;strong&gt;监督学习&lt;/strong&gt;和&lt;strong&gt;无监督学习&lt;/strong&gt;。&lt;/p&gt;
+&lt;h2 id=&#34;12-监督学习&#34;&gt;1.2 监督学习
+&lt;/h2&gt;&lt;p&gt;监督学习：给定带有标签的数据，模型通过学习输入和标签之间的关系来做预测。&lt;/p&gt;
+&lt;p&gt;回归 (regression) 问题：推测出这一系列连续值属性。&lt;/p&gt;
+&lt;p&gt;分类 (classification) 问题：推测出离散的输出值。&lt;/p&gt;
+&lt;h2 id=&#34;14-无监督学习&#34;&gt;1.4 无监督学习
+&lt;/h2&gt;&lt;p&gt;无监督学习：没有标签的数据，模型通过探索数据中的结构或模式来进行学习。&lt;/p&gt;
+&lt;p&gt;聚类算法：将数据集划分成两个不同的簇。&lt;/p&gt;
+&lt;p&gt;鸡尾酒算法：分离两种声音。（一个具体实例，仅仅只需要一行代码实现）&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-py&#34; data-lang=&#34;py&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;W&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;s&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;v&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;svd&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;((&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;repmat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;sum&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.*&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;),&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;size&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;),&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.*&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description>
+        </item>
+        <item>
         <title>2024ICPC昆明区域赛vlog</title>
         <link>https://mhw-mathcode.github.io/p/2024icpc%E6%98%86%E6%98%8E%E5%8C%BA%E5%9F%9F%E8%B5%9Bvlog/</link>
         <pubDate>Fri, 30 May 2025 20:02:21 +0800</pubDate>
@@ -63,7 +90,7 @@
 	srcset=&#34;https://mhw-mathcode.github.io/p/2024icpc%E6%98%86%E6%98%8E%E5%8C%BA%E5%9F%9F%E8%B5%9Bvlog/3_hu_6668454c256f730.png 480w, https://mhw-mathcode.github.io/p/2024icpc%E6%98%86%E6%98%8E%E5%8C%BA%E5%9F%9F%E8%B5%9Bvlog/3_hu_670c91392055df3f.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;ICPC昆明站(1)&#34;
+		alt=&#34;ICPC昆明站 (1)&#34;
 	
 	
 		class=&#34;gallery-image&#34; 
@@ -77,7 +104,7 @@
 	srcset=&#34;https://mhw-mathcode.github.io/p/2024icpc%E6%98%86%E6%98%8E%E5%8C%BA%E5%9F%9F%E8%B5%9Bvlog/3.1_hu_f327e17bef9184e3.jpg 480w, https://mhw-mathcode.github.io/p/2024icpc%E6%98%86%E6%98%8E%E5%8C%BA%E5%9F%9F%E8%B5%9Bvlog/3.1_hu_5a0f1cfc1a522ee2.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;ICPC昆明站(2)&#34;
+		alt=&#34;ICPC昆明站 (2)&#34;
 	
 	
 		class=&#34;gallery-image&#34; 
@@ -184,7 +211,7 @@
 	srcset=&#34;https://mhw-mathcode.github.io/p/2024icpc%E6%98%86%E6%98%8E%E5%8C%BA%E5%9F%9F%E8%B5%9Bvlog/8.2_hu_4e56081ee91805a6.jpg 480w, https://mhw-mathcode.github.io/p/2024icpc%E6%98%86%E6%98%8E%E5%8C%BA%E5%9F%9F%E8%B5%9Bvlog/8.2_hu_b6fdbd6d84d49ac9.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;夜景(1)&#34;
+		alt=&#34;夜景 (1)&#34;
 	
 	
 		class=&#34;gallery-image&#34; 
@@ -198,7 +225,7 @@
 	srcset=&#34;https://mhw-mathcode.github.io/p/2024icpc%E6%98%86%E6%98%8E%E5%8C%BA%E5%9F%9F%E8%B5%9Bvlog/8.3_hu_501fd18c0af4a58e.jpg 480w, https://mhw-mathcode.github.io/p/2024icpc%E6%98%86%E6%98%8E%E5%8C%BA%E5%9F%9F%E8%B5%9Bvlog/8.3_hu_370a725b6073dd28.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;夜景(2)&#34;
+		alt=&#34;夜景 (2)&#34;
 	
 	
 		class=&#34;gallery-image&#34; 
@@ -212,7 +239,7 @@
 	srcset=&#34;https://mhw-mathcode.github.io/p/2024icpc%E6%98%86%E6%98%8E%E5%8C%BA%E5%9F%9F%E8%B5%9Bvlog/8.4_hu_5a2d82dcafa8dc22.jpg 480w, https://mhw-mathcode.github.io/p/2024icpc%E6%98%86%E6%98%8E%E5%8C%BA%E5%9F%9F%E8%B5%9Bvlog/8.4_hu_6ba792a00981851c.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;夜景(3)&#34;
+		alt=&#34;夜景 (3)&#34;
 	
 	
 		class=&#34;gallery-image&#34; 
@@ -228,7 +255,7 @@
 	srcset=&#34;https://mhw-mathcode.github.io/p/2024icpc%E6%98%86%E6%98%8E%E5%8C%BA%E5%9F%9F%E8%B5%9Bvlog/9.1_hu_6b03444ee78bc859.jpg 480w, https://mhw-mathcode.github.io/p/2024icpc%E6%98%86%E6%98%8E%E5%8C%BA%E5%9F%9F%E8%B5%9Bvlog/9.1_hu_59c8ae1d78a11b6c.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;鸽子(1)&#34;
+		alt=&#34;鸽子 (1)&#34;
 	
 	
 		class=&#34;gallery-image&#34; 
@@ -242,7 +269,7 @@
 	srcset=&#34;https://mhw-mathcode.github.io/p/2024icpc%E6%98%86%E6%98%8E%E5%8C%BA%E5%9F%9F%E8%B5%9Bvlog/9.2_hu_5df2f1dfbbd745d0.jpg 480w, https://mhw-mathcode.github.io/p/2024icpc%E6%98%86%E6%98%8E%E5%8C%BA%E5%9F%9F%E8%B5%9Bvlog/9.2_hu_ab26599c88216ad.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;鸽子(2)&#34;
+		alt=&#34;鸽子 (2)&#34;
 	
 	
 		class=&#34;gallery-image&#34; 
@@ -256,7 +283,7 @@
 	srcset=&#34;https://mhw-mathcode.github.io/p/2024icpc%E6%98%86%E6%98%8E%E5%8C%BA%E5%9F%9F%E8%B5%9Bvlog/9.3_hu_fd581cd88ec065e9.jpg 480w, https://mhw-mathcode.github.io/p/2024icpc%E6%98%86%E6%98%8E%E5%8C%BA%E5%9F%9F%E8%B5%9Bvlog/9.3_hu_ce7db4028d68873f.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;鸽子(3)&#34;
+		alt=&#34;鸽子 (3)&#34;
 	
 	
 		class=&#34;gallery-image&#34; 
@@ -647,7 +674,7 @@
 	srcset=&#34;https://mhw-mathcode.github.io/p/vscode-%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%E5%AE%9E%E9%AA%8C%E5%AE%A4%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9E%8B/11_hu_dc4d7013830f8483.png 480w, https://mhw-mathcode.github.io/p/vscode-%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%E5%AE%9E%E9%AA%8C%E5%AE%A4%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9E%8B/11_hu_65700df208955abd.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;在这里插入图片描述&#34;
+		alt=&#34;虚拟机联网&#34;
 	
 	
 		class=&#34;gallery-image&#34; 

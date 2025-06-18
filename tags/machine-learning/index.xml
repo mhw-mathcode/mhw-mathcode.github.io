@@ -7,21 +7,76 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>mhw-mathcode</copyright>
-        <lastBuildDate>Tue, 17 Jun 2025 11:09:57 +0000</lastBuildDate><atom:link href="https://mhw-mathcode.github.io/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Wed, 18 Jun 2025 15:13:20 +0000</lastBuildDate><atom:link href="https://mhw-mathcode.github.io/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>学习笔记-机器学习</title>
         <link>https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</link>
         <pubDate>Mon, 16 Jun 2025 19:29:56 +0800</pubDate>
         
         <guid>https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</guid>
-        <description>&lt;h2 id=&#34;1-1-什么是机器学习&#34;&gt;1-1 什么是机器学习
-&lt;/h2&gt;&lt;p&gt;一个好的学习问题定义如下：一个程序被认为能从经验 E 中学习，解决任务 T ，达到性能度量值 P ，当且仅当，有了经验 E 后，经过 P 评判，程序在处理 T 时的性能有所提升。&lt;/p&gt;
+        <description>&lt;h2 id=&#34;0-算法速览&#34;&gt;0 算法速览
+&lt;/h2&gt;&lt;p&gt;监督学习算法：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;线性回归（Linear Regression）：用于回归任务，预测连续的数值。&lt;/li&gt;
+&lt;li&gt;逻辑回归（Logistic Regression）：用于二分类任务，预测类别。&lt;/li&gt;
+&lt;li&gt;支持向量机（SVM）：用于分类任务，构建超平面进行分类。&lt;/li&gt;
+&lt;li&gt;决策树（Decision Tree）：基于树状结构进行决策的分类或回归方法。&lt;/li&gt;
+&lt;li&gt;K近邻算法&lt;/li&gt;
+&lt;li&gt;集成学习&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;无监督学习算法：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;K-means 聚类：通过聚类中心将数据分组。&lt;/li&gt;
+&lt;li&gt;主成分分析（PCA）：用于降维，提取数据的主成分。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;0-1-线性回归&#34;&gt;0-1 线性回归
+&lt;/h3&gt;&lt;p&gt;线性回归 (Linear Regression) 是一种用于预测连续值的最基本的机器学习算法，它假设目标变量 y 和特征变量 x 之间存在线性关系，并试图找到一条最佳拟合直线来描述这种关系。&lt;/p&gt;
+&lt;p&gt;常用的误差函数是均方误差 (MSE) : $MSE = 1/n * Σ(y_i - y_{pred_i})^2$&lt;/p&gt;
+&lt;p&gt;求解：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;最小二乘法&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;最小二乘法的目标是最小化残差平方和（RSS），其公式为：$RSS = \sum_{i=1}^n(y_i - \hat{y}_i)^2$&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/1.jpg&#34;
+	width=&#34;1440&#34;
+	height=&#34;1080&#34;
+	srcset=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/1_hu_dc3fae64383c103d.jpg 480w, https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/1_hu_cb0bc3cbb612de23.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;简单推导&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;133&#34;
+		data-flex-basis=&#34;320px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;得到最佳的 $w, b$&lt;/p&gt;
+$$
+\begin{bmatrix} w \\ b \end{bmatrix} = \begin{bmatrix} \sum_{i=1}^n x_i^2 &amp; \sum_{i=1}^n x_i \\ \sum_{i=1}^n x_i &amp; n \end{bmatrix}^{-1} \begin{bmatrix} \sum_{i=1}^n x_i y_i \\ \sum_{i=1}^n y_i \end{bmatrix}
+$$&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;梯度下降法&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;梯度下降法的目标是最小化损失函数 $J(w,b)$ 。对于线性回归问题，通常使用均方误差（MSE）作为损失函数：&lt;/p&gt;
+$$ J(w, b) = \frac{1}{2m} \sum_{i=1}^{m} (y_i - \hat{y}_i)^2 $$&lt;p&gt;参数更新：&lt;/p&gt;
+$$ w := w - \alpha \frac{\partial J}{\partial w} \quad b := b - \alpha \frac{\partial J}{\partial b} $$&lt;p&gt;梯度下降法的步骤&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;初始化参数：初始化 w 和 b 的值（通常设为 0 或随机值）。&lt;/li&gt;
+&lt;li&gt;计算损失函数：计算当前参数下的损失函数值 $J(w,b)$ 。&lt;/li&gt;
+&lt;li&gt;计算梯度：计算损失函数对 w 和 b 的偏导数。&lt;/li&gt;
+&lt;li&gt;更新参数：根据梯度更新 w 和 b。&lt;/li&gt;
+&lt;li&gt;重复迭代：重复步骤 2 到 4，直到损失函数收敛或达到最大迭代次数。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;0-2-逻辑回归&#34;&gt;0-2 逻辑回归
+&lt;/h3&gt;&lt;h2 id=&#34;1-引言&#34;&gt;1 引言
+&lt;/h2&gt;&lt;h3 id=&#34;1-1-什么是机器学习&#34;&gt;1-1 什么是机器学习
+&lt;/h3&gt;&lt;p&gt;一个好的学习问题定义如下：一个程序被认为能从经验 E 中学习，解决任务 T ，达到性能度量值 P ，当且仅当，有了经验 E 后，经过 P 评判，程序在处理 T 时的性能有所提升。&lt;/p&gt;
 &lt;p&gt;目前存在几种不同类型的学习算法，其中主要的两种类型被我们称之为：&lt;strong&gt;监督学习&lt;/strong&gt;和&lt;strong&gt;无监督学习&lt;/strong&gt;。&lt;/p&gt;
-&lt;h2 id=&#34;12-监督学习&#34;&gt;1.2 监督学习
-&lt;/h2&gt;&lt;p&gt;监督学习：给定带有标签的数据，模型通过学习输入和标签之间的关系来做预测。&lt;/p&gt;
+&lt;h3 id=&#34;12-监督学习&#34;&gt;1.2 监督学习
+&lt;/h3&gt;&lt;p&gt;监督学习：给定带有标签的数据，模型通过学习输入和标签之间的关系来做预测。&lt;/p&gt;
 &lt;p&gt;回归 (regression) 问题：推测出这一系列连续值属性。&lt;/p&gt;
 &lt;p&gt;分类 (classification) 问题：推测出离散的输出值。&lt;/p&gt;
-&lt;h2 id=&#34;13-无监督学习&#34;&gt;1.3 无监督学习
-&lt;/h2&gt;&lt;p&gt;无监督学习：没有标签的数据，模型通过探索数据中的结构或模式来进行学习。&lt;/p&gt;
+&lt;h3 id=&#34;13-无监督学习&#34;&gt;1.3 无监督学习
+&lt;/h3&gt;&lt;p&gt;无监督学习：没有标签的数据，模型通过探索数据中的结构或模式来进行学习。&lt;/p&gt;
 &lt;p&gt;聚类算法：将数据集划分成两个不同的簇。&lt;/p&gt;
 &lt;p&gt;鸡尾酒算法：分离两种声音。（一个具体实例，仅仅只需要一行代码实现）&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -32,7 +87,8 @@
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-py&#34; data-lang=&#34;py&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;W&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;s&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;v&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;svd&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;((&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;repmat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;sum&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.*&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;),&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;size&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;),&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.*&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;);&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description>
+&lt;/div&gt;&lt;h2 id=&#34;2-单变量线性回归-linear-regression-with-one-variable&#34;&gt;2 单变量线性回归 (Linear Regression with One Variable)
+&lt;/h2&gt;</description>
         </item>
         
     </channel>

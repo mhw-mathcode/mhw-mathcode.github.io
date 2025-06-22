@@ -10,7 +10,7 @@
 <meta property='og:description' content="The process of studying machine learning">
 <meta property='og:url' content='https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/'>
 <meta property='og:site_name' content='mhw'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Machine learning' /><meta property='article:published_time' content='2025-06-16T19:29:56&#43;08:00'/><meta property='article:modified_time' content='2025-06-18T15:13:20&#43;00:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Machine learning' /><meta property='article:published_time' content='2025-06-16T19:29:56&#43;08:00'/><meta property='article:modified_time' content='2025-06-22T03:40:55&#43;00:00'/>
 <meta name="twitter:title" content="学习笔记-机器学习">
 <meta name="twitter:description" content="The process of studying machine learning">
     <link rel="shortcut icon" href="/favicon.ico" />
@@ -229,6 +229,7 @@
       <ul>
         <li><a href="#0-1-线性回归">0-1 线性回归</a></li>
         <li><a href="#0-2-逻辑回归">0-2 逻辑回归</a></li>
+        <li><a href="#0-3-决策树">0-3 决策树</a></li>
       </ul>
     </li>
     <li><a href="#1-引言">1 引言</a>
@@ -313,8 +314,8 @@
 <ul>
 <li>线性回归（Linear Regression）：用于回归任务，预测连续的数值。</li>
 <li>逻辑回归（Logistic Regression）：用于二分类任务，预测类别。</li>
-<li>支持向量机（SVM）：用于分类任务，构建超平面进行分类。</li>
 <li>决策树（Decision Tree）：基于树状结构进行决策的分类或回归方法。</li>
+<li>支持向量机（SVM）：用于分类任务，构建超平面进行分类。</li>
 <li>K近邻算法</li>
 <li>集成学习</li>
 </ul>
@@ -326,7 +327,7 @@
 <h3 id="0-1-线性回归">0-1 线性回归
 </h3><p>线性回归 (Linear Regression) 是一种用于预测连续值的最基本的机器学习算法，它假设目标变量 y 和特征变量 x 之间存在线性关系，并试图找到一条最佳拟合直线来描述这种关系。</p>
 <p>常用的误差函数是均方误差 (MSE) : $MSE = 1/n * Σ(y_i - y_{pred_i})^2$</p>
-<p>求解：</p>
+<p>如何求解？</p>
 <ol>
 <li>最小二乘法</li>
 </ol>
@@ -337,7 +338,7 @@
 	srcset="/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/1_hu_dc3fae64383c103d.jpg 480w, /p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/1_hu_cb0bc3cbb612de23.jpg 1024w"
 	loading="lazy"
 	
-		alt="简单推导"
+		alt="推导"
 	
 	
 		class="gallery-image" 
@@ -362,6 +363,48 @@ $$ w := w - \alpha \frac{\partial J}{\partial w} \quad b := b - \alpha \frac{\pa
 <li>重复迭代：重复步骤 2 到 4，直到损失函数收敛或达到最大迭代次数。</li>
 </ol>
 <h3 id="0-2-逻辑回归">0-2 逻辑回归
+</h3><p>逻辑回归（Logistic Regression）是一种广泛应用于分类问题的统计学习方法，尽管名字中带有&quot;回归&quot;，但它实际上是一种用于二分类或多分类问题的算法。</p>
+<p>逻辑回归通过使用逻辑函数（也称为 Sigmoid 函数）将线性回归的输出映射到 0 和 1 之间，从而预测某个事件发生的概率。建立模型：</p>
+\[
+p(y = 1|X) = \sigma(w^T X + b)
+\]<p>其中：</p>
+<ul>
+<li>\( X \) 是输入特征（可以是多个特征组成的向量）。</li>
+<li>\( w \) 是权重向量。</li>
+<li>\( b \) 是偏置项。</li>
+<li>\(\sigma(z) = \frac{1}{1+e^{-z}}\) 是Sigmoid函数。Sigmoid函数将模型的输出值 \((w^T X + b)\) 映射到0到1之间，因此它可以看作是属于类别1的概率。注意 $\sigma&rsquo;(z) = \sigma(z)(1 - \sigma(z))$ 。</li>
+</ul>
+<p>使用对数损失函数</p>
+\[ L(\theta) = 
+  \begin{cases} 
+   -\log(p), & \text{if } y = 1 \\
+   -\log(1-p), & \text{if } y = 0 
+  \end{cases}
+\]<p>合并得到单个样品的损失函数</p>
+\[ 
+    L(\theta) = -ylog(p)-(1-y)log(1-p)
+\]<p>因此总体损失函数（也就是交叉熵损失函数）</p>
+\[ L(\theta) = -\frac{1}{m} \sum_{i=1}^{m} \left[ y^{(i)} \log(p^{(i)}) + (1 - y^{(i)}) \log(1 - p^{(i)}) \right] \]<p>如何求解？</p>
+<p>梯度下降法</p>
+<p>对 \(w\) 的梯度：
+</p>
+\[ \frac{\partial J(w, b)}{\partial w} = \frac{1}{m} \sum_{i=1}^{m} (h_\theta(x^{(i)}) - y^{(i)}) x^{(i)} \]<p>对 \(b\) 的梯度：
+</p>
+\[ \frac{\partial J(w, b)}{\partial b} = \frac{1}{m} \sum_{i=1}^{m} (h_\theta(x^{(i)}) - y^{(i)}) \]<p><img src="/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2.jpg"
+	width="1279"
+	height="1706"
+	srcset="/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2_hu_e9d3f2f7cdc08657.jpg 480w, /p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2_hu_1c4e3fb87193097c.jpg 1024w"
+	loading="lazy"
+	
+		alt="推导"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="74"
+		data-flex-basis="179px"
+	
+></p>
+<h3 id="0-3-决策树">0-3 决策树
 </h3><h2 id="1-引言">1 引言
 </h2><h3 id="1-1-什么是机器学习">1-1 什么是机器学习
 </h3><p>一个好的学习问题定义如下：一个程序被认为能从经验 E 中学习，解决任务 T ，达到性能度量值 P ，当且仅当，有了经验 E 后，经过 P 评判，程序在处理 T 时的性能有所提升。</p>
@@ -406,7 +449,7 @@ $$ w := w - \alpha \frac{\partial J}{\partial w} \quad b := b - \alpha \frac{\pa
 
 
         <span>
-            最后更新于 2025-06-18 15:13 UTC
+            最后更新于 2025-06-22 03:40 UTC
         </span>
     </section></footer>
 

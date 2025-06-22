@@ -26,8 +26,8 @@
 &lt;ul&gt;
 &lt;li&gt;线性回归（Linear Regression）：用于回归任务，预测连续的数值。&lt;/li&gt;
 &lt;li&gt;逻辑回归（Logistic Regression）：用于二分类任务，预测类别。&lt;/li&gt;
-&lt;li&gt;支持向量机（SVM）：用于分类任务，构建超平面进行分类。&lt;/li&gt;
 &lt;li&gt;决策树（Decision Tree）：基于树状结构进行决策的分类或回归方法。&lt;/li&gt;
+&lt;li&gt;支持向量机（SVM）：用于分类任务，构建超平面进行分类。&lt;/li&gt;
 &lt;li&gt;K近邻算法&lt;/li&gt;
 &lt;li&gt;集成学习&lt;/li&gt;
 &lt;/ul&gt;
@@ -39,7 +39,7 @@
 &lt;h3 id=&#34;0-1-线性回归&#34;&gt;0-1 线性回归
 &lt;/h3&gt;&lt;p&gt;线性回归 (Linear Regression) 是一种用于预测连续值的最基本的机器学习算法，它假设目标变量 y 和特征变量 x 之间存在线性关系，并试图找到一条最佳拟合直线来描述这种关系。&lt;/p&gt;
 &lt;p&gt;常用的误差函数是均方误差 (MSE) : $MSE = 1/n * Σ(y_i - y_{pred_i})^2$&lt;/p&gt;
-&lt;p&gt;求解：&lt;/p&gt;
+&lt;p&gt;如何求解？&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;最小二乘法&lt;/li&gt;
 &lt;/ol&gt;
@@ -50,7 +50,7 @@
 	srcset=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/1_hu_dc3fae64383c103d.jpg 480w, https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/1_hu_cb0bc3cbb612de23.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
-		alt=&#34;简单推导&#34;
+		alt=&#34;推导&#34;
 	
 	
 		class=&#34;gallery-image&#34; 
@@ -75,6 +75,48 @@ $$ w := w - \alpha \frac{\partial J}{\partial w} \quad b := b - \alpha \frac{\pa
 &lt;li&gt;重复迭代：重复步骤 2 到 4，直到损失函数收敛或达到最大迭代次数。&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h3 id=&#34;0-2-逻辑回归&#34;&gt;0-2 逻辑回归
+&lt;/h3&gt;&lt;p&gt;逻辑回归（Logistic Regression）是一种广泛应用于分类问题的统计学习方法，尽管名字中带有&amp;quot;回归&amp;quot;，但它实际上是一种用于二分类或多分类问题的算法。&lt;/p&gt;
+&lt;p&gt;逻辑回归通过使用逻辑函数（也称为 Sigmoid 函数）将线性回归的输出映射到 0 和 1 之间，从而预测某个事件发生的概率。建立模型：&lt;/p&gt;
+\[
+p(y = 1|X) = \sigma(w^T X + b)
+\]&lt;p&gt;其中：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;\( X \) 是输入特征（可以是多个特征组成的向量）。&lt;/li&gt;
+&lt;li&gt;\( w \) 是权重向量。&lt;/li&gt;
+&lt;li&gt;\( b \) 是偏置项。&lt;/li&gt;
+&lt;li&gt;\(\sigma(z) = \frac{1}{1+e^{-z}}\) 是Sigmoid函数。Sigmoid函数将模型的输出值 \((w^T X + b)\) 映射到0到1之间，因此它可以看作是属于类别1的概率。注意 $\sigma&amp;rsquo;(z) = \sigma(z)(1 - \sigma(z))$ 。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;使用对数损失函数&lt;/p&gt;
+\[ L(\theta) = 
+  \begin{cases} 
+   -\log(p), &amp; \text{if } y = 1 \\
+   -\log(1-p), &amp; \text{if } y = 0 
+  \end{cases}
+\]&lt;p&gt;合并得到单个样品的损失函数&lt;/p&gt;
+\[ 
+    L(\theta) = -ylog(p)-(1-y)log(1-p)
+\]&lt;p&gt;因此总体损失函数（也就是交叉熵损失函数）&lt;/p&gt;
+\[ L(\theta) = -\frac{1}{m} \sum_{i=1}^{m} \left[ y^{(i)} \log(p^{(i)}) + (1 - y^{(i)}) \log(1 - p^{(i)}) \right] \]&lt;p&gt;如何求解？&lt;/p&gt;
+&lt;p&gt;梯度下降法&lt;/p&gt;
+&lt;p&gt;对 \(w\) 的梯度：
+&lt;/p&gt;
+\[ \frac{\partial J(w, b)}{\partial w} = \frac{1}{m} \sum_{i=1}^{m} (h_\theta(x^{(i)}) - y^{(i)}) x^{(i)} \]&lt;p&gt;对 \(b\) 的梯度：
+&lt;/p&gt;
+\[ \frac{\partial J(w, b)}{\partial b} = \frac{1}{m} \sum_{i=1}^{m} (h_\theta(x^{(i)}) - y^{(i)}) \]&lt;p&gt;&lt;img src=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2.jpg&#34;
+	width=&#34;1279&#34;
+	height=&#34;1706&#34;
+	srcset=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2_hu_e9d3f2f7cdc08657.jpg 480w, https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2_hu_1c4e3fb87193097c.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;推导&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;74&#34;
+		data-flex-basis=&#34;179px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;0-3-决策树&#34;&gt;0-3 决策树
 &lt;/h3&gt;&lt;h2 id=&#34;1-引言&#34;&gt;1 引言
 &lt;/h2&gt;&lt;h3 id=&#34;1-1-什么是机器学习&#34;&gt;1-1 什么是机器学习
 &lt;/h3&gt;&lt;p&gt;一个好的学习问题定义如下：一个程序被认为能从经验 E 中学习，解决任务 T ，达到性能度量值 P ，当且仅当，有了经验 E 后，经过 P 评判，程序在处理 T 时的性能有所提升。&lt;/p&gt;

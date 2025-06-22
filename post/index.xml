@@ -7,7 +7,7 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>mhw-mathcode</copyright>
-        <lastBuildDate>Sun, 22 Jun 2025 07:28:27 +0000</lastBuildDate><atom:link href="https://mhw-mathcode.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 22 Jun 2025 12:48:38 +0000</lastBuildDate><atom:link href="https://mhw-mathcode.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>学习笔记 数据结构</title>
         <link>https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</link>
         <pubDate>Sun, 22 Jun 2025 11:50:20 +0800</pubDate>
@@ -48,11 +48,9 @@
 &lt;h3 id=&#34;0-1-线性回归&#34;&gt;0-1 线性回归
 &lt;/h3&gt;&lt;p&gt;线性回归 (Linear Regression) 是一种用于预测连续值的最基本的机器学习算法，它假设目标变量 y 和特征变量 x 之间存在线性关系，并试图找到一条最佳拟合直线来描述这种关系。&lt;/p&gt;
 &lt;p&gt;常用的误差函数是均方误差 (MSE) : $MSE = 1/n * Σ(y_i - y_{pred_i})^2$&lt;/p&gt;
-&lt;p&gt;如何求解？&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;最小二乘法&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;最小二乘法的目标是最小化残差平方和（RSS），其公式为：$RSS = \sum_{i=1}^n(y_i - \hat{y}_i)^2$&lt;/p&gt;
+&lt;h4 id=&#34;求解方法&#34;&gt;求解方法
+&lt;/h4&gt;&lt;h5 id=&#34;1-最小二乘法&#34;&gt;1. 最小二乘法
+&lt;/h5&gt;&lt;p&gt;最小二乘法的目标是最小化残差平方和（RSS），其公式为：$RSS = \sum_{i=1}^n(y_i - \hat{y}_i)^2$&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/1.jpg&#34;
 	width=&#34;1440&#34;
 	height=&#34;1080&#34;
@@ -70,10 +68,8 @@
 &lt;p&gt;得到最佳的 $w, b$&lt;/p&gt;
 $$
 \begin{bmatrix} w \\ b \end{bmatrix} = \begin{bmatrix} \sum_{i=1}^n x_i^2 &amp; \sum_{i=1}^n x_i \\ \sum_{i=1}^n x_i &amp; n \end{bmatrix}^{-1} \begin{bmatrix} \sum_{i=1}^n x_i y_i \\ \sum_{i=1}^n y_i \end{bmatrix}
-$$&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;梯度下降法&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;梯度下降法的目标是最小化损失函数 $J(w,b)$ 。对于线性回归问题，通常使用均方误差（MSE）作为损失函数：&lt;/p&gt;
+$$&lt;h5 id=&#34;2-梯度下降法&#34;&gt;2. 梯度下降法
+&lt;/h5&gt;&lt;p&gt;梯度下降法的目标是最小化损失函数 $J(w,b)$ 。对于线性回归问题，通常使用均方误差（MSE）作为损失函数：&lt;/p&gt;
 $$ J(w, b) = \frac{1}{2m} \sum_{i=1}^{m} (y_i - \hat{y}_i)^2 $$&lt;p&gt;参数更新：&lt;/p&gt;
 $$ w := w - \alpha \frac{\partial J}{\partial w} \quad b := b - \alpha \frac{\partial J}{\partial b} $$&lt;p&gt;梯度下降法的步骤&lt;/p&gt;
 &lt;ol&gt;
@@ -105,9 +101,9 @@ p(y = 1|X) = \sigma(w^T X + b)
 \[ 
     L(\theta) = -ylog(p)-(1-y)log(1-p)
 \]&lt;p&gt;因此总体损失函数（也就是交叉熵损失函数）&lt;/p&gt;
-\[ L(\theta) = -\frac{1}{m} \sum_{i=1}^{m} \left[ y^{(i)} \log(p^{(i)}) + (1 - y^{(i)}) \log(1 - p^{(i)}) \right] \]&lt;p&gt;如何求解？&lt;/p&gt;
-&lt;p&gt;梯度下降法&lt;/p&gt;
-&lt;p&gt;对 \(w\) 的梯度：
+\[ L(\theta) = -\frac{1}{m} \sum_{i=1}^{m} \left[ y^{(i)} \log(p^{(i)}) + (1 - y^{(i)}) \log(1 - p^{(i)}) \right] \]&lt;h4 id=&#34;求解方法-1&#34;&gt;求解方法
+&lt;/h4&gt;&lt;h5 id=&#34;梯度下降法&#34;&gt;梯度下降法
+&lt;/h5&gt;&lt;p&gt;对 \(w\) 的梯度：
 &lt;/p&gt;
 \[ \frac{\partial J(w, b)}{\partial w} = \frac{1}{m} \sum_{i=1}^{m} (h_\theta(x^{(i)}) - y^{(i)}) x^{(i)} \]&lt;p&gt;对 \(b\) 的梯度：
 &lt;/p&gt;
@@ -126,7 +122,52 @@ p(y = 1|X) = \sigma(w^T X + b)
 	
 &gt;&lt;/p&gt;
 &lt;h3 id=&#34;0-3-决策树&#34;&gt;0-3 决策树
-&lt;/h3&gt;&lt;h2 id=&#34;1-引言&#34;&gt;1 引言
+&lt;/h3&gt;&lt;p&gt;决策树（Decision Tree），它是一种以树形数据结构来展示决策规则和分类结果的模型，作为一种归纳学习算法，其重点是将看似无序、杂乱的已知数据，通过某种技术手段将它们转化成可以预测未知数据的树状模型，每一条从根结点（对最终分类结果贡献最大的属性）到叶子结点（最终分类结果）的路径都代表一条决策的规则。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/3.png&#34;
+	width=&#34;754&#34;
+	height=&#34;561&#34;
+	srcset=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/3_hu_690baba9cb1d5aaf.png 480w, https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/3_hu_c7dbe716591b324a.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;决策树构建过程&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;134&#34;
+		data-flex-basis=&#34;322px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;在这个过程中，寻找最优划分属性是决策树过程中的重点，那么应该如何求解呢？&lt;/p&gt;
+&lt;h4 id=&#34;求解方法-2&#34;&gt;求解方法
+&lt;/h4&gt;&lt;h5 id=&#34;1-信息增益&#34;&gt;1. 信息增益
+&lt;/h5&gt;&lt;p&gt;首先引入信息熵的概念&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;信息熵：描述随机变量的不确定性（也就是混乱程度）。
+假设某随机变量的概率分布为：&lt;/p&gt;
+\[ P(X=x_i) = p_i, \quad i = 1, 2, \ldots, n \]&lt;p&gt;则它的信息熵计算公式为：&lt;/p&gt;
+\[ H(X) = - \sum_{i=1}^{n} p_i \log p_i \]&lt;/blockquote&gt;
+&lt;p&gt;在决策树中，信息熵 $H(D) = - \sum_{k=1}^{K} \frac{|D_k|}{|D|} \log \frac{|D_k|}{|D|}$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;\( D \)：整个数据集&lt;/li&gt;
+&lt;li&gt;\( D_k \)：第 \( k \) 个类的样本子集&lt;/li&gt;
+&lt;li&gt;\( \frac{|D_k|}{|D|} \)：第 \( k \) 类的概率&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;条件熵 $H(D|A) = \sum_{i=1}^{n} \frac{|D_i|}{|D|} H(D_i)$&lt;/p&gt;
+&lt;p&gt;其中 \( H(D_i) \) 是每个子集 \( D_i \) 的信息熵 $H(D_i) = - \sum_{k=1}^{K} \frac{|D_{ik}|}{|D_i|} \log \frac{|D_{ik}|}{|D_i|}$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;\( A \)：某个属性&lt;/li&gt;
+&lt;li&gt;\( D_i \)：属性 \( A \) 的第 \( i \) 个取值所对应的数据子集&lt;/li&gt;
+&lt;li&gt;\( D_{ik} \)：在第 \( i \) 个子集中属于第 \( k \) 类的样本数&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;因此有&lt;/p&gt;
+\[ H(D|A) = - \sum_{i=1}^{n} \frac{|D_i|}{|D|} \sum_{k=1}^{K} \frac{|D_{ik}|}{|D_i|} \log \frac{|D_{ik}|}{|D_i|} \]&lt;p&gt;特征 \( A \) 对训练数据集 \( D \) 的信息增益 \( gain(D, A) \) 定义为集合 \( D \) 的信息熵 \( H(D) \) 与特征 \( A \) 给定条件下 \( D \) 的信息条件熵 \( H(D|A) \) 之差，即公式为：&lt;/p&gt;
+\[ gain(D, A) = H(D) - H(D|A) \]&lt;p&gt;信息增益表示得知特征 \( X \) 的信息而使得类 \( Y \) 的信息的不确定性减少的程度，因此信息增益最大的属性就是最优划分属性，标志性算法 $ID3$ 。&lt;/p&gt;
+&lt;h5 id=&#34;2-增益比&#34;&gt;2. 增益比
+&lt;/h5&gt;&lt;p&gt;信息增益虽然在理论上可以找到最优的划分属性，但在某些情况下会存在问题。信息增益比较偏好可取值较多的属性。因此为了矫正信息增益偏好的问题，使算法不偏向可取值较多的属性，引申出了增益比的思想。&lt;/p&gt;
+\[ Gain\_ratio(D, A) = \frac{Gain(D, A)}{H(A)} \]&lt;p&gt;可以看出，增益比就是信息增益除以属性 $A$ 的信息熵，当属性 $A$ 可取值增多的时候，$H(A)$ 一般也增大，因此在一定程度上能抑制信息增益偏好取值多的属性的特点，但是增益比偏好取值较少的属性。&lt;/p&gt;
+&lt;p&gt;算法 $C4.5$ 是算法 $ID3$ 的改进版，它使用了信息增益和增益比两种选择算法，先选出信息增益高于平均水平的属性，然后再在这些属性中选择增益比最高的，作为最优划分属性。这样综合了信息增益和增益比的优点，可以取得较好的效果。&lt;/p&gt;
+&lt;h5 id=&#34;3-基尼指数&#34;&gt;3. 基尼指数
+&lt;/h5&gt;&lt;h2 id=&#34;1-引言&#34;&gt;1 引言
 &lt;/h2&gt;&lt;h3 id=&#34;1-1-什么是机器学习&#34;&gt;1-1 什么是机器学习
 &lt;/h3&gt;&lt;p&gt;一个好的学习问题定义如下：一个程序被认为能从经验 E 中学习，解决任务 T ，达到性能度量值 P ，当且仅当，有了经验 E 后，经过 P 评判，程序在处理 T 时的性能有所提升。&lt;/p&gt;
 &lt;p&gt;目前存在几种不同类型的学习算法，其中主要的两种类型被我们称之为：&lt;strong&gt;监督学习&lt;/strong&gt;和&lt;strong&gt;无监督学习&lt;/strong&gt;。&lt;/p&gt;

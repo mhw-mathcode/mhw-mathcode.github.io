@@ -10,7 +10,7 @@
 <meta property='og:description' content="The process of studying machine learning">
 <meta property='og:url' content='https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/'>
 <meta property='og:site_name' content='mhw'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Machine learning' /><meta property='article:published_time' content='2025-06-16T19:29:56&#43;08:00'/><meta property='article:modified_time' content='2025-06-23T10:34:16&#43;00:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Machine learning' /><meta property='article:published_time' content='2025-06-16T19:29:56&#43;08:00'/><meta property='article:modified_time' content='2025-06-23T13:16:38&#43;00:00'/>
 <meta name="twitter:title" content="学习笔记-机器学习">
 <meta name="twitter:description" content="The process of studying machine learning">
     <link rel="shortcut icon" href="/favicon.ico" />
@@ -259,7 +259,11 @@
             <li><a href="#k-means">K-means++</a></li>
           </ul>
         </li>
-        <li><a href="#08-主成分分析">0.8 主成分分析</a></li>
+        <li><a href="#08-主成分分析">0.8 主成分分析</a>
+          <ul>
+            <li><a href="#求解方法-6">求解方法</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
     <li><a href="#1-引言">1 引言</a>
@@ -566,7 +570,38 @@ p(y = 1|X) = \sigma(w^T X + b)
 </ol>
 <p>优势：避免随机初始化，加快收敛速度，聚类结果更加稳定。</p>
 <h3 id="08-主成分分析">0.8 主成分分析
-</h3><h2 id="1-引言">1 引言
+</h3><p>主成分分析（PCA）是一种无监督学习方法，旨在通过线性变换将原始的高维数据映射到一个低维空间，同时尽可能保留数据的方差（即信息量）。简单来说，PCA 的目标是找到一组新的坐标轴（称为主成分），这些坐标轴能够捕捉数据中最大的变异性，并用更少的维度来近似表示原始数据。</p>
+<h4 id="求解方法-6">求解方法
+</h4><ol>
+<li>
+<p>数据中心化：首先将数据中心化，即让每个特征的均值变为 0。</p>
+</li>
+<li>
+<p>计算协方差矩阵：
+</p>
+\[ \text{Cov}(X, Y) = \frac{1}{n-1} \sum_{i=1}^{n} (X_i - \bar{X})(Y_i - \bar{Y}) \]<p>
+协方差为正时，说明X和Y是正相关关系；协方差为负时，说明X和Y是负相关关系；协方差为0时，说明X和Y是相互独立。</p>
+</li>
+<li>
+<p>特征值分解：对协方差矩阵进行特征值分解，得到主成分的方向（特征向量）和重要性（特征值）。</p>
+\[ \det(A - \lambda I) = 0 \]</li>
+</ol>
+<p>其中：</p>
+<ul>
+<li>\( A \) 是协方差矩阵，</li>
+<li>\( \lambda \) 是特征值，</li>
+<li>\( I \) 是单位矩阵。</li>
+</ul>
+<p>得到特征值 \( \lambda \) 以后代入 $(A - \lambda I)v_1 = 0$ 解得特征向量 $v_1$ 。</p>
+<ol start="4">
+<li>
+<p>排序和选择主成分：将特征值从大到小排序，特征值最大的为第一个主成分，捕捉了数据中最大的变化，也就是数据分布中最显著的变化方向。第二个主成分与第一个主成分正交（相互垂直），且在正交约束下方差次大的方向。后续主成分：依此类推，每个主成分都与前面的主成分正交，并按特征值大小递减排列。</p>
+</li>
+<li>
+<p>投影数据：将中心化后的数据投影到第一个主成分上，得到降维后的结果。</p>
+</li>
+</ol>
+<h2 id="1-引言">1 引言
 </h2><h3 id="11-什么是机器学习">1.1 什么是机器学习
 </h3><p>一个好的学习问题定义如下：一个程序被认为能从经验 E 中学习，解决任务 T ，达到性能度量值 P ，当且仅当，有了经验 E 后，经过 P 评判，程序在处理 T 时的性能有所提升。</p>
 <p>目前存在几种不同类型的学习算法，其中主要的两种类型被我们称之为：<strong>监督学习</strong>和<strong>无监督学习</strong>。</p>
@@ -610,7 +645,7 @@ p(y = 1|X) = \sigma(w^T X + b)
 
 
         <span>
-            最后更新于 2025-06-23 10:34 CST
+            最后更新于 2025-06-23 13:16 CST
         </span>
     </section></footer>
 

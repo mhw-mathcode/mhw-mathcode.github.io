@@ -7,7 +7,7 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>mhw-mathcode</copyright>
-        <lastBuildDate>Sun, 22 Jun 2025 12:48:38 +0000</lastBuildDate><atom:link href="https://mhw-mathcode.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Mon, 23 Jun 2025 10:34:16 +0000</lastBuildDate><atom:link href="https://mhw-mathcode.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>学习笔记 数据结构</title>
         <link>https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</link>
         <pubDate>Sun, 22 Jun 2025 11:50:20 +0800</pubDate>
@@ -45,7 +45,7 @@
 &lt;li&gt;K-means 聚类：通过聚类中心将数据分组。&lt;/li&gt;
 &lt;li&gt;主成分分析（PCA）：用于降维，提取数据的主成分。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;0-1-线性回归&#34;&gt;0-1 线性回归
+&lt;h3 id=&#34;01-线性回归&#34;&gt;0.1 线性回归
 &lt;/h3&gt;&lt;p&gt;线性回归 (Linear Regression) 是一种用于预测连续值的最基本的机器学习算法，它假设目标变量 y 和特征变量 x 之间存在线性关系，并试图找到一条最佳拟合直线来描述这种关系。&lt;/p&gt;
 &lt;p&gt;常用的误差函数是均方误差 (MSE) : $MSE = 1/n * Σ(y_i - y_{pred_i})^2$&lt;/p&gt;
 &lt;h4 id=&#34;求解方法&#34;&gt;求解方法
@@ -79,7 +79,7 @@ $$ w := w - \alpha \frac{\partial J}{\partial w} \quad b := b - \alpha \frac{\pa
 &lt;li&gt;更新参数：根据梯度更新 w 和 b。&lt;/li&gt;
 &lt;li&gt;重复迭代：重复步骤 2 到 4，直到损失函数收敛或达到最大迭代次数。&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h3 id=&#34;0-2-逻辑回归&#34;&gt;0-2 逻辑回归
+&lt;h3 id=&#34;02-逻辑回归&#34;&gt;0.2 逻辑回归
 &lt;/h3&gt;&lt;p&gt;逻辑回归（Logistic Regression）是一种广泛应用于分类问题的统计学习方法，尽管名字中带有&amp;quot;回归&amp;quot;，但它实际上是一种用于二分类或多分类问题的算法。&lt;/p&gt;
 &lt;p&gt;逻辑回归通过使用逻辑函数（也称为 Sigmoid 函数）将线性回归的输出映射到 0 和 1 之间，从而预测某个事件发生的概率。建立模型：&lt;/p&gt;
 \[
@@ -121,7 +121,7 @@ p(y = 1|X) = \sigma(w^T X + b)
 		data-flex-basis=&#34;179px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;h3 id=&#34;0-3-决策树&#34;&gt;0-3 决策树
+&lt;h3 id=&#34;03-决策树&#34;&gt;0.3 决策树
 &lt;/h3&gt;&lt;p&gt;决策树（Decision Tree），它是一种以树形数据结构来展示决策规则和分类结果的模型，作为一种归纳学习算法，其重点是将看似无序、杂乱的已知数据，通过某种技术手段将它们转化成可以预测未知数据的树状模型，每一条从根结点（对最终分类结果贡献最大的属性）到叶子结点（最终分类结果）的路径都代表一条决策的规则。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/3.png&#34;
 	width=&#34;754&#34;
@@ -143,18 +143,16 @@ p(y = 1|X) = \sigma(w^T X + b)
 &lt;/h5&gt;&lt;p&gt;首先引入信息熵的概念&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;信息熵：描述随机变量的不确定性（也就是混乱程度）。
-假设某随机变量的概率分布为：&lt;/p&gt;
-\[ P(X=x_i) = p_i, \quad i = 1, 2, \ldots, n \]&lt;p&gt;则它的信息熵计算公式为：&lt;/p&gt;
-\[ H(X) = - \sum_{i=1}^{n} p_i \log p_i \]&lt;/blockquote&gt;
-&lt;p&gt;在决策树中，信息熵 $H(D) = - \sum_{k=1}^{K} \frac{|D_k|}{|D|} \log \frac{|D_k|}{|D|}$&lt;/p&gt;
-&lt;ul&gt;
+假设某随机变量的概率分布为：$P(X=x_i) = p_i, \quad i = 1, 2, \ldots, n$ ，则它的信息熵计算公式为：$H(X) = - \sum_{i=1}^{n} p_i \log p_i$&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;在决策树中，信息熵&lt;/p&gt;
+\[ H(D) = - \sum_{k=1}^{K} \frac{|D_k|}{|D|} \log \frac{|D_k|}{|D|} \]&lt;ul&gt;
 &lt;li&gt;\( D \)：整个数据集&lt;/li&gt;
 &lt;li&gt;\( D_k \)：第 \( k \) 个类的样本子集&lt;/li&gt;
 &lt;li&gt;\( \frac{|D_k|}{|D|} \)：第 \( k \) 类的概率&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;条件熵 $H(D|A) = \sum_{i=1}^{n} \frac{|D_i|}{|D|} H(D_i)$&lt;/p&gt;
-&lt;p&gt;其中 \( H(D_i) \) 是每个子集 \( D_i \) 的信息熵 $H(D_i) = - \sum_{k=1}^{K} \frac{|D_{ik}|}{|D_i|} \log \frac{|D_{ik}|}{|D_i|}$&lt;/p&gt;
-&lt;ul&gt;
+&lt;p&gt;条件熵&lt;/p&gt;
+\[ H(D|A) = \sum_{i=1}^{n} \frac{|D_i|}{|D|} H(D_i) \]&lt;p&gt;其中 \( H(D_i) \) 是每个子集 \( D_i \) 的信息熵&lt;/p&gt;
+\[ H(D_i) = - \sum_{k=1}^{K} \frac{|D_{ik}|}{|D_i|} \log \frac{|D_{ik}|}{|D_i|} \]&lt;ul&gt;
 &lt;li&gt;\( A \)：某个属性&lt;/li&gt;
 &lt;li&gt;\( D_i \)：属性 \( A \) 的第 \( i \) 个取值所对应的数据子集&lt;/li&gt;
 &lt;li&gt;\( D_{ik} \)：在第 \( i \) 个子集中属于第 \( k \) 类的样本数&lt;/li&gt;
@@ -167,8 +165,100 @@ p(y = 1|X) = \sigma(w^T X + b)
 \[ Gain\_ratio(D, A) = \frac{Gain(D, A)}{H(A)} \]&lt;p&gt;可以看出，增益比就是信息增益除以属性 $A$ 的信息熵，当属性 $A$ 可取值增多的时候，$H(A)$ 一般也增大，因此在一定程度上能抑制信息增益偏好取值多的属性的特点，但是增益比偏好取值较少的属性。&lt;/p&gt;
 &lt;p&gt;算法 $C4.5$ 是算法 $ID3$ 的改进版，它使用了信息增益和增益比两种选择算法，先选出信息增益高于平均水平的属性，然后再在这些属性中选择增益比最高的，作为最优划分属性。这样综合了信息增益和增益比的优点，可以取得较好的效果。&lt;/p&gt;
 &lt;h5 id=&#34;3-基尼指数&#34;&gt;3. 基尼指数
-&lt;/h5&gt;&lt;h2 id=&#34;1-引言&#34;&gt;1 引言
-&lt;/h2&gt;&lt;h3 id=&#34;1-1-什么是机器学习&#34;&gt;1-1 什么是机器学习
+&lt;/h5&gt;&lt;p&gt;基尼指数是在样本集中随机抽出两个样本不同类别的概率。当样本集越不纯的时候，这个概率也就越大，即基尼指数也越大。这个规律与信息熵的相同。&lt;/p&gt;
+\[ Gini(D) = \sum_{k=1}^{n} \sum_{k&#39; \neq k} p_k p_{k&#39;} = 1 - \sum_{k=1}^{n} p_k^2 \]&lt;p&gt;使用基尼指数来选择最优划分属性也是对比不同属性划分后基尼指数的差值，选择使样本集基尼指数减小最多的属性。&lt;/p&gt;
+\[ Gain(D, a) = Gini(D) - \sum_{i=1}^{n} \frac{|D^i|}{|D|} Gini(D^i) \]&lt;p&gt;著名的 $CART$ 决策树就是使用基尼指数来作为划分准则， $CART$ 决策树与 $ID3$ 和 $C4.5$ 的区别：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;划分准则不同，CART决策树使用基尼指数， $ID3$ 和 $C4.5$ 使用信息熵。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$ID3$ 和 $C4.5$ 划分时，一个节点可以划分为多个子结点，子结点数量根据属性可取值的数量决定。而 $CART$ 决策树是严格的二叉树结构，就是说 $1$ 个节点最多划分为 $2$ 子结点。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;04-支持向量机&#34;&gt;0.4 支持向量机
+&lt;/h3&gt;&lt;p&gt;支持向量机（Support Vector Machine，简称 SVM）是一种监督学习算法，主要用于分类和回归问题。&lt;/p&gt;
+&lt;p&gt;SVM 的核心思想是找到一个最优的超平面，将不同类别的数据分开。这个超平面不仅要能够正确分类数据，还要使得两个类别之间的间隔（margin）最大化。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;支持向量：支持向量是离超平面最近的样本点。这些支持向量对于定义超平面至关重要。支持向量机通过最大化支持向量到超平面的距离（即最大化间隔）来选择最佳的超平面。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;当训练样本&lt;strong&gt;线性可分&lt;/strong&gt;时，通过&lt;strong&gt;硬间隔最大化&lt;/strong&gt;，学习一个&lt;strong&gt;线性可分支持向量机&lt;/strong&gt;；&lt;/p&gt;
+&lt;p&gt;当训练样本&lt;strong&gt;近似线性可分&lt;/strong&gt;时，通过&lt;strong&gt;软间隔最大化&lt;/strong&gt;，学习一个&lt;strong&gt;线性支持向量机&lt;/strong&gt;；&lt;/p&gt;
+&lt;p&gt;当训练样本&lt;strong&gt;线性不可分&lt;/strong&gt;时，通过&lt;strong&gt;核技巧和软间隔最大化&lt;/strong&gt;，学习一个&lt;strong&gt;非线性支持向量机&lt;/strong&gt;。&lt;/p&gt;
+&lt;h4 id=&#34;求解方法-3&#34;&gt;求解方法
+&lt;/h4&gt;&lt;h5 id=&#34;间隔最大化和支持向量&#34;&gt;间隔最大化和支持向量
+&lt;/h5&gt;&lt;p&gt;好难……&lt;/p&gt;
+&lt;h3 id=&#34;05-k近邻算法&#34;&gt;0.5 K近邻算法
+&lt;/h3&gt;&lt;p&gt;K 近邻算法（K-Nearest Neighbors，简称 KNN）是一种简单且常用的分类和回归算法。&lt;/p&gt;
+&lt;p&gt;K 近邻算法属于监督学习的一种，核心思想是通过计算待分类样本与训练集中各个样本的距离，找到距离最近的 K 个样本，然后根据这 K 个样本的类别或值来预测待分类样本的类别或值。&lt;/p&gt;
+&lt;h4 id=&#34;求解方法-4&#34;&gt;求解方法
+&lt;/h4&gt;&lt;p&gt;基本步骤：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;计算距离：计算待分类样本与训练集中每个样本的距离。常用的距离度量方法有欧氏距离、曼哈顿距离等。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;选择 K 个最近邻：根据计算出的距离，选择距离最近的 K 个样本。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;投票或平均：对于分类问题，K 个最近邻中出现次数最多的类别即为待分类样本的类别；对于回归问题，K 个最近邻的值的平均值即为待分类样本的值。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;06-集成学习&#34;&gt;0.6 集成学习
+&lt;/h3&gt;&lt;h3 id=&#34;07-k-means-聚类&#34;&gt;0.7 K-means 聚类
+&lt;/h3&gt;&lt;p&gt;K-means 聚类是一种常用的基于距离的聚类算法，旨在将数据集划分为 K 个簇。算法的目标是最小化簇内的点到簇中心的距离总和。&lt;/p&gt;
+&lt;h4 id=&#34;求解方法-5&#34;&gt;求解方法
+&lt;/h4&gt;&lt;p&gt;基本步骤：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;选择 $K$ 值：设定簇的数量 。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;初始化簇中心：随机选择 $K$ 个数据点作为初始簇中心（centroids）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;分配步骤（Assignment Step）：对于数据集中的每个点，将它分配到最近的簇中心对应的簇。这里的“距离”通常使用欧氏距离（Euclidean distance）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;更新步骤（Update Step）：根据当前的簇分配，重新计算每个簇的中心，即计算簇内所有点的均值作为新的簇中心。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;重复 3 和 4 步：不断重复分配和更新步骤，直到簇中心不再发生变化（收敛）或达到指定的最大迭代次数。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;确定最佳的簇数 $K$ 是 $K-means$ 聚类中的一个难点。聚类的目标是使得每个样本点到距离其最近的聚类中心的总误差平方和（也即聚类的代价函数，记作 $SSE$ ）尽可能小。&lt;/p&gt;
+&lt;p&gt;空间中数据对象与聚类中心间的欧式距离计算公式为：&lt;/p&gt;
+\[ d(x, C_i) = \sqrt{\sum_{j=1}^{m} (x_j - C_{ij})^2} \]&lt;p&gt;其中：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;\( x \) 为数据对象，&lt;/li&gt;
+&lt;li&gt;\( C_i \) 为第 \( i \) 个聚类中心，&lt;/li&gt;
+&lt;li&gt;\( m \) 为数据对象的维度，&lt;/li&gt;
+&lt;li&gt;\( x_j \)，\( C_{ij} \) 为 \( x \) 和 \( C_i \) 的第 \( j \) 个属性值。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;整个数据集的误差平方和 SSE 计算公式为：&lt;/p&gt;
+\[ SSE = \sum_{i=1}^{k} \sum_{x \in C_i} |d(x, C_i)|^2 \]&lt;p&gt;其中：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;SSE 的大小表示聚类结果的好坏，&lt;/li&gt;
+&lt;li&gt;\( k \) 为簇的个数。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;理论上随着 $K$ 的增加， $SSE$ 会单调递减，当 $K$ 超过某一个数后，每个类簇的聚合程度不再获得显著提升，此时我们就可以认为已找到最佳 $K$ 的取值（肘部法）。&lt;/p&gt;
+&lt;h4 id=&#34;k-means&#34;&gt;K-means++
+&lt;/h4&gt;&lt;p&gt;K-means++ 是一种改进的初始化方法，可以帮助选择更合理的初始中心，优先选择“距离最远”的点作为初始质心，减少陷入局部最优的风险。&lt;/p&gt;
+&lt;p&gt;基本步骤：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;从数据集 $\mathcal{X}$ 中随机（均匀分布）选取一个样本点作为第一个初始聚类中心;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;接着计算每个样本与当前已有聚类中心之间的最短距离，用 $D(x)$ 表示；然后计算每个样本点被选为下一个聚类中心的概率 $P(x) = \frac{D(x)^2}{\sum_{x \in \mathcal{X}} D(x)^2}$，最后选择最大概率值（或者概率分布）所对应的样本点作为下一个簇中心；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;重复步骤 2，直到选择 $K$ 个聚类中心&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;优势：避免随机初始化，加快收敛速度，聚类结果更加稳定。&lt;/p&gt;
+&lt;h3 id=&#34;08-主成分分析&#34;&gt;0.8 主成分分析
+&lt;/h3&gt;&lt;h2 id=&#34;1-引言&#34;&gt;1 引言
+&lt;/h2&gt;&lt;h3 id=&#34;11-什么是机器学习&#34;&gt;1.1 什么是机器学习
 &lt;/h3&gt;&lt;p&gt;一个好的学习问题定义如下：一个程序被认为能从经验 E 中学习，解决任务 T ，达到性能度量值 P ，当且仅当，有了经验 E 后，经过 P 评判，程序在处理 T 时的性能有所提升。&lt;/p&gt;
 &lt;p&gt;目前存在几种不同类型的学习算法，其中主要的两种类型被我们称之为：&lt;strong&gt;监督学习&lt;/strong&gt;和&lt;strong&gt;无监督学习&lt;/strong&gt;。&lt;/p&gt;
 &lt;h3 id=&#34;12-监督学习&#34;&gt;1.2 监督学习

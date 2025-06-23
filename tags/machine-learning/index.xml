@@ -7,7 +7,7 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>mhw-mathcode</copyright>
-        <lastBuildDate>Mon, 23 Jun 2025 13:16:38 +0000</lastBuildDate><atom:link href="https://mhw-mathcode.github.io/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Mon, 23 Jun 2025 13:19:27 +0000</lastBuildDate><atom:link href="https://mhw-mathcode.github.io/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>学习笔记-机器学习</title>
         <link>https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</link>
         <pubDate>Mon, 16 Jun 2025 19:29:56 +0800</pubDate>
@@ -254,15 +254,16 @@ p(y = 1|X) = \sigma(w^T X + b)
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;特征值分解：对协方差矩阵进行特征值分解，得到主成分的方向（特征向量）和重要性（特征值）。&lt;/p&gt;
-\[ \det(A - \lambda I) = 0 \]&lt;/li&gt;
+\[ \det(A - \lambda I) = 0 \]&lt;p&gt;
+其中：&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;其中：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;\( A \) 是协方差矩阵，&lt;/li&gt;
 &lt;li&gt;\( \lambda \) 是特征值，&lt;/li&gt;
-&lt;li&gt;\( I \) 是单位矩阵。&lt;/li&gt;
+&lt;li&gt;\( I \) 是单位矩阵。
+得到特征值 \( \lambda \) 以后代入 $(A - \lambda I)v_1 = 0$ 解得特征向量 $v_1$ 。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;得到特征值 \( \lambda \) 以后代入 $(A - \lambda I)v_1 = 0$ 解得特征向量 $v_1$ 。&lt;/p&gt;
 &lt;ol start=&#34;4&#34;&gt;
 &lt;li&gt;
 &lt;p&gt;排序和选择主成分：将特征值从大到小排序，特征值最大的为第一个主成分，捕捉了数据中最大的变化，也就是数据分布中最显著的变化方向。第二个主成分与第一个主成分正交（相互垂直），且在正交约束下方差次大的方向。后续主成分：依此类推，每个主成分都与前面的主成分正交，并按特征值大小递减排列。&lt;/p&gt;

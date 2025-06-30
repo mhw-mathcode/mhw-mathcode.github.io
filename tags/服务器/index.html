@@ -10,7 +10,7 @@
 <meta property='og:description' content="真正的勇敢，不是无所畏惧，而是带着恐惧前行">
 <meta property='og:url' content='https://mhw-mathcode.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/'>
 <meta property='og:site_name' content='mhw'>
-<meta property='og:type' content='website'><meta property='og:updated_time' content=' 2025-06-23T13:21:59&#43;00:00 '/>
+<meta property='og:type' content='website'><meta property='og:updated_time' content=' 2025-06-30T13:08:40&#43;00:00 '/>
 <meta name="twitter:title" content="Tag: 服务器 - mhw">
 <meta name="twitter:description" content="真正的勇敢，不是无所畏惧，而是带着恐惧前行"><link rel="alternate" type="application/rss&#43;xml" href="https://mhw-mathcode.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/index.xml">
     <link rel="shortcut icon" href="/favicon.ico" />
@@ -419,6 +419,12 @@
         width: 30px;
         height: 30px;
         background-image: url(https://mhw-mathcode.github.io/icons/backTop.svg);
+        transition: transform 0.6s ease;  
+    }
+    
+     
+    #backTopBtn:hover {
+        transform: rotate(360deg);  
     }
 
      
@@ -453,13 +459,27 @@
     }
     
      
-    #TableOfContents > ul, ol {
-        ul, ol {
-            display: none;
-        }
-        .open {
-            display: block;
-        }
+    #TableOfContents ul, #TableOfContents ol {
+        display: none;  
+    }
+    
+     
+    #TableOfContents .open {
+        display: block !important;
+    }
+    
+     
+    #TableOfContents > ul, #TableOfContents > ol {
+        display: block;
+    }
+    
+     
+    .right-sidebar {
+        width: 550px !important;  
+    }
+    
+    .widget--toc {
+        width: 100% !important;  
     }
 </style>
 
@@ -534,30 +554,59 @@
             return;
         }
         
+        
         window.addEventListener('scroll', function() {
+            updateTableOfContents();
+        });
+        
+        
+        updateTableOfContents();
+        
+        function updateTableOfContents() {
             
             let currentLi = document.querySelector(".active-class");
             if (!currentLi) {
-                return
+                return;
             }
             
-            let elementsByClassName = document.querySelectorAll(".open");
-            if (elementsByClassName.length > 0) {
-                elementsByClassName.forEach((ul) => {
-                    ul.classList.remove("open")
-                })
+            
+            document.querySelectorAll("#TableOfContents .open").forEach(el => {
+                el.classList.remove("open");
+            });
+            
+            
+            let childLists = currentLi.querySelectorAll("ul, ol");
+            childLists.forEach(list => {
+                list.classList.add("open");
+            });
+            
+            
+            let parent = currentLi.parentElement;
+            while (parent) {
+                if (parent.tagName.toLowerCase() === 'ul' || parent.tagName.toLowerCase() === 'ol') {
+                    parent.classList.add("open");
+                }
+                parent = parent.parentElement;
             }
             
-            if (currentLi.children.length > 1) {
-                currentLi.children[1].classList.add("open")
-            }
             
-            let ul = currentLi.parentElement;
-            do {
-                ul.classList.add("open");
-                ul = ul.parentElement.parentElement
-            } while (ul !== undefined && (ul.localName === 'ul' || ul.localName === 'ol'))
-        });
+            expandNestedLists(currentLi, 6);
+        }
+        
+        
+        function expandNestedLists(element, maxDepth, currentDepth = 1) {
+            if (currentDepth > maxDepth) return;
+            
+            const lists = element.querySelectorAll(":scope > ul, :scope > ol");
+            lists.forEach(list => {
+                list.classList.add("open");
+                
+                const listItems = list.querySelectorAll(":scope > li");
+                listItems.forEach(item => {
+                    expandNestedLists(item, maxDepth, currentDepth + 1);
+                });
+            });
+        }
     }
 </script>
 

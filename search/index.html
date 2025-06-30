@@ -276,6 +276,12 @@
         width: 30px;
         height: 30px;
         background-image: url(https://mhw-mathcode.github.io/icons/backTop.svg);
+        transition: transform 0.6s ease;  
+    }
+    
+     
+    #backTopBtn:hover {
+        transform: rotate(360deg);  
     }
 
      
@@ -310,13 +316,27 @@
     }
     
      
-    #TableOfContents > ul, ol {
-        ul, ol {
-            display: none;
-        }
-        .open {
-            display: block;
-        }
+    #TableOfContents ul, #TableOfContents ol {
+        display: none;  
+    }
+    
+     
+    #TableOfContents .open {
+        display: block !important;
+    }
+    
+     
+    #TableOfContents > ul, #TableOfContents > ol {
+        display: block;
+    }
+    
+     
+    .right-sidebar {
+        width: 550px !important;  
+    }
+    
+    .widget--toc {
+        width: 100% !important;  
     }
 </style>
 
@@ -391,30 +411,59 @@
             return;
         }
         
+        
         window.addEventListener('scroll', function() {
+            updateTableOfContents();
+        });
+        
+        
+        updateTableOfContents();
+        
+        function updateTableOfContents() {
             
             let currentLi = document.querySelector(".active-class");
             if (!currentLi) {
-                return
+                return;
             }
             
-            let elementsByClassName = document.querySelectorAll(".open");
-            if (elementsByClassName.length > 0) {
-                elementsByClassName.forEach((ul) => {
-                    ul.classList.remove("open")
-                })
+            
+            document.querySelectorAll("#TableOfContents .open").forEach(el => {
+                el.classList.remove("open");
+            });
+            
+            
+            let childLists = currentLi.querySelectorAll("ul, ol");
+            childLists.forEach(list => {
+                list.classList.add("open");
+            });
+            
+            
+            let parent = currentLi.parentElement;
+            while (parent) {
+                if (parent.tagName.toLowerCase() === 'ul' || parent.tagName.toLowerCase() === 'ol') {
+                    parent.classList.add("open");
+                }
+                parent = parent.parentElement;
             }
             
-            if (currentLi.children.length > 1) {
-                currentLi.children[1].classList.add("open")
-            }
             
-            let ul = currentLi.parentElement;
-            do {
-                ul.classList.add("open");
-                ul = ul.parentElement.parentElement
-            } while (ul !== undefined && (ul.localName === 'ul' || ul.localName === 'ol'))
-        });
+            expandNestedLists(currentLi, 6);
+        }
+        
+        
+        function expandNestedLists(element, maxDepth, currentDepth = 1) {
+            if (currentDepth > maxDepth) return;
+            
+            const lists = element.querySelectorAll(":scope > ul, :scope > ol");
+            lists.forEach(list => {
+                list.classList.add("open");
+                
+                const listItems = list.querySelectorAll(":scope > li");
+                listItems.forEach(item => {
+                    expandNestedLists(item, maxDepth, currentDepth + 1);
+                });
+            });
+        }
     }
 </script>
 

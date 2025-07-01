@@ -7,7 +7,7 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>mhw-mathcode</copyright>
-        <lastBuildDate>Tue, 01 Jul 2025 07:05:37 +0000</lastBuildDate><atom:link href="https://mhw-mathcode.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 01 Jul 2025 13:28:49 +0000</lastBuildDate><atom:link href="https://mhw-mathcode.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>学习笔记 数据结构</title>
         <link>https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</link>
         <pubDate>Sun, 22 Jun 2025 11:50:20 +0800</pubDate>
@@ -58,6 +58,20 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/4.png&#34;
+	width=&#34;406&#34;
+	height=&#34;224&#34;
+	srcset=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/4_hu_241a7f506e078edc.png 480w, https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/4_hu_3d75ca22ba6202cd.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;举个例子&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;181&#34;
+		data-flex-basis=&#34;435px&#34;
+	
+&gt;&lt;/p&gt;
 &lt;p&gt;特殊矩阵压缩存储：对阵矩阵，三角矩阵，三对角矩阵，稀疏矩阵（三元组、十字链表法）。&lt;/p&gt;
 &lt;h2 id=&#34;3-串&#34;&gt;3. 串
 &lt;/h2&gt;&lt;p&gt;串是由零个或多个字符组成的有限序列。&lt;/p&gt;
@@ -188,8 +202,8 @@
 &gt;&lt;/li&gt;
 &lt;li&gt;应用：找中序后继（剩余同理）
 &lt;ul&gt;
-&lt;li&gt;在中序线索二叉树中，如果 $p-&amp;gt;rTag==1$ ，右孩子指针被线索化了，那么直接得到中序后继；&lt;/li&gt;
-&lt;li&gt;若 $p-&amp;gt;rTag==0$ ，有右孩子。就要找右子树得中序遍历最左边的结点。&lt;/li&gt;
+&lt;li&gt;在中序线索二叉树中，如果 $p \rightarrow rTag==1$ ，右孩子指针被线索化了，那么直接得到中序后继；&lt;/li&gt;
+&lt;li&gt;若 $p \rightarrow rTag==0$ ，有右孩子。就要找右子树得中序遍历最左边的结点。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -267,6 +281,249 @@
 &lt;li&gt;可变长度编码：允许对不同字符用不等长的二进制位表示&lt;/li&gt;
 &lt;li&gt;前缀编码：没有一个编码是另一个编码的前缀&lt;/li&gt;
 &lt;li&gt;将字符频次作为字符结点权值，构造哈夫曼树，可得到哈夫曼编码，可用于数据压缩。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;5-图&#34;&gt;5. 图
+&lt;/h2&gt;&lt;h3 id=&#34;概念&#34;&gt;概念
+&lt;/h3&gt;&lt;p&gt;图 G 就是由点集 V 和边集 E 组成的。
+无向图和有向图：有向边 &amp;lt;A, B&amp;gt; （弧尾，弧头），无向边 (A, B)
+简单图：不存在重复的边；多重图：存在重复的边。
+顶点的度 = 入度 + 出度
+简单路径：顶点不重复出现；简单回路：除了头顶点和尾顶点，其余顶点里不出现重复的顶点。&lt;/p&gt;
+&lt;p&gt;连通性：无向图中，$v — … — w$ （v，w之间是连通的）；
+强连通性：有向图中，既有$v \rightarrow … \rightarrow w$ ，又有 $v \leftarrow … \leftarrow w$ ，（v，w 之间是强连通的）。&lt;/p&gt;
+&lt;p&gt;连通图：在无向图中，任意两个点连通；
+强连通图：在有向图中，任意两个点强连通。最少有 n 条边（形成回路）。&lt;/p&gt;
+&lt;p&gt;子图：部分点集+部分边集，每条边的两个点一定存在。
+生成子图：子图包含原图的所有顶点，可以去掉一些边。&lt;/p&gt;
+&lt;p&gt;连通分量：在无向图中极大的连通子图
+强连通分量：在有向图中极大的强连通子图&lt;/p&gt;
+&lt;p&gt;生成树：对于连通图，包含图中所有顶点的极小连通子图
+生成森林：对于非连通图，各连通分量的生成树组成了生成森林&lt;/p&gt;
+&lt;p&gt;存储：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;邻接矩阵&lt;/li&gt;
+&lt;li&gt;邻接表&lt;/li&gt;
+&lt;li&gt;十字链表
+&lt;img src=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/5.png&#34;
+	width=&#34;604&#34;
+	height=&#34;330&#34;
+	srcset=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/5_hu_7389397805e72b7b.png 480w, https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/5_hu_1ca7bc0d5e958c03.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;十字链表&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;183&#34;
+		data-flex-basis=&#34;439px&#34;
+	
+&gt;&lt;/li&gt;
+&lt;li&gt;邻接多重表
+&lt;img src=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/6.png&#34;
+	width=&#34;659&#34;
+	height=&#34;384&#34;
+	srcset=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/6_hu_9f6f6e7fca2cd558.png 480w, https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/6_hu_b3b46207076e4988.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;邻接多重表&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;171&#34;
+		data-flex-basis=&#34;411px&#34;
+	
+&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;应用-1&#34;&gt;应用
+&lt;/h3&gt;&lt;p&gt;最小生成树（MST）：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$Prim$ ：$O(n^2)$，每次遍历所有结点找到加入 MST 的代价 $lowcast$ 最低的结点，然后用改结点更新所有结点的 $lowcast$。&lt;/li&gt;
+&lt;li&gt;$Kruskal$ ：$O(|E|log|E|)$，每次选择一条权值最小的且该边两端结点不连通的边。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;最短路：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;单源最短路：
+&lt;ul&gt;
+&lt;li&gt;$BFS$ ：无权图&lt;/li&gt;
+&lt;li&gt;$Dijkstra$ ：正权图，优先队列优化 $O(nlogn)$ 。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;多源最短路：
+&lt;ul&gt;
+&lt;li&gt;$Floyd$ ：无负权回路的图&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;有向无环图（Directed Acyclic Graph）描述表达式：
+&lt;img src=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/7.png&#34;
+	width=&#34;760&#34;
+	height=&#34;417&#34;
+	srcset=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/7_hu_71236bd49094b669.png 480w, https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/7_hu_18a87af0079ec168.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;DAG 描述表达式&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;182&#34;
+		data-flex-basis=&#34;437px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;拓扑排序：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;AOV：顶点表示活动的网（Activity On Vertex Network）&lt;/li&gt;
+&lt;li&gt;DAG 表示一个工程（工程就是活动的顺序序列集合）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;关键路径：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;AOE：顶点表示事件，有向边表示活动，边的权值表示该活动的花销，称为 AOE 网（Activity On Edge Network）。&lt;/li&gt;
+&lt;li&gt;从源点到汇点的有向路径中，长度最大的路径成为关键路径，关键路径上的活动成为关键活动。
+&lt;img src=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/8.png&#34;
+	width=&#34;902&#34;
+	height=&#34;476&#34;
+	srcset=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/8_hu_4a9e22be7c1f83f5.png 480w, https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/8_hu_b561ba9255578f2d.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;关键路径求解方法&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;189&#34;
+		data-flex-basis=&#34;454px&#34;
+	
+&gt;&lt;/li&gt;
+&lt;li&gt;特性：
+&lt;ul&gt;
+&lt;li&gt;若关键活动耗时增加，则整个工程的工期将增长&lt;/li&gt;
+&lt;li&gt;缩短关键活动的时间，可以缩短整个工程的工期&lt;/li&gt;
+&lt;li&gt;当缩短到一定程度时，关键活动可能会变成非关键活动&lt;/li&gt;
+&lt;li&gt;可能有多条关键路径，只提高一条关键路径上的关键活动速度并不能缩短整个工程的工期，只有加快那些包括在所有关键路径上的关键活动才能达到缩短工期的目的。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;6-查找b树散列表&#34;&gt;6. 查找（B树、散列表）
+&lt;/h2&gt;&lt;h3 id=&#34;概念-1&#34;&gt;概念
+&lt;/h3&gt;&lt;p&gt;查找表：用于查找的数据集合。
+静态查找表（仅查找）、动态查找表（插删操作）。
+平均查找长度（ASL）：所有查找过程中关键字的比较次数的平均值。&lt;/p&gt;
+&lt;p&gt;顺序查找、折半查找、分块查找（又叫索引顺序查找，块内无序、块间有序）&lt;/p&gt;
+&lt;p&gt;B 树：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;B 树，又称多路平衡查找树，B 树中所有结点的孩子个数的最大值称为 B 树的阶，通常用 m 表示。一棵 m 阶 B 树或为空树，或为满足如下特性的 m 叉树：
+&lt;img src=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/9.png&#34;
+	width=&#34;641&#34;
+	height=&#34;286&#34;
+	srcset=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/9_hu_c2be0817c8ae6b50.png 480w, https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/9_hu_fd0f862df7cb5de.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;B 树&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;224&#34;
+		data-flex-basis=&#34;537px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;树中每个结点至多有 m 棵子树，即至多含有 m-1 个关键字。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;若根结点不是终端结点，则至少有两棵子树。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;除根结点外的所有非叶结点至少有 $⌊m/2⌋$ 棵子树，即至少含有 $⌊m/2⌋-1$ 个关键字。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;所有非叶结点的结构如下，其中，$K_i（i = 1, 2, &amp;hellip;, n）$ 为结点的关键字，且满足 $K_1 &amp;lt; K_2 &amp;lt; &amp;hellip; &amp;lt; K_n$ ；$P_i（i = 0, 1, &amp;hellip;, n）$ 为指向子树根结点的指针，且指针 $P_{i-1}$ 所指子树中所有结点的关键字均小于 $K_i$，$P_i$ 所指子树中所有结点的关键字均大于 $K_i$ ，$n（⌊m/2⌋ - 1 ≤ n ≤ m - 1）$ 为结点中关键字的个数。&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;n&lt;/th&gt;
+          &lt;th&gt;P₀&lt;/th&gt;
+          &lt;th&gt;K₁&lt;/th&gt;
+          &lt;th&gt;P₁&lt;/th&gt;
+          &lt;th&gt;K₂&lt;/th&gt;
+          &lt;th&gt;P₂&lt;/th&gt;
+          &lt;th&gt;&amp;hellip;&lt;/th&gt;
+          &lt;th&gt;Kₙ&lt;/th&gt;
+          &lt;th&gt;Pₙ&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;所有的叶结点都出现在同一层次上，并且不带信息（可以视为外部结点或类似于折半查找判定树的查找失败结点，实际上这些结点不存在，指向这些结点的指针为空）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;含 n 个关键字的 m 叉 B 树，高度满足以下不等式：$\log_m(n + 1) \leq h \leq \log_{\lceil m/2 \rceil} \frac{n + 1}{2} + 1$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;插入：在插入 $key$ 后，若导致原结点关键字数超过上限，则从中间位置（$⌊m/2⌋$）将其中的关键字分为两部分，左部分包含的关键字放在原结点中，右部分包含的关键字放到新结点中，中间位置（$⌊m/2⌋$）的结点插入原结点的父结点。若此时导致其父结点的关键字个数也超过了上限，则继续进行这种分裂操作，直至这个过程传到根结点为止，进而导致 B 树高度增加 1。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;删除：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;删除非终端节点，找直接前驱或直接后继，转化为终端结点的删除；&lt;/li&gt;
+&lt;li&gt;删除终端结点
+&lt;ul&gt;
+&lt;li&gt;删除后结点关键字个数未低于下限，直接删除；&lt;/li&gt;
+&lt;li&gt;若低于下限：
+&lt;ul&gt;
+&lt;li&gt;兄弟够借：左兄弟富裕，用该结点前驱的前驱填补，右同理;&lt;/li&gt;
+&lt;li&gt;兄弟不够借：左右兄弟关键字均 $=\lceil m/2 \rceil - 1$，将左（右）兄弟结点及双亲结点中的关键字进行合并。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;B+ 树：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;m 个关键字，对应 m 个分支，m 个子树，查找信息并不会停留在分支节点上，会一直查找到叶子结点。
+&lt;img src=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/10.png&#34;
+	width=&#34;769&#34;
+	height=&#34;303&#34;
+	srcset=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/10_hu_540d4cee62fc6ce9.png 480w, https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/10_hu_93524166148a8cd6.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;B&amp;#43; 树&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;253&#34;
+		data-flex-basis=&#34;609px&#34;
+	
+&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;散列表：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;也称哈希表，通过散列函数（哈希函数）将关键字与存储地址联系起来。若不同关键字映射到了同一个值，称为冲突（同义词）。冲突越少查找效率越高。&lt;/li&gt;
+&lt;li&gt;散列函数：
+&lt;ul&gt;
+&lt;li&gt;除留余数法：选不大于散列表长度的最大质数，为了让不同的关键字冲突尽可能少。&lt;/li&gt;
+&lt;li&gt;直接定址法&lt;/li&gt;
+&lt;li&gt;数字分析法&lt;/li&gt;
+&lt;li&gt;平方取中法：取关键字平方值的中间几位作为散列地址。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;处理冲突：
+&lt;ul&gt;
+&lt;li&gt;拉链法：将同义词存储在一个链表中。优化：同一链表中数据有序连接。&lt;/li&gt;
+&lt;li&gt;开放地址法
+&lt;ul&gt;
+&lt;li&gt;线性探测法&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;再散列法&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;

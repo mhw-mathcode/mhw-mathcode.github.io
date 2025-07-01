@@ -10,7 +10,7 @@
 <meta property='og:description' content="1. 线性表 数据结构三要素：逻辑结构、数据的运算、存储结构。\n线性表是具有相同数据类型的n(n&gt;=0)个数据元素的有限序列。（逻辑结构）\n基本操作：创建、销毁、插入、删除、按值查找、按位查找。\n">
 <meta property='og:url' content='https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/'>
 <meta property='og:site_name' content='mhw'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-06-22T11:50:20&#43;08:00'/><meta property='article:modified_time' content='2025-07-01T07:05:37&#43;00:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-06-22T11:50:20&#43;08:00'/><meta property='article:modified_time' content='2025-07-01T13:28:49&#43;00:00'/>
 <meta name="twitter:title" content="学习笔记 数据结构">
 <meta name="twitter:description" content="1. 线性表 数据结构三要素：逻辑结构、数据的运算、存储结构。\n线性表是具有相同数据类型的n(n&gt;=0)个数据元素的有限序列。（逻辑结构）\n基本操作：创建、销毁、插入、删除、按值查找、按位查找。\n">
     <link rel="shortcut icon" href="/favicon.ico" />
@@ -236,6 +236,17 @@
         <li><a href="#应用">应用</a></li>
       </ul>
     </li>
+    <li><a href="#5-图">5. 图</a>
+      <ul>
+        <li><a href="#概念">概念</a></li>
+        <li><a href="#应用-1">应用</a></li>
+      </ul>
+    </li>
+    <li><a href="#6-查找b树散列表">6. 查找（B树、散列表）</a>
+      <ul>
+        <li><a href="#概念-1">概念</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
         </div>
@@ -338,6 +349,20 @@
 </ul>
 </li>
 </ul>
+<p><img src="/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/4.png"
+	width="406"
+	height="224"
+	srcset="/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/4_hu_241a7f506e078edc.png 480w, /p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/4_hu_3d75ca22ba6202cd.png 1024w"
+	loading="lazy"
+	
+		alt="举个例子"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="181"
+		data-flex-basis="435px"
+	
+></p>
 <p>特殊矩阵压缩存储：对阵矩阵，三角矩阵，三对角矩阵，稀疏矩阵（三元组、十字链表法）。</p>
 <h2 id="3-串">3. 串
 </h2><p>串是由零个或多个字符组成的有限序列。</p>
@@ -468,8 +493,8 @@
 ></li>
 <li>应用：找中序后继（剩余同理）
 <ul>
-<li>在中序线索二叉树中，如果 $p-&gt;rTag==1$ ，右孩子指针被线索化了，那么直接得到中序后继；</li>
-<li>若 $p-&gt;rTag==0$ ，有右孩子。就要找右子树得中序遍历最左边的结点。</li>
+<li>在中序线索二叉树中，如果 $p \rightarrow rTag==1$ ，右孩子指针被线索化了，那么直接得到中序后继；</li>
+<li>若 $p \rightarrow rTag==0$ ，有右孩子。就要找右子树得中序遍历最左边的结点。</li>
 </ul>
 </li>
 </ul>
@@ -550,6 +575,249 @@
 </ul>
 </li>
 </ul>
+<h2 id="5-图">5. 图
+</h2><h3 id="概念">概念
+</h3><p>图 G 就是由点集 V 和边集 E 组成的。
+无向图和有向图：有向边 &lt;A, B&gt; （弧尾，弧头），无向边 (A, B)
+简单图：不存在重复的边；多重图：存在重复的边。
+顶点的度 = 入度 + 出度
+简单路径：顶点不重复出现；简单回路：除了头顶点和尾顶点，其余顶点里不出现重复的顶点。</p>
+<p>连通性：无向图中，$v — … — w$ （v，w之间是连通的）；
+强连通性：有向图中，既有$v \rightarrow … \rightarrow w$ ，又有 $v \leftarrow … \leftarrow w$ ，（v，w 之间是强连通的）。</p>
+<p>连通图：在无向图中，任意两个点连通；
+强连通图：在有向图中，任意两个点强连通。最少有 n 条边（形成回路）。</p>
+<p>子图：部分点集+部分边集，每条边的两个点一定存在。
+生成子图：子图包含原图的所有顶点，可以去掉一些边。</p>
+<p>连通分量：在无向图中极大的连通子图
+强连通分量：在有向图中极大的强连通子图</p>
+<p>生成树：对于连通图，包含图中所有顶点的极小连通子图
+生成森林：对于非连通图，各连通分量的生成树组成了生成森林</p>
+<p>存储：</p>
+<ul>
+<li>邻接矩阵</li>
+<li>邻接表</li>
+<li>十字链表
+<img src="/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/5.png"
+	width="604"
+	height="330"
+	srcset="/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/5_hu_7389397805e72b7b.png 480w, /p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/5_hu_1ca7bc0d5e958c03.png 1024w"
+	loading="lazy"
+	
+		alt="十字链表"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="183"
+		data-flex-basis="439px"
+	
+></li>
+<li>邻接多重表
+<img src="/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/6.png"
+	width="659"
+	height="384"
+	srcset="/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/6_hu_9f6f6e7fca2cd558.png 480w, /p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/6_hu_b3b46207076e4988.png 1024w"
+	loading="lazy"
+	
+		alt="邻接多重表"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="171"
+		data-flex-basis="411px"
+	
+></li>
+</ul>
+<h3 id="应用-1">应用
+</h3><p>最小生成树（MST）：</p>
+<ul>
+<li>$Prim$ ：$O(n^2)$，每次遍历所有结点找到加入 MST 的代价 $lowcast$ 最低的结点，然后用改结点更新所有结点的 $lowcast$。</li>
+<li>$Kruskal$ ：$O(|E|log|E|)$，每次选择一条权值最小的且该边两端结点不连通的边。</li>
+</ul>
+<p>最短路：</p>
+<ul>
+<li>单源最短路：
+<ul>
+<li>$BFS$ ：无权图</li>
+<li>$Dijkstra$ ：正权图，优先队列优化 $O(nlogn)$ 。</li>
+</ul>
+</li>
+<li>多源最短路：
+<ul>
+<li>$Floyd$ ：无负权回路的图</li>
+</ul>
+</li>
+</ul>
+<p>有向无环图（Directed Acyclic Graph）描述表达式：
+<img src="/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/7.png"
+	width="760"
+	height="417"
+	srcset="/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/7_hu_71236bd49094b669.png 480w, /p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/7_hu_18a87af0079ec168.png 1024w"
+	loading="lazy"
+	
+		alt="DAG 描述表达式"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="182"
+		data-flex-basis="437px"
+	
+></p>
+<p>拓扑排序：</p>
+<ul>
+<li>AOV：顶点表示活动的网（Activity On Vertex Network）</li>
+<li>DAG 表示一个工程（工程就是活动的顺序序列集合）</li>
+</ul>
+<p>关键路径：</p>
+<ul>
+<li>AOE：顶点表示事件，有向边表示活动，边的权值表示该活动的花销，称为 AOE 网（Activity On Edge Network）。</li>
+<li>从源点到汇点的有向路径中，长度最大的路径成为关键路径，关键路径上的活动成为关键活动。
+<img src="/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/8.png"
+	width="902"
+	height="476"
+	srcset="/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/8_hu_4a9e22be7c1f83f5.png 480w, /p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/8_hu_b561ba9255578f2d.png 1024w"
+	loading="lazy"
+	
+		alt="关键路径求解方法"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="189"
+		data-flex-basis="454px"
+	
+></li>
+<li>特性：
+<ul>
+<li>若关键活动耗时增加，则整个工程的工期将增长</li>
+<li>缩短关键活动的时间，可以缩短整个工程的工期</li>
+<li>当缩短到一定程度时，关键活动可能会变成非关键活动</li>
+<li>可能有多条关键路径，只提高一条关键路径上的关键活动速度并不能缩短整个工程的工期，只有加快那些包括在所有关键路径上的关键活动才能达到缩短工期的目的。</li>
+</ul>
+</li>
+</ul>
+<h2 id="6-查找b树散列表">6. 查找（B树、散列表）
+</h2><h3 id="概念-1">概念
+</h3><p>查找表：用于查找的数据集合。
+静态查找表（仅查找）、动态查找表（插删操作）。
+平均查找长度（ASL）：所有查找过程中关键字的比较次数的平均值。</p>
+<p>顺序查找、折半查找、分块查找（又叫索引顺序查找，块内无序、块间有序）</p>
+<p>B 树：</p>
+<ul>
+<li>
+<p>B 树，又称多路平衡查找树，B 树中所有结点的孩子个数的最大值称为 B 树的阶，通常用 m 表示。一棵 m 阶 B 树或为空树，或为满足如下特性的 m 叉树：
+<img src="/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/9.png"
+	width="641"
+	height="286"
+	srcset="/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/9_hu_c2be0817c8ae6b50.png 480w, /p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/9_hu_fd0f862df7cb5de.png 1024w"
+	loading="lazy"
+	
+		alt="B 树"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="224"
+		data-flex-basis="537px"
+	
+></p>
+<ol>
+<li>
+<p>树中每个结点至多有 m 棵子树，即至多含有 m-1 个关键字。</p>
+</li>
+<li>
+<p>若根结点不是终端结点，则至少有两棵子树。</p>
+</li>
+<li>
+<p>除根结点外的所有非叶结点至少有 $⌊m/2⌋$ 棵子树，即至少含有 $⌊m/2⌋-1$ 个关键字。</p>
+</li>
+<li>
+<p>所有非叶结点的结构如下，其中，$K_i（i = 1, 2, &hellip;, n）$ 为结点的关键字，且满足 $K_1 &lt; K_2 &lt; &hellip; &lt; K_n$ ；$P_i（i = 0, 1, &hellip;, n）$ 为指向子树根结点的指针，且指针 $P_{i-1}$ 所指子树中所有结点的关键字均小于 $K_i$，$P_i$ 所指子树中所有结点的关键字均大于 $K_i$ ，$n（⌊m/2⌋ - 1 ≤ n ≤ m - 1）$ 为结点中关键字的个数。</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>n</th>
+          <th>P₀</th>
+          <th>K₁</th>
+          <th>P₁</th>
+          <th>K₂</th>
+          <th>P₂</th>
+          <th>&hellip;</th>
+          <th>Kₙ</th>
+          <th>Pₙ</th>
+      </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table></div>
+</li>
+<li>
+<p>所有的叶结点都出现在同一层次上，并且不带信息（可以视为外部结点或类似于折半查找判定树的查找失败结点，实际上这些结点不存在，指向这些结点的指针为空）。</p>
+</li>
+</ol>
+</li>
+<li>
+<p>含 n 个关键字的 m 叉 B 树，高度满足以下不等式：$\log_m(n + 1) \leq h \leq \log_{\lceil m/2 \rceil} \frac{n + 1}{2} + 1$</p>
+</li>
+<li>
+<p>插入：在插入 $key$ 后，若导致原结点关键字数超过上限，则从中间位置（$⌊m/2⌋$）将其中的关键字分为两部分，左部分包含的关键字放在原结点中，右部分包含的关键字放到新结点中，中间位置（$⌊m/2⌋$）的结点插入原结点的父结点。若此时导致其父结点的关键字个数也超过了上限，则继续进行这种分裂操作，直至这个过程传到根结点为止，进而导致 B 树高度增加 1。</p>
+</li>
+<li>
+<p>删除：</p>
+<ul>
+<li>删除非终端节点，找直接前驱或直接后继，转化为终端结点的删除；</li>
+<li>删除终端结点
+<ul>
+<li>删除后结点关键字个数未低于下限，直接删除；</li>
+<li>若低于下限：
+<ul>
+<li>兄弟够借：左兄弟富裕，用该结点前驱的前驱填补，右同理;</li>
+<li>兄弟不够借：左右兄弟关键字均 $=\lceil m/2 \rceil - 1$，将左（右）兄弟结点及双亲结点中的关键字进行合并。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>B+ 树：</p>
+<ul>
+<li>m 个关键字，对应 m 个分支，m 个子树，查找信息并不会停留在分支节点上，会一直查找到叶子结点。
+<img src="/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/10.png"
+	width="769"
+	height="303"
+	srcset="/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/10_hu_540d4cee62fc6ce9.png 480w, /p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/10_hu_93524166148a8cd6.png 1024w"
+	loading="lazy"
+	
+		alt="B&#43; 树"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="253"
+		data-flex-basis="609px"
+	
+></li>
+</ul>
+<p>散列表：</p>
+<ul>
+<li>也称哈希表，通过散列函数（哈希函数）将关键字与存储地址联系起来。若不同关键字映射到了同一个值，称为冲突（同义词）。冲突越少查找效率越高。</li>
+<li>散列函数：
+<ul>
+<li>除留余数法：选不大于散列表长度的最大质数，为了让不同的关键字冲突尽可能少。</li>
+<li>直接定址法</li>
+<li>数字分析法</li>
+<li>平方取中法：取关键字平方值的中间几位作为散列地址。</li>
+</ul>
+</li>
+<li>处理冲突：
+<ul>
+<li>拉链法：将同义词存储在一个链表中。优化：同一链表中数据有序连接。</li>
+<li>开放地址法
+<ul>
+<li>线性探测法</li>
+</ul>
+</li>
+<li>再散列法</li>
+</ul>
+</li>
+</ul>
 
 </section>
 
@@ -567,7 +835,7 @@
 
 
         <span>
-            最后更新于 2025-07-01 07:05 CST
+            最后更新于 2025-07-01 13:28 CST
         </span>
     </section></footer>
 

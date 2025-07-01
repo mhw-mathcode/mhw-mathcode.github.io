@@ -104,13 +104,171 @@
 &lt;/h3&gt;&lt;p&gt;结点的度：结点的分支数
 树的度：树中各结点的度的最大值
 结点数=总度数（边数）+1&lt;/p&gt;
-&lt;p&gt;m叉树：可以所有结点的度都 &amp;lt; =m（结点的度最大为m，可以为空树）
-度为m的树：至少一个结点的度 = m（至少m+1个结点）&lt;/p&gt;
+&lt;p&gt;m叉树：可以所有结点的度都 $&amp;lt;= m$（结点的度最大为 $m$ ，可以为空树）
+度为m的树：至少一个结点的度 $= m$（至少 $m+1$ 个结点）&lt;/p&gt;
 &lt;h3 id=&#34;二叉树&#34;&gt;二叉树
 &lt;/h3&gt;&lt;p&gt;二叉树是度为 2 的有序树（每个结点至多两个子树，左右子树不能颠倒）。&lt;/p&gt;
-&lt;p&gt;满二叉树
-完全二叉树
-二叉排序树&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;满二叉树：不存在度为 1 的结点。&lt;/li&gt;
+&lt;li&gt;完全二叉树：在满二叉树的基础上，从最后一个结点开始去结点。&lt;/li&gt;
+&lt;li&gt;二叉排序树：左子树关键字均小于根节点的关键字，右子树关键字均大于根节点的关键字。&lt;/li&gt;
+&lt;li&gt;平衡二叉树（平衡二叉搜索树）：树上任意一个结点的左子树和右子树深度之差不超过 1 。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;顺序存储（左儿子 $i&lt;em&gt;2$ ，右儿子 $i&lt;/em&gt;2+1$ ）、链式存储&lt;/p&gt;
+&lt;p&gt;性质：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;二叉树：叶子结点（度为 0 的结点）的数量比度为 2 的结点的数量多一个&lt;/li&gt;
+&lt;li&gt;具有 n 个结点的完全二叉树的高度为 $h = \lceil \log_2 (n + 1) \rceil$ 或 $h = \lfloor \log_2 n \rfloor + 1$ 。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;遍历二叉树：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;先序遍历：根 &amp;ndash;&amp;gt; 左 &amp;ndash;&amp;gt; 右&lt;/li&gt;
+&lt;li&gt;中序遍历：左 &amp;ndash;&amp;gt; 根 &amp;ndash;&amp;gt; 右&lt;/li&gt;
+&lt;li&gt;后序遍历：左 &amp;ndash;&amp;gt; 右 &amp;ndash;&amp;gt; 根&lt;/li&gt;
+&lt;li&gt;层序遍历：$bfs$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;由遍历序列构造二叉树：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;前序+中序&lt;/li&gt;
+&lt;li&gt;后序+中序&lt;/li&gt;
+&lt;li&gt;层序+中序&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;线索二叉树：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;定义&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// 左、右线索标志
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;typedef&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;struct&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;ThreadNode&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;ElemType&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;data&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;struct&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;ThreadNode&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;lchild&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;rchild&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;lTag&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;rTag&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;	&lt;span class=&#34;c1&#34;&gt;// 0指向孩子；1指向线索
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/1.png&#34;
+	width=&#34;1010&#34;
+	height=&#34;648&#34;
+	srcset=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/1_hu_23bd51cca5ab60f9.png 480w, https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/1_hu_c265e840dc61adb8.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;线索二叉树&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;155&#34;
+		data-flex-basis=&#34;374px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;中序线索化（先序、后序类似）
+&lt;img src=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/2.jpg&#34;
+	width=&#34;1104&#34;
+	height=&#34;702&#34;
+	srcset=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/2_hu_baf945ac8f6465cf.jpg 480w, https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/2_hu_35955af97ad8c624.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;中序线索化&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;157&#34;
+		data-flex-basis=&#34;377px&#34;
+	
+&gt;&lt;/li&gt;
+&lt;li&gt;应用：找中序后继（剩余同理）
+&lt;ul&gt;
+&lt;li&gt;在中序线索二叉树中，如果 $p-&amp;gt;rTag==1$ ，右孩子指针被线索化了，那么直接得到中序后继；&lt;/li&gt;
+&lt;li&gt;若 $p-&amp;gt;rTag==0$ ，有右孩子。就要找右子树得中序遍历最左边的结点。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;树与森林&#34;&gt;树与森林
+&lt;/h3&gt;&lt;p&gt;树的存储结构：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;双亲表示法（顺序存储）&lt;/li&gt;
+&lt;li&gt;孩子表示法（顺序存储+链式存储）&lt;/li&gt;
+&lt;li&gt;孩子兄弟表示法（顺序存储+链式存储，左指针指向儿子，右指针指向兄弟）（树、森林与二叉树的转换）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;树的遍历：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;先根遍历：先访问根节点，再对每颗子树进行先根遍历；树的先根遍历序列和 对应的二叉树的先序序列相同。&lt;/li&gt;
+&lt;li&gt;后根遍历：先对每颗子树进行后根遍历，再访问根节点；树的后根遍历序列和对应的二叉树的中序序列相同。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;森林的遍历：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;先序遍历&lt;/li&gt;
+&lt;li&gt;中序遍历&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;应用&#34;&gt;应用
+&lt;/h3&gt;&lt;p&gt;二叉排序树（BST）：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;二叉排序树，又叫二叉查找树（Binary Search Tree），其左子树关键字均小于根节点的关键字，右子树关键字均大于根节点的关键字。&lt;/li&gt;
+&lt;li&gt;查找、插入、构造、删除（度为 2 的结点需要找前驱或者后继）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;平衡二叉树（AVL）：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;平衡因子 = 左子树高 - 右子树高，任一结点平衡因子绝对值小于 1。&lt;/li&gt;
+&lt;li&gt;插入：
+&lt;ul&gt;
+&lt;li&gt;每次只需调整最小不平衡子树。
+&lt;img src=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/3.png&#34;
+	width=&#34;914&#34;
+	height=&#34;526&#34;
+	srcset=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/3_hu_d634cbd74a449c74.png 480w, https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/3_hu_e5e0aaceecfabadb.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;调整最小不平衡子树&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;173&#34;
+		data-flex-basis=&#34;417px&#34;
+	
+&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;高度为 h 时最少有 $\frac{h*(h-1)}{2}+1$ 个结点。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;哈夫曼树：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;哈夫曼树：带权路径长度（WPL）最小的二叉树
+&lt;ul&gt;
+&lt;li&gt;结点的带权路径长度：从根结点到该结点的路径长度 * 权值&lt;/li&gt;
+&lt;li&gt;树的带权路径长度：所有叶结点的带权路径长度之和&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;构造：
+&lt;ul&gt;
+&lt;li&gt;选权值最小的两个结点；&lt;/li&gt;
+&lt;li&gt;在剩下的结点中挑一个最小的结点继续结合；或者挑两个结点先结合。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;性质：
+&lt;ul&gt;
+&lt;li&gt;结点总数为 $2*n-1$&lt;/li&gt;
+&lt;li&gt;不存在度为 1 的结点&lt;/li&gt;
+&lt;li&gt;哈夫曼树不唯一&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;哈夫曼编码：
+&lt;ul&gt;
+&lt;li&gt;固定长度编码：每个字符用相等长度的二进制位表示&lt;/li&gt;
+&lt;li&gt;可变长度编码：允许对不同字符用不等长的二进制位表示&lt;/li&gt;
+&lt;li&gt;前缀编码：没有一个编码是另一个编码的前缀&lt;/li&gt;
+&lt;li&gt;将字符频次作为字符结点权值，构造哈夫曼树，可得到哈夫曼编码，可用于数据压缩。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 </description>
         </item>
         <item>

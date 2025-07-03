@@ -509,21 +509,257 @@
 &lt;li&gt;散列函数：
 &lt;ul&gt;
 &lt;li&gt;除留余数法：选不大于散列表长度的最大质数，为了让不同的关键字冲突尽可能少。&lt;/li&gt;
-&lt;li&gt;直接定址法&lt;/li&gt;
-&lt;li&gt;数字分析法&lt;/li&gt;
+&lt;li&gt;直接定址法：$H(key)=a*key+b$ 。&lt;/li&gt;
+&lt;li&gt;数字分析法：选取数码分布较为均匀的若干位作为散列地址。&lt;/li&gt;
 &lt;li&gt;平方取中法：取关键字平方值的中间几位作为散列地址。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;处理冲突：
 &lt;ul&gt;
 &lt;li&gt;拉链法：将同义词存储在一个链表中。优化：同一链表中数据有序连接。&lt;/li&gt;
-&lt;li&gt;开放地址法
+&lt;li&gt;开放地址法：可存放新表项的空闲地址既向他的同义词表项开放，又向他的非同义词表项开放，即 $H_i=(H(key)+d_i) % m $。
 &lt;ul&gt;
-&lt;li&gt;线性探测法&lt;/li&gt;
+&lt;li&gt;线性探测法：$d_i=0,1,2,…,m-1$，即发生冲突时每次往后探测相邻的下一个单元是否为空。删除某个结点时需要做一个删除标记，否则会截断在他之后填入的关键字。&lt;/li&gt;
+&lt;li&gt;平方探测法：$d_i=0^2,1^2,-1^2,2^2,-2^2,…,k^2,-k^2$，相较于线性探测法更不易于产生聚集问题。&lt;/li&gt;
+&lt;li&gt;伪随机序列法：$d_i=某个伪随机序列$。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;再散列法&lt;/li&gt;
+&lt;li&gt;再散列法：准备多个散列函数，发生冲突就用下一个。&lt;/li&gt;
 &lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;7-排序&#34;&gt;7. 排序
+&lt;/h2&gt;&lt;p&gt;算法稳定性：关键字相同的两个元素，在排序之后相对位置不变。&lt;/p&gt;
+&lt;p&gt;内部排序：数据都在内存中；
+外部排序：数据无法全部放在内存中。&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;排序算法&lt;/th&gt;
+          &lt;th&gt;平均时间复杂度&lt;/th&gt;
+          &lt;th&gt;最好情况&lt;/th&gt;
+          &lt;th&gt;最坏情况&lt;/th&gt;
+          &lt;th&gt;空间复杂度&lt;/th&gt;
+          &lt;th&gt;排序方式&lt;/th&gt;
+          &lt;th&gt;稳定性&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;冒泡排序&lt;/td&gt;
+          &lt;td&gt;O(n²)&lt;/td&gt;
+          &lt;td&gt;O(n)&lt;/td&gt;
+          &lt;td&gt;O(n²)&lt;/td&gt;
+          &lt;td&gt;O(1)&lt;/td&gt;
+          &lt;td&gt;In-place&lt;/td&gt;
+          &lt;td&gt;稳定&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;选择排序&lt;/td&gt;
+          &lt;td&gt;O(n²)&lt;/td&gt;
+          &lt;td&gt;O(n²)&lt;/td&gt;
+          &lt;td&gt;O(n²)&lt;/td&gt;
+          &lt;td&gt;O(1)&lt;/td&gt;
+          &lt;td&gt;In-place&lt;/td&gt;
+          &lt;td&gt;不稳定&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;插入排序&lt;/td&gt;
+          &lt;td&gt;O(n²)&lt;/td&gt;
+          &lt;td&gt;O(n)&lt;/td&gt;
+          &lt;td&gt;O(n²)&lt;/td&gt;
+          &lt;td&gt;O(1)&lt;/td&gt;
+          &lt;td&gt;In-place&lt;/td&gt;
+          &lt;td&gt;稳定&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;希尔排序&lt;/td&gt;
+          &lt;td&gt;O(n log n)&lt;/td&gt;
+          &lt;td&gt;O(n log² n)&lt;/td&gt;
+          &lt;td&gt;O(n log² n)&lt;/td&gt;
+          &lt;td&gt;O(1)&lt;/td&gt;
+          &lt;td&gt;In-place&lt;/td&gt;
+          &lt;td&gt;不稳定&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;归并排序&lt;/td&gt;
+          &lt;td&gt;O(n log n)&lt;/td&gt;
+          &lt;td&gt;O(n log n)&lt;/td&gt;
+          &lt;td&gt;O(n log n)&lt;/td&gt;
+          &lt;td&gt;O(n)&lt;/td&gt;
+          &lt;td&gt;Out-place&lt;/td&gt;
+          &lt;td&gt;稳定&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;快速排序&lt;/td&gt;
+          &lt;td&gt;O(n log n)&lt;/td&gt;
+          &lt;td&gt;O(n log n)&lt;/td&gt;
+          &lt;td&gt;O(n²)&lt;/td&gt;
+          &lt;td&gt;O(log n)&lt;/td&gt;
+          &lt;td&gt;In-place&lt;/td&gt;
+          &lt;td&gt;不稳定&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;堆排序&lt;/td&gt;
+          &lt;td&gt;O(n log n)&lt;/td&gt;
+          &lt;td&gt;O(n log n)&lt;/td&gt;
+          &lt;td&gt;O(n log n)&lt;/td&gt;
+          &lt;td&gt;O(1)&lt;/td&gt;
+          &lt;td&gt;In-place&lt;/td&gt;
+          &lt;td&gt;不稳定&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;计数排序&lt;/td&gt;
+          &lt;td&gt;O(n + k)&lt;/td&gt;
+          &lt;td&gt;O(n + k)&lt;/td&gt;
+          &lt;td&gt;O(n + k)&lt;/td&gt;
+          &lt;td&gt;O(k)&lt;/td&gt;
+          &lt;td&gt;Out-place&lt;/td&gt;
+          &lt;td&gt;稳定&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;桶排序&lt;/td&gt;
+          &lt;td&gt;O(n + k)&lt;/td&gt;
+          &lt;td&gt;O(n + k)&lt;/td&gt;
+          &lt;td&gt;O(n²)&lt;/td&gt;
+          &lt;td&gt;O(n + k)&lt;/td&gt;
+          &lt;td&gt;Out-place&lt;/td&gt;
+          &lt;td&gt;稳定&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;基数排序&lt;/td&gt;
+          &lt;td&gt;O(n × k)&lt;/td&gt;
+          &lt;td&gt;O(n × k)&lt;/td&gt;
+          &lt;td&gt;O(n × k)&lt;/td&gt;
+          &lt;td&gt;O(n + k)&lt;/td&gt;
+          &lt;td&gt;Out-place&lt;/td&gt;
+          &lt;td&gt;稳定&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;插入排序：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;直接插入排序：每次将一个待排元素按其关键字大小插入到前面已经排好的子序列中。&lt;/li&gt;
+&lt;li&gt;折半插入排序，先用折半查找找到应该插入的位置，再移动元素。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;希尔排序：先将待排序表分割为若干形如 $L[i,i+d,i+2d,…,i+kd]$ 的特殊子表，对各个子表分别进行直接插入排序。缩小增量 $d$ ，重复上述过程直到 $d=1$ 为止。&lt;/p&gt;
+&lt;p&gt;交换排序：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;冒泡排序&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;快速排序：在待排序表 $L[1&amp;hellip;n]$ 中任取一个元素 $pivot$ 作为枢纽（或基准，通常取首元素），通过一趟排序将待排序表划分为独立的两部分 $L[1&amp;hellip;k-1]$ 和 $L[k+1&amp;hellip;n]$，使得 $L[1&amp;hellip;k-1]$ 中的所有元素小于 $pivot$，$L[k+1&amp;hellip;n]$ 中的所有元素大于等于 $pivot$，则 $pivot$ 放在了其最终位置 $L(k)$ 上，这个过程称为一次“划分”。然后分别递归地对两个子表重复上述过程，直至每部分内只有一个元素或空为止，即所有元素放在了其最终位置上。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;选好基准，设置好 $low=1$、$high=n$ 指针；&lt;/li&gt;
+&lt;li&gt;因为设置首元素为枢轴元素，所以位置 0 为空，故 $low$ 所指向的位置 0 空，$high$ 先向左遍历；&lt;/li&gt;
+&lt;li&gt;若 $high$ 指针指向元素小于基准元素，则把该元素放到 $low$ 指向的空位置，此时 $high$ 指向的位置变为空，则开始向右遍历；&lt;/li&gt;
+&lt;li&gt;直到 $low$、$high$ 指针相遇，该轮快排结束。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;将这个过程组织为二叉树，二叉树的层数就是递归调用的层数。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;选择排序：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;简单选择排序：每一次遍历选出最小的元素加入有序子序列。&lt;/li&gt;
+&lt;li&gt;堆排序：
+&lt;ul&gt;
+&lt;li&gt;堆：顺序存储的完全二叉树。结点i的左孩子是 $2i$；右孩子是 $2i+1$；父节点是 $\frac{i}{2}$。编号 $&amp;lt;=\frac{n}{2}$ 的结点都是分支结点&lt;/li&gt;
+&lt;li&gt;建堆：编号 $&amp;lt;=\frac{n}{2}$ 的所有结点依次下坠调整，若不满足当前结点小于左右儿子，则将当前结点与更大的一个儿子交换。&lt;/li&gt;
+&lt;li&gt;排序：将堆顶元素与堆底元素交换，重新进行下坠操作，使其回复大根堆特性，重复 $n-1$ 趟。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;归并排序：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;归并：把两个或多个子序列合并为一个。&lt;/li&gt;
+&lt;li&gt;归并排序：
+&lt;ul&gt;
+&lt;li&gt;若 $low &amp;lt; high$，则将序列分从中间 $mid=(low+high)/2$ 分开&lt;/li&gt;
+&lt;li&gt;对左半部分 $[low, mid]$ 递归地进行归并排序&lt;/li&gt;
+&lt;li&gt;对右半部分 $[mid+1,high]$ 递归地进行归并排序&lt;/li&gt;
+&lt;li&gt;将左右两个有序子序列 $Merge$ 为一个&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;基数排序：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;将整个关键字拆分为 d 位(或“组”)&lt;/li&gt;
+&lt;li&gt;按照各个 关键字位 权重递增的次序(如:个、十、百)，做 d 趟“分配”和“收集”若当前处理的 关键字位 可能取得 r 个值，则需要建立 r 个队列&lt;/li&gt;
+&lt;li&gt;分配：顺序扫描各个元素，根据当前处理的关键字位，将元素插入相应队列。一趟分配耗时 $O(n)$&lt;/li&gt;
+&lt;li&gt;收集：把各个队列中的结点依次出队并链接。一趟收集耗时 $O(r)$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;外部排序：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;外部元素太多，无法一次全部读入内存进行排序，采用归并排序的思想和方法。外存中的数据读入内存 → 在内存中排序 → 数据写入外存，总时间开销 = 内部排序所需时间 + 内部归并所需时间 + 外部读写所需时间&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;优化：多路归并&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;1.对于 r 个初始归并段进行 k 路归并，需要归并趟数 = $log_k r$（向上取整，归并树高度）&lt;/li&gt;
+&lt;li&gt;2.提升外部排序的速度、减少读写磁盘的速度的方法：提高 k 值，降低 r 值。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;提高 k 值：增加归并段长度。但是，提高 k 有负面影响：（1）需要的缓存空间升高（ k 路归并需 k 个缓冲区）；（2）内部归并的所需时间提高（选出最小关键字需要进行 k-1 次比较）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;败者树：败者树可视为一棵完全二叉树(多了一个头头)。k 个叶结点分别对应 k 个归并段中当前参加比较的元素，非叶子结点用来记忆左右子树中的“失败者”，而让胜者往上继续进行比较，一直到根结点。使用多路平衡归并可减少归并趟数，构造败者树可以使关键字对比次数减少到 $log_2 k$。
+&lt;img src=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/11.png&#34;
+	width=&#34;852&#34;
+	height=&#34;680&#34;
+	srcset=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/11_hu_77a5443946bc7360.png 480w, https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/11_hu_78696167a10e1806.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;败者树&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;125&#34;
+		data-flex-basis=&#34;300px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;置换-选择排序
+设初始待排文件为 FI ，初始归并段输出文件为 FO ，内存工作区为 WA ，FO 和 WA 的初始状态为空，WA 可容纳 w 个记录。置换-选择算法的步骤如下：&lt;/p&gt;
+&lt;p&gt;1）从 FI 输入 w 个记录到工作区 WA。
+2）从 WA 中选出其中关键字取最小值的记录，记为 MINIMAX 记录。
+3）将 MINIMAX 记录输出到 FO 中去。
+4）若 FI 不空，则从 FI 输入下一个记录到 WA 中。
+5）从 WA 中所有关键字比 MINIMAX 记录的关键字大的记录中选出最小关键字记录，作为新的 MINIMAX 记录。
+6）重复3）～5），直至在 WA 中选不出新的 MINIMAX 记录为止，由此得到一个初始归并段，输出一个归并段的结束标志到 FO 中去。
+7）重复2）～6），直至 WA 为空。由此得到全部初始归并段。
+&lt;img src=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/12.jpg&#34;
+	width=&#34;571&#34;
+	height=&#34;875&#34;
+	srcset=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/12_hu_d9339524d9ea49b8.jpg 480w, https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/12_hu_61215ba0101bd59a.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;置换-选择排序&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;65&#34;
+		data-flex-basis=&#34;156px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;归并树
+&lt;img src=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/13.png&#34;
+	width=&#34;940&#34;
+	height=&#34;473&#34;
+	srcset=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/13_hu_a911f64e5a868f67.png 480w, https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/13_hu_9af02cccaa4ffe31.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;归并树&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;198&#34;
+		data-flex-basis=&#34;476px&#34;
+	
+&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 </description>

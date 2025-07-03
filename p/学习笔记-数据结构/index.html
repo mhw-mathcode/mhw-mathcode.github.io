@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="1. 线性表 数据结构三要素：逻辑结构、数据的运算、存储结构。\n线性表是具有相同数据类型的n(n&gt;=0)个数据元素的有限序列。（逻辑结构）\n基本操作：创建、销毁、插入、删除、按值查找、按位查找。\n">
-<title>学习笔记 数据结构</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="The process of studying data structure">
+<title>学习笔记-数据结构</title>
 
 <link rel='canonical' href='https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/'>
 
-<link rel="stylesheet" href="/scss/style.min.105dce95dc14b9d77d38e8fff8fcdc39d6e977526467d96fa320b7a7de9fe674.css"><meta property='og:title' content="学习笔记 数据结构">
-<meta property='og:description' content="1. 线性表 数据结构三要素：逻辑结构、数据的运算、存储结构。\n线性表是具有相同数据类型的n(n&gt;=0)个数据元素的有限序列。（逻辑结构）\n基本操作：创建、销毁、插入、删除、按值查找、按位查找。\n">
+<link rel="stylesheet" href="/scss/style.min.105dce95dc14b9d77d38e8fff8fcdc39d6e977526467d96fa320b7a7de9fe674.css"><meta property='og:title' content="学习笔记-数据结构">
+<meta property='og:description' content="The process of studying data structure">
 <meta property='og:url' content='https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/'>
 <meta property='og:site_name' content='mhw'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-06-22T11:50:20&#43;08:00'/><meta property='article:modified_time' content='2025-07-03T03:02:37&#43;00:00'/>
-<meta name="twitter:title" content="学习笔记 数据结构">
-<meta name="twitter:description" content="1. 线性表 数据结构三要素：逻辑结构、数据的运算、存储结构。\n线性表是具有相同数据类型的n(n&gt;=0)个数据元素的有限序列。（逻辑结构）\n基本操作：创建、销毁、插入、删除、按值查找、按位查找。\n">
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Data structure' /><meta property='article:published_time' content='2025-06-22T11:50:20&#43;08:00'/><meta property='article:modified_time' content='2025-07-03T03:09:58&#43;00:00'/>
+<meta name="twitter:title" content="学习笔记-数据结构">
+<meta name="twitter:description" content="The process of studying data structure">
     <link rel="shortcut icon" href="/favicon.ico" />
 
     </head>
@@ -264,12 +264,24 @@
 
     <div class="article-details">
     
+    <header class="article-category">
+        
+            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" >
+                学习笔记
+            </a>
+        
+    </header>
+    
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">学习笔记 数据结构</a>
+            <a href="/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">学习笔记-数据结构</a>
         </h2>
     
+        
+        <h3 class="article-subtitle">
+            The process of studying data structure
+        </h3>
         
     </div>
 
@@ -584,12 +596,12 @@
 顶点的度 = 入度 + 出度
 简单路径：顶点不重复出现；简单回路：除了头顶点和尾顶点，其余顶点里不出现重复的顶点。</p>
 <p>连通性：无向图中，$v — … — w$ （v，w之间是连通的）；
-强连通性：有向图中，既有$v \rightarrow … \rightarrow w$ ，又有 $v \leftarrow … \leftarrow w$ ，（v，w 之间是强连通的）。</p>
-<p>连通图：在无向图中，任意两个点连通；
+强连通性：有向图中，既有$v \rightarrow … \rightarrow w$ ，又有 $v \leftarrow … \leftarrow w$ ，（v，w 之间是强连通的）。
+连通图：在无向图中，任意两个点连通；
 强连通图：在有向图中，任意两个点强连通。最少有 n 条边（形成回路）。</p>
 <p>子图：部分点集+部分边集，每条边的两个点一定存在。
-生成子图：子图包含原图的所有顶点，可以去掉一些边。</p>
-<p>连通分量：在无向图中极大的连通子图
+生成子图：子图包含原图的所有顶点，可以去掉一些边。
+连通分量：在无向图中极大的连通子图
 强连通分量：在有向图中极大的强连通子图</p>
 <p>生成树：对于连通图，包含图中所有顶点的极小连通子图
 生成森林：对于非连通图，各连通分量的生成树组成了生成森林</p>
@@ -1061,6 +1073,12 @@
 
     <footer class="article-footer">
     
+    <section class="article-tags">
+        
+            <a href="/tags/data-structure/">Data Structure</a>
+        
+    </section>
+
 
     <section class="article-lastmod">
         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -1072,7 +1090,7 @@
 
 
         <span>
-            最后更新于 2025-07-03 03:02 CST
+            最后更新于 2025-07-03 03:09 CST
         </span>
     </section></footer>
 
@@ -1107,6 +1125,41 @@
     
 
     
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">学习笔记-操作系统</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">学习笔记-机器学习</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
 
      
     

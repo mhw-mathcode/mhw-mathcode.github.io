@@ -7,7 +7,7 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>mhw-mathcode</copyright><atom:link href="https://mhw-mathcode.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>学习笔记 数据结构</title>
+        <title>学习笔记-数据结构</title>
         <link>https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</link>
         <pubDate>Sun, 22 Jun 2025 11:50:20 +0800</pubDate>
         
@@ -291,12 +291,12 @@
 顶点的度 = 入度 + 出度
 简单路径：顶点不重复出现；简单回路：除了头顶点和尾顶点，其余顶点里不出现重复的顶点。&lt;/p&gt;
 &lt;p&gt;连通性：无向图中，$v — … — w$ （v，w之间是连通的）；
-强连通性：有向图中，既有$v \rightarrow … \rightarrow w$ ，又有 $v \leftarrow … \leftarrow w$ ，（v，w 之间是强连通的）。&lt;/p&gt;
-&lt;p&gt;连通图：在无向图中，任意两个点连通；
+强连通性：有向图中，既有$v \rightarrow … \rightarrow w$ ，又有 $v \leftarrow … \leftarrow w$ ，（v，w 之间是强连通的）。
+连通图：在无向图中，任意两个点连通；
 强连通图：在有向图中，任意两个点强连通。最少有 n 条边（形成回路）。&lt;/p&gt;
 &lt;p&gt;子图：部分点集+部分边集，每条边的两个点一定存在。
-生成子图：子图包含原图的所有顶点，可以去掉一些边。&lt;/p&gt;
-&lt;p&gt;连通分量：在无向图中极大的连通子图
+生成子图：子图包含原图的所有顶点，可以去掉一些边。
+连通分量：在无向图中极大的连通子图
 强连通分量：在有向图中极大的强连通子图&lt;/p&gt;
 &lt;p&gt;生成树：对于连通图，包含图中所有顶点的极小连通子图
 生成森林：对于非连通图，各连通分量的生成树组成了生成森林&lt;/p&gt;

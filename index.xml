@@ -7,6 +7,14 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>mhw-mathcode</copyright><atom:link href="https://mhw-mathcode.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>学习笔记-计算机网络</title>
+        <link>https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</link>
+        <pubDate>Fri, 04 Jul 2025 21:04:41 +0800</pubDate>
+        
+        <guid>https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</guid>
+        <description></description>
+        </item>
+        <item>
         <title>学习笔记-数据结构</title>
         <link>https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</link>
         <pubDate>Sun, 22 Jun 2025 11:50:20 +0800</pubDate>
@@ -771,6 +779,229 @@
         
         <guid>https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</guid>
         <description>&lt;p&gt;开个坑，主要是记录后续复习操作系统的一些笔记与完成 6.S081 课程的 lab 。&lt;/p&gt;
+&lt;h2 id=&#34;1-概述&#34;&gt;1. 概述
+&lt;/h2&gt;&lt;p&gt;操作系统的定义：操作系统是一组&lt;strong&gt;控制和管理&lt;/strong&gt;计算机软硬件资源，合理地&lt;strong&gt;组织&lt;/strong&gt;多道程序的运行，方便用户使用的程序的集合。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;操作系统是系统资源的管理者（处理机管理，存储器管理，文件管理，设备管理）；&lt;/li&gt;
+&lt;li&gt;操作系统要向上提供方便易用的服务（GUI 接口，联机命令接口 = 交互式命令接口， 脱机命令接口 = 批处理命令接口，程序接口）；&lt;/li&gt;
+&lt;li&gt;操作系统是最接近硬件的一层软件。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;简述操作系统的基本特征：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;并发：指两个或多个事件在同一时间间隔内发生。宏观上同时发生，微观上交替发生。（并发 vs 并行）&lt;/li&gt;
+&lt;li&gt;共享：系统中的资源可被多个并发执行的进程共同使用。并发性与共享性互为存在条件。&lt;/li&gt;
+&lt;li&gt;虚拟：将物理实体映射成若干个逻辑设备。没有并发性，实现虚拟性就没有意义。（虚拟处理器技术：时分复用技术；虚拟存储器技术：空分复用技术）&lt;/li&gt;
+&lt;li&gt;异步：多道程序下，由于资源有限，进程的执行是走走停停，以不可预知的速度向前推进。只有系统拥有并发性，才有可能导致异步性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;操作系统的运行机制：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;内核程序 vs 应用程序
+CPU 执行的程序分为两种：操作系统内核程序、用户程序；
+内核是操作系统最基础、核心的那部分；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;特权指令 vs 非特权指令
+内核程序，在计算机中的地位充当管理程序 ，所以可以执行特权指令；
+用户程序，在计算机中的地位充当被管理程序 ，出于安全考虑只能执行非特权指令；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;内核态 vs 用户态
+【问题】CPU 可以区分特权指令和非特权指令 ，但是 CPU 无法识别正在执行的指令是应用程序的指令，还是内核程序的指令。
+答：为了让 CPU 能够区分应用程序和内核程序 ，CPU会被划分为两种状态：内核态和用户态。&lt;/p&gt;
+&lt;p&gt;内核态 - 内核程序 - 可以执行特权指令；
+用户态 - 应用程序 - 只能执行非特权指令；&lt;/p&gt;
+&lt;p&gt;CPU使用程序状态字寄存器（PSW） 实现对CPU状态的标记。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;如何变态 ？
+内核态转向用户态：执行一条特权指令，修改 PSW 的标志位为用户态；
+用户态转向内核态：由&lt;strong&gt;中断&lt;/strong&gt;引发，硬件自动完成变态过程；&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;中断与异常：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;中断的作用：让操作系统内核强行夺回 CPU 控制权；使 CPU 从用户态变为内核态。（没有中断就无法实现并发）&lt;/li&gt;
+&lt;li&gt;分类：
+&lt;img src=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/1.png&#34;
+	width=&#34;1081&#34;
+	height=&#34;578&#34;
+	srcset=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/1_hu_ead3e0e924f55276.png 480w, https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/1_hu_b4fea16bbcb9f663.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;中断与异常&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;187&#34;
+		data-flex-basis=&#34;448px&#34;
+	
+&gt;&lt;/li&gt;
+&lt;li&gt;中断机制的基本原理：不同的中断信号，需要查询“中断信号表”来找到不同的中断处理程序来处理。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;系统调用：是操作系统提供给用户程序使用的接口，可以理解为一种特殊函数，应用程序可以通过系统调用来请求获得操作系统内核的服务。凡是与共享资源有关的操作，都必须通过系统调用的方式向操作系统内核提出服务请求。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;过程：
+&lt;ul&gt;
+&lt;li&gt;一个应用程序运行在用户态，那么它的指令会CPU被一条条执行；&lt;/li&gt;
+&lt;li&gt;当他想发出系统调用的时候，他需要&lt;strong&gt;传参指令&lt;/strong&gt;给CPU的寄存器传入某个参数，这个参数指明要进行哪种系统调用；传参指令可能多条，主要看需要的系统调用要求几个参数；&lt;/li&gt;
+&lt;li&gt;当参数都传入寄存器之后，用户程序就会执行&lt;strong&gt;陷入指令&lt;/strong&gt;，这个陷入指令得到执行会引发一个内中断；&lt;/li&gt;
+&lt;li&gt;CPU 检测到内部中断，发现这个内中断是由 &lt;strong&gt;trap 指令&lt;/strong&gt;引起的，就会暂停处理应用程序，转入相应的中断处理程序；&lt;/li&gt;
+&lt;li&gt;CPU 转为内核态，&lt;strong&gt;处理系统调用入口程序&lt;/strong&gt;，根据参数判断需要哪种系统调用；对应系统调用的处理程序根据传入的其它参数，看看用户程序需要哪些具体服务；&lt;/li&gt;
+&lt;li&gt;系统调用处理完，CPU切换为用户态，继续之前的用户程序。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;操作系统的体系结构：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;操作系统的内核
+&lt;img src=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/2.png&#34;
+	width=&#34;1063&#34;
+	height=&#34;534&#34;
+	srcset=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/2_hu_46d683e60773cba9.png 480w, https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/2_hu_867744d52652fd16.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;操作系统的内核&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;199&#34;
+		data-flex-basis=&#34;477px&#34;
+	
+&gt;&lt;/li&gt;
+&lt;li&gt;大内核与微内核
+&lt;img src=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/3.png&#34;
+	width=&#34;822&#34;
+	height=&#34;332&#34;
+	srcset=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/3_hu_9db5b6c9b3d2f826.png 480w, https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/3_hu_9a944c78eade466.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;大内核与微内核&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;247&#34;
+		data-flex-basis=&#34;594px&#34;
+	
+&gt;&lt;/li&gt;
+&lt;li&gt;分层结构：每一层只能调用更低、相邻的那一层提供的功能接口；&lt;/li&gt;
+&lt;li&gt;模块化：将操作系统分成多个模块，各模块之间协调工作；&lt;/li&gt;
+&lt;li&gt;外核：用户直接使用硬件资源。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;开机过程：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;操作系统要启动运行，操作系统的数据就需要被放进主存里面；计算机的主存，由 RAM 和 ROM 组成；ROM 存储芯片里存储 BIOS（基本输入输出系统），BIOS 里包含 ROM 引导程序。&lt;/li&gt;
+&lt;li&gt;CPU 从一个特定主存地址开始，取指令，执行 ROM 中的引导程序（先进行硬件自检，再开机）；&lt;/li&gt;
+&lt;li&gt;ROM 引导程序指示 CPU 将磁盘的第一块&amp;ndash;主引导记录读入内存，执行磁盘引导程序，扫描分区表；&lt;/li&gt;
+&lt;li&gt;磁盘引导程序会根据分区表去找到C盘的位置，之后 CPU 读入 C 盘的引导记录 PBR。PBR 本身也是一种程序，CPU 就执行 PBR 里的程序，PBR 程序的主要作用就是找到启动管理器。启动管理器是在根目录里的一个程序，找到启动管理器，CPU 运行它，就开始了操作系统初始化的一系列操作。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;2-进程与线程&#34;&gt;2. 进程与线程
+&lt;/h2&gt;&lt;h3 id=&#34;21-进程与线程&#34;&gt;2.1 进程与线程
+&lt;/h3&gt;&lt;p&gt;进程是进程实体的运行过程，是系统进行资源分配和调度的一个独立单位；&lt;/p&gt;
+&lt;p&gt;​进程实体包括：PCB + 程序段 + 数据段 三部分；&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;PCB：进程描述信息（PID，UID）、进程控制和管理信息、资源分配信息；&lt;/li&gt;
+&lt;li&gt;程序段：程序的代码；&lt;/li&gt;
+&lt;li&gt;数据段：运行过程中出生的各种数据。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;进程的特征：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;动态性：进程是程序的一次执行过程，是动态地产生、变化和消亡的；&lt;/li&gt;
+&lt;li&gt;并发性：内存中有多个进程实体，各进程可并发执行；&lt;/li&gt;
+&lt;li&gt;独立性：进程是能独立运行、独立获得资源、独立接受调度的基本单位；&lt;/li&gt;
+&lt;li&gt;异步性：各进程按各自独立的、不可预知的速度向前推进，操作系统要提供“进程同步机制&amp;quot;来解决异步问题；&lt;/li&gt;
+&lt;li&gt;结构性：每个进程都会配置一个PCB。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;进程的状态与转换：
+&lt;img src=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4.png&#34;
+	width=&#34;1340&#34;
+	height=&#34;751&#34;
+	srcset=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4_hu_6c47587e6f604052.png 480w, https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/4_hu_d0d533a934efe671.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;进程的状态与转换&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;178&#34;
+		data-flex-basis=&#34;428px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;进程的组织方式：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;链接方式：将同一状态的 PCB 链接成一个链表；&lt;/li&gt;
+&lt;li&gt;索引方式：将同一状态的进程组织在一个索引表中，索引表的表项指向相应的 PCB。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;进程的控制：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;进程的创建&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;申请空白 PCB；&lt;/li&gt;
+&lt;li&gt;为新进程分配所需资源；&lt;/li&gt;
+&lt;li&gt;初始化 PCB；&lt;/li&gt;
+&lt;li&gt;将 PCB 插入就绪队列；&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;进程的终止&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;从 PCB 集中中找到终止进程的 PCB；&lt;/li&gt;
+&lt;li&gt;若进程正在运行，立刻剥夺 CPU， 将 CPU 分配给其它进程；&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;进程的阻塞&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;找到要阻塞的进程对应的 PCB；&lt;/li&gt;
+&lt;li&gt;保护进程运行现场，将 PCB 状态信息设置为 阻塞态，暂时停止进程执行；&lt;/li&gt;
+&lt;li&gt;将 PCB 插入相应事件的等待队列；&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;进程的唤醒&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;在事件等待队列中找到PCB；&lt;/li&gt;
+&lt;li&gt;将 PCB 从等待队列移除，设置进程为就绪态；&lt;/li&gt;
+&lt;li&gt;将 PCB 插入就绪队列，等待被调度；&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;进程状态的切换&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;将运行环境信息存入 PCB；&lt;/li&gt;
+&lt;li&gt;PCB 移入相应队列；&lt;/li&gt;
+&lt;li&gt;选择另一个进程执行，并更新其 PCB；&lt;/li&gt;
+&lt;li&gt;根据 PCB 回复新进程所需的运行环境；&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;进程的通信&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;共享存储：相互通信的进程互斥地共享某些数据结构或存储区，进程之间能够通过这些空间进行通信；&lt;/li&gt;
+&lt;li&gt;消息传递：进程之间的数据交换以格式化的信息为单位，将通信的数据封装在信息中，并利用操作系统提供的一组通信命令（原语），在进程间进行信息传递，完成进程间的数据交换；
+&lt;ul&gt;
+&lt;li&gt;直接通信方式：送货上门&lt;/li&gt;
+&lt;li&gt;间接通信方式：快递到驿站&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;管道通信&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;线程：减少程序在并发执行时所付出的时间开销，提高 OS 的并发性能；引入线程后，进程是资源分配的基本单位，线程是调度的基本单位。线程的实现方式包括用户级线程与内核级线程。TCB 线程控制块；TID 线程标识符。&lt;/p&gt;
+&lt;h3 id=&#34;22-处理机调度&#34;&gt;2.2 处理机调度
+&lt;/h3&gt;&lt;p&gt;处理机调度：进程数 &amp;gt; 处理机个数，需要对处理机进行分配。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/5.png&#34;
+	width=&#34;1271&#34;
+	height=&#34;579&#34;
+	srcset=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/5_hu_b737851000d516bc.png 480w, https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/5_hu_827e6aa394d3703f.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;三层调度&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;219&#34;
+		data-flex-basis=&#34;526px&#34;
+	
+&gt;&lt;/p&gt;
 </description>
         </item>
         <item>

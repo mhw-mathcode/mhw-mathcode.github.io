@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="">
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="The process of studying computer network">
 <title>学习笔记-计算机网络</title>
 
 <link rel='canonical' href='https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/'>
 
 <link rel="stylesheet" href="/scss/style.min.105dce95dc14b9d77d38e8fff8fcdc39d6e977526467d96fa320b7a7de9fe674.css"><meta property='og:title' content="学习笔记-计算机网络">
-<meta property='og:description' content="">
+<meta property='og:description' content="The process of studying computer network">
 <meta property='og:url' content='https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/'>
 <meta property='og:site_name' content='mhw'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-07-04T21:04:41&#43;08:00'/><meta property='article:modified_time' content='2025-07-04T13:08:34&#43;00:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Computer network' /><meta property='article:published_time' content='2025-07-04T21:04:41&#43;08:00'/><meta property='article:modified_time' content='2025-07-07T00:26:48&#43;00:00'/>
 <meta name="twitter:title" content="学习笔记-计算机网络">
-<meta name="twitter:description" content="">
+<meta name="twitter:description" content="The process of studying computer network">
     <link rel="shortcut icon" href="/favicon.ico" />
 
     </head>
@@ -203,7 +203,40 @@
     </ol>
 </aside>
 
-    
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-计算机网络体系结构">1. 计算机网络体系结构</a></li>
+    <li><a href="#2-物理层">2. 物理层</a></li>
+    <li><a href="#3-数据链路层">3. 数据链路层</a></li>
+  </ul>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
 
             <main class="main full-width">
     <article class="main-article">
@@ -211,12 +244,24 @@
 
     <div class="article-details">
     
+    <header class="article-category">
+        
+            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" >
+                学习笔记
+            </a>
+        
+    </header>
+    
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
             <a href="/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">学习笔记-计算机网络</a>
         </h2>
     
+        
+        <h3 class="article-subtitle">
+            The process of studying computer network
+        </h3>
         
     </div>
 
@@ -252,12 +297,171 @@
     <section class="article-content">
     
     
-    
+    <h2 id="1-计算机网络体系结构">1. 计算机网络体系结构
+</h2><p>计算机网络：一些互联的、自治的计算机系统的集合。功能：数据通信、资源共享。</p>
+<p>OSI：应用层，表示层，会话层，传输层，网络层，链路层，物理层。
+TCP/IP：应用层，传输层，网络层，链路层，物理层。</p>
+<p>五层模型：
+<img src="/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/1.png"
+	width="1318"
+	height="742"
+	srcset="/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/1_hu_76435d5e94e798c1.png 480w, /p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/1_hu_e5e7f8b88c3f1366.png 1024w"
+	loading="lazy"
+	
+		alt="五层模型"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="177"
+		data-flex-basis="426px"
+	
+></p>
+<h2 id="2-物理层">2. 物理层
+</h2><p>三种通信方式：单工通信、半双工通信、全双工通信。</p>
+<p>同步通信：同步通信双方必须先建立同步，即双方的时钟要调整到同一个频率。收发双方不停的发送和接收连续的同步比特流。
+异步通信：发送字符之间的时间间隔可以是任意的，但接收端必须时刻做好接收的准备。</p>
+<p>数据交换方式：</p>
+<ul>
+<li>电路交换：​ 整个报文段的比特流从源点连续的直达终点，专用物理连接线路，直到传输结束。包含建立连接、通信、释放连接三个阶段。</li>
+<li>报文交换：将整个数据报发到相邻节点，全部存储下来，查找转发表，转发到下一个节点。</li>
+<li>分组交换：把报文分组转发到相邻节点，查找转发表，转发到下一个节点。
+<img src="/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/2.png"
+	width="1359"
+	height="647"
+	srcset="/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/2_hu_6c924bf19a3d0fd7.png 480w, /p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/2_hu_9684712f9a7ec029.png 1024w"
+	loading="lazy"
+	
+		alt="方式的选择"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="210"
+		data-flex-basis="504px"
+	
+></li>
+</ul>
+<h2 id="3-数据链路层">3. 数据链路层
+</h2><p>数据链路层在物理层提供服务的基础上向网络层提供服务，其最基本的服务是将来自网络层的数据可靠地传输到相邻节点的目标机网络层。其主要作用是加强物理层传输原始比特流的功能，将物理层提供的可能出错的物理连接改造成为逻辑上无差错的数据链路，使之对网络层表现为一条无差错的链路。</p>
+<p>数据链路层的五大功能：</p>
+<ul>
+<li>为网络层提供服务</li>
+<li>链路管理：链路的建立、维持和释放</li>
+<li>组帧：网络层交付下来的数据包叫做分组 ，数据链路层需要对分组封装成帧 ，帧是数据量链路层传输的基本单位；</li>
+<li>流量控制：发送方、接收方之间传输速率和接收速率的差异较大，需要通过控制发送方来达到可靠数据传输；</li>
+<li>差错控制：帧在传输过程中出现错误，有位错和帧错，差错控制负责发现错误，解决错误。</li>
+</ul>
+<p>组帧：</p>
+<ul>
+<li>数据帧是数据链路层的基本传输单位，帧 = 帧首部 + IP数据报 + 帧尾部；数据链路层把帧（比特组）做为传输单位，在出错时只需重发出错的帧，而不必重发全部数据。</li>
+</ul>
+<p>差错控制：</p>
+<ul>
+<li>传输中的差错一般都是由于噪声引起的；</li>
+<li>差错类型：
+<ul>
+<li>位错：比特位出错；</li>
+<li>帧错：帧丢失（重传）、帧重复和帧失序（帧序号）；</li>
+</ul>
+</li>
+<li>检错编码：奇偶校验码、循环冗余码（CRC）</li>
+<li>纠错编码：海明码</li>
+</ul>
+<p>流量控制：</p>
+<ul>
+<li>流量控制：控制发送速率，使接收方有足够的缓冲空间来接受每一个帧。通常用于解决发送较快、接收较慢而造成的传输错误。
+<ul>
+<li>数据链路层的流量控制手段：接收方收不下就不回复确认；</li>
+<li>传输层的流量控制手段：接收方给发送方一个窗口公告。</li>
+</ul>
+</li>
+<li>流量控制的方法：
+<ul>
+<li>停止-等待协议：发送方每发一个帧就会停止发送，等待对方的确认信号（ACK），然后再发送下一个帧。</li>
+<li>滑动窗口协议：
+<ul>
+<li>后退 N 帧协议（GBN）<img src="/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/3.png"
+	width="1367"
+	height="764"
+	srcset="/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/3_hu_2f082a62928d896d.png 480w, /p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/3_hu_ae5fb48279db0572.png 1024w"
+	loading="lazy"
+	
+		alt="GBN（数字前面都加个“第”）"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="178"
+		data-flex-basis="429px"
+	
+></li>
+<li>选择重传协议（SR）<img src="/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/4.png"
+	width="1382"
+	height="767"
+	srcset="/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/4_hu_d144459e2e2f4685.png 480w, /p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/4_hu_9b16f328036547fa.png 1024w"
+	loading="lazy"
+	
+		alt="SR（数字前面都加个“第”）"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="180"
+		data-flex-basis="432px"
+	
+></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>介质访问控制：</p>
+<ul>
+<li>介质访问控制：采用一些措施，使得两对结点之间的通信不会互相干扰。
+<img src="/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/5.png"
+	width="1372"
+	height="716"
+	srcset="/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/5_hu_7e84a420c795af9c.png 480w, /p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/5_hu_1a3c3dc6a981db45.png 1024w"
+	loading="lazy"
+	
+		alt="介质访问控制"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="191"
+		data-flex-basis="459px"
+	
+></li>
+<li>CSMA 协议：先听再发。
+CS：载波侦听/监听，每一个站在发送数据之前以及发送数据时都要检测一下总线上是否有其他计算机在发送数据；
+MA：多点接入，表示许多计算机以多点接入的方式连接在一根总线上。</li>
+<li>CSMA/CD 协议：先听再说，边听边说。CD，碰撞检测。</li>
+<li>CSMA/CA 协议：CA，避免碰撞。</li>
+<li>截断二进制指数规避算法：发生碰撞后，什么时候重传？
+<img src="/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/6.png"
+	width="1364"
+	height="681"
+	srcset="/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/6_hu_a4851bc0606c9816.png 480w, /p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/6_hu_373629a727eb9b42.png 1024w"
+	loading="lazy"
+	
+		alt="截断二进制指数规避算法"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="200"
+		data-flex-basis="480px"
+	
+></li>
+</ul>
+
 </section>
 
 
     <footer class="article-footer">
     
+    <section class="article-tags">
+        
+            <a href="/tags/computer-network/">Computer Network</a>
+        
+    </section>
+
 
     <section class="article-lastmod">
         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -269,7 +473,7 @@
 
 
         <span>
-            最后更新于 2025-07-04 13:08 CST
+            最后更新于 2025-07-07 00:26 CST
         </span>
     </section></footer>
 
@@ -304,6 +508,54 @@
     
 
     
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">学习笔记-数据结构</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">学习笔记-操作系统</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">学习笔记-机器学习</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
 
      
     

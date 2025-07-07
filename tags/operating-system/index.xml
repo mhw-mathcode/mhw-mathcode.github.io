@@ -7,7 +7,7 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>mhw-mathcode</copyright>
-        <lastBuildDate>Fri, 04 Jul 2025 13:08:34 +0000</lastBuildDate><atom:link href="https://mhw-mathcode.github.io/tags/operating-system/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Mon, 07 Jul 2025 00:26:48 +0000</lastBuildDate><atom:link href="https://mhw-mathcode.github.io/tags/operating-system/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>学习笔记-操作系统</title>
         <link>https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</link>
         <pubDate>Tue, 17 Jun 2025 18:27:49 +0800</pubDate>
@@ -223,7 +223,8 @@ CPU 执行的程序分为两种：操作系统内核程序、用户程序；
 &lt;p&gt;线程：减少程序在并发执行时所付出的时间开销，提高 OS 的并发性能；引入线程后，进程是资源分配的基本单位，线程是调度的基本单位。线程的实现方式包括用户级线程与内核级线程。TCB 线程控制块；TID 线程标识符。&lt;/p&gt;
 &lt;h3 id=&#34;22-处理机调度&#34;&gt;2.2 处理机调度
 &lt;/h3&gt;&lt;p&gt;处理机调度：进程数 &amp;gt; 处理机个数，需要对处理机进行分配。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/5.png&#34;
+&lt;p&gt;三层调度：
+&lt;img src=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/5.png&#34;
 	width=&#34;1271&#34;
 	height=&#34;579&#34;
 	srcset=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/5_hu_b737851000d516bc.png 480w, https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/5_hu_827e6aa394d3703f.png 1024w&#34;
@@ -237,6 +238,57 @@ CPU 执行的程序分为两种：操作系统内核程序、用户程序；
 		data-flex-basis=&#34;526px&#34;
 	
 &gt;&lt;/p&gt;
+&lt;p&gt;调度算法的评价指标：
+&lt;img src=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/6.png&#34;
+	width=&#34;1158&#34;
+	height=&#34;644&#34;
+	srcset=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/6_hu_da8206864783234d.png 480w, https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/6_hu_5eef6beb66f515b4.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;调度算法的评价指标&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;179&#34;
+		data-flex-basis=&#34;431px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;进程调度：就是按照某种算法从就绪队列中选择一个进程为其分配处理机。进程在操作系统内核程序临界区中不能进行程序调度与切换的情况（普通临界区可以）。&lt;/p&gt;
+&lt;p&gt;调度算法：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;先来先服务（FCFS）：按照进程到达的先后顺序；&lt;/li&gt;
+&lt;li&gt;短作业优先（SJF）：服务时间最短的进程优先；抢占式版本：最短剩余时间优先算法 SRTN；&lt;/li&gt;
+&lt;li&gt;高响应优先（HRRN）：响应比 = (等待时间 + 要求服务时间) / 要求服务时间；&lt;/li&gt;
+&lt;li&gt;时间片轮转调度算法（RR）：根据进程到达就绪队列的顺序，轮流调度；&lt;/li&gt;
+&lt;li&gt;优先级调度算法：调度时选择优先级最高的；&lt;/li&gt;
+&lt;li&gt;多级反馈队列调度算法：设置多级就绪队列；各队列按照 FCFS + 时间片，时间片结束进入下一级队列队尾；只有第 k 级队列为空时，才会为 k+1 级分配时间片。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;同步与互斥：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;同步：并发进程为完成同一任务所进行的工作顺序协调；&lt;/li&gt;
+&lt;li&gt;互斥：并发进程为竞争临界资源所进行的资源分时占用。&lt;/li&gt;
+&lt;li&gt;进程互斥遵循的原则：
+&lt;ul&gt;
+&lt;li&gt;空闲让进：临界区空闲时，应允许一个进程访问&lt;/li&gt;
+&lt;li&gt;忙则等待：临界区正在被访问时，其他试图访问的进程需要等待&lt;/li&gt;
+&lt;li&gt;有限等待：要在有限时间内进入临界区，保证不会饥饿&lt;/li&gt;
+&lt;li&gt;让权等待：进不了临界区的进程，要释放处理机，防止忙等&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;互斥锁&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;互斥锁填充采用硬件来实现获得锁、释放锁的原子性；每个互斥锁有一个布尔变量 available ，表示锁释放可用；&lt;/li&gt;
+&lt;li&gt;特点：忙等，违反了让权等待；等待代价较低。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;信号量&lt;/p&gt;
+&lt;p&gt;管程&lt;/p&gt;
+&lt;p&gt;经典同步问题&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;生产者 - 消费者问题&lt;/li&gt;
+&lt;li&gt;读者 - 写者问题&lt;/li&gt;
+&lt;li&gt;哲学家进餐问题&lt;/li&gt;
+&lt;/ul&gt;
 </description>
         </item>
         

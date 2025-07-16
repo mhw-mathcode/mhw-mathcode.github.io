@@ -7,13 +7,14 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>mhw-mathcode</copyright>
-        <lastBuildDate>Wed, 16 Jul 2025 13:27:28 +0000</lastBuildDate><atom:link href="https://mhw-mathcode.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Wed, 16 Jul 2025 13:29:46 +0000</lastBuildDate><atom:link href="https://mhw-mathcode.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>学习笔记-数学合集（高等数学、线性代数、概率论）</title>
         <link>https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%A6%E5%90%88%E9%9B%86%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%A6%82%E7%8E%87%E8%AE%BA/</link>
         <pubDate>Wed, 16 Jul 2025 21:09:56 +0800</pubDate>
         
         <guid>https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%A6%E5%90%88%E9%9B%86%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%A6%82%E7%8E%87%E8%AE%BA/</guid>
-        <description>&lt;p&gt;&lt;img src=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%A6%E5%90%88%E9%9B%86%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%A6%82%E7%8E%87%E8%AE%BA/1.jpg&#34;
+        <description>&lt;h2 id=&#34;高数&#34;&gt;高数
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%A6%E5%90%88%E9%9B%86%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%A6%82%E7%8E%87%E8%AE%BA/1.jpg&#34;
 	width=&#34;1280&#34;
 	height=&#34;1942&#34;
 	srcset=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%A6%E5%90%88%E9%9B%86%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%A6%82%E7%8E%87%E8%AE%BA/1_hu_9d9f5df2e5c78b11.jpg 480w, https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%A6%E5%90%88%E9%9B%86%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%A6%82%E7%8E%87%E8%AE%BA/1_hu_4655dc7bc72fd09.jpg 1024w&#34;
@@ -55,7 +56,8 @@
 		data-flex-basis=&#34;170px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%A6%E5%90%88%E9%9B%86%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%A6%82%E7%8E%87%E8%AE%BA/4.jpg&#34;
+&lt;h2 id=&#34;线性代数&#34;&gt;线性代数
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%A6%E5%90%88%E9%9B%86%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%A6%82%E7%8E%87%E8%AE%BA/4.jpg&#34;
 	width=&#34;1279&#34;
 	height=&#34;1843&#34;
 	srcset=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%A6%E5%90%88%E9%9B%86%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%A6%82%E7%8E%87%E8%AE%BA/4_hu_6760b319fd59fc39.jpg 480w, https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%A6%E5%90%88%E9%9B%86%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%A6%82%E7%8E%87%E8%AE%BA/4_hu_f36083e7afb00fb0.jpg 1024w&#34;
@@ -97,7 +99,8 @@
 		data-flex-basis=&#34;168px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%A6%E5%90%88%E9%9B%86%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%A6%82%E7%8E%87%E8%AE%BA/7.jpg&#34;
+&lt;h2 id=&#34;概率论&#34;&gt;概率论
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%A6%E5%90%88%E9%9B%86%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%A6%82%E7%8E%87%E8%AE%BA/7.jpg&#34;
 	width=&#34;1280&#34;
 	height=&#34;1811&#34;
 	srcset=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%A6%E5%90%88%E9%9B%86%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%A6%82%E7%8E%87%E8%AE%BA/7_hu_613b02af2b5b9e28.jpg 480w, https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%A6%E5%90%88%E9%9B%86%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%A6%82%E7%8E%87%E8%AE%BA/7_hu_f92d0bb21809c890.jpg 1024w&#34;

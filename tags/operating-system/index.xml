@@ -7,7 +7,7 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>mhw-mathcode</copyright>
-        <lastBuildDate>Mon, 07 Jul 2025 00:26:48 +0000</lastBuildDate><atom:link href="https://mhw-mathcode.github.io/tags/operating-system/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Wed, 16 Jul 2025 12:53:08 +0000</lastBuildDate><atom:link href="https://mhw-mathcode.github.io/tags/operating-system/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>学习笔记-操作系统</title>
         <link>https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</link>
         <pubDate>Tue, 17 Jun 2025 18:27:49 +0800</pubDate>
@@ -209,7 +209,7 @@ CPU 执行的程序分为两种：操作系统内核程序、用户程序；
 &lt;li&gt;选择另一个进程执行，并更新其 PCB；&lt;/li&gt;
 &lt;li&gt;根据 PCB 回复新进程所需的运行环境；&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;进程的通信&lt;/p&gt;
+&lt;p&gt;进程的通信：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;共享存储：相互通信的进程互斥地共享某些数据结构或存储区，进程之间能够通过这些空间进行通信；&lt;/li&gt;
 &lt;li&gt;消息传递：进程之间的数据交换以格式化的信息为单位，将通信的数据封装在信息中，并利用操作系统提供的一组通信命令（原语），在进程间进行信息传递，完成进程间的数据交换；
@@ -276,19 +276,150 @@ CPU 执行的程序分为两种：操作系统内核程序、用户程序；
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;互斥锁&lt;/p&gt;
+&lt;p&gt;互斥锁：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;互斥锁填充采用硬件来实现获得锁、释放锁的原子性；每个互斥锁有一个布尔变量 available ，表示锁释放可用；&lt;/li&gt;
 &lt;li&gt;特点：忙等，违反了让权等待；等待代价较低。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;信号量&lt;/p&gt;
-&lt;p&gt;管程&lt;/p&gt;
-&lt;p&gt;经典同步问题&lt;/p&gt;
+&lt;p&gt;信号量：&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;生产者 - 消费者问题&lt;/li&gt;
-&lt;li&gt;读者 - 写者问题&lt;/li&gt;
-&lt;li&gt;哲学家进餐问题&lt;/li&gt;
+&lt;li&gt;信号量机制的概念：把系统中的资源抽象化为变量，信号量记录着资源数；提供一对原语 wait(S) 和 signal(S) 来保证对信号量 S 操作的原子性（wait、signal 操作常被成为 P、V 原语）。&lt;/li&gt;
+&lt;li&gt;类别：
+&lt;ul&gt;
+&lt;li&gt;整型信号量：用一个整数型变量作为信号量，用来表示系统中某种资源的数量。但是不满足让权等待原则。&lt;/li&gt;
+&lt;li&gt;记录型信号量
+&lt;img src=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/7.png&#34;
+	width=&#34;1335&#34;
+	height=&#34;745&#34;
+	srcset=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/7_hu_ddf1ed0dac0b443d.png 480w, https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/7_hu_f7d00874cf372e51.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;记录型信号量&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;179&#34;
+		data-flex-basis=&#34;430px&#34;
+	
+&gt;&lt;/li&gt;
 &lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;使用：
+&lt;ul&gt;
+&lt;li&gt;实现进程互斥；&lt;/li&gt;
+&lt;li&gt;实现进程同步；&lt;/li&gt;
+&lt;li&gt;实现前驱关系。
+&lt;img src=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/8.png&#34;
+	width=&#34;1337&#34;
+	height=&#34;724&#34;
+	srcset=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/8_hu_b4c55380422bb06e.png 480w, https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/8_hu_93ab1c3f24738b1f.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;信号量的使用&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;184&#34;
+		data-flex-basis=&#34;443px&#34;
+	
+&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;经典同步问题：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;生产者-消费者问题
+&lt;img src=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/10.png&#34;
+	width=&#34;1081&#34;
+	height=&#34;598&#34;
+	srcset=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/10_hu_6b334b2ae73a2c56.png 480w, https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/10_hu_d239d178647bde51.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;生产者-消费者问题&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;180&#34;
+		data-flex-basis=&#34;433px&#34;
+	
+&gt;&lt;/li&gt;
+&lt;li&gt;读者-写者问题
+&lt;img src=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/9.png&#34;
+	width=&#34;1226&#34;
+	height=&#34;655&#34;
+	srcset=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/9_hu_b0ff338c83a5bc0c.png 480w, https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/9_hu_8129f8d2a084e12.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;读者-写者问题&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;187&#34;
+		data-flex-basis=&#34;449px&#34;
+	
+&gt;&lt;/li&gt;
+&lt;li&gt;哲学家进餐问题
+&lt;img src=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/11.png&#34;
+	width=&#34;1225&#34;
+	height=&#34;683&#34;
+	srcset=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/11_hu_301471c3961d7b8f.png 480w, https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/11_hu_5dbfd90316c092e2.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;哲学家进餐问题&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;179&#34;
+		data-flex-basis=&#34;430px&#34;
+	
+&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;死锁：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;死锁：各进程互相等待对方的资源，导致各进程都阻塞（资源永远不会释放）。
+特点：至少两个或两个以上的进程同时死锁；处于阻塞态。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;区分&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;饥饿：长期得不到想要的资源（资源会释放，但不会被分配）
+特点：一个进程也可能出现饥饿现象；可能阻塞态（等 IO），也可能就绪态 （等 CPU）。&lt;/li&gt;
+&lt;li&gt;死循环：死锁和饥饿是由资源的不合理分配导致，死循环是由代码逻辑错误导致。&lt;/li&gt;
+&lt;/ul&gt;&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;形成的必要条件：
+&lt;ul&gt;
+&lt;li&gt;互斥条件：只有对互斥资源的争抢才会导致死锁。&lt;/li&gt;
+&lt;li&gt;不可剥夺条件：进程保持的资源只能主动释放，不可强行剥夺。&lt;/li&gt;
+&lt;li&gt;请求和保持条件：保证着某些资源不放的同时，请求别的资源。&lt;/li&gt;
+&lt;li&gt;循环等待条件：存在一种进程资源的循环等待链；循环等待未必死锁，死锁必定循环等待。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;死锁预防：破坏死锁的四个必要条件（完全没有死锁的可能）。&lt;/li&gt;
+&lt;li&gt;死锁避免：避免系统进入不安全状态（有可能死锁，避免陷入死锁）。
+银行家算法 ：在资源分配之前，先判断此次分配是否会导致系统进入 不安全状态 ，再决定是否分配资源。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;3-内存管理&#34;&gt;3. 内存管理
+&lt;/h2&gt;&lt;p&gt;内存的一大作用是缓和 CPU 与硬盘之间的速度矛盾。&lt;/p&gt;
+&lt;p&gt;内存管理任务：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;内存空间的分配与回收&lt;/li&gt;
+&lt;li&gt;内存空间的扩充：从逻辑上对内存空间进行扩充&lt;/li&gt;
+&lt;li&gt;地址转换：逻辑地址与物理地址的转换&lt;/li&gt;
+&lt;li&gt;存储保护：保证各进程在各自存储空间内运行，互不干扰。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;进程运行的基本原理：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;创建进程首先要将程序和数据装入内存；&lt;/li&gt;
+&lt;li&gt;将&lt;strong&gt;用户源程序&lt;/strong&gt;变为&lt;strong&gt;可在内存中执行的程序&lt;/strong&gt;，通常需要以下几个步骤：
+&lt;ul&gt;
+&lt;li&gt;编译：由&lt;strong&gt;编译程序&lt;/strong&gt;将&lt;strong&gt;用户源代码&lt;/strong&gt;编译成&lt;strong&gt;若干个模块&lt;/strong&gt;（机器指令）；&lt;/li&gt;
+&lt;li&gt;链接：由&lt;strong&gt;链接程序&lt;/strong&gt;将编译后形成的一组目标模块及它们所需的&lt;strong&gt;库函数&lt;/strong&gt;链接在一起，形成一个完整的&lt;strong&gt;装入模块&lt;/strong&gt;；&lt;/li&gt;
+&lt;li&gt;装入：由&lt;strong&gt;装入程序&lt;/strong&gt;将&lt;strong&gt;装入模块&lt;/strong&gt;装入内存运行。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;三种&lt;/p&gt;
 </description>
         </item>
         

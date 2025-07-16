@@ -7,7 +7,231 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>mhw-mathcode</copyright>
-        <lastBuildDate>Wed, 16 Jul 2025 12:53:08 +0000</lastBuildDate><atom:link href="https://mhw-mathcode.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Wed, 16 Jul 2025 13:27:28 +0000</lastBuildDate><atom:link href="https://mhw-mathcode.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>学习笔记-数学合集（高等数学、线性代数、概率论）</title>
+        <link>https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%A6%E5%90%88%E9%9B%86%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%A6%82%E7%8E%87%E8%AE%BA/</link>
+        <pubDate>Wed, 16 Jul 2025 21:09:56 +0800</pubDate>
+        
+        <guid>https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%A6%E5%90%88%E9%9B%86%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%A6%82%E7%8E%87%E8%AE%BA/</guid>
+        <description>&lt;p&gt;&lt;img src=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%A6%E5%90%88%E9%9B%86%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%A6%82%E7%8E%87%E8%AE%BA/1.jpg&#34;
+	width=&#34;1280&#34;
+	height=&#34;1942&#34;
+	srcset=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%A6%E5%90%88%E9%9B%86%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%A6%82%E7%8E%87%E8%AE%BA/1_hu_9d9f5df2e5c78b11.jpg 480w, https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%A6%E5%90%88%E9%9B%86%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%A6%82%E7%8E%87%E8%AE%BA/1_hu_4655dc7bc72fd09.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;高数 (1)&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;65&#34;
+		data-flex-basis=&#34;158px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%A6%E5%90%88%E9%9B%86%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%A6%82%E7%8E%87%E8%AE%BA/2.jpg&#34;
+	width=&#34;1280&#34;
+	height=&#34;1906&#34;
+	srcset=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%A6%E5%90%88%E9%9B%86%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%A6%82%E7%8E%87%E8%AE%BA/2_hu_e7522652c9dfce6c.jpg 480w, https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%A6%E5%90%88%E9%9B%86%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%A6%82%E7%8E%87%E8%AE%BA/2_hu_7f5ab5e0cc5860fd.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;高数 (2)&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;67&#34;
+		data-flex-basis=&#34;161px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%A6%E5%90%88%E9%9B%86%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%A6%82%E7%8E%87%E8%AE%BA/3.jpg&#34;
+	width=&#34;1280&#34;
+	height=&#34;1799&#34;
+	srcset=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%A6%E5%90%88%E9%9B%86%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%A6%82%E7%8E%87%E8%AE%BA/3_hu_fd9c33ccbee7ecba.jpg 480w, https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%A6%E5%90%88%E9%9B%86%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%A6%82%E7%8E%87%E8%AE%BA/3_hu_1decd6884df00ba.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;高数 (3)&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;71&#34;
+		data-flex-basis=&#34;170px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%A6%E5%90%88%E9%9B%86%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%A6%82%E7%8E%87%E8%AE%BA/4.jpg&#34;
+	width=&#34;1279&#34;
+	height=&#34;1843&#34;
+	srcset=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%A6%E5%90%88%E9%9B%86%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%A6%82%E7%8E%87%E8%AE%BA/4_hu_6760b319fd59fc39.jpg 480w, https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%A6%E5%90%88%E9%9B%86%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%A6%82%E7%8E%87%E8%AE%BA/4_hu_f36083e7afb00fb0.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;线性代数 (1)&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;69&#34;
+		data-flex-basis=&#34;166px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%A6%E5%90%88%E9%9B%86%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%A6%82%E7%8E%87%E8%AE%BA/5.jpg&#34;
+	width=&#34;1279&#34;
+	height=&#34;1844&#34;
+	srcset=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%A6%E5%90%88%E9%9B%86%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%A6%82%E7%8E%87%E8%AE%BA/5_hu_3f25f6dac394b612.jpg 480w, https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%A6%E5%90%88%E9%9B%86%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%A6%82%E7%8E%87%E8%AE%BA/5_hu_f5a5e90bccdc2d12.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;线性代数 (2)&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;69&#34;
+		data-flex-basis=&#34;166px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%A6%E5%90%88%E9%9B%86%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%A6%82%E7%8E%87%E8%AE%BA/6.jpg&#34;
+	width=&#34;1279&#34;
+	height=&#34;1818&#34;
+	srcset=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%A6%E5%90%88%E9%9B%86%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%A6%82%E7%8E%87%E8%AE%BA/6_hu_61f5e2035f2a15b2.jpg 480w, https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%A6%E5%90%88%E9%9B%86%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%A6%82%E7%8E%87%E8%AE%BA/6_hu_5f7657fda536d93a.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;线性代数 (3)&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;70&#34;
+		data-flex-basis=&#34;168px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%A6%E5%90%88%E9%9B%86%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%A6%82%E7%8E%87%E8%AE%BA/7.jpg&#34;
+	width=&#34;1280&#34;
+	height=&#34;1811&#34;
+	srcset=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%A6%E5%90%88%E9%9B%86%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%A6%82%E7%8E%87%E8%AE%BA/7_hu_613b02af2b5b9e28.jpg 480w, https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%A6%E5%90%88%E9%9B%86%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%A6%82%E7%8E%87%E8%AE%BA/7_hu_f92d0bb21809c890.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;概率论 (1)&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;70&#34;
+		data-flex-basis=&#34;169px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%A6%E5%90%88%E9%9B%86%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%A6%82%E7%8E%87%E8%AE%BA/8.jpg&#34;
+	width=&#34;1279&#34;
+	height=&#34;1684&#34;
+	srcset=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%A6%E5%90%88%E9%9B%86%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%A6%82%E7%8E%87%E8%AE%BA/8_hu_fea0ec7f5f715c19.jpg 480w, https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%A6%E5%90%88%E9%9B%86%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%A6%82%E7%8E%87%E8%AE%BA/8_hu_dc02db0b691573ef.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;概率论 (2)&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;75&#34;
+		data-flex-basis=&#34;182px&#34;
+	
+&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>学习笔记-数据库原理</title>
+        <link>https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86/</link>
+        <pubDate>Fri, 11 Jul 2025 14:41:47 +0800</pubDate>
+        
+        <guid>https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86/</guid>
+        <description>&lt;h2 id=&#34;1-数据库系统概述&#34;&gt;1. 数据库系统概述
+&lt;/h2&gt;&lt;p&gt;数据：描述事物的符号记录&lt;/p&gt;
+&lt;p&gt;数据库：数据库是长期储存在计算机内、有组织的、可共享的大量数据的集合&lt;/p&gt;
+&lt;p&gt;DBMS：数据库管理系统&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;数据源 (DATA SOURCE)：远程数据库的别名&lt;/li&gt;
+&lt;li&gt;ODBC：开发工具访问数据库统一的平台&lt;/li&gt;
+&lt;li&gt;JDBC：Java 数据库连接&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;数据库系统：数据库系统是由数据库、数据库管理系统（及其应用开发工具）、应用程序和数据库管理员（DataBase Administrator, DBA）组成的存储、管理、处理和维护数据的系统&lt;/p&gt;
+&lt;p&gt;数据独立性包括物理独立性和逻辑独立性（本质：希望不管怎么变，想不修改应用程序）&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;物理独立性：指用户的应用程序与数据库中数据的物理存储是相互独立的&lt;/li&gt;
+&lt;li&gt;逻辑独立性：指用户的应用程序与数据库的逻辑结构是相互独立的&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;关系数据库系统采用关系模型作为数据的组织方式&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;关系 (ralation)：一个关系对应通常说的一张表&lt;/li&gt;
+&lt;li&gt;元组 (tuple)：表中的一行即为一个元组&lt;/li&gt;
+&lt;li&gt;属性 (attribute)：表中的一列即为一个属性，给每一个属性起一个名称即为属性名&lt;/li&gt;
+&lt;li&gt;码, 键 (key)：表中的某个属性组，它可以唯一确定一个元组&lt;/li&gt;
+&lt;li&gt;域 (domain)：域是一组具有相同数据类型的值的集合。即某个属性的取值范围&lt;/li&gt;
+&lt;li&gt;分量：元组中的一个属性值&lt;/li&gt;
+&lt;li&gt;关系模式：对关系的描述，一般表示为 关系名 (属性1，属性2，···，属性n)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;数据库系统结构：
+&lt;img src=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86/1.png&#34;
+	width=&#34;960&#34;
+	height=&#34;585&#34;
+	srcset=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86/1_hu_8b3a7e31cfa6310a.png 480w, https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86/1_hu_5e02d34bf3f14d28.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;数据库系统结构&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;164&#34;
+		data-flex-basis=&#34;393px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;模式 (schema)：模式也称逻辑模式，是数据库中全体数据的逻辑结构和特征的描述，是所有用户的公共数据视图。&lt;/p&gt;
+&lt;p&gt;外模式 (external schema)：它是数据库用户能够看见和使用的局部数据的逻辑结构和特征的描述&lt;/p&gt;
+&lt;p&gt;内模式 (internal schema)：一个数据库只有一个内模式。它是数据物理结构和存储方式的描述&lt;/p&gt;
+&lt;h2 id=&#34;2-关系数据库&#34;&gt;2. 关系数据库
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;候选码 (key)：某一属性组的值能唯一地标识一个元组，而其真子集不能，则称该属性组为候选码 (candidate key)&lt;/li&gt;
+&lt;li&gt;主码：若一个关系有多个候选码，则选定其中一个为主码 (primary key)，主码只可以有一个&lt;/li&gt;
+&lt;li&gt;主属性 (prime attribute)：候选码的各个属性称为（主属性）&lt;/li&gt;
+&lt;li&gt;非主属性：不包含在任何候选码中的属性&lt;/li&gt;
+&lt;li&gt;全码 (all key)：关系模式的所有属性是这个关系模式的候选码；&lt;/li&gt;
+&lt;li&gt;代理键 (id，序列号、序号，系统自动生成，自增长)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;关系的完整性：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;实体完整性：若属性 A 是基本关系的主属性，则 A 不能取空值&lt;/li&gt;
+&lt;li&gt;引用完整性&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;关系代数：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;并、交、差&lt;/li&gt;
+&lt;li&gt;选择：选择是在关系 R 中选择满足给定条件的诸元组，记作 $δF(R) = {t|t∈R∩F(t)=&amp;lsquo;真&amp;rsquo;}$。&lt;/li&gt;
+&lt;li&gt;投影：关系 R 上的投影是从 R 中选择出若干属性列组成新的关系，记作 $∏A(R) = {t[A]|t∈R}$。&lt;/li&gt;
+&lt;li&gt;笛卡尔积&lt;/li&gt;
+&lt;li&gt;自然连接、等值连接&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;3-关系数据标准语言sql&#34;&gt;3. 关系数据标准语言SQL
+&lt;/h2&gt;&lt;p&gt;数据定义：模式、表、索引
+数据查询
+数据更新：插入元组、插入子查询结果
+修改数据
+删除数据
+视图：（投影 + 连接）&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;视图能够简化用户的操作（简化操作）&lt;/li&gt;
+&lt;li&gt;视图使用户能以多种角度看待同一数据（多角度）&lt;/li&gt;
+&lt;li&gt;视图对重构数据库提供了一定程度的逻辑独立性（逻辑独立性）&lt;/li&gt;
+&lt;li&gt;视图能对机密数据提供安全保护（安全保护）&lt;/li&gt;
+&lt;li&gt;适当利用视图可以更清晰地表达查询（清晰表达）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;索引：用于优化数据检索性能，支持快速查询、排序、分组和唯一性约束。
+过程与函数：用于封装复杂的操作，提高代码复用性、效率和安全性，实现复杂的业务逻辑。&lt;/p&gt;
+&lt;h2 id=&#34;6-关系数据理论&#34;&gt;6. 关系数据理论
+&lt;/h2&gt;&lt;p&gt;属性闭包&lt;/p&gt;
+&lt;p&gt;阿姆斯特朗公理：自反律、增广律、传递律&lt;/p&gt;
+&lt;p&gt;等价的最少的函数依赖集：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;右边单一化：将每个函数依赖的右边分解为单个属性。&lt;/li&gt;
+&lt;li&gt;左边最小化：对于每个函数依赖 X→A，检查是否可以去掉 X 中的某些属性而不改变函数依赖的语义。&lt;/li&gt;
+&lt;li&gt;去除冗余依赖：检查函数依赖集中是否有冗余的依赖，即去掉某个依赖后，其他依赖是否可以推导出该依赖。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;函数依赖集：它是一组函数依赖的集合，每个函数依赖表示一个属性集合能够唯一确定另一个属性集合。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;第一范式 (1NF)：数据表中每个字段的值必须具有原子性，也就是说数据表中每个字段的值为不可再次拆分的最小数据单元。&lt;/p&gt;
+&lt;p&gt;第二范式 (2NF)：若 $R∈1NF$ ，所有非主键字段，都必须完全依赖主键，不能只依赖主键的一部分。&lt;/p&gt;
+&lt;p&gt;第三范式 (3NF)：若 $R∈2NF$ ，数据表中的所有非主键字段不能依赖于其他非主键字段。&lt;/p&gt;
+&lt;p&gt;BCNF：若 $R∈3NF$ ，并且每个决定方都是超键（超键是一个或一组属性，其值的组合能够唯一标识关系中的每一条记录）。&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>学习笔记-计算机网络</title>
         <link>https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</link>
         <pubDate>Fri, 04 Jul 2025 21:04:41 +0800</pubDate>

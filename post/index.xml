@@ -7,7 +7,7 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>mhw-mathcode</copyright>
-        <lastBuildDate>Wed, 16 Jul 2025 13:29:46 +0000</lastBuildDate><atom:link href="https://mhw-mathcode.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 31 Jul 2025 08:53:41 +0000</lastBuildDate><atom:link href="https://mhw-mathcode.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>学习笔记-数学合集（高等数学、线性代数、概率论）</title>
         <link>https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%A6%E5%90%88%E9%9B%86%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%A6%82%E7%8E%87%E8%AE%BA/</link>
         <pubDate>Wed, 16 Jul 2025 21:09:56 +0800</pubDate>
@@ -408,7 +408,7 @@ MA：多点接入，表示许多计算机以多点接入的方式连接在一根
 &lt;p&gt;顺序表 = 线性表 + 顺序存储（静态分配 or 动态分配）&lt;/p&gt;
 &lt;p&gt;链表 = 线性表 + 链式存储（单链表、双链表、循环单链表、循环双链表、静态链表）&lt;/p&gt;
 &lt;h2 id=&#34;2-栈和队列&#34;&gt;2. 栈和队列
-&lt;/h2&gt;&lt;p&gt;栈是只允许在一段进行查如或者删除操作的线性表。&lt;/p&gt;
+&lt;/h2&gt;&lt;p&gt;栈是只允许在一端进行查入或者删除操作的线性表。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;n 个不同元素进栈，出栈元素不同排列的个数为 $\frac{1}{n+1} C_{2n}^n$ （卡特兰数）。&lt;/li&gt;
 &lt;li&gt;顺序栈（共享栈）、链栈&lt;/li&gt;

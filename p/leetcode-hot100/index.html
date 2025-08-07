@@ -10,7 +10,7 @@
 <meta property='og:description' content="Easy Medium Hard [寻找两个正序数组的中位数] 题意：对于两个有序数组，使用 $O(log(m+n))$ 的时间复杂度找到中位数。\n做法：\n双指针 $O(n+m)$ 将两个数组分为两组，保证第一组的最大值小于第二组的最小值，即可得到中位数。如果 $nums1$ 中有 $i$ 个数在第一组，那么 $nums2$ 中就有 $j=(sum+1)/2-i$ 个数在第一组，因此第一组最大值为 $max(nums1[i], nums2[j])$。剩余元素为第二组，最小值为 $min(nums1[i + 1], nums2[j + 1])$ 。因为数组本身有序，所以只需要求 $ nums1[i] &lt; nums2[j + 1]$ 并且 $nums2[j] &lt; nums1[i + 1]$。一个细节是，我们在 $i&ndash;,j++$ 双指针移动的过程中，如果遇到了 $nums1[i + 1] &gt; nums2[j]$ 即结束循环，那其实一定有 $nums1[i] &lt; nums2[j + 1]$。\n">
 <meta property='og:url' content='https://mhw-mathcode.github.io/p/leetcode-hot100/'>
 <meta property='og:site_name' content='mhw'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-08-07T11:38:59&#43;08:00'/><meta property='article:modified_time' content='2025-08-07T18:22:04&#43;08:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-08-07T11:38:59&#43;08:00'/><meta property='article:modified_time' content='2025-08-07T18:24:54&#43;08:00'/>
 <meta name="twitter:title" content="LeetCode Hot100">
 <meta name="twitter:description" content="Easy Medium Hard [寻找两个正序数组的中位数] 题意：对于两个有序数组，使用 $O(log(m+n))$ 的时间复杂度找到中位数。\n做法：\n双指针 $O(n+m)$ 将两个数组分为两组，保证第一组的最大值小于第二组的最小值，即可得到中位数。如果 $nums1$ 中有 $i$ 个数在第一组，那么 $nums2$ 中就有 $j=(sum+1)/2-i$ 个数在第一组，因此第一组最大值为 $max(nums1[i], nums2[j])$。剩余元素为第二组，最小值为 $min(nums1[i + 1], nums2[j + 1])$ 。因为数组本身有序，所以只需要求 $ nums1[i] &lt; nums2[j + 1]$ 并且 $nums2[j] &lt; nums1[i + 1]$。一个细节是，我们在 $i&ndash;,j++$ 双指针移动的过程中，如果遇到了 $nums1[i + 1] &gt; nums2[j]$ 即结束循环，那其实一定有 $nums1[i] &lt; nums2[j + 1]$。\n">
     <link rel="shortcut icon" href="/favicon.ico" />
@@ -225,13 +225,14 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ul>
-    <li>
+    <li><a href="#easy">Easy</a></li>
+    <li><a href="#medium">Medium</a></li>
+    <li><a href="#hard">Hard</a>
       <ul>
-        <li><a href="#easy">Easy</a></li>
-        <li><a href="#medium">Medium</a></li>
-        <li><a href="#hard">Hard</a>
+        <li>
           <ul>
             <li><a href="#寻找两个正序数组的中位数">[寻找两个正序数组的中位数]</a></li>
+            <li><a href="#缺失的第一个正数">[缺失的第一个正数]</a></li>
           </ul>
         </li>
       </ul>
@@ -293,10 +294,10 @@
     <section class="article-content">
     
     
-    <h3 id="easy">Easy
-</h3><h3 id="medium">Medium
-</h3><h3 id="hard">Hard
-</h3><h4 id="寻找两个正序数组的中位数">[寻找两个正序数组的中位数]
+    <h2 id="easy">Easy
+</h2><h2 id="medium">Medium
+</h2><h2 id="hard">Hard
+</h2><h4 id="寻找两个正序数组的中位数">[寻找两个正序数组的中位数]
 </h4><p><strong>题意</strong>：对于两个有序数组，使用 $O(log(m+n))$ 的时间复杂度找到中位数。</p>
 <p><strong>做法</strong>：</p>
 <p>双指针 $O(n+m)$
@@ -426,7 +427,9 @@
 </span></span><span class="line"><span class="cl"><span class="p">};</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div>
+</div><h4 id="缺失的第一个正数">[缺失的第一个正数]
+</h4><p><strong>题意</strong>：使用 $O(n)$ 的时间复杂度与常数级的空间复杂度找到一个数组的  $mex$。</p>
+
 </section>
 
 
@@ -443,7 +446,7 @@
 
 
         <span>
-            最后更新于 2025-08-07 18:22 CST
+            最后更新于 2025-08-07 18:24 CST
         </span>
     </section></footer>
 

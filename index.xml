@@ -15,8 +15,8 @@
         <description>&lt;h2 id=&#34;easy&#34;&gt;Easy
 &lt;/h2&gt;&lt;h2 id=&#34;medium&#34;&gt;Medium
 &lt;/h2&gt;&lt;h2 id=&#34;hard&#34;&gt;Hard
-&lt;/h2&gt;&lt;h4 id=&#34;寻找两个正序数组的中位数&#34;&gt;[寻找两个正序数组的中位数]
-&lt;/h4&gt;&lt;p&gt;&lt;strong&gt;题意&lt;/strong&gt;：对于两个有序数组，使用 $O(log(m+n))$ 的时间复杂度找到中位数。&lt;/p&gt;
+&lt;/h2&gt;&lt;h3 id=&#34;寻找两个正序数组的中位数&#34;&gt;[寻找两个正序数组的中位数]
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;题意&lt;/strong&gt;：对于两个有序数组，使用 $O(log(m+n))$ 的时间复杂度找到中位数。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;做法&lt;/strong&gt;：&lt;/p&gt;
 &lt;p&gt;双指针 $O(n+m)$
 &lt;img src=&#34;https://mhw-mathcode.github.io/p/leetcode-hot100/1.png&#34;
@@ -145,8 +145,8 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;};&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h4 id=&#34;缺失的第一个正数&#34;&gt;[缺失的第一个正数]
-&lt;/h4&gt;&lt;p&gt;&lt;strong&gt;题意&lt;/strong&gt;：使用 $O(n)$ 的时间复杂度与常数级的空间复杂度找到一个数组的  $mex$。&lt;/p&gt;
+&lt;/div&gt;&lt;h3 id=&#34;缺失的第一个正数&#34;&gt;[缺失的第一个正数]
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;题意&lt;/strong&gt;：使用 $O(n)$ 的时间复杂度与常数级的空间复杂度找到一个数组的  $mex$。&lt;/p&gt;
 </description>
         </item>
         <item>

@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Easy Medium Hard [寻找两个正序数组的中位数] 题意：对于两个有序数组，使用 $O(log(m+n))$ 的时间复杂度找到中位数。\n做法：\n双指针 $O(n+m)$ 将两个数组分为两组，保证第一组的最大值小于第二组的最小值，即可得到中位数。如果 $nums1$ 中有 $i$ 个数在第一组，那么 $nums2$ 中就有 $j=(sum+1)/2-i$ 个数在第一组，因此第一组最大值为 $max(nums1[i], nums2[j])$。剩余元素为第二组，最小值为 $min(nums1[i + 1], nums2[j + 1])$ 。因为数组本身有序，所以只需要求 $ nums1[i] &lt; nums2[j + 1]$ 并且 $nums2[j] &lt; nums1[i + 1]$。一个细节是，我们在 $i&ndash;,j++$ 双指针移动的过程中，如果遇到了 $nums1[i + 1] &gt; nums2[j]$ 即结束循环，那其实一定有 $nums1[i] &lt; nums2[j + 1]$。\n">
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Easy Medium [排序链表] 题意：对于一个链表，在 $O(nlogn)$ 时间复杂度和常数级空间复杂度下返回排序后的链表。\n做法：\n归并排序的思路，每次先要用快慢指针找到待排链表的中间结点，然后对于每次合并，用一个虚节点作为起始结点，依次向后面连接。\n">
 <title>LeetCode Hot100</title>
 
 <link rel='canonical' href='https://mhw-mathcode.github.io/p/leetcode-hot100/'>
 
 <link rel="stylesheet" href="/scss/style.min.105dce95dc14b9d77d38e8fff8fcdc39d6e977526467d96fa320b7a7de9fe674.css"><meta property='og:title' content="LeetCode Hot100">
-<meta property='og:description' content="Easy Medium Hard [寻找两个正序数组的中位数] 题意：对于两个有序数组，使用 $O(log(m+n))$ 的时间复杂度找到中位数。\n做法：\n双指针 $O(n+m)$ 将两个数组分为两组，保证第一组的最大值小于第二组的最小值，即可得到中位数。如果 $nums1$ 中有 $i$ 个数在第一组，那么 $nums2$ 中就有 $j=(sum+1)/2-i$ 个数在第一组，因此第一组最大值为 $max(nums1[i], nums2[j])$。剩余元素为第二组，最小值为 $min(nums1[i + 1], nums2[j + 1])$ 。因为数组本身有序，所以只需要求 $ nums1[i] &lt; nums2[j + 1]$ 并且 $nums2[j] &lt; nums1[i + 1]$。一个细节是，我们在 $i&ndash;,j++$ 双指针移动的过程中，如果遇到了 $nums1[i + 1] &gt; nums2[j]$ 即结束循环，那其实一定有 $nums1[i] &lt; nums2[j + 1]$。\n">
+<meta property='og:description' content="Easy Medium [排序链表] 题意：对于一个链表，在 $O(nlogn)$ 时间复杂度和常数级空间复杂度下返回排序后的链表。\n做法：\n归并排序的思路，每次先要用快慢指针找到待排链表的中间结点，然后对于每次合并，用一个虚节点作为起始结点，依次向后面连接。\n">
 <meta property='og:url' content='https://mhw-mathcode.github.io/p/leetcode-hot100/'>
 <meta property='og:site_name' content='mhw'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-08-07T11:38:59&#43;08:00'/><meta property='article:modified_time' content='2025-08-07T19:17:09&#43;08:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-08-07T11:38:59&#43;08:00'/><meta property='article:modified_time' content='2025-08-08T11:47:48&#43;08:00'/>
 <meta name="twitter:title" content="LeetCode Hot100">
-<meta name="twitter:description" content="Easy Medium Hard [寻找两个正序数组的中位数] 题意：对于两个有序数组，使用 $O(log(m+n))$ 的时间复杂度找到中位数。\n做法：\n双指针 $O(n+m)$ 将两个数组分为两组，保证第一组的最大值小于第二组的最小值，即可得到中位数。如果 $nums1$ 中有 $i$ 个数在第一组，那么 $nums2$ 中就有 $j=(sum+1)/2-i$ 个数在第一组，因此第一组最大值为 $max(nums1[i], nums2[j])$。剩余元素为第二组，最小值为 $min(nums1[i + 1], nums2[j + 1])$ 。因为数组本身有序，所以只需要求 $ nums1[i] &lt; nums2[j + 1]$ 并且 $nums2[j] &lt; nums1[i + 1]$。一个细节是，我们在 $i&ndash;,j++$ 双指针移动的过程中，如果遇到了 $nums1[i + 1] &gt; nums2[j]$ 即结束循环，那其实一定有 $nums1[i] &lt; nums2[j + 1]$。\n">
+<meta name="twitter:description" content="Easy Medium [排序链表] 题意：对于一个链表，在 $O(nlogn)$ 时间复杂度和常数级空间复杂度下返回排序后的链表。\n做法：\n归并排序的思路，每次先要用快慢指针找到待排链表的中间结点，然后对于每次合并，用一个虚节点作为起始结点，依次向后面连接。\n">
     <link rel="shortcut icon" href="/favicon.ico" />
 
     </head>
@@ -226,12 +226,17 @@
             <nav id="TableOfContents">
   <ul>
     <li><a href="#easy">Easy</a></li>
-    <li><a href="#medium">Medium</a></li>
+    <li><a href="#medium">Medium</a>
+      <ul>
+        <li><a href="#排序链表">[排序链表]</a></li>
+      </ul>
+    </li>
     <li><a href="#hard">Hard</a>
       <ul>
         <li><a href="#寻找两个正序数组的中位数">[寻找两个正序数组的中位数]</a></li>
         <li><a href="#缺失的第一个正数">[缺失的第一个正数]</a></li>
         <li><a href="#数据流的中位数">[数据流的中位数]</a></li>
+        <li><a href="#n-皇后">[N 皇后]</a></li>
       </ul>
     </li>
   </ul>
@@ -293,7 +298,101 @@
     
     <h2 id="easy">Easy
 </h2><h2 id="medium">Medium
-</h2><h2 id="hard">Hard
+</h2><h3 id="排序链表">[排序链表]
+</h3><p><strong>题意</strong>：对于一个链表，在 $O(nlogn)$ 时间复杂度和常数级空间复杂度下返回排序后的链表。</p>
+<p><strong>做法</strong>：</p>
+<p>归并排序的思路，每次先要用快慢指针找到待排链表的中间结点，然后对于每次合并，用一个虚节点作为起始结点，依次向后面连接。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ListNode</span><span class="o">*</span> <span class="n">middle</span><span class="p">(</span><span class="n">ListNode</span><span class="o">*</span> <span class="n">head</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">ListNode</span><span class="o">*</span> <span class="n">lst</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">ListNode</span><span class="o">*</span> <span class="n">slow</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">ListNode</span><span class="o">*</span> <span class="n">fast</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="p">(</span><span class="n">fast</span> <span class="o">&amp;&amp;</span> <span class="n">fast</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">lst</span> <span class="o">=</span> <span class="n">slow</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">slow</span> <span class="o">=</span> <span class="n">slow</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">fast</span> <span class="o">=</span> <span class="n">fast</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="n">lst</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">slow</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ListNode</span><span class="o">*</span> <span class="nf">merge</span><span class="p">(</span><span class="n">ListNode</span><span class="o">*</span> <span class="n">a</span><span class="p">,</span> <span class="n">ListNode</span><span class="o">*</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">ListNode</span><span class="o">*</span> <span class="n">ans</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ListNode</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="k">nullptr</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">ListNode</span><span class="o">*</span> <span class="n">ans2</span> <span class="o">=</span> <span class="n">ans</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="p">(</span><span class="n">a</span> <span class="o">&amp;&amp;</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="n">a</span><span class="o">-&gt;</span><span class="n">val</span> <span class="o">&lt;</span> <span class="n">b</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">ans</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="n">a</span> <span class="o">=</span> <span class="n">a</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">ans</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">b</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="n">ans</span> <span class="o">=</span> <span class="n">ans</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="n">ans</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">a</span> <span class="o">?</span> <span class="nl">a</span> <span class="p">:</span> <span class="n">b</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">ans2</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ListNode</span><span class="o">*</span> <span class="nf">sortList</span><span class="p">(</span><span class="n">ListNode</span><span class="o">*</span> <span class="n">head</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">head</span> <span class="o">||</span> <span class="o">!</span><span class="n">head</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">head</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="n">ListNode</span><span class="o">*</span> <span class="n">head2</span> <span class="o">=</span> <span class="n">middle</span><span class="p">(</span><span class="n">head</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">head</span> <span class="o">=</span> <span class="n">sortList</span><span class="p">(</span><span class="n">head</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">head2</span> <span class="o">=</span> <span class="n">sortList</span><span class="p">(</span><span class="n">head2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">merge</span><span class="p">(</span><span class="n">head</span><span class="p">,</span> <span class="n">head2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="hard">Hard
 </h2><h3 id="寻找两个正序数组的中位数">[寻找两个正序数组的中位数]
 </h3><p><strong>题意</strong>：对于两个有序数组，使用 $O(log(m+n))$ 的时间复杂度找到中位数。</p>
 <p><strong>做法</strong>：</p>
@@ -550,6 +649,65 @@
 </span></span><span class="line"><span class="cl"><span class="p">};</span>
 </span></span></code></pre></td></tr></table>
 </div>
+</div><h3 id="n-皇后">[N 皇后]
+</h3><p><strong>题意</strong>：N 皇后。</p>
+<p><strong>做法</strong>：经典排列型回溯。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;&gt;</span> <span class="n">solveNQueens</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">col</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">v1</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">n</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">v2</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">n</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">vector</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">a</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">string</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="sc">&#39;.&#39;</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">        <span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;&gt;</span> <span class="n">ans</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">auto</span> <span class="n">dfs</span> <span class="o">=</span> <span class="p">[</span><span class="o">&amp;</span><span class="p">](</span><span class="k">auto</span><span class="o">&amp;</span> <span class="n">self</span><span class="p">,</span> <span class="kt">int</span> <span class="n">i</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">void</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">==</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">ans</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">                <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="p">(</span><span class="n">col</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">v1</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">v2</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="n">j</span> <span class="o">+</span> <span class="n">n</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;Q&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">col</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">v1</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">v2</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="n">j</span> <span class="o">+</span> <span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">self</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">col</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">v1</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">v2</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="n">j</span> <span class="o">+</span> <span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;.&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>  
+</span></span><span class="line"><span class="cl">        <span class="p">};</span>
+</span></span><span class="line"><span class="cl">        <span class="n">dfs</span><span class="p">(</span><span class="n">dfs</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">ans</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
 </div>
 </section>
 
@@ -567,7 +725,7 @@
 
 
         <span>
-            最后更新于 2025-08-07 19:17 CST
+            最后更新于 2025-08-08 11:47 CST
         </span>
     </section></footer>
 
@@ -806,7 +964,7 @@
     @font-face {
       font-family: '汇文正楷';
       src: url(https://mhw-mathcode.github.io/font/%E6%B1%87%E6%96%87%E6%AD%A3%E6%A5%B7.ttf) format('truetype');
-      unicode-range: U+4E00-9FFF, U+3400-4DBF, U+20000-2A6DF, U+2A700-2B73F, U+2B740-2B81F, U+2B820-2CEAF, U+F900-FAFF, U+2F800-2FA1F;
+      unicode-range: U+4E00-9FFF, U+3400-4DBF, U+10000-2A6DF, U+2A700-2B73F, U+2B740-2B81F, U+2B820-2CEAF, U+F900-FAFF, U+2F800-2FA1F;
     }
     
     @font-face {
@@ -837,11 +995,119 @@
     
      
     .right-sidebar {
-        width: 550px !important;  
+        width: 550px !重要;  
     }
     
     .widget--toc {
         width: 100% !important;  
+    }
+
+     
+    .post__content pre,
+    article pre,
+    .content pre {
+        position: relative;
+        max-height: 400px;  
+        overflow-y: auto;  
+        overflow-x: auto;  
+        padding-bottom: 10px;  
+    }
+    
+     
+    .post__content pre::-webkit-scrollbar,
+    article pre::-webkit-scrollbar,
+    .content pre::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+    }
+    
+    .post__content pre::-webkit-scrollbar-thumb,
+    article pre::-webkit-scrollbar-thumb,
+    .content pre::-webkit-scrollbar-thumb {
+        background: rgba(100, 100, 100, 0.5);
+        border-radius: 4px;
+    }
+    
+    .post__content pre::-webkit-scrollbar-thumb:hover,
+    article pre::-webkit-scrollbar-thumb:hover,
+    .content pre::-webkit-scrollbar-thumb:hover {
+        background: rgba(100, 100, 100, 0.7);
+    }
+    
+     
+    .code-expand-btn {
+        display: none;
+    }
+    
+    .post__content pre.expanded {
+        max-height: 400px;  
+    }
+
+     
+     
+    .post__content pre,
+    article pre,
+    .content pre,
+    .highlight {
+        position: relative;
+        max-height: 400px;  
+        overflow-y: auto !important;  
+        overflow-x: auto !important;  
+        padding-bottom: 10px;
+    }
+    
+     
+    .post__content pre > code,
+    article pre > code,
+    .content pre > code,
+    .highlight .chroma,
+    .highlight table,
+    .chroma table {
+        overflow: visible !important;  
+        max-height: none !important;  
+    }
+    
+     
+    .highlight .lnt,
+    .highlight .ln,
+    .chroma .lnt,
+    .chroma .ln,
+    td.lntd {
+        overflow: hidden !important;
+        height: auto !important;
+        max-height: none !important;
+    }
+    
+     
+    .highlight table,
+    .chroma table {
+        display: table;
+        width: 100%;
+        margin-bottom: 0;
+    }
+    
+     
+    .post__content pre::-webkit-scrollbar,
+    article pre::-webkit-scrollbar,
+    .content pre::-webkit-scrollbar,
+    .highlight::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+    }
+    
+    .post__content pre::-webkit-scrollbar-thumb,
+    article pre::-webkit-scrollbar-thumb,
+    .content pre::-webkit-scrollbar-thumb,
+    .highlight::-webkit-scrollbar-thumb {
+        background: rgba(100, 100, 100, 0.5);
+        border-radius: 4px;
+    }
+    
+    .post__content pre::-webkit-scrollbar-thumb:hover,
+    article pre::-webkit-scrollbar-thumb:hover,
+    .content pre::-webkit-scrollbar-thumb:hover,
+    .highlight::-webkit-scrollbar-thumb:hover {
+        background: rgba(100, 100, 100, 0.7);
     }
 </style>
 
@@ -970,6 +1236,43 @@
             });
         }
     }
+
+    
+    function initCodeBlockScroll() {
+        
+        setTimeout(function() {
+            console.log("正在初始化代码块滚动功能...");
+            
+            
+            const codeBlocks = document.querySelectorAll('.post__content pre, article pre, .content pre');
+            console.log("找到 " + codeBlocks.length + " 个代码块");
+            
+            
+            codeBlocks.forEach(function(preBlock, index) {
+                if (!preBlock.classList.contains('scrollable')) {
+                    preBlock.classList.add('scrollable');
+                    console.log(`代码块 ${index} 已添加滚动样式`);
+                }
+            });
+        }, 1000);
+    }
+    
+    
+    document.addEventListener('DOMContentLoaded', initCodeBlockScroll);
+    window.addEventListener('load', initCodeBlockScroll);
+    
+    
+    const originalOnload = window.onload;
+    window.onload = function() {
+        if (originalOnload) {
+            originalOnload();
+        }
+        initScrollTop();
+        initReadingProgress();
+        initTocHide();
+        
+        initCodeBlockScroll();
+    };
 </script>
 
 

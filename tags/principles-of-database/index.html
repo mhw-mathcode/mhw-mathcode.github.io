@@ -10,7 +10,7 @@
 <meta property='og:description' content="真正的勇敢，不是无所畏惧，而是带着恐惧前行">
 <meta property='og:url' content='https://mhw-mathcode.github.io/tags/principles-of-database/'>
 <meta property='og:site_name' content='mhw'>
-<meta property='og:type' content='website'><meta property='og:updated_time' content=' 2025-08-07T11:17:26&#43;00:00 '/>
+<meta property='og:type' content='website'><meta property='og:updated_time' content=' 2025-08-08T03:48:17&#43;00:00 '/>
 <meta name="twitter:title" content="Tag: Principles of Database - mhw">
 <meta name="twitter:description" content="真正的勇敢，不是无所畏惧，而是带着恐惧前行"><link rel="alternate" type="application/rss&#43;xml" href="https://mhw-mathcode.github.io/tags/principles-of-database/index.xml">
     <link rel="shortcut icon" href="/favicon.ico" />
@@ -460,7 +460,7 @@
     @font-face {
       font-family: '汇文正楷';
       src: url(https://mhw-mathcode.github.io/font/%E6%B1%87%E6%96%87%E6%AD%A3%E6%A5%B7.ttf) format('truetype');
-      unicode-range: U+4E00-9FFF, U+3400-4DBF, U+20000-2A6DF, U+2A700-2B73F, U+2B740-2B81F, U+2B820-2CEAF, U+F900-FAFF, U+2F800-2FA1F;
+      unicode-range: U+4E00-9FFF, U+3400-4DBF, U+10000-2A6DF, U+2A700-2B73F, U+2B740-2B81F, U+2B820-2CEAF, U+F900-FAFF, U+2F800-2FA1F;
     }
     
     @font-face {
@@ -491,11 +491,119 @@
     
      
     .right-sidebar {
-        width: 550px !important;  
+        width: 550px !重要;  
     }
     
     .widget--toc {
         width: 100% !important;  
+    }
+
+     
+    .post__content pre,
+    article pre,
+    .content pre {
+        position: relative;
+        max-height: 400px;  
+        overflow-y: auto;  
+        overflow-x: auto;  
+        padding-bottom: 10px;  
+    }
+    
+     
+    .post__content pre::-webkit-scrollbar,
+    article pre::-webkit-scrollbar,
+    .content pre::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+    }
+    
+    .post__content pre::-webkit-scrollbar-thumb,
+    article pre::-webkit-scrollbar-thumb,
+    .content pre::-webkit-scrollbar-thumb {
+        background: rgba(100, 100, 100, 0.5);
+        border-radius: 4px;
+    }
+    
+    .post__content pre::-webkit-scrollbar-thumb:hover,
+    article pre::-webkit-scrollbar-thumb:hover,
+    .content pre::-webkit-scrollbar-thumb:hover {
+        background: rgba(100, 100, 100, 0.7);
+    }
+    
+     
+    .code-expand-btn {
+        display: none;
+    }
+    
+    .post__content pre.expanded {
+        max-height: 400px;  
+    }
+
+     
+     
+    .post__content pre,
+    article pre,
+    .content pre,
+    .highlight {
+        position: relative;
+        max-height: 400px;  
+        overflow-y: auto !important;  
+        overflow-x: auto !important;  
+        padding-bottom: 10px;
+    }
+    
+     
+    .post__content pre > code,
+    article pre > code,
+    .content pre > code,
+    .highlight .chroma,
+    .highlight table,
+    .chroma table {
+        overflow: visible !important;  
+        max-height: none !important;  
+    }
+    
+     
+    .highlight .lnt,
+    .highlight .ln,
+    .chroma .lnt,
+    .chroma .ln,
+    td.lntd {
+        overflow: hidden !important;
+        height: auto !important;
+        max-height: none !important;
+    }
+    
+     
+    .highlight table,
+    .chroma table {
+        display: table;
+        width: 100%;
+        margin-bottom: 0;
+    }
+    
+     
+    .post__content pre::-webkit-scrollbar,
+    article pre::-webkit-scrollbar,
+    .content pre::-webkit-scrollbar,
+    .highlight::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+    }
+    
+    .post__content pre::-webkit-scrollbar-thumb,
+    article pre::-webkit-scrollbar-thumb,
+    .content pre::-webkit-scrollbar-thumb,
+    .highlight::-webkit-scrollbar-thumb {
+        background: rgba(100, 100, 100, 0.5);
+        border-radius: 4px;
+    }
+    
+    .post__content pre::-webkit-scrollbar-thumb:hover,
+    article pre::-webkit-scrollbar-thumb:hover,
+    .content pre::-webkit-scrollbar-thumb:hover,
+    .highlight::-webkit-scrollbar-thumb:hover {
+        background: rgba(100, 100, 100, 0.7);
     }
 </style>
 
@@ -624,6 +732,43 @@
             });
         }
     }
+
+    
+    function initCodeBlockScroll() {
+        
+        setTimeout(function() {
+            console.log("正在初始化代码块滚动功能...");
+            
+            
+            const codeBlocks = document.querySelectorAll('.post__content pre, article pre, .content pre');
+            console.log("找到 " + codeBlocks.length + " 个代码块");
+            
+            
+            codeBlocks.forEach(function(preBlock, index) {
+                if (!preBlock.classList.contains('scrollable')) {
+                    preBlock.classList.add('scrollable');
+                    console.log(`代码块 ${index} 已添加滚动样式`);
+                }
+            });
+        }, 1000);
+    }
+    
+    
+    document.addEventListener('DOMContentLoaded', initCodeBlockScroll);
+    window.addEventListener('load', initCodeBlockScroll);
+    
+    
+    const originalOnload = window.onload;
+    window.onload = function() {
+        if (originalOnload) {
+            originalOnload();
+        }
+        initScrollTop();
+        initReadingProgress();
+        initTocHide();
+        
+        initCodeBlockScroll();
+    };
 </script>
 
 

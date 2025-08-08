@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Easy Medium [排序链表] 题意：对于一个链表，在 $O(nlogn)$ 时间复杂度和常数级空间复杂度下返回排序后的链表。\n做法：\n归并排序的思路，每次先要用快慢指针找到待排链表的中间结点，然后对于每次合并，用一个虚节点作为起始结点，依次向后面连接。\n">
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Easy Medium [排序链表] 题意：对于一个链表，在 $O(nlogn)$ 时间复杂度和常数级空间复杂度下返回排序后的链表。\n做法：归并排序的思路，每次先要用快慢指针找到待排链表的中间结点，然后对于每次合并，用一个虚节点作为起始结点，依次向后面连接。\n">
 <title>LeetCode Hot100</title>
 
 <link rel='canonical' href='https://mhw-mathcode.github.io/p/leetcode-hot100/'>
 
 <link rel="stylesheet" href="/scss/style.min.105dce95dc14b9d77d38e8fff8fcdc39d6e977526467d96fa320b7a7de9fe674.css"><meta property='og:title' content="LeetCode Hot100">
-<meta property='og:description' content="Easy Medium [排序链表] 题意：对于一个链表，在 $O(nlogn)$ 时间复杂度和常数级空间复杂度下返回排序后的链表。\n做法：\n归并排序的思路，每次先要用快慢指针找到待排链表的中间结点，然后对于每次合并，用一个虚节点作为起始结点，依次向后面连接。\n">
+<meta property='og:description' content="Easy Medium [排序链表] 题意：对于一个链表，在 $O(nlogn)$ 时间复杂度和常数级空间复杂度下返回排序后的链表。\n做法：归并排序的思路，每次先要用快慢指针找到待排链表的中间结点，然后对于每次合并，用一个虚节点作为起始结点，依次向后面连接。\n">
 <meta property='og:url' content='https://mhw-mathcode.github.io/p/leetcode-hot100/'>
 <meta property='og:site_name' content='mhw'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-08-07T11:38:59&#43;08:00'/><meta property='article:modified_time' content='2025-08-08T11:47:48&#43;08:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-08-07T11:38:59&#43;08:00'/><meta property='article:modified_time' content='2025-08-08T18:26:08&#43;08:00'/>
 <meta name="twitter:title" content="LeetCode Hot100">
-<meta name="twitter:description" content="Easy Medium [排序链表] 题意：对于一个链表，在 $O(nlogn)$ 时间复杂度和常数级空间复杂度下返回排序后的链表。\n做法：\n归并排序的思路，每次先要用快慢指针找到待排链表的中间结点，然后对于每次合并，用一个虚节点作为起始结点，依次向后面连接。\n">
+<meta name="twitter:description" content="Easy Medium [排序链表] 题意：对于一个链表，在 $O(nlogn)$ 时间复杂度和常数级空间复杂度下返回排序后的链表。\n做法：归并排序的思路，每次先要用快慢指针找到待排链表的中间结点，然后对于每次合并，用一个虚节点作为起始结点，依次向后面连接。\n">
     <link rel="shortcut icon" href="/favicon.ico" />
 
     </head>
@@ -229,6 +229,8 @@
     <li><a href="#medium">Medium</a>
       <ul>
         <li><a href="#排序链表">[排序链表]</a></li>
+        <li><a href="#寻找旋转排序数组中的最小值">[寻找旋转排序数组中的最小值]</a></li>
+        <li><a href="#路径总和-iii">[路径总和 III]</a></li>
       </ul>
     </li>
     <li><a href="#hard">Hard</a>
@@ -237,6 +239,7 @@
         <li><a href="#缺失的第一个正数">[缺失的第一个正数]</a></li>
         <li><a href="#数据流的中位数">[数据流的中位数]</a></li>
         <li><a href="#n-皇后">[N 皇后]</a></li>
+        <li><a href="#二叉树中的最大路径和">[二叉树中的最大路径和]</a></li>
       </ul>
     </li>
   </ul>
@@ -300,8 +303,7 @@
 </h2><h2 id="medium">Medium
 </h2><h3 id="排序链表">[排序链表]
 </h3><p><strong>题意</strong>：对于一个链表，在 $O(nlogn)$ 时间复杂度和常数级空间复杂度下返回排序后的链表。</p>
-<p><strong>做法</strong>：</p>
-<p>归并排序的思路，每次先要用快慢指针找到待排链表的中间结点，然后对于每次合并，用一个虚节点作为起始结点，依次向后面连接。</p>
+<p><strong>做法</strong>：归并排序的思路，每次先要用快慢指针找到待排链表的中间结点，然后对于每次合并，用一个虚节点作为起始结点，依次向后面连接。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -392,11 +394,16 @@
 </span></span><span class="line"><span class="cl"><span class="p">};</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="hard">Hard
+</div><h3 id="寻找旋转排序数组中的最小值">[寻找旋转排序数组中的最小值]
+</h3><p><strong>题意</strong>：对于一个升序数组，将后面若干元素移到前面，在 $O(logn)$ 时间复杂度下找到数组最小值。</p>
+<p><strong>做法</strong>：把数组最后一个元素作为基准，二分找到最靠前的小于它的元素。</p>
+<h3 id="路径总和-iii">[路径总和 III]
+</h3><p><strong>题意</strong>：在一棵树上对于方向向下的路径（只能从父节点到子节点），值为目标值的路径数量。</p>
+<p><strong>做法</strong>：dfs + 树上前缀和。</p>
+<h2 id="hard">Hard
 </h2><h3 id="寻找两个正序数组的中位数">[寻找两个正序数组的中位数]
 </h3><p><strong>题意</strong>：对于两个有序数组，使用 $O(log(m+n))$ 的时间复杂度找到中位数。</p>
-<p><strong>做法</strong>：</p>
-<p>双指针 $O(n+m)$
+<p><strong>做法</strong>：双指针 $O(n+m)$
 <img src="/p/leetcode-hot100/1.png"
 	width="266"
 	height="171"
@@ -525,8 +532,7 @@
 </div>
 </div><h3 id="缺失的第一个正数">[缺失的第一个正数]
 </h3><p><strong>题意</strong>：使用 $O(n)$ 的时间复杂度与常数级的空间复杂度找到一个数组的  $mex$。</p>
-<p><strong>做法</strong>：</p>
-<p>我们只需要考虑值为 $1-n$ 的数，对于其他值直接将其设置为 $n+1$。随后我们用这个数组来充当哈希表，用 $nums[i]$ 的正负表示 $i$ 有没有出现过，也就是说数组中所有值的绝对值表示真正的数值，同时对于绝对值大于 $n+1$ 的值也无需处理。最后数组中第一个为正数的位置即为答案。</p>
+<p><strong>做法</strong>：我们只需要考虑值为 $1-n$ 的数，对于其他值直接将其设置为 $n+1$。随后我们用这个数组来充当哈希表，用 $nums[i]$ 的正负表示 $i$ 有没有出现过，也就是说数组中所有值的绝对值表示真正的数值，同时对于绝对值大于 $n+1$ 的值也无需处理。最后数组中第一个为正数的位置即为答案。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -573,8 +579,7 @@
 </div>
 </div><h3 id="数据流的中位数">[数据流的中位数]
 </h3><p><strong>题意</strong>：维护一个数据结构，插入元素，以及找到已有元素的中位数。</p>
-<p><strong>做法</strong>：</p>
-<p>很简单了，维护一个大根堆与小根堆，大根堆维护较小的元素，小根堆维护较大的元素，保证大根堆比小根堆多 0 或 1 个元素，中位数就是两者堆顶的均值或者小根堆堆顶。</p>
+<p><strong>做法</strong>：很简单了，维护一个大根堆与小根堆，大根堆维护较小的元素，小根堆维护较大的元素，保证大根堆比小根堆多 0 或 1 个元素，中位数就是两者堆顶的均值或者小根堆堆顶。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -651,7 +656,7 @@
 </div>
 </div><h3 id="n-皇后">[N 皇后]
 </h3><p><strong>题意</strong>：N 皇后。</p>
-<p><strong>做法</strong>：经典排列型回溯。</p>
+<p><strong>做法</strong>：排列型回溯。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -708,6 +713,45 @@
 </span></span><span class="line"><span class="cl"><span class="p">};</span>
 </span></span></code></pre></td></tr></table>
 </div>
+</div><h3 id="二叉树中的最大路径和">[二叉树中的最大路径和]
+</h3><p><strong>题意</strong>：找到一棵树中的最大权值路径。</p>
+<p><strong>做法</strong>：树上 dp，类似于最大子段和的过程，维护每棵子树包含自身结点的最长向下路径，左右儿子最长向下路径 $max$ （注意分别与 $0$ 取 $max$，表示可以不选）加自身权值；然后每个结点更新答案，左右儿子最长向下路径和（注意分别与 $0$ 取 $max$，表示可以不选）加自身权值。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">maxPathSum</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">root</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">ans</span> <span class="o">=</span> <span class="o">-</span><span class="n">INT_MAX</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">auto</span> <span class="n">dfs</span> <span class="o">=</span> <span class="p">[</span><span class="o">&amp;</span><span class="p">](</span><span class="k">auto</span> <span class="o">&amp;</span><span class="n">self</span><span class="p">,</span> <span class="n">TreeNode</span><span class="o">*</span> <span class="n">t</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">t</span><span class="p">)</span> <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="kt">int</span> <span class="n">lm</span> <span class="o">=</span> <span class="n">self</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">t</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="kt">int</span> <span class="n">rm</span> <span class="o">=</span> <span class="n">self</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">t</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">ans</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="n">ans</span><span class="p">,</span> <span class="n">max</span><span class="p">(</span><span class="n">lm</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">max</span><span class="p">(</span><span class="n">rm</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">t</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="nf">max</span><span class="p">({</span><span class="n">lm</span><span class="p">,</span> <span class="n">rm</span><span class="p">,</span> <span class="mi">0</span><span class="p">})</span> <span class="o">+</span> <span class="n">t</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">};</span>
+</span></span><span class="line"><span class="cl">        <span class="n">dfs</span><span class="p">(</span><span class="n">dfs</span><span class="p">,</span> <span class="n">root</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">ans</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
 </div>
 </section>
 
@@ -725,7 +769,7 @@
 
 
         <span>
-            最后更新于 2025-08-08 11:47 CST
+            最后更新于 2025-08-08 18:26 CST
         </span>
     </section></footer>
 

@@ -10,7 +10,7 @@
 <meta property='og:description' content="The process of studying math">
 <meta property='og:url' content='https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%A6%E5%90%88%E9%9B%86%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%A6%82%E7%8E%87%E8%AE%BA/'>
 <meta property='og:site_name' content='mhw'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='math' /><meta property='article:published_time' content='2025-07-16T21:09:56&#43;08:00'/><meta property='article:modified_time' content='2025-08-10T10:32:58&#43;00:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='math' /><meta property='article:published_time' content='2025-07-16T21:09:56&#43;08:00'/><meta property='article:modified_time' content='2025-08-12T11:01:35&#43;00:00'/>
 <meta name="twitter:title" content="学习笔记-数学合集（高等数学、线性代数、概率论）">
 <meta name="twitter:description" content="The process of studying math">
     <link rel="shortcut icon" href="/favicon.ico" />
@@ -225,9 +225,27 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ul>
-    <li><a href="#高数">高数</a></li>
-    <li><a href="#线性代数">线性代数</a></li>
-    <li><a href="#概率论">概率论</a></li>
+    <li><a href="#高数">高数</a>
+      <ul>
+        <li><a href="#基础知识">基础知识</a></li>
+      </ul>
+    </li>
+    <li><a href="#线性代数">线性代数</a>
+      <ul>
+        <li><a href="#基础知识-1">基础知识</a></li>
+      </ul>
+    </li>
+    <li><a href="#概率论">概率论</a>
+      <ul>
+        <li><a href="#基础知识-2">基础知识</a></li>
+        <li><a href="#一维随机游走问题">一维随机游走问题</a>
+          <ul>
+            <li><a href="#有界随机游走问题-constrained-random-walk">有界随机游走问题 Constrained Random Walk</a></li>
+            <li><a href="#无界随机游走问题-unrestricted-random-walk">无界随机游走问题 Unrestricted Random Walk</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
   </ul>
 </nav>
         </div>
@@ -298,7 +316,8 @@
     
     
     <h2 id="高数">高数
-</h2><p><img src="/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%A6%E5%90%88%E9%9B%86%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%A6%82%E7%8E%87%E8%AE%BA/1.jpg"
+</h2><h3 id="基础知识">基础知识
+</h3><p><img src="/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%A6%E5%90%88%E9%9B%86%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%A6%82%E7%8E%87%E8%AE%BA/1.jpg"
 	width="1280"
 	height="1942"
 	srcset="/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%A6%E5%90%88%E9%9B%86%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%A6%82%E7%8E%87%E8%AE%BA/1_hu_9d9f5df2e5c78b11.jpg 480w, /p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%A6%E5%90%88%E9%9B%86%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%A6%82%E7%8E%87%E8%AE%BA/1_hu_4655dc7bc72fd09.jpg 1024w"
@@ -341,7 +360,8 @@
 	
 ></p>
 <h2 id="线性代数">线性代数
-</h2><p><img src="/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%A6%E5%90%88%E9%9B%86%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%A6%82%E7%8E%87%E8%AE%BA/4.jpg"
+</h2><h3 id="基础知识-1">基础知识
+</h3><p><img src="/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%A6%E5%90%88%E9%9B%86%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%A6%82%E7%8E%87%E8%AE%BA/4.jpg"
 	width="1279"
 	height="1843"
 	srcset="/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%A6%E5%90%88%E9%9B%86%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%A6%82%E7%8E%87%E8%AE%BA/4_hu_6760b319fd59fc39.jpg 480w, /p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%A6%E5%90%88%E9%9B%86%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%A6%82%E7%8E%87%E8%AE%BA/4_hu_f36083e7afb00fb0.jpg 1024w"
@@ -384,7 +404,8 @@
 	
 ></p>
 <h2 id="概率论">概率论
-</h2><p><img src="/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%A6%E5%90%88%E9%9B%86%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%A6%82%E7%8E%87%E8%AE%BA/7.jpg"
+</h2><h3 id="基础知识-2">基础知识
+</h3><p><img src="/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%A6%E5%90%88%E9%9B%86%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%A6%82%E7%8E%87%E8%AE%BA/7.jpg"
 	width="1280"
 	height="1811"
 	srcset="/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%A6%E5%90%88%E9%9B%86%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%A6%82%E7%8E%87%E8%AE%BA/7_hu_613b02af2b5b9e28.jpg 480w, /p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%A6%E5%90%88%E9%9B%86%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%A6%82%E7%8E%87%E8%AE%BA/7_hu_f92d0bb21809c890.jpg 1024w"
@@ -412,6 +433,61 @@
 		data-flex-basis="182px"
 	
 ></p>
+<h3 id="一维随机游走问题">一维随机游走问题
+</h3><p>一维随机游走，指在一维空间中，即一条直线数轴上，有一个可以任意移动的质点位于某处 $x=i(i\in Z)$ 的地方，它能够以一定的概率向左或向右移动一个单位长度，每个单位时间移动一次。这类模型通常根据是否有界分为两种类型。</p>
+<h4 id="有界随机游走问题-constrained-random-walk">有界随机游走问题 Constrained Random Walk
+</h4><p>思考这样一个问题：</p>
+<p>一个赌徒现在共有 $k$ 元，在每轮游戏中，有概率 $p\in(0,1)$ 赢得 $1$ 元，有概率 $q=1-p$ 输掉 $1$ 元。</p>
+<p>（1）假设他一直游戏，直到他的钱数为 $0$ （输光）或 $S$ （赢到目标钱数）为止，此时他破产的概率 $P(k)$ 是多少。</p>
+<p>（2）假设他一直游戏，直到他的钱数为 $0$ （输光）为止，此时他破产的概率 $P(k)$ 又是多少。</p>
+<p><img src="/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%A6%E5%90%88%E9%9B%86%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%A6%82%E7%8E%87%E8%AE%BA/9.jpg"
+	width="1279"
+	height="1977"
+	srcset="/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%A6%E5%90%88%E9%9B%86%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%A6%82%E7%8E%87%E8%AE%BA/9_hu_6ba882c965c638bf.jpg 480w, /p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%A6%E5%90%88%E9%9B%86%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%A6%82%E7%8E%87%E8%AE%BA/9_hu_426f65fb2c5f4a8a.jpg 1024w"
+	loading="lazy"
+	
+		alt="solution"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="64"
+		data-flex-basis="155px"
+	
+></p>
+<p>其中关键是
+</p>
+$$
+\begin{aligned}
+&P(R_A \mid X_0 = k) = p\,P(R_A \mid X_0 = k+1) + q\,P(R_A \mid X_0 = k-1).
+\end{aligned}
+$$<p>证明：</p>
+$$
+\begin{aligned}
+&P(R_A \mid X_0 = k) \\
+&\quad= P(R_A \text{ and } X_1 = k+1 \mid X_0 = k) + P(R_A \text{ and } X_1 = k-1 \mid X_0 = k) \\
+&\quad= \frac{P(R_A \text{ and } X_1 = k+1 \text{ and } X_0 = k)}{P(X_0 = k)} + \frac{P(R_A \text{ and } X_1 = k-1 \text{ and } X_0 = k)}{P(X_0 = k)} \\
+&\quad= \frac{P(R_A \text{ and } X_1 = k+1 \text{ and } X_0 = k)}{P(X_1 = k+1 \text{ and } X_0 = k)}\,\frac{P(X_1 = k+1 \text{ and } X_0 = k)}{P(X_0 = k)} \\
+&\qquad + \frac{P(R_A \text{ and } X_1 = k-1 \text{ and } X_0 = k)}{P(X_1 = k-1 \text{ and } X_0 = k)}\,\frac{P(X_1 = k-1 \text{ and } X_0 = k)}{P(X_0 = k)} \\
+&\quad= P(R_A \mid X_1 = k+1,\, X_0 = k)\,P(X_1 = k+1 \mid X_0 = k) \\
+&\qquad + P(R_A \mid X_1 = k-1,\, X_0 = k)\,P(X_1 = k-1 \mid X_0 = k) \\
+&\quad= p\,P(R_A \mid X_0 = k+1) + q\,P(R_A \mid X_0 = k-1).
+\end{aligned}
+$$<h4 id="无界随机游走问题-unrestricted-random-walk">无界随机游走问题 Unrestricted Random Walk
+</h4><p>一个简单无边界随机游走 $(S_n)<em>{(n≥0)}$，同时也可称为伯努利随机游走（Bernoulli random walk），定义为：$S_0=0$ 且 $Sn = \sum</em>{k=1}^n X_k=X_1+&hellip;+X_n$，其中 $X_n$ 为每一步的增量，取值为 $\pm 1$，满足
+</p>
+$$
+\begin{cases} 
+\mathbb{P}(X_k = +1) = p, \\ 
+\mathbb{P}(X_k = -1) = q, & k\geq 1 \And p+q=1 
+\end{cases}
+$$<p>首先认识几个概念：伯努利概型，伯努利分布，二项分布。</p>
+<p>n 重伯努利实验：</p>
+<ul>
+<li>一共进行了n次试验；</li>
+<li>各次试验相互独立；</li>
+<li>每次实验的可能结果只有 $A, \overline{A}$</li>
+<li>在每次试验中事件的概率不变。</li>
+</ul>
 
 </section>
 
@@ -435,7 +511,7 @@
 
 
         <span>
-            最后更新于 2025-08-10 10:32 CST
+            最后更新于 2025-08-12 11:01 CST
         </span>
     </section></footer>
 

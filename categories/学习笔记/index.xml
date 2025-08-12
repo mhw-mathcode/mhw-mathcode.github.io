@@ -170,8 +170,7 @@ $$
 &amp;\quad= p\,P(R_A \mid X_0 = k+1) + q\,P(R_A \mid X_0 = k-1).
 \end{aligned}
 $$&lt;h4 id=&#34;无界随机游走问题-unrestricted-random-walk&#34;&gt;无界随机游走问题 Unrestricted Random Walk
-&lt;/h4&gt;&lt;p&gt;一个简单无边界随机游走 $(S_n)&lt;em&gt;{(n≥0)}$，同时也可称为伯努利随机游走（Bernoulli random walk），定义为：$S_0=0$ 且 $Sn = \sum&lt;/em&gt;{k=1}^n X_k=X_1+&amp;hellip;+X_n$，其中 $X_n$ 为每一步的增量，取值为 $\pm 1$，满足
-&lt;/p&gt;
+&lt;/h4&gt;&lt;p&gt;一个简单无边界随机游走 $ S_{n(n≥0)} $，同时也可称为伯努利随机游走（Bernoulli random walk），定义为：$S_0=0$ 且 $Sn = \sum_{k=1}^n X_k=X_1+&amp;hellip;+X_n$，其中 $X_n$ 为每一步的增量，取值为 $\pm 1$，满足&lt;/p&gt;
 $$
 \begin{cases} 
 \mathbb{P}(X_k = +1) = p, \\ 

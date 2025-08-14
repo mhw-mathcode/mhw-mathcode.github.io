@@ -10,7 +10,7 @@
 <meta property='og:description' content="The process of studying math">
 <meta property='og:url' content='https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%A6%E5%90%88%E9%9B%86%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%A6%82%E7%8E%87%E8%AE%BA/'>
 <meta property='og:site_name' content='mhw'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='math' /><meta property='article:published_time' content='2025-07-16T21:09:56&#43;08:00'/><meta property='article:modified_time' content='2025-08-12T11:11:16&#43;00:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='math' /><meta property='article:published_time' content='2025-07-16T21:09:56&#43;08:00'/><meta property='article:modified_time' content='2025-08-14T03:38:34&#43;00:00'/>
 <meta name="twitter:title" content="学习笔记-数学合集（高等数学、线性代数、概率论）">
 <meta name="twitter:description" content="The process of studying math">
     <link rel="shortcut icon" href="/favicon.ico" />
@@ -238,10 +238,11 @@
     <li><a href="#概率论">概率论</a>
       <ul>
         <li><a href="#基础知识-2">基础知识</a></li>
-        <li><a href="#一维随机游走问题">一维随机游走问题</a>
+        <li><a href="#随机游走问题">随机游走问题</a>
           <ul>
-            <li><a href="#有界随机游走问题-constrained-random-walk">有界随机游走问题 Constrained Random Walk</a></li>
-            <li><a href="#无界随机游走问题-unrestricted-random-walk">无界随机游走问题 Unrestricted Random Walk</a></li>
+            <li><a href="#一维有界随机游走问题-constrained-random-walk">一维有界随机游走问题 Constrained Random Walk</a></li>
+            <li><a href="#一维无界随机游走问题-unrestricted-random-walk">一维无界随机游走问题 Unrestricted Random Walk</a></li>
+            <li><a href="#离散马尔科夫链-discrete-time-markov-chains">离散马尔科夫链 Discrete-Time Markov Chains</a></li>
           </ul>
         </li>
       </ul>
@@ -433,9 +434,9 @@
 		data-flex-basis="182px"
 	
 ></p>
-<h3 id="一维随机游走问题">一维随机游走问题
+<h3 id="随机游走问题">随机游走问题
 </h3><p>一维随机游走，指在一维空间中，即一条直线数轴上，有一个可以任意移动的质点位于某处 $x=i(i\in Z)$ 的地方，它能够以一定的概率向左或向右移动一个单位长度，每个单位时间移动一次。这类模型通常根据是否有界分为两种类型。</p>
-<h4 id="有界随机游走问题-constrained-random-walk">有界随机游走问题 Constrained Random Walk
+<h4 id="一维有界随机游走问题-constrained-random-walk">一维有界随机游走问题 Constrained Random Walk
 </h4><p>思考这样一个问题：</p>
 <p>一个赌徒现在共有 $k$ 元，在每轮游戏中，有概率 $p\in(0,1)$ 赢得 $1$ 元，有概率 $q=1-p$ 输掉 $1$ 元。</p>
 <p>（1）假设他一直游戏，直到他的钱数为 $0$ （输光）或 $S$ （赢到目标钱数）为止，此时他破产的概率 $P(k)$ 是多少。</p>
@@ -472,21 +473,91 @@ $$
 &\qquad + P(R_A \mid X_1 = k-1,\, X_0 = k)\,P(X_1 = k-1 \mid X_0 = k) \\
 &\quad= p\,P(R_A \mid X_0 = k+1) + q\,P(R_A \mid X_0 = k-1).
 \end{aligned}
-$$<h4 id="无界随机游走问题-unrestricted-random-walk">无界随机游走问题 Unrestricted Random Walk
-</h4><p>一个简单无边界随机游走 $ S_{n(n≥0)} $，同时也可称为伯努利随机游走（Bernoulli random walk），定义为：$S_0=0$ 且 $Sn = \sum_{k=1}^n X_k=X_1+&hellip;+X_n$，其中 $X_n$ 为每一步的增量，取值为 $\pm 1$，满足</p>
+$$<h4 id="一维无界随机游走问题-unrestricted-random-walk">一维无界随机游走问题 Unrestricted Random Walk
+</h4><p>一个简单无边界随机游走 $ S_{n(n≥0)} $，同时也可称为伯努利随机游走（Bernoulli random walk），定义为：$S_0=0$ 且 $S_n = \sum_{k=1}^n X_k=X_1+&hellip;+X_n$，其中 $X_n$ 为每一步的增量，取值为 $\pm 1$，满足</p>
 $$
 \begin{cases} 
 \mathbb{P}(X_k = +1) = p, \\ 
 \mathbb{P}(X_k = -1) = q, & k\geq 1 \And p+q=1 
 \end{cases}
-$$<p>首先认识几个概念：伯努利概型，伯努利分布，二项分布。</p>
-<p>n 重伯努利实验：</p>
-<ul>
-<li>一共进行了n次试验；</li>
-<li>各次试验相互独立；</li>
-<li>每次实验的可能结果只有 $A, \overline{A}$</li>
-<li>在每次试验中事件的概率不变。</li>
-</ul>
+$$<p>首先认识几个概念：</p>
+<blockquote>
+<p>伯努利试验：每次试验都在相同条件下，而且只有两种可能结果的试验称之为伯努利试验。
+n 重伯努利实验：（1）一共进行了n次试验；（2）各次试验相互独立；（3）每次实验的可能结果只有 $A, \overline{A}$；（4）在每次试验中事件的概率不变。
+二项分布：对于 n 重伯努利试验而言，事件发生 $k$ 次的概率，记作 </p>
+$$b(k; n, p) = \binom{n}{k} p^k (1-p)^{n-k} \quad \text{for } k = 0, 1, 2, \dots, n$$<p>
+几何分布：对于 n 重伯努利试验而言，事件首次在第 $k$ 次发生的概率，记作 </p>
+$$ g(k; p) = (1-p)^{k-1}p \quad \text{for } k = 1, 2, \dots $$<p>
+帕斯卡分布：对于 n 重伯努利试验而言，事件在第 $k$ 次恰好发生 $r$ 次的概率，可以转化为前 $k-1$ 次恰好发生 $r-1$次（二项分布），记作：</p>
+$$f(k; r, p) = (-i)^p r^{-1} q^{k - r} \quad \text{for } k = 1, 2, \dots$$</blockquote>
+<p>因此设 $P(S_{2n} = 2k \mid S_0 = 0)$ 为初始在位置 $0$，经过 $2n$ 步后位于 $2k$ 的概率，则有
+</p>
+$$ P(S_{2n} = 2k \mid S_0 = 0) = \binom{2n}{n+k} p^{n+k}q^{n-k} \quad \text{for } -n\leq k \leq n$$<p>首次回到原点的概率与时间期望（待补）</p>
+<h4 id="离散马尔科夫链-discrete-time-markov-chains">离散马尔科夫链 Discrete-Time Markov Chains
+</h4><p>考虑一个离散时间的随机过程，若其满足
+</p>
+$$ P(Z_{n+1} = j \mid Z_n = i_n, Z_{n-1} = i_{n-1}, \dots, Z_0 = i_0) = P(Z_{n+1} = j \mid Z_n = i_n) $$<p>
+则称其有马尔科夫性质。若具有马尔科夫性质，则说它是一个马尔科夫链，马尔科夫链通常具有时间同质性（time-homogenous）。也就是说，第 $i$ 步所到达的位置，仅与第 $i-1$ 步所在的位置有关，与之前的全部内容都没有关系。</p>
+<p>因此对于所有的马尔科夫链 $(Z_n)_{n \in \mathbb{N}}$，我们都可以使用一个 Transition matrix（转移矩阵）来表示。转移矩阵为：
+</p>
+$$
+[P_{i,j}]_{i,j \in S} = [P(Z_1 = j \mid Z_0 = i)]_{i,j \in S} =
+\begin{bmatrix}
+\ddots & \vdots & \vdots & \vdots & \vdots & \vdots  \\
+\cdots & P_{-2,-2} & P_{-2,-1} & P_{-2,0} & P_{-2,1} & P_{-2,2} & \cdots \\
+\cdots & P_{-1,-2} & P_{-1,-1} & P_{-1,0} & P_{-1,1} & P_{-1,2} & \cdots \\
+\cdots & P_{0,-2}  & P_{0,-1}  & P_{0,0}  & P_{0,1}  & P_{0,2}  & \cdots \\
+\cdots & P_{1,-2}  & P_{1,-1}  & P_{1,0}  & P_{1,1}  & P_{1,2}  & \cdots \\
+\cdots & P_{2,-2}  & P_{2,-1}  & P_{2,0}  & P_{2,1}  & P_{2,2}  & \cdots \\
+        & \vdots   & \vdots   & \vdots   & \vdots   & \vdots   & \ddots
+\end{bmatrix}
+$$<p>我们定义</p>
+\[
+\eta := [\mathbb{P}(Z_1 = 0), \ldots, \mathbb{P}(Z_1 = N)] = [\eta_0, \eta_1, \ldots, \eta_N] \in \mathbb{R}^{N+1}
+\]\[
+\pi := [\mathbb{P}(Z_0 = 0), \ldots, \mathbb{P}(Z_0 = N)] = [\pi_0, \pi_1, \ldots, \pi_N] \in \mathbb{R}^{N+1}
+\]<p>显然有 \(\eta = \pi P\)</p>
+<p>也就是说</p>
+\[
+[\eta_0, \eta_1, \ldots, \eta_N] = [\pi_0, \pi_1, \ldots, \pi_N]
+\begin{bmatrix}
+P_{0,0} & P_{0,1} & P_{0,2} & \cdots & P_{0,N} \\
+P_{1,0} & P_{1,1} & P_{1,2} & \cdots & P_{1,N} \\
+P_{2,0} & P_{2,1} & P_{2,2} & \cdots & P_{2,N} \\
+\vdots & \vdots & \vdots & \ddots & \vdots \\
+P_{N,0} & P_{N,1} & P_{N,2} & \cdots & P_{N,N}
+\end{bmatrix}
+\]<p>因此对于上述一维有界随机游走问题中的（1），我们有：
+</p>
+\[
+\left[ P_{i,j} \right]_{i,j \in \mathcal{S}} =
+\begin{array}{c|cccccc}
+      & \cdots & \cdots & i-1 & i & i+1 & \cdots & \cdots &   \\
+\hline
+\cdots & \ddots & \vdots& \vdots& \vdots& \vdots & \vdots \\ 
+i-2    & \cdots & 0     & p     & 0     & 0      & 0 & \cdots \\
+i-1    & \cdots & q     & 0     & p     & 0      & 0 & \cdots \\
+i      & \cdots & 0     & q     & 0     & p      & 0 & \cdots \\
+i+1    & \cdots & 0     & 0     & q     & 0      & p & \cdots \\
+i+2    & \cdots & 0     & 0     & 0     & q      & 0 & \cdots \\
+\cdots &        & \vdots& \vdots& \vdots& \vdots & \vdots& \ddots
+\end{array}
+\]<p>对于上述一维无界随机游走问题，我们有：</p>
+$$
+P = \bigl[P_{i,j}\bigr]_{0\le i,j\le S}
+= \begin{bmatrix}
+1 & 0 & 0 & 0 & \cdots & 0 & 0 & 0 \\[4pt]
+q & 0 & p & 0 & \cdots & 0 & 0 & 0 \\[4pt]
+0 & q & 0 & p & \cdots & 0 & 0 & 0 \\[4pt]
+\vdots & \vdots & \vdots & \vdots & \ddots & \vdots & \vdots & \vdots \\[4pt]
+0 & 0 & 0 & 0 & \cdots & q & 0 & p \\[4pt]
+0 & 0 & 0 & 0 & \cdots & 0 & 0 & 1
+\end{bmatrix}
+$$<p>参考：</p>
+<ol>
+<li><a class="link" href="https://zhuanlan.zhihu.com/p/590828124"  target="_blank" rel="noopener"
+    >https://zhuanlan.zhihu.com/p/590828124</a></li>
+</ol>
 
 </section>
 
@@ -510,7 +581,7 @@ $$<p>首先认识几个概念：伯努利概型，伯努利分布，二项分布
 
 
         <span>
-            最后更新于 2025-08-12 11:11 CST
+            最后更新于 2025-08-14 03:38 CST
         </span>
     </section></footer>
 

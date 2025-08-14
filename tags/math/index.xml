@@ -7,7 +7,7 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>mhw-mathcode</copyright>
-        <lastBuildDate>Tue, 12 Aug 2025 11:11:16 +0000</lastBuildDate><atom:link href="https://mhw-mathcode.github.io/tags/math/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 14 Aug 2025 03:38:34 +0000</lastBuildDate><atom:link href="https://mhw-mathcode.github.io/tags/math/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>学习笔记-数学合集（高等数学、线性代数、概率论）</title>
         <link>https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E5%AD%A6%E5%90%88%E9%9B%86%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%A6%82%E7%8E%87%E8%AE%BA/</link>
         <pubDate>Wed, 16 Jul 2025 21:09:56 +0800</pubDate>
@@ -131,9 +131,9 @@
 		data-flex-basis=&#34;182px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;h3 id=&#34;一维随机游走问题&#34;&gt;一维随机游走问题
+&lt;h3 id=&#34;随机游走问题&#34;&gt;随机游走问题
 &lt;/h3&gt;&lt;p&gt;一维随机游走，指在一维空间中，即一条直线数轴上，有一个可以任意移动的质点位于某处 $x=i(i\in Z)$ 的地方，它能够以一定的概率向左或向右移动一个单位长度，每个单位时间移动一次。这类模型通常根据是否有界分为两种类型。&lt;/p&gt;
-&lt;h4 id=&#34;有界随机游走问题-constrained-random-walk&#34;&gt;有界随机游走问题 Constrained Random Walk
+&lt;h4 id=&#34;一维有界随机游走问题-constrained-random-walk&#34;&gt;一维有界随机游走问题 Constrained Random Walk
 &lt;/h4&gt;&lt;p&gt;思考这样一个问题：&lt;/p&gt;
 &lt;p&gt;一个赌徒现在共有 $k$ 元，在每轮游戏中，有概率 $p\in(0,1)$ 赢得 $1$ 元，有概率 $q=1-p$ 输掉 $1$ 元。&lt;/p&gt;
 &lt;p&gt;（1）假设他一直游戏，直到他的钱数为 $0$ （输光）或 $S$ （赢到目标钱数）为止，此时他破产的概率 $P(k)$ 是多少。&lt;/p&gt;
@@ -170,21 +170,91 @@ $$
 &amp;\qquad + P(R_A \mid X_1 = k-1,\, X_0 = k)\,P(X_1 = k-1 \mid X_0 = k) \\
 &amp;\quad= p\,P(R_A \mid X_0 = k+1) + q\,P(R_A \mid X_0 = k-1).
 \end{aligned}
-$$&lt;h4 id=&#34;无界随机游走问题-unrestricted-random-walk&#34;&gt;无界随机游走问题 Unrestricted Random Walk
-&lt;/h4&gt;&lt;p&gt;一个简单无边界随机游走 $ S_{n(n≥0)} $，同时也可称为伯努利随机游走（Bernoulli random walk），定义为：$S_0=0$ 且 $Sn = \sum_{k=1}^n X_k=X_1+&amp;hellip;+X_n$，其中 $X_n$ 为每一步的增量，取值为 $\pm 1$，满足&lt;/p&gt;
+$$&lt;h4 id=&#34;一维无界随机游走问题-unrestricted-random-walk&#34;&gt;一维无界随机游走问题 Unrestricted Random Walk
+&lt;/h4&gt;&lt;p&gt;一个简单无边界随机游走 $ S_{n(n≥0)} $，同时也可称为伯努利随机游走（Bernoulli random walk），定义为：$S_0=0$ 且 $S_n = \sum_{k=1}^n X_k=X_1+&amp;hellip;+X_n$，其中 $X_n$ 为每一步的增量，取值为 $\pm 1$，满足&lt;/p&gt;
 $$
 \begin{cases} 
 \mathbb{P}(X_k = +1) = p, \\ 
 \mathbb{P}(X_k = -1) = q, &amp; k\geq 1 \And p+q=1 
 \end{cases}
-$$&lt;p&gt;首先认识几个概念：伯努利概型，伯努利分布，二项分布。&lt;/p&gt;
-&lt;p&gt;n 重伯努利实验：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;一共进行了n次试验；&lt;/li&gt;
-&lt;li&gt;各次试验相互独立；&lt;/li&gt;
-&lt;li&gt;每次实验的可能结果只有 $A, \overline{A}$&lt;/li&gt;
-&lt;li&gt;在每次试验中事件的概率不变。&lt;/li&gt;
-&lt;/ul&gt;
+$$&lt;p&gt;首先认识几个概念：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;伯努利试验：每次试验都在相同条件下，而且只有两种可能结果的试验称之为伯努利试验。
+n 重伯努利实验：（1）一共进行了n次试验；（2）各次试验相互独立；（3）每次实验的可能结果只有 $A, \overline{A}$；（4）在每次试验中事件的概率不变。
+二项分布：对于 n 重伯努利试验而言，事件发生 $k$ 次的概率，记作 &lt;/p&gt;
+$$b(k; n, p) = \binom{n}{k} p^k (1-p)^{n-k} \quad \text{for } k = 0, 1, 2, \dots, n$$&lt;p&gt;
+几何分布：对于 n 重伯努利试验而言，事件首次在第 $k$ 次发生的概率，记作 &lt;/p&gt;
+$$ g(k; p) = (1-p)^{k-1}p \quad \text{for } k = 1, 2, \dots $$&lt;p&gt;
+帕斯卡分布：对于 n 重伯努利试验而言，事件在第 $k$ 次恰好发生 $r$ 次的概率，可以转化为前 $k-1$ 次恰好发生 $r-1$次（二项分布），记作：&lt;/p&gt;
+$$f(k; r, p) = (-i)^p r^{-1} q^{k - r} \quad \text{for } k = 1, 2, \dots$$&lt;/blockquote&gt;
+&lt;p&gt;因此设 $P(S_{2n} = 2k \mid S_0 = 0)$ 为初始在位置 $0$，经过 $2n$ 步后位于 $2k$ 的概率，则有
+&lt;/p&gt;
+$$ P(S_{2n} = 2k \mid S_0 = 0) = \binom{2n}{n+k} p^{n+k}q^{n-k} \quad \text{for } -n\leq k \leq n$$&lt;p&gt;首次回到原点的概率与时间期望（待补）&lt;/p&gt;
+&lt;h4 id=&#34;离散马尔科夫链-discrete-time-markov-chains&#34;&gt;离散马尔科夫链 Discrete-Time Markov Chains
+&lt;/h4&gt;&lt;p&gt;考虑一个离散时间的随机过程，若其满足
+&lt;/p&gt;
+$$ P(Z_{n+1} = j \mid Z_n = i_n, Z_{n-1} = i_{n-1}, \dots, Z_0 = i_0) = P(Z_{n+1} = j \mid Z_n = i_n) $$&lt;p&gt;
+则称其有马尔科夫性质。若具有马尔科夫性质，则说它是一个马尔科夫链，马尔科夫链通常具有时间同质性（time-homogenous）。也就是说，第 $i$ 步所到达的位置，仅与第 $i-1$ 步所在的位置有关，与之前的全部内容都没有关系。&lt;/p&gt;
+&lt;p&gt;因此对于所有的马尔科夫链 $(Z_n)_{n \in \mathbb{N}}$，我们都可以使用一个 Transition matrix（转移矩阵）来表示。转移矩阵为：
+&lt;/p&gt;
+$$
+[P_{i,j}]_{i,j \in S} = [P(Z_1 = j \mid Z_0 = i)]_{i,j \in S} =
+\begin{bmatrix}
+\ddots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \vdots  \\
+\cdots &amp; P_{-2,-2} &amp; P_{-2,-1} &amp; P_{-2,0} &amp; P_{-2,1} &amp; P_{-2,2} &amp; \cdots \\
+\cdots &amp; P_{-1,-2} &amp; P_{-1,-1} &amp; P_{-1,0} &amp; P_{-1,1} &amp; P_{-1,2} &amp; \cdots \\
+\cdots &amp; P_{0,-2}  &amp; P_{0,-1}  &amp; P_{0,0}  &amp; P_{0,1}  &amp; P_{0,2}  &amp; \cdots \\
+\cdots &amp; P_{1,-2}  &amp; P_{1,-1}  &amp; P_{1,0}  &amp; P_{1,1}  &amp; P_{1,2}  &amp; \cdots \\
+\cdots &amp; P_{2,-2}  &amp; P_{2,-1}  &amp; P_{2,0}  &amp; P_{2,1}  &amp; P_{2,2}  &amp; \cdots \\
+        &amp; \vdots   &amp; \vdots   &amp; \vdots   &amp; \vdots   &amp; \vdots   &amp; \ddots
+\end{bmatrix}
+$$&lt;p&gt;我们定义&lt;/p&gt;
+\[
+\eta := [\mathbb{P}(Z_1 = 0), \ldots, \mathbb{P}(Z_1 = N)] = [\eta_0, \eta_1, \ldots, \eta_N] \in \mathbb{R}^{N+1}
+\]\[
+\pi := [\mathbb{P}(Z_0 = 0), \ldots, \mathbb{P}(Z_0 = N)] = [\pi_0, \pi_1, \ldots, \pi_N] \in \mathbb{R}^{N+1}
+\]&lt;p&gt;显然有 \(\eta = \pi P\)&lt;/p&gt;
+&lt;p&gt;也就是说&lt;/p&gt;
+\[
+[\eta_0, \eta_1, \ldots, \eta_N] = [\pi_0, \pi_1, \ldots, \pi_N]
+\begin{bmatrix}
+P_{0,0} &amp; P_{0,1} &amp; P_{0,2} &amp; \cdots &amp; P_{0,N} \\
+P_{1,0} &amp; P_{1,1} &amp; P_{1,2} &amp; \cdots &amp; P_{1,N} \\
+P_{2,0} &amp; P_{2,1} &amp; P_{2,2} &amp; \cdots &amp; P_{2,N} \\
+\vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+P_{N,0} &amp; P_{N,1} &amp; P_{N,2} &amp; \cdots &amp; P_{N,N}
+\end{bmatrix}
+\]&lt;p&gt;因此对于上述一维有界随机游走问题中的（1），我们有：
+&lt;/p&gt;
+\[
+\left[ P_{i,j} \right]_{i,j \in \mathcal{S}} =
+\begin{array}{c|cccccc}
+      &amp; \cdots &amp; \cdots &amp; i-1 &amp; i &amp; i+1 &amp; \cdots &amp; \cdots &amp;   \\
+\hline
+\cdots &amp; \ddots &amp; \vdots&amp; \vdots&amp; \vdots&amp; \vdots &amp; \vdots \\ 
+i-2    &amp; \cdots &amp; 0     &amp; p     &amp; 0     &amp; 0      &amp; 0 &amp; \cdots \\
+i-1    &amp; \cdots &amp; q     &amp; 0     &amp; p     &amp; 0      &amp; 0 &amp; \cdots \\
+i      &amp; \cdots &amp; 0     &amp; q     &amp; 0     &amp; p      &amp; 0 &amp; \cdots \\
+i+1    &amp; \cdots &amp; 0     &amp; 0     &amp; q     &amp; 0      &amp; p &amp; \cdots \\
+i+2    &amp; \cdots &amp; 0     &amp; 0     &amp; 0     &amp; q      &amp; 0 &amp; \cdots \\
+\cdots &amp;        &amp; \vdots&amp; \vdots&amp; \vdots&amp; \vdots &amp; \vdots&amp; \ddots
+\end{array}
+\]&lt;p&gt;对于上述一维无界随机游走问题，我们有：&lt;/p&gt;
+$$
+P = \bigl[P_{i,j}\bigr]_{0\le i,j\le S}
+= \begin{bmatrix}
+1 &amp; 0 &amp; 0 &amp; 0 &amp; \cdots &amp; 0 &amp; 0 &amp; 0 \\[4pt]
+q &amp; 0 &amp; p &amp; 0 &amp; \cdots &amp; 0 &amp; 0 &amp; 0 \\[4pt]
+0 &amp; q &amp; 0 &amp; p &amp; \cdots &amp; 0 &amp; 0 &amp; 0 \\[4pt]
+\vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots &amp; \vdots &amp; \vdots \\[4pt]
+0 &amp; 0 &amp; 0 &amp; 0 &amp; \cdots &amp; q &amp; 0 &amp; p \\[4pt]
+0 &amp; 0 &amp; 0 &amp; 0 &amp; \cdots &amp; 0 &amp; 0 &amp; 1
+\end{bmatrix}
+$$&lt;p&gt;参考：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://zhuanlan.zhihu.com/p/590828124&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://zhuanlan.zhihu.com/p/590828124&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
 </description>
         </item>
         

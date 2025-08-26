@@ -7,7 +7,7 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>mhw-mathcode</copyright>
-        <lastBuildDate>Sat, 16 Aug 2025 08:47:45 +0000</lastBuildDate><atom:link href="https://mhw-mathcode.github.io/tags/operating-system/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 26 Aug 2025 01:57:38 +0000</lastBuildDate><atom:link href="https://mhw-mathcode.github.io/tags/operating-system/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>学习笔记-操作系统</title>
         <link>https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</link>
         <pubDate>Tue, 17 Jun 2025 18:27:49 +0800</pubDate>
@@ -30,28 +30,29 @@
 &lt;/ul&gt;
 &lt;p&gt;操作系统的运行机制：&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;内核程序 vs 应用程序
-CPU 执行的程序分为两种：操作系统内核程序、用户程序；
-内核是操作系统最基础、核心的那部分；&lt;/p&gt;
+&lt;li&gt;内核程序 vs 应用程序
+&lt;ul&gt;
+&lt;li&gt;CPU 执行的程序分为两种：操作系统内核程序、用户程序；&lt;/li&gt;
+&lt;li&gt;内核是操作系统最基础、核心的那部分；&lt;/li&gt;
+&lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;特权指令 vs 非特权指令
-内核程序，在计算机中的地位充当管理程序 ，所以可以执行特权指令；
-用户程序，在计算机中的地位充当被管理程序 ，出于安全考虑只能执行非特权指令；&lt;/p&gt;
+&lt;li&gt;特权指令 vs 非特权指令
+&lt;ul&gt;
+&lt;li&gt;内核程序，在计算机中的地位充当管理程序 ，所以可以执行特权指令；&lt;/li&gt;
+&lt;li&gt;用户程序，在计算机中的地位充当被管理程序 ，出于安全考虑只能执行非特权指令；&lt;/li&gt;
+&lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;内核态 vs 用户态
-【问题】CPU 可以区分特权指令和非特权指令 ，但是 CPU 无法识别正在执行的指令是应用程序的指令，还是内核程序的指令。
-答：为了让 CPU 能够区分应用程序和内核程序 ，CPU会被划分为两种状态：内核态和用户态。&lt;/p&gt;
-&lt;p&gt;内核态 - 内核程序 - 可以执行特权指令；
-用户态 - 应用程序 - 只能执行非特权指令；&lt;/p&gt;
-&lt;p&gt;CPU使用程序状态字寄存器（PSW） 实现对CPU状态的标记。&lt;/p&gt;
+&lt;li&gt;内核态 vs 用户态
+&lt;ul&gt;
+&lt;li&gt;【问题】CPU 可以区分特权指令和非特权指令 ，但是 CPU 无法识别正在执行的指令是应用程序的指令，还是内核程序的指令。&lt;/li&gt;
+&lt;li&gt;答：为了让 CPU 能够区分应用程序和内核程序 ，CPU 会被划分为两种状态：内核态和用户态。CPU 使用程序状态字寄存器（PSW） 实现对 CPU 状态的标记。&lt;/li&gt;
+&lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;如何变态 ？
-内核态转向用户态：执行一条特权指令，修改 PSW 的标志位为用户态；
-用户态转向内核态：由&lt;strong&gt;中断&lt;/strong&gt;引发，硬件自动完成变态过程；&lt;/p&gt;
+&lt;li&gt;如何变态？
+&lt;ul&gt;
+&lt;li&gt;内核态转向用户态：执行一条特权指令，修改 PSW 的标志位为用户态；&lt;/li&gt;
+&lt;li&gt;用户态转向内核态：由&lt;strong&gt;中断&lt;/strong&gt;引发，中断硬件自动完成变态过程；&lt;/li&gt;
+&lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;中断与异常：&lt;/p&gt;
@@ -169,46 +170,12 @@ CPU 执行的程序分为两种：操作系统内核程序、用户程序；
 &lt;/ul&gt;
 &lt;p&gt;进程的控制：&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;进程的创建&lt;/li&gt;
+&lt;li&gt;进程的创建：申请空白 PCB；为新进程分配所需资源；初始化 PCB；将 PCB 插入就绪队列。&lt;/li&gt;
+&lt;li&gt;进程的终止：从 PCB 集中中找到终止进程的 PCB；若进程正在运行，立刻剥夺 CPU， 将 CPU 分配给其它进程。&lt;/li&gt;
+&lt;li&gt;进程的阻塞：找到要阻塞的进程对应的 PCB；保护进程运行现场，将 PCB 状态信息设置为阻塞态，暂时停止进程执行；将 PCB 插入相应事件的等待队列。&lt;/li&gt;
+&lt;li&gt;进程的唤醒：在事件等待队列中找到PCB；将 PCB 从等待队列移除，设置进程为就绪态；将 PCB 插入就绪队列，等待被调度。&lt;/li&gt;
+&lt;li&gt;进程状态的切换：将运行环境信息存入 PCB；PCB 移入相应队列；选择另一个进程执行，并更新其 PCB；根据 PCB 回复新进程所需的运行环境。&lt;/li&gt;
 &lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;申请空白 PCB；&lt;/li&gt;
-&lt;li&gt;为新进程分配所需资源；&lt;/li&gt;
-&lt;li&gt;初始化 PCB；&lt;/li&gt;
-&lt;li&gt;将 PCB 插入就绪队列；&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;进程的终止&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;从 PCB 集中中找到终止进程的 PCB；&lt;/li&gt;
-&lt;li&gt;若进程正在运行，立刻剥夺 CPU， 将 CPU 分配给其它进程；&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;进程的阻塞&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;找到要阻塞的进程对应的 PCB；&lt;/li&gt;
-&lt;li&gt;保护进程运行现场，将 PCB 状态信息设置为 阻塞态，暂时停止进程执行；&lt;/li&gt;
-&lt;li&gt;将 PCB 插入相应事件的等待队列；&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol start=&#34;4&#34;&gt;
-&lt;li&gt;进程的唤醒&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;在事件等待队列中找到PCB；&lt;/li&gt;
-&lt;li&gt;将 PCB 从等待队列移除，设置进程为就绪态；&lt;/li&gt;
-&lt;li&gt;将 PCB 插入就绪队列，等待被调度；&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol start=&#34;5&#34;&gt;
-&lt;li&gt;进程状态的切换&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;将运行环境信息存入 PCB；&lt;/li&gt;
-&lt;li&gt;PCB 移入相应队列；&lt;/li&gt;
-&lt;li&gt;选择另一个进程执行，并更新其 PCB；&lt;/li&gt;
-&lt;li&gt;根据 PCB 回复新进程所需的运行环境；&lt;/li&gt;
-&lt;/ul&gt;
 &lt;p&gt;进程的通信：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;共享存储：相互通信的进程互斥地共享某些数据结构或存储区，进程之间能够通过这些空间进行通信；&lt;/li&gt;
@@ -266,13 +233,24 @@ CPU 执行的程序分为两种：操作系统内核程序、用户程序；
 &lt;p&gt;同步与互斥：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;同步：并发进程为完成同一任务所进行的工作顺序协调；&lt;/li&gt;
-&lt;li&gt;互斥：并发进程为竞争临界资源所进行的资源分时占用。&lt;/li&gt;
+&lt;li&gt;互斥：并发进程为竞争临界资源所进行的资源分时占用。
+&lt;ul&gt;
+&lt;li&gt;四个部分：
+&lt;ul&gt;
+&lt;li&gt;进入区：上锁&lt;/li&gt;
+&lt;li&gt;临界区：访问临界资源&lt;/li&gt;
+&lt;li&gt;退出区：解锁&lt;/li&gt;
+&lt;li&gt;剩余区&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;li&gt;进程互斥遵循的原则：
 &lt;ul&gt;
 &lt;li&gt;空闲让进：临界区空闲时，应允许一个进程访问&lt;/li&gt;
 &lt;li&gt;忙则等待：临界区正在被访问时，其他试图访问的进程需要等待&lt;/li&gt;
 &lt;li&gt;有限等待：要在有限时间内进入临界区，保证不会饥饿&lt;/li&gt;
 &lt;li&gt;让权等待：进不了临界区的进程，要释放处理机，防止忙等&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -377,7 +355,10 @@ CPU 执行的程序分为两种：操作系统内核程序、用户程序；
 &lt;p&gt;死锁：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;死锁：各进程互相等待对方的资源，导致各进程都阻塞（资源永远不会释放）。
-特点：至少两个或两个以上的进程同时死锁；处于阻塞态。&lt;/li&gt;
+&lt;ul&gt;
+&lt;li&gt;特点：至少两个或两个以上的进程同时死锁；处于阻塞态。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;blockquote&gt;
 &lt;p&gt;区分&lt;/p&gt;
@@ -395,32 +376,186 @@ CPU 执行的程序分为两种：操作系统内核程序、用户程序；
 &lt;li&gt;循环等待条件：存在一种进程资源的循环等待链；循环等待未必死锁，死锁必定循环等待。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;死锁预防：破坏死锁的四个必要条件（完全没有死锁的可能）。&lt;/li&gt;
-&lt;li&gt;死锁避免：避免系统进入不安全状态（有可能死锁，避免陷入死锁）。
-银行家算法 ：在资源分配之前，先判断此次分配是否会导致系统进入 不安全状态 ，再决定是否分配资源。&lt;/li&gt;
+&lt;li&gt;预防死锁：破坏死锁的四个必要条件（完全没有死锁的可能）。&lt;/li&gt;
+&lt;li&gt;避免死锁：避免系统进入不安全状态（有可能死锁，避免陷入死锁）。
+&lt;ul&gt;
+&lt;li&gt;银行家算法 ：在资源分配之前，先判断此次分配是否会导致系统进入不安全状态，再决定是否分配资源。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;检测死锁：死锁定理&lt;/li&gt;
+&lt;li&gt;解除死锁：资源剥夺法、撤销进程法、进程回退法&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;3-内存管理&#34;&gt;3. 内存管理
 &lt;/h2&gt;&lt;p&gt;内存的一大作用是缓和 CPU 与硬盘之间的速度矛盾。&lt;/p&gt;
 &lt;p&gt;内存管理任务：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;内存空间的分配与回收&lt;/li&gt;
-&lt;li&gt;内存空间的扩充：从逻辑上对内存空间进行扩充&lt;/li&gt;
+&lt;li&gt;内存扩充：从逻辑上对内存空间进行扩充&lt;/li&gt;
 &lt;li&gt;地址转换：逻辑地址与物理地址的转换&lt;/li&gt;
 &lt;li&gt;存储保护：保证各进程在各自存储空间内运行，互不干扰。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;进程运行的基本原理：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;创建进程首先要将程序和数据装入内存；&lt;/li&gt;
-&lt;li&gt;将&lt;strong&gt;用户源程序&lt;/strong&gt;变为&lt;strong&gt;可在内存中执行的程序&lt;/strong&gt;，通常需要以下几个步骤：
+&lt;li&gt;将用户源程序变为可在内存中执行的程序，通常需要以下几个步骤：
 &lt;ul&gt;
-&lt;li&gt;编译：由&lt;strong&gt;编译程序&lt;/strong&gt;将&lt;strong&gt;用户源代码&lt;/strong&gt;编译成&lt;strong&gt;若干个模块&lt;/strong&gt;（机器指令）；&lt;/li&gt;
-&lt;li&gt;链接：由&lt;strong&gt;链接程序&lt;/strong&gt;将编译后形成的一组目标模块及它们所需的&lt;strong&gt;库函数&lt;/strong&gt;链接在一起，形成一个完整的&lt;strong&gt;装入模块&lt;/strong&gt;；&lt;/li&gt;
-&lt;li&gt;装入：由&lt;strong&gt;装入程序&lt;/strong&gt;将&lt;strong&gt;装入模块&lt;/strong&gt;装入内存运行。&lt;/li&gt;
+&lt;li&gt;编译：由编译程序将用户源代码编译成若干个模块（机器指令）；&lt;/li&gt;
+&lt;li&gt;链接：由链接程序将编译后形成的一组目标模块及它们所需的库函数链接在一起，形成一个完整的装入模块；&lt;/li&gt;
+&lt;li&gt;装入：由装入程序将装入模块装入内存运行。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;三种&lt;/p&gt;
-</description>
+&lt;p&gt;三种装入方式：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;绝对装入：编译器负责地址转化（装入模块的指令直接就是绝对地址）。&lt;/li&gt;
+&lt;li&gt;静态重定位：装入程序负责地址转化。&lt;/li&gt;
+&lt;li&gt;动态重定位：运行时才进行地址转化，需要硬件（寄存器）支持。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;内存空间的分配与回收&#34;&gt;内存空间的分配与回收
+&lt;/h3&gt;&lt;p&gt;连续分配管理方式：为一个用户程序分配一个连续的内存空间。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;单一连续分配：只支持单道程序，内存分为系统区和用户区，用户程序放在用户区。&lt;/li&gt;
+&lt;li&gt;固定分区分配：支持多道程序，内存用户空间分为若干个固定大小的分区，每个分区只能装一道作业。&lt;/li&gt;
+&lt;li&gt;动态分区分配：支持多道程序，在进程装入内存时，根据进程的大小动态地建立分区。
+&lt;ul&gt;
+&lt;li&gt;首次适应：从头到尾找适合的分区&lt;/li&gt;
+&lt;li&gt;最佳适应：优先使用更小的分区，以保留更多大分区&lt;/li&gt;
+&lt;li&gt;最坏适应：优先使用更大的分区，以防止产生太小的不可用的碎片&lt;/li&gt;
+&lt;li&gt;邻近适应：由首次适应演变而来，每次从上次查找结束位置开始查找&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;非连续分配管理方式：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;基本分页存储管理：
+&lt;ul&gt;
+&lt;li&gt;核心思想：将虚拟内存和物理内存都划分为固定大小的块。虚拟内存的块称为页（Page）。物理内存的块称为页框或页帧（Frame）。通常，页和页框的大小是相等的，比如 4KB。这样划分的好处是，程序在运行时，它的不同页面可以被加载到物理内存中不连续的页框中，从而避免外部碎片问题。&lt;/li&gt;
+&lt;li&gt;工作过程：一个虚拟地址可以被分为两部分：虚拟页号（VPN），高20位，表示这个地址位于哪个页；页内偏移（Offset），低12位，表示这个地址在页内的具体位置。当 CPU 要访问一个虚拟地址时：
+&lt;ul&gt;
+&lt;li&gt;它会通过内存管理单元（MMU），从虚拟地址中提取出页号与页内偏移；&lt;/li&gt;
+&lt;li&gt;与页表长度对比，检查页号合法性；&lt;/li&gt;
+&lt;li&gt;查询页表，找到页号对应的页表项，确定内存块号（访存）；&lt;/li&gt;
+&lt;li&gt;将内存块号与页内偏移组合，得到实际的物理地址；&lt;/li&gt;
+&lt;li&gt;访问目标内存单元（访存）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;不会产生外部碎片，只有少量内部碎片；不方便按照逻辑模块实现信息的共享与保护。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/12.png&#34;
+	width=&#34;1024&#34;
+	height=&#34;570&#34;
+	srcset=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/12_hu_933006714c9352c7.png 480w, https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/12_hu_c1708ad688a1f877.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;TLB 快表&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;179&#34;
+		data-flex-basis=&#34;431px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;基本分段存储管理：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;方便按照逻辑模块实现信息的共享与保护，会产生外部碎片
+&lt;img src=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/13.png&#34;
+	width=&#34;1113&#34;
+	height=&#34;631&#34;
+	srcset=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/13_hu_f05c01e39db637e2.png 480w, https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/13_hu_93c4db417c713cfb.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;基本分段存储管理&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;176&#34;
+		data-flex-basis=&#34;423px&#34;
+	
+&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;分页、分段对比：
+&lt;img src=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/14.png&#34;
+	width=&#34;1371&#34;
+	height=&#34;694&#34;
+	srcset=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/14_hu_e7f09494e4ab8f66.png 480w, https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/14_hu_3ca052d93131ea61.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;对比&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;197&#34;
+		data-flex-basis=&#34;474px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;段页式管理：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;进程按逻辑分段，各段按物理分页。
+&lt;img src=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/15.png&#34;
+	width=&#34;1419&#34;
+	height=&#34;786&#34;
+	srcset=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/15_hu_9a85a97982f1c760.png 480w, https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/15_hu_fee4d01d5b3fc8ee.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;段页式管理&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;180&#34;
+		data-flex-basis=&#34;433px&#34;
+	
+&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;内存扩充&#34;&gt;内存扩充
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;覆盖（同一程序或进程）：需要常驻内存的段放在“固定区”中，调入后就不再调出（除非运行结束）；不常用的段放在“覆盖区”，需要用到时调入内存，用不到时调出内存。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;交换（不同进程）：内存紧张时，换出某些进程以腾出内存空间，再换入某些进程；磁盘分为文件区和对换区，换出的进程放在对换区。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;虚拟内存：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;思想：部分装入 + 请求调入 + 置换功能（对用户透明）–&amp;gt; 虚拟大内存&lt;/li&gt;
+&lt;li&gt;实现：
+&lt;ul&gt;
+&lt;li&gt;一定容量的内存和外存；&lt;/li&gt;
+&lt;li&gt;页表机制（或段表机制），作为主要的数据结构；&lt;/li&gt;
+&lt;li&gt;中断机构，当用户程序要访问的部分尚未调入内存时，则会产生中断；&lt;/li&gt;
+&lt;li&gt;地址变换机构，逻辑机构到物理地址的变换。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;页面置换算法：
+&lt;img src=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/16.png&#34;
+	width=&#34;771&#34;
+	height=&#34;398&#34;
+	srcset=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/16_hu_672b1f99ac754ea9.png 480w, https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/16_hu_321b2c53baa62902.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;页面置换算法&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;193&#34;
+		data-flex-basis=&#34;464px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;4-文件系统&#34;&gt;4. 文件系统
+&lt;/h2&gt;</description>
         </item>
         
     </channel>

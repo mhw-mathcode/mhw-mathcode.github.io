@@ -10,7 +10,7 @@
 <meta property='og:description' content="The process of studying operating system">
 <meta property='og:url' content='https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/'>
 <meta property='og:site_name' content='mhw'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Operating system' /><meta property='article:published_time' content='2025-06-17T18:27:49&#43;08:00'/><meta property='article:modified_time' content='2025-08-16T08:47:45&#43;00:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Operating system' /><meta property='article:published_time' content='2025-06-17T18:27:49&#43;08:00'/><meta property='article:modified_time' content='2025-08-26T01:57:38&#43;00:00'/>
 <meta name="twitter:title" content="学习笔记-操作系统">
 <meta name="twitter:description" content="The process of studying operating system">
     <link rel="shortcut icon" href="/favicon.ico" />
@@ -232,7 +232,13 @@
         <li><a href="#22-处理机调度">2.2 处理机调度</a></li>
       </ul>
     </li>
-    <li><a href="#3-内存管理">3. 内存管理</a></li>
+    <li><a href="#3-内存管理">3. 内存管理</a>
+      <ul>
+        <li><a href="#内存空间的分配与回收">内存空间的分配与回收</a></li>
+        <li><a href="#内存扩充">内存扩充</a></li>
+      </ul>
+    </li>
+    <li><a href="#4-文件系统">4. 文件系统</a></li>
   </ul>
 </nav>
         </div>
@@ -319,28 +325,29 @@
 </ul>
 <p>操作系统的运行机制：</p>
 <ul>
-<li>
-<p>内核程序 vs 应用程序
-CPU 执行的程序分为两种：操作系统内核程序、用户程序；
-内核是操作系统最基础、核心的那部分；</p>
+<li>内核程序 vs 应用程序
+<ul>
+<li>CPU 执行的程序分为两种：操作系统内核程序、用户程序；</li>
+<li>内核是操作系统最基础、核心的那部分；</li>
+</ul>
 </li>
-<li>
-<p>特权指令 vs 非特权指令
-内核程序，在计算机中的地位充当管理程序 ，所以可以执行特权指令；
-用户程序，在计算机中的地位充当被管理程序 ，出于安全考虑只能执行非特权指令；</p>
+<li>特权指令 vs 非特权指令
+<ul>
+<li>内核程序，在计算机中的地位充当管理程序 ，所以可以执行特权指令；</li>
+<li>用户程序，在计算机中的地位充当被管理程序 ，出于安全考虑只能执行非特权指令；</li>
+</ul>
 </li>
-<li>
-<p>内核态 vs 用户态
-【问题】CPU 可以区分特权指令和非特权指令 ，但是 CPU 无法识别正在执行的指令是应用程序的指令，还是内核程序的指令。
-答：为了让 CPU 能够区分应用程序和内核程序 ，CPU会被划分为两种状态：内核态和用户态。</p>
-<p>内核态 - 内核程序 - 可以执行特权指令；
-用户态 - 应用程序 - 只能执行非特权指令；</p>
-<p>CPU使用程序状态字寄存器（PSW） 实现对CPU状态的标记。</p>
+<li>内核态 vs 用户态
+<ul>
+<li>【问题】CPU 可以区分特权指令和非特权指令 ，但是 CPU 无法识别正在执行的指令是应用程序的指令，还是内核程序的指令。</li>
+<li>答：为了让 CPU 能够区分应用程序和内核程序 ，CPU 会被划分为两种状态：内核态和用户态。CPU 使用程序状态字寄存器（PSW） 实现对 CPU 状态的标记。</li>
+</ul>
 </li>
-<li>
-<p>如何变态 ？
-内核态转向用户态：执行一条特权指令，修改 PSW 的标志位为用户态；
-用户态转向内核态：由<strong>中断</strong>引发，硬件自动完成变态过程；</p>
+<li>如何变态？
+<ul>
+<li>内核态转向用户态：执行一条特权指令，修改 PSW 的标志位为用户态；</li>
+<li>用户态转向内核态：由<strong>中断</strong>引发，中断硬件自动完成变态过程；</li>
+</ul>
 </li>
 </ul>
 <p>中断与异常：</p>
@@ -458,46 +465,12 @@ CPU 执行的程序分为两种：操作系统内核程序、用户程序；
 </ul>
 <p>进程的控制：</p>
 <ol>
-<li>进程的创建</li>
+<li>进程的创建：申请空白 PCB；为新进程分配所需资源；初始化 PCB；将 PCB 插入就绪队列。</li>
+<li>进程的终止：从 PCB 集中中找到终止进程的 PCB；若进程正在运行，立刻剥夺 CPU， 将 CPU 分配给其它进程。</li>
+<li>进程的阻塞：找到要阻塞的进程对应的 PCB；保护进程运行现场，将 PCB 状态信息设置为阻塞态，暂时停止进程执行；将 PCB 插入相应事件的等待队列。</li>
+<li>进程的唤醒：在事件等待队列中找到PCB；将 PCB 从等待队列移除，设置进程为就绪态；将 PCB 插入就绪队列，等待被调度。</li>
+<li>进程状态的切换：将运行环境信息存入 PCB；PCB 移入相应队列；选择另一个进程执行，并更新其 PCB；根据 PCB 回复新进程所需的运行环境。</li>
 </ol>
-<ul>
-<li>申请空白 PCB；</li>
-<li>为新进程分配所需资源；</li>
-<li>初始化 PCB；</li>
-<li>将 PCB 插入就绪队列；</li>
-</ul>
-<ol start="2">
-<li>进程的终止</li>
-</ol>
-<ul>
-<li>从 PCB 集中中找到终止进程的 PCB；</li>
-<li>若进程正在运行，立刻剥夺 CPU， 将 CPU 分配给其它进程；</li>
-</ul>
-<ol start="3">
-<li>进程的阻塞</li>
-</ol>
-<ul>
-<li>找到要阻塞的进程对应的 PCB；</li>
-<li>保护进程运行现场，将 PCB 状态信息设置为 阻塞态，暂时停止进程执行；</li>
-<li>将 PCB 插入相应事件的等待队列；</li>
-</ul>
-<ol start="4">
-<li>进程的唤醒</li>
-</ol>
-<ul>
-<li>在事件等待队列中找到PCB；</li>
-<li>将 PCB 从等待队列移除，设置进程为就绪态；</li>
-<li>将 PCB 插入就绪队列，等待被调度；</li>
-</ul>
-<ol start="5">
-<li>进程状态的切换</li>
-</ol>
-<ul>
-<li>将运行环境信息存入 PCB；</li>
-<li>PCB 移入相应队列；</li>
-<li>选择另一个进程执行，并更新其 PCB；</li>
-<li>根据 PCB 回复新进程所需的运行环境；</li>
-</ul>
 <p>进程的通信：</p>
 <ul>
 <li>共享存储：相互通信的进程互斥地共享某些数据结构或存储区，进程之间能够通过这些空间进行通信；</li>
@@ -555,13 +528,24 @@ CPU 执行的程序分为两种：操作系统内核程序、用户程序；
 <p>同步与互斥：</p>
 <ul>
 <li>同步：并发进程为完成同一任务所进行的工作顺序协调；</li>
-<li>互斥：并发进程为竞争临界资源所进行的资源分时占用。</li>
+<li>互斥：并发进程为竞争临界资源所进行的资源分时占用。
+<ul>
+<li>四个部分：
+<ul>
+<li>进入区：上锁</li>
+<li>临界区：访问临界资源</li>
+<li>退出区：解锁</li>
+<li>剩余区</li>
+</ul>
+</li>
 <li>进程互斥遵循的原则：
 <ul>
 <li>空闲让进：临界区空闲时，应允许一个进程访问</li>
 <li>忙则等待：临界区正在被访问时，其他试图访问的进程需要等待</li>
 <li>有限等待：要在有限时间内进入临界区，保证不会饥饿</li>
 <li>让权等待：进不了临界区的进程，要释放处理机，防止忙等</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -666,7 +650,10 @@ CPU 执行的程序分为两种：操作系统内核程序、用户程序；
 <p>死锁：</p>
 <ul>
 <li>死锁：各进程互相等待对方的资源，导致各进程都阻塞（资源永远不会释放）。
-特点：至少两个或两个以上的进程同时死锁；处于阻塞态。</li>
+<ul>
+<li>特点：至少两个或两个以上的进程同时死锁；处于阻塞态。</li>
+</ul>
+</li>
 </ul>
 <blockquote>
 <p>区分</p>
@@ -684,32 +671,186 @@ CPU 执行的程序分为两种：操作系统内核程序、用户程序；
 <li>循环等待条件：存在一种进程资源的循环等待链；循环等待未必死锁，死锁必定循环等待。</li>
 </ul>
 </li>
-<li>死锁预防：破坏死锁的四个必要条件（完全没有死锁的可能）。</li>
-<li>死锁避免：避免系统进入不安全状态（有可能死锁，避免陷入死锁）。
-银行家算法 ：在资源分配之前，先判断此次分配是否会导致系统进入 不安全状态 ，再决定是否分配资源。</li>
+<li>预防死锁：破坏死锁的四个必要条件（完全没有死锁的可能）。</li>
+<li>避免死锁：避免系统进入不安全状态（有可能死锁，避免陷入死锁）。
+<ul>
+<li>银行家算法 ：在资源分配之前，先判断此次分配是否会导致系统进入不安全状态，再决定是否分配资源。</li>
+</ul>
+</li>
+<li>检测死锁：死锁定理</li>
+<li>解除死锁：资源剥夺法、撤销进程法、进程回退法</li>
 </ul>
 <h2 id="3-内存管理">3. 内存管理
 </h2><p>内存的一大作用是缓和 CPU 与硬盘之间的速度矛盾。</p>
 <p>内存管理任务：</p>
 <ul>
 <li>内存空间的分配与回收</li>
-<li>内存空间的扩充：从逻辑上对内存空间进行扩充</li>
+<li>内存扩充：从逻辑上对内存空间进行扩充</li>
 <li>地址转换：逻辑地址与物理地址的转换</li>
 <li>存储保护：保证各进程在各自存储空间内运行，互不干扰。</li>
 </ul>
 <p>进程运行的基本原理：</p>
 <ul>
 <li>创建进程首先要将程序和数据装入内存；</li>
-<li>将<strong>用户源程序</strong>变为<strong>可在内存中执行的程序</strong>，通常需要以下几个步骤：
+<li>将用户源程序变为可在内存中执行的程序，通常需要以下几个步骤：
 <ul>
-<li>编译：由<strong>编译程序</strong>将<strong>用户源代码</strong>编译成<strong>若干个模块</strong>（机器指令）；</li>
-<li>链接：由<strong>链接程序</strong>将编译后形成的一组目标模块及它们所需的<strong>库函数</strong>链接在一起，形成一个完整的<strong>装入模块</strong>；</li>
-<li>装入：由<strong>装入程序</strong>将<strong>装入模块</strong>装入内存运行。</li>
+<li>编译：由编译程序将用户源代码编译成若干个模块（机器指令）；</li>
+<li>链接：由链接程序将编译后形成的一组目标模块及它们所需的库函数链接在一起，形成一个完整的装入模块；</li>
+<li>装入：由装入程序将装入模块装入内存运行。</li>
 </ul>
 </li>
 </ul>
-<p>三种</p>
-
+<p>三种装入方式：</p>
+<ul>
+<li>绝对装入：编译器负责地址转化（装入模块的指令直接就是绝对地址）。</li>
+<li>静态重定位：装入程序负责地址转化。</li>
+<li>动态重定位：运行时才进行地址转化，需要硬件（寄存器）支持。</li>
+</ul>
+<h3 id="内存空间的分配与回收">内存空间的分配与回收
+</h3><p>连续分配管理方式：为一个用户程序分配一个连续的内存空间。</p>
+<ul>
+<li>单一连续分配：只支持单道程序，内存分为系统区和用户区，用户程序放在用户区。</li>
+<li>固定分区分配：支持多道程序，内存用户空间分为若干个固定大小的分区，每个分区只能装一道作业。</li>
+<li>动态分区分配：支持多道程序，在进程装入内存时，根据进程的大小动态地建立分区。
+<ul>
+<li>首次适应：从头到尾找适合的分区</li>
+<li>最佳适应：优先使用更小的分区，以保留更多大分区</li>
+<li>最坏适应：优先使用更大的分区，以防止产生太小的不可用的碎片</li>
+<li>邻近适应：由首次适应演变而来，每次从上次查找结束位置开始查找</li>
+</ul>
+</li>
+</ul>
+<p>非连续分配管理方式：</p>
+<ul>
+<li>基本分页存储管理：
+<ul>
+<li>核心思想：将虚拟内存和物理内存都划分为固定大小的块。虚拟内存的块称为页（Page）。物理内存的块称为页框或页帧（Frame）。通常，页和页框的大小是相等的，比如 4KB。这样划分的好处是，程序在运行时，它的不同页面可以被加载到物理内存中不连续的页框中，从而避免外部碎片问题。</li>
+<li>工作过程：一个虚拟地址可以被分为两部分：虚拟页号（VPN），高20位，表示这个地址位于哪个页；页内偏移（Offset），低12位，表示这个地址在页内的具体位置。当 CPU 要访问一个虚拟地址时：
+<ul>
+<li>它会通过内存管理单元（MMU），从虚拟地址中提取出页号与页内偏移；</li>
+<li>与页表长度对比，检查页号合法性；</li>
+<li>查询页表，找到页号对应的页表项，确定内存块号（访存）；</li>
+<li>将内存块号与页内偏移组合，得到实际的物理地址；</li>
+<li>访问目标内存单元（访存）。</li>
+</ul>
+</li>
+<li>不会产生外部碎片，只有少量内部碎片；不方便按照逻辑模块实现信息的共享与保护。</li>
+</ul>
+</li>
+</ul>
+<p><img src="/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/12.png"
+	width="1024"
+	height="570"
+	srcset="/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/12_hu_933006714c9352c7.png 480w, /p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/12_hu_c1708ad688a1f877.png 1024w"
+	loading="lazy"
+	
+		alt="TLB 快表"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="179"
+		data-flex-basis="431px"
+	
+></p>
+<ul>
+<li>
+<p>基本分段存储管理：</p>
+<ul>
+<li>方便按照逻辑模块实现信息的共享与保护，会产生外部碎片
+<img src="/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/13.png"
+	width="1113"
+	height="631"
+	srcset="/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/13_hu_f05c01e39db637e2.png 480w, /p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/13_hu_93c4db417c713cfb.png 1024w"
+	loading="lazy"
+	
+		alt="基本分段存储管理"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="176"
+		data-flex-basis="423px"
+	
+></li>
+</ul>
+</li>
+<li>
+<p>分页、分段对比：
+<img src="/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/14.png"
+	width="1371"
+	height="694"
+	srcset="/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/14_hu_e7f09494e4ab8f66.png 480w, /p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/14_hu_3ca052d93131ea61.png 1024w"
+	loading="lazy"
+	
+		alt="对比"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="197"
+		data-flex-basis="474px"
+	
+></p>
+</li>
+<li>
+<p>段页式管理：</p>
+<ul>
+<li>进程按逻辑分段，各段按物理分页。
+<img src="/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/15.png"
+	width="1419"
+	height="786"
+	srcset="/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/15_hu_9a85a97982f1c760.png 480w, /p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/15_hu_fee4d01d5b3fc8ee.png 1024w"
+	loading="lazy"
+	
+		alt="段页式管理"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="180"
+		data-flex-basis="433px"
+	
+></li>
+</ul>
+</li>
+</ul>
+<h3 id="内存扩充">内存扩充
+</h3><ul>
+<li>
+<p>覆盖（同一程序或进程）：需要常驻内存的段放在“固定区”中，调入后就不再调出（除非运行结束）；不常用的段放在“覆盖区”，需要用到时调入内存，用不到时调出内存。</p>
+</li>
+<li>
+<p>交换（不同进程）：内存紧张时，换出某些进程以腾出内存空间，再换入某些进程；磁盘分为文件区和对换区，换出的进程放在对换区。</p>
+</li>
+<li>
+<p>虚拟内存：</p>
+<ul>
+<li>思想：部分装入 + 请求调入 + 置换功能（对用户透明）–&gt; 虚拟大内存</li>
+<li>实现：
+<ul>
+<li>一定容量的内存和外存；</li>
+<li>页表机制（或段表机制），作为主要的数据结构；</li>
+<li>中断机构，当用户程序要访问的部分尚未调入内存时，则会产生中断；</li>
+<li>地址变换机构，逻辑机构到物理地址的变换。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>页面置换算法：
+<img src="/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/16.png"
+	width="771"
+	height="398"
+	srcset="/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/16_hu_672b1f99ac754ea9.png 480w, /p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/16_hu_321b2c53baa62902.png 1024w"
+	loading="lazy"
+	
+		alt="页面置换算法"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="193"
+		data-flex-basis="464px"
+	
+></p>
+<h2 id="4-文件系统">4. 文件系统
+</h2>
 </section>
 
 
@@ -732,7 +873,7 @@ CPU 执行的程序分为两种：操作系统内核程序、用户程序；
 
 
         <span>
-            最后更新于 2025-08-16 08:47 CST
+            最后更新于 2025-08-26 01:57 CST
         </span>
     </section></footer>
 

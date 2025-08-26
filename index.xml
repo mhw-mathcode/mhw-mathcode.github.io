@@ -7,6 +7,219 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>mhw-mathcode</copyright><atom:link href="https://mhw-mathcode.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>学习笔记-编译原理</title>
+        <link>https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/</link>
+        <pubDate>Sun, 17 Aug 2025 09:57:00 +0800</pubDate>
+        
+        <guid>https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/</guid>
+        <description>&lt;h2 id=&#34;1-文法基础&#34;&gt;1. 文法基础
+&lt;/h2&gt;&lt;p&gt;C 语言编译过程：预处理(.i)、编译(.s)、汇编(.o)、连接(.exe)。
+高级语言程序执行：编译、汇编、运行。
+编译过程：词法分析、语法分析、语义分析和中间代码生成、优化、目标代码生成。&lt;/p&gt;
+&lt;p&gt;词法规则：词法规则规定了字母表中什么样的字符串是一个单词符号，是单词符号的形成规则，描述工具为有限自动机。
+语法规则：语言的语法规则规定了如何从单词符号形成更大的结构（即语法单位）换言之，语法规则是语法单位（语法范畴）的形成规则，描述工具为上下文无关文法。&lt;/p&gt;
+&lt;p&gt;文法 G 定义为四元组 $(V_N,V_T,P,S)$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;其中 $V_N$ 为非终结符号（或语法实体，或变量）集；&lt;/li&gt;
+&lt;li&gt;$V_T$ 为终结符号集；$V_N$ 和 $V_T$ 不含公共元素，即 $V_N\cap V_T=\emptyset$。通常 $V$ 表示 $V_N\cup V_T$，$V$ 称为文法 $G$ 的字母表；&lt;/li&gt;
+&lt;li&gt;$P$ 为产生式（也称规则）的集合；$V_N,V_T$ 和 $P$ 是非空有穷集；&lt;/li&gt;
+&lt;li&gt;$S$ 称作开始符号（识别符号），是一个非终结符 $(S\in V_N)$，至少要在一条规则中作为左部出现。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;假定 $G$ 是一个文法，$S$ 是它的开始符号。如果 $S→α$ ，则 $α$ 称是一个句型。仅含终结符号的句型是一个句子。文法 $G$ 所产生的句子的全体是一个语言，将它记为 $L(G)$。&lt;/p&gt;
+&lt;p&gt;文法二义性：对于文法 $G$，若一个句子存在多个不同的最左推导（或最右推导），那么这个文法是二义的。&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;文法类型&lt;/th&gt;
+          &lt;th&gt;定义描述&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;0型文法&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;每个产生式左侧至少有一个非终结符。&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;1型文法&lt;/strong&gt;（上下文有关文法）&lt;/td&gt;
+          &lt;td&gt;产生式满足：若 $α→β$，则 $|α|≤|β|$。（ $S→ε$ 除外）&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;2型文法&lt;/strong&gt;（上下文无关文法）☆&lt;/td&gt;
+          &lt;td&gt;每个产生式左侧都是一个非终结符。例如：$S → Ba$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;3型文法&lt;/strong&gt;（正则文法）&lt;/td&gt;
+          &lt;td&gt;每个产生式形式为：&lt;br&gt;$A → aB$ 或 $A → a$（右线性）&lt;br&gt; $A → Ba$ 或 $A → a$（左线性）&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;2-词法分析&#34;&gt;2. 词法分析
+&lt;/h2&gt;&lt;p&gt;词法单元：（词法单元名/单词种别，属性值）&lt;/p&gt;
+&lt;p&gt;正则表达式与正则集：
+&lt;img src=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/image/3.png&#34;
+	width=&#34;1087&#34;
+	height=&#34;422&#34;
+	srcset=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/image/3_hu_dccdadbcbfbc7839.png 480w, https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/image/3_hu_c3eadc6ba2ed1c51.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;正则表达式与正则集&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;257&#34;
+		data-flex-basis=&#34;618px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;确定有限自动机：一个 DFA（Deterministic Finite Automaton） 可表示为一个五元式 $M = (S,\ \Sigma,\ f,\ s_0,\ F)$&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;符号&lt;/th&gt;
+          &lt;th&gt;含义&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;\(S\)&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;有限状态集（有穷状态集合）&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;\(\Sigma\)&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;输入字母表（有穷符号集合）&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;\(f\)&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;状态转移函数，单值映射：\(f: S \times \Sigma \to S\)  &lt;br&gt;若 \(f(s, a) = s&#39;\)，表示当前状态为 \(s\)、输入字符为 \(a\) 时，转移到后继状态 \(s&#39;\)。&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;\(s_0 \in S\)&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;唯一的初始状态&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;\(F \subseteq S\)&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;接受状态集（终态集），可为空集&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;非确定有限自动机：一个 NFA（Nondeterministic Finite Automaton） 可表示为一个五元式 $M = (S,\ \Sigma,\ f,\ S_0,\ F)$&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;符号&lt;/th&gt;
+          &lt;th&gt;含义&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;\(S\)&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;有限状态集（有穷状态集合）&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;\(\Sigma\)&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;输入字母表（有穷符号集合）&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;\(f\)&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;状态转移函数，部分映射（非单值）：&lt;br&gt;\(f: S \times \Sigma \to 2^S\)（幂集），&lt;br&gt;即对于给定状态与输入字符，可转移到零个、一个或多个后继状态。&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;\(S_0 \subseteq S,\ S_0 \neq \varnothing\)&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;非空的初始状态集合&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;\(F \subseteq S\)&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;接受状态集（终态集），可为空&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;NFA 确定化：ε-闭包、a弧转化
+&lt;img src=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/image/1.png&#34;
+	width=&#34;1762&#34;
+	height=&#34;960&#34;
+	srcset=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/image/1_hu_7638413d803cbd4a.png 480w, https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/image/1_hu_bb541dade3a71e9f.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;NFA 确定化&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;183&#34;
+		data-flex-basis=&#34;440px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;DFA 最小化：
+&lt;img src=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/image/2.png&#34;
+	width=&#34;1682&#34;
+	height=&#34;903&#34;
+	srcset=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/image/2_hu_c873380651e80652.png 480w, https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/image/2_hu_c5dddeb794b6851e.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;DFA 最小化&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;186&#34;
+		data-flex-basis=&#34;447px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;3-语法分析-自上而下&#34;&gt;3. 语法分析-自上而下
+&lt;/h2&gt;&lt;p&gt;LL(1) 意义：LL(1)中的第一个 “L” 意味着自左而右地扫描输入,第二个 “L” 意味着生成一个最左推导,并且 “1” 意味着为做出分析动作的决定，在每一步利用一个向前看符号。&lt;/p&gt;
+&lt;p&gt;分析条件：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;文法不含左递归和回溯&lt;/li&gt;
+&lt;li&gt;对于文法中每一个非终结符 $A$ 的各个产生式的候选首符集两两不相交。&lt;br&gt;
+即，若 $A → α₁ | α₂ | ⋯ | αₙ$ 则 $FIRST(αᵢ) ∩ FIRST(αⱼ) = ∅ (i ≠ j)$&lt;/li&gt;
+&lt;li&gt;对文法中的每个非终结符 $A$，若它存在某个候选首符集包含 $ε$，则 $FIRST(A) ∩ FOLLOW(A) = ∅$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;构造非终结符的 FIRST 集合：&lt;/p&gt;
+&lt;p&gt;对每一个文法符号 $X \in V_T \cup V_N$ 构造 $FIRST(X)$：&lt;br&gt;
+应用下列规则，直到每个集合 $FIRST$ 不再增大为止。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;如果 $X \in V_T$，则 $FIRST(X) = {X}$&lt;/li&gt;
+&lt;li&gt;如果 $X \in V_N$，且有产生式 $X \to a…$，则把 $a$ 加入到 $FIRST(X)$ 中；若 $X \to \varepsilon$ 也是一个产生式，则把 $\varepsilon$ 加入到 $FIRST(X)$ 中。&lt;/li&gt;
+&lt;li&gt;如果 $X \to Y…$ 是一个产生式且 $Y \in V_N$，则把 $FIRST(Y)\setminus{\varepsilon}$ 加到 $FIRST(X)$ 中；如果 $X \to Y_1 Y_2 \dots Y_k$ 是一个产生式，$Y_1, \dots, Y_{i-1} \in V_N$，而且对任何 $j \in [1, i-1]$，$\varepsilon \in FIRST(Y_j)$（即 $Y_1 Y_2 \dots Y_{i-1} \Rightarrow^* \varepsilon$），则把 $FIRST(Y_i)\setminus{\varepsilon}$ 加到 $FIRST(X)$ 中；特别的，若所有的 $FIRST(Y_j)$ 均含有 $\varepsilon$，$j = 1, 2, \dots, k$，则把 $\varepsilon$ 加到 $FIRST(X)$ 中。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;构造非终结符的 FOLLOW 集合：&lt;/p&gt;
+&lt;p&gt;对文法 $G$ 的每个非终结符 $A$ 构造 $FOLLOW(A)$ 的方法是：连续应用下列规则，直到每个后随符号集 $FOLLOW$ 不再增大为止。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;对于文法的开始符号 $S$，置 $#$ 于 $FOLLOW(S)$ 中；&lt;/li&gt;
+&lt;li&gt;若 $A \to \alpha B \beta$ 是一个产生式，则把 $FIRST(\beta)\setminus{\varepsilon}$ 加至 $FOLLOW(B)$ 中；&lt;/li&gt;
+&lt;li&gt;若 $A \to \alpha B$ 是一个产生式，或 $A \to \alpha B \beta$ 是一个产生式且 $\beta \Rightarrow^* \varepsilon$（即 $\varepsilon \in FIRST(\beta)$），则把 $FOLLOW(A)$ 加至 $FOLLOW(B)$ 中。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;3-语法分析-自下而上&#34;&gt;3. 语法分析-自下而上
+&lt;/h2&gt;&lt;p&gt;短语：任意一颗子树中，如果根结点经过若干步才推导出了叶子结点，则这些叶子结点组成的序列就是相对于这棵子树的短语。
+直接短语：属于短语，只不过不能经过若干步的推导了，必须一步就能推导出来叶子结点来，这些叶子结点组成的序列才是相对于这颗子树的直接短语。
+句柄：最左直接短语。
+素短语：至少含有一个终结符的短语，并且除自身外，不包含更小的素短语。
+最左素短语：句型中最左边的素短语。&lt;/p&gt;
+&lt;p&gt;算符优先级规则：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$a = b$：文法中有形如 $A \to a b$ 或 $A \to \dots a B b \dots$ 的产生式；&lt;/li&gt;
+&lt;li&gt;$a &amp;lt; b$：文法中有形如 $A \to \dots a B \dots$ 的产生式，而 $B = b \dots$ 或 $B = C b \dots$；&lt;/li&gt;
+&lt;li&gt;$a &amp;gt; b$：文法中有形如 $A \to \dots B b$ 的产生式，而 $B = a$ 或 $B = a C$。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;FIRSTVT 规则：
+构造集合 $FIRSTVT(P)$ 的两条规则如下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;若有产生式 $P \to a \dots$ 或 $P \to Q a \dots$，则 $a \in FIRSTVT(P)$；&lt;/li&gt;
+&lt;li&gt;若 $a \in FIRSTVT(Q)$，且有产生式 $P \to Q \dots$，则 $a \in FIRSTVT(P)$。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;LR(0)：求出拓广文法所有产生式的项目，构造 LR(0) 项目集规范族并得到 DFA，构造 ACTION 和 GOTO 表。&lt;/p&gt;
+&lt;p&gt;构造 LR 分析表的规则如下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;若项目 $A \to \alpha \cdot a\beta$ 属于 $I_k$，且 $GO(I_k,a)=I_j$，则置 $ACTION[k,a]$ 为 $S_j$ 表示把状态 $j$ 和符号 $a$ 移入栈。&lt;/li&gt;
+&lt;li&gt;若项目 $A \to \alpha \cdot$ 属于 $I_k$，则对任何终结符 $a$ 和 $#$，置 $ACTION[k,a]$ 和 $ACTION[k,#]$ 为 $r_i$（$i$ 为文法 $G&amp;rsquo;$ 中某产生式 $A \to \alpha$ 的序号）表示用产生式 $A \to \alpha$ 规约。&lt;/li&gt;
+&lt;li&gt;若项目 $S&amp;rsquo; \to S \cdot$ 属于 $I_k$，则置 $ACTION[k,#]$ 为 $acc$（接受）。&lt;/li&gt;
+&lt;li&gt;若 $GO(I_k,A)=I_j$，则置 $GOTO[k,A]$ 为 $j$。&lt;/li&gt;
+&lt;li&gt;凡不能用上述方法填入的元素，均填上“报错标志”或空白。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;SLR(1) 解决了一些移进-移进冲突和移进-规约冲突：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;若项目 $A \to \alpha \cdot$ 属于 $I_k$，则对任何终结符 $a\in FOLLOW(A)$，置 $ACTION[k,a]$ 为 $r_i$（$i$ 为文法 $G&amp;rsquo;$ 中某产生式 $A \to \alpha$ 的序号）。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
         <title>LeetCode Hot100</title>
         <link>https://mhw-mathcode.github.io/p/leetcode-hot100/</link>
         <pubDate>Thu, 07 Aug 2025 11:38:59 +0800</pubDate>
@@ -2436,28 +2649,29 @@ UDP 的主要特点:&lt;/p&gt;
 &lt;/ul&gt;
 &lt;p&gt;操作系统的运行机制：&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;内核程序 vs 应用程序
-CPU 执行的程序分为两种：操作系统内核程序、用户程序；
-内核是操作系统最基础、核心的那部分；&lt;/p&gt;
+&lt;li&gt;内核程序 vs 应用程序
+&lt;ul&gt;
+&lt;li&gt;CPU 执行的程序分为两种：操作系统内核程序、用户程序；&lt;/li&gt;
+&lt;li&gt;内核是操作系统最基础、核心的那部分；&lt;/li&gt;
+&lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;特权指令 vs 非特权指令
-内核程序，在计算机中的地位充当管理程序 ，所以可以执行特权指令；
-用户程序，在计算机中的地位充当被管理程序 ，出于安全考虑只能执行非特权指令；&lt;/p&gt;
+&lt;li&gt;特权指令 vs 非特权指令
+&lt;ul&gt;
+&lt;li&gt;内核程序，在计算机中的地位充当管理程序 ，所以可以执行特权指令；&lt;/li&gt;
+&lt;li&gt;用户程序，在计算机中的地位充当被管理程序 ，出于安全考虑只能执行非特权指令；&lt;/li&gt;
+&lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;内核态 vs 用户态
-【问题】CPU 可以区分特权指令和非特权指令 ，但是 CPU 无法识别正在执行的指令是应用程序的指令，还是内核程序的指令。
-答：为了让 CPU 能够区分应用程序和内核程序 ，CPU会被划分为两种状态：内核态和用户态。&lt;/p&gt;
-&lt;p&gt;内核态 - 内核程序 - 可以执行特权指令；
-用户态 - 应用程序 - 只能执行非特权指令；&lt;/p&gt;
-&lt;p&gt;CPU使用程序状态字寄存器（PSW） 实现对CPU状态的标记。&lt;/p&gt;
+&lt;li&gt;内核态 vs 用户态
+&lt;ul&gt;
+&lt;li&gt;【问题】CPU 可以区分特权指令和非特权指令 ，但是 CPU 无法识别正在执行的指令是应用程序的指令，还是内核程序的指令。&lt;/li&gt;
+&lt;li&gt;答：为了让 CPU 能够区分应用程序和内核程序 ，CPU 会被划分为两种状态：内核态和用户态。CPU 使用程序状态字寄存器（PSW） 实现对 CPU 状态的标记。&lt;/li&gt;
+&lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;如何变态 ？
-内核态转向用户态：执行一条特权指令，修改 PSW 的标志位为用户态；
-用户态转向内核态：由&lt;strong&gt;中断&lt;/strong&gt;引发，硬件自动完成变态过程；&lt;/p&gt;
+&lt;li&gt;如何变态？
+&lt;ul&gt;
+&lt;li&gt;内核态转向用户态：执行一条特权指令，修改 PSW 的标志位为用户态；&lt;/li&gt;
+&lt;li&gt;用户态转向内核态：由&lt;strong&gt;中断&lt;/strong&gt;引发，中断硬件自动完成变态过程；&lt;/li&gt;
+&lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;中断与异常：&lt;/p&gt;
@@ -2575,46 +2789,12 @@ CPU 执行的程序分为两种：操作系统内核程序、用户程序；
 &lt;/ul&gt;
 &lt;p&gt;进程的控制：&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;进程的创建&lt;/li&gt;
+&lt;li&gt;进程的创建：申请空白 PCB；为新进程分配所需资源；初始化 PCB；将 PCB 插入就绪队列。&lt;/li&gt;
+&lt;li&gt;进程的终止：从 PCB 集中中找到终止进程的 PCB；若进程正在运行，立刻剥夺 CPU， 将 CPU 分配给其它进程。&lt;/li&gt;
+&lt;li&gt;进程的阻塞：找到要阻塞的进程对应的 PCB；保护进程运行现场，将 PCB 状态信息设置为阻塞态，暂时停止进程执行；将 PCB 插入相应事件的等待队列。&lt;/li&gt;
+&lt;li&gt;进程的唤醒：在事件等待队列中找到PCB；将 PCB 从等待队列移除，设置进程为就绪态；将 PCB 插入就绪队列，等待被调度。&lt;/li&gt;
+&lt;li&gt;进程状态的切换：将运行环境信息存入 PCB；PCB 移入相应队列；选择另一个进程执行，并更新其 PCB；根据 PCB 回复新进程所需的运行环境。&lt;/li&gt;
 &lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;申请空白 PCB；&lt;/li&gt;
-&lt;li&gt;为新进程分配所需资源；&lt;/li&gt;
-&lt;li&gt;初始化 PCB；&lt;/li&gt;
-&lt;li&gt;将 PCB 插入就绪队列；&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;进程的终止&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;从 PCB 集中中找到终止进程的 PCB；&lt;/li&gt;
-&lt;li&gt;若进程正在运行，立刻剥夺 CPU， 将 CPU 分配给其它进程；&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;进程的阻塞&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;找到要阻塞的进程对应的 PCB；&lt;/li&gt;
-&lt;li&gt;保护进程运行现场，将 PCB 状态信息设置为 阻塞态，暂时停止进程执行；&lt;/li&gt;
-&lt;li&gt;将 PCB 插入相应事件的等待队列；&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol start=&#34;4&#34;&gt;
-&lt;li&gt;进程的唤醒&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;在事件等待队列中找到PCB；&lt;/li&gt;
-&lt;li&gt;将 PCB 从等待队列移除，设置进程为就绪态；&lt;/li&gt;
-&lt;li&gt;将 PCB 插入就绪队列，等待被调度；&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol start=&#34;5&#34;&gt;
-&lt;li&gt;进程状态的切换&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;将运行环境信息存入 PCB；&lt;/li&gt;
-&lt;li&gt;PCB 移入相应队列；&lt;/li&gt;
-&lt;li&gt;选择另一个进程执行，并更新其 PCB；&lt;/li&gt;
-&lt;li&gt;根据 PCB 回复新进程所需的运行环境；&lt;/li&gt;
-&lt;/ul&gt;
 &lt;p&gt;进程的通信：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;共享存储：相互通信的进程互斥地共享某些数据结构或存储区，进程之间能够通过这些空间进行通信；&lt;/li&gt;
@@ -2672,13 +2852,24 @@ CPU 执行的程序分为两种：操作系统内核程序、用户程序；
 &lt;p&gt;同步与互斥：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;同步：并发进程为完成同一任务所进行的工作顺序协调；&lt;/li&gt;
-&lt;li&gt;互斥：并发进程为竞争临界资源所进行的资源分时占用。&lt;/li&gt;
+&lt;li&gt;互斥：并发进程为竞争临界资源所进行的资源分时占用。
+&lt;ul&gt;
+&lt;li&gt;四个部分：
+&lt;ul&gt;
+&lt;li&gt;进入区：上锁&lt;/li&gt;
+&lt;li&gt;临界区：访问临界资源&lt;/li&gt;
+&lt;li&gt;退出区：解锁&lt;/li&gt;
+&lt;li&gt;剩余区&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;li&gt;进程互斥遵循的原则：
 &lt;ul&gt;
 &lt;li&gt;空闲让进：临界区空闲时，应允许一个进程访问&lt;/li&gt;
 &lt;li&gt;忙则等待：临界区正在被访问时，其他试图访问的进程需要等待&lt;/li&gt;
 &lt;li&gt;有限等待：要在有限时间内进入临界区，保证不会饥饿&lt;/li&gt;
 &lt;li&gt;让权等待：进不了临界区的进程，要释放处理机，防止忙等&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -2783,7 +2974,10 @@ CPU 执行的程序分为两种：操作系统内核程序、用户程序；
 &lt;p&gt;死锁：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;死锁：各进程互相等待对方的资源，导致各进程都阻塞（资源永远不会释放）。
-特点：至少两个或两个以上的进程同时死锁；处于阻塞态。&lt;/li&gt;
+&lt;ul&gt;
+&lt;li&gt;特点：至少两个或两个以上的进程同时死锁；处于阻塞态。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;blockquote&gt;
 &lt;p&gt;区分&lt;/p&gt;
@@ -2801,32 +2995,186 @@ CPU 执行的程序分为两种：操作系统内核程序、用户程序；
 &lt;li&gt;循环等待条件：存在一种进程资源的循环等待链；循环等待未必死锁，死锁必定循环等待。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;死锁预防：破坏死锁的四个必要条件（完全没有死锁的可能）。&lt;/li&gt;
-&lt;li&gt;死锁避免：避免系统进入不安全状态（有可能死锁，避免陷入死锁）。
-银行家算法 ：在资源分配之前，先判断此次分配是否会导致系统进入 不安全状态 ，再决定是否分配资源。&lt;/li&gt;
+&lt;li&gt;预防死锁：破坏死锁的四个必要条件（完全没有死锁的可能）。&lt;/li&gt;
+&lt;li&gt;避免死锁：避免系统进入不安全状态（有可能死锁，避免陷入死锁）。
+&lt;ul&gt;
+&lt;li&gt;银行家算法 ：在资源分配之前，先判断此次分配是否会导致系统进入不安全状态，再决定是否分配资源。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;检测死锁：死锁定理&lt;/li&gt;
+&lt;li&gt;解除死锁：资源剥夺法、撤销进程法、进程回退法&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;3-内存管理&#34;&gt;3. 内存管理
 &lt;/h2&gt;&lt;p&gt;内存的一大作用是缓和 CPU 与硬盘之间的速度矛盾。&lt;/p&gt;
 &lt;p&gt;内存管理任务：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;内存空间的分配与回收&lt;/li&gt;
-&lt;li&gt;内存空间的扩充：从逻辑上对内存空间进行扩充&lt;/li&gt;
+&lt;li&gt;内存扩充：从逻辑上对内存空间进行扩充&lt;/li&gt;
 &lt;li&gt;地址转换：逻辑地址与物理地址的转换&lt;/li&gt;
 &lt;li&gt;存储保护：保证各进程在各自存储空间内运行，互不干扰。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;进程运行的基本原理：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;创建进程首先要将程序和数据装入内存；&lt;/li&gt;
-&lt;li&gt;将&lt;strong&gt;用户源程序&lt;/strong&gt;变为&lt;strong&gt;可在内存中执行的程序&lt;/strong&gt;，通常需要以下几个步骤：
+&lt;li&gt;将用户源程序变为可在内存中执行的程序，通常需要以下几个步骤：
 &lt;ul&gt;
-&lt;li&gt;编译：由&lt;strong&gt;编译程序&lt;/strong&gt;将&lt;strong&gt;用户源代码&lt;/strong&gt;编译成&lt;strong&gt;若干个模块&lt;/strong&gt;（机器指令）；&lt;/li&gt;
-&lt;li&gt;链接：由&lt;strong&gt;链接程序&lt;/strong&gt;将编译后形成的一组目标模块及它们所需的&lt;strong&gt;库函数&lt;/strong&gt;链接在一起，形成一个完整的&lt;strong&gt;装入模块&lt;/strong&gt;；&lt;/li&gt;
-&lt;li&gt;装入：由&lt;strong&gt;装入程序&lt;/strong&gt;将&lt;strong&gt;装入模块&lt;/strong&gt;装入内存运行。&lt;/li&gt;
+&lt;li&gt;编译：由编译程序将用户源代码编译成若干个模块（机器指令）；&lt;/li&gt;
+&lt;li&gt;链接：由链接程序将编译后形成的一组目标模块及它们所需的库函数链接在一起，形成一个完整的装入模块；&lt;/li&gt;
+&lt;li&gt;装入：由装入程序将装入模块装入内存运行。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;三种&lt;/p&gt;
-</description>
+&lt;p&gt;三种装入方式：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;绝对装入：编译器负责地址转化（装入模块的指令直接就是绝对地址）。&lt;/li&gt;
+&lt;li&gt;静态重定位：装入程序负责地址转化。&lt;/li&gt;
+&lt;li&gt;动态重定位：运行时才进行地址转化，需要硬件（寄存器）支持。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;内存空间的分配与回收&#34;&gt;内存空间的分配与回收
+&lt;/h3&gt;&lt;p&gt;连续分配管理方式：为一个用户程序分配一个连续的内存空间。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;单一连续分配：只支持单道程序，内存分为系统区和用户区，用户程序放在用户区。&lt;/li&gt;
+&lt;li&gt;固定分区分配：支持多道程序，内存用户空间分为若干个固定大小的分区，每个分区只能装一道作业。&lt;/li&gt;
+&lt;li&gt;动态分区分配：支持多道程序，在进程装入内存时，根据进程的大小动态地建立分区。
+&lt;ul&gt;
+&lt;li&gt;首次适应：从头到尾找适合的分区&lt;/li&gt;
+&lt;li&gt;最佳适应：优先使用更小的分区，以保留更多大分区&lt;/li&gt;
+&lt;li&gt;最坏适应：优先使用更大的分区，以防止产生太小的不可用的碎片&lt;/li&gt;
+&lt;li&gt;邻近适应：由首次适应演变而来，每次从上次查找结束位置开始查找&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;非连续分配管理方式：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;基本分页存储管理：
+&lt;ul&gt;
+&lt;li&gt;核心思想：将虚拟内存和物理内存都划分为固定大小的块。虚拟内存的块称为页（Page）。物理内存的块称为页框或页帧（Frame）。通常，页和页框的大小是相等的，比如 4KB。这样划分的好处是，程序在运行时，它的不同页面可以被加载到物理内存中不连续的页框中，从而避免外部碎片问题。&lt;/li&gt;
+&lt;li&gt;工作过程：一个虚拟地址可以被分为两部分：虚拟页号（VPN），高20位，表示这个地址位于哪个页；页内偏移（Offset），低12位，表示这个地址在页内的具体位置。当 CPU 要访问一个虚拟地址时：
+&lt;ul&gt;
+&lt;li&gt;它会通过内存管理单元（MMU），从虚拟地址中提取出页号与页内偏移；&lt;/li&gt;
+&lt;li&gt;与页表长度对比，检查页号合法性；&lt;/li&gt;
+&lt;li&gt;查询页表，找到页号对应的页表项，确定内存块号（访存）；&lt;/li&gt;
+&lt;li&gt;将内存块号与页内偏移组合，得到实际的物理地址；&lt;/li&gt;
+&lt;li&gt;访问目标内存单元（访存）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;不会产生外部碎片，只有少量内部碎片；不方便按照逻辑模块实现信息的共享与保护。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/12.png&#34;
+	width=&#34;1024&#34;
+	height=&#34;570&#34;
+	srcset=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/12_hu_933006714c9352c7.png 480w, https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/12_hu_c1708ad688a1f877.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;TLB 快表&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;179&#34;
+		data-flex-basis=&#34;431px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;基本分段存储管理：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;方便按照逻辑模块实现信息的共享与保护，会产生外部碎片
+&lt;img src=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/13.png&#34;
+	width=&#34;1113&#34;
+	height=&#34;631&#34;
+	srcset=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/13_hu_f05c01e39db637e2.png 480w, https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/13_hu_93c4db417c713cfb.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;基本分段存储管理&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;176&#34;
+		data-flex-basis=&#34;423px&#34;
+	
+&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;分页、分段对比：
+&lt;img src=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/14.png&#34;
+	width=&#34;1371&#34;
+	height=&#34;694&#34;
+	srcset=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/14_hu_e7f09494e4ab8f66.png 480w, https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/14_hu_3ca052d93131ea61.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;对比&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;197&#34;
+		data-flex-basis=&#34;474px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;段页式管理：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;进程按逻辑分段，各段按物理分页。
+&lt;img src=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/15.png&#34;
+	width=&#34;1419&#34;
+	height=&#34;786&#34;
+	srcset=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/15_hu_9a85a97982f1c760.png 480w, https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/15_hu_fee4d01d5b3fc8ee.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;段页式管理&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;180&#34;
+		data-flex-basis=&#34;433px&#34;
+	
+&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;内存扩充&#34;&gt;内存扩充
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;覆盖（同一程序或进程）：需要常驻内存的段放在“固定区”中，调入后就不再调出（除非运行结束）；不常用的段放在“覆盖区”，需要用到时调入内存，用不到时调出内存。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;交换（不同进程）：内存紧张时，换出某些进程以腾出内存空间，再换入某些进程；磁盘分为文件区和对换区，换出的进程放在对换区。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;虚拟内存：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;思想：部分装入 + 请求调入 + 置换功能（对用户透明）–&amp;gt; 虚拟大内存&lt;/li&gt;
+&lt;li&gt;实现：
+&lt;ul&gt;
+&lt;li&gt;一定容量的内存和外存；&lt;/li&gt;
+&lt;li&gt;页表机制（或段表机制），作为主要的数据结构；&lt;/li&gt;
+&lt;li&gt;中断机构，当用户程序要访问的部分尚未调入内存时，则会产生中断；&lt;/li&gt;
+&lt;li&gt;地址变换机构，逻辑机构到物理地址的变换。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;页面置换算法：
+&lt;img src=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/16.png&#34;
+	width=&#34;771&#34;
+	height=&#34;398&#34;
+	srcset=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/16_hu_672b1f99ac754ea9.png 480w, https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/16_hu_321b2c53baa62902.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;页面置换算法&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;193&#34;
+		data-flex-basis=&#34;464px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;4-文件系统&#34;&gt;4. 文件系统
+&lt;/h2&gt;</description>
         </item>
         <item>
         <title>学习笔记-机器学习</title>

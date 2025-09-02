@@ -7,7 +7,91 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>mhw-mathcode</copyright>
-        <lastBuildDate>Tue, 26 Aug 2025 08:02:51 +0000</lastBuildDate><atom:link href="https://mhw-mathcode.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 02 Sep 2025 09:35:29 +0000</lastBuildDate><atom:link href="https://mhw-mathcode.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>学习笔记-计算机组成原理</title>
+        <link>https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/</link>
+        <pubDate>Tue, 26 Aug 2025 16:04:10 +0800</pubDate>
+        
+        <guid>https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/</guid>
+        <description>&lt;h2 id=&#34;1-概述&#34;&gt;1. 概述
+&lt;/h2&gt;&lt;p&gt;冯·诺伊曼计算机的特点：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;计算机由五大部件组成；&lt;/li&gt;
+&lt;li&gt;指令和数据以同等地位存于存储器，可按地址寻访；&lt;/li&gt;
+&lt;li&gt;指令和数据用二进制 表示；&lt;/li&gt;
+&lt;li&gt;指令由操作码和地址码组成；&lt;/li&gt;
+&lt;li&gt;采用存储程序（核心特征）的工作方式；&lt;/li&gt;
+&lt;li&gt;以运算器为中心。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;计算机组成框图：
+&lt;img src=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/image/1.png&#34;
+	width=&#34;475&#34;
+	height=&#34;271&#34;
+	srcset=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/image/1_hu_e55d6ef16e2fd536.png 480w, https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/image/1_hu_959039289482cb97.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;计算机组成&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;175&#34;
+		data-flex-basis=&#34;420px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;计算机系统的层次结构：&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;计算机系统的层次结构&lt;/th&gt;
+          &lt;th&gt;说明&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;M4 高级语言级&lt;/td&gt;
+          &lt;td&gt;编译程序将其翻译成汇编语言程序&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;M3 汇编语言级&lt;/td&gt;
+          &lt;td&gt;汇编程序将其翻译成机器语言程序&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;M2 操作系统级&lt;/td&gt;
+          &lt;td&gt;对上层提供系统调用&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;M1 机器语言级&lt;/td&gt;
+          &lt;td&gt;执行二进制机器指令&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;M0 微程序机器级&lt;/td&gt;
+          &lt;td&gt;由硬件直接指向微指令&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;2-总线&#34;&gt;2. 总线
+&lt;/h2&gt;&lt;p&gt;​总线：是一组能为多个部件分时共享的公共信息传输线路。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;分时：同一时刻只能有一个部件占用总线，避免多个部件向总线发送信息时，出现信号冲突问题（分时发送、同时接收）；&lt;/li&gt;
+&lt;li&gt;共享：每个部件交换的信息可通过这组线路分时共享，接收相同信息。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;总线的分类：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;片内总线：芯片内部 的总线 (CPU内部级别) ；&lt;/li&gt;
+&lt;li&gt;系统总线：计算机各部件之间 的信息传输线 (计算机内部级别)
+按系统总线传输信息进一步划分：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;数据总线：传输各功能部件之间的数据信息。是 双向 的，其位数与机器字长、存储字长相关；
+地址总线：指出 数据总线上源数据或目的数据 在 主存或I/O设备上的地址。是 单向 的，其位数与存储单元个数（存储地址、I/O设备）相关；
+控制总线：用来发出各种控制信号的传输线，有出、有入。&lt;/p&gt;
+&lt;p&gt;例如：中断请求、总线请求、存储器读、存储器写、总线允许、中断确认等；&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;通信总线：用于计算机系统之间或计算机系统与其他系统（如控制仪表、移动通信等）之间的通信（计算机级别）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;传输方式：串行通信总线、并行通信总线；&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>学习笔记-编译原理</title>
         <link>https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/</link>
         <pubDate>Sun, 17 Aug 2025 09:57:00 +0800</pubDate>
@@ -3346,7 +3430,23 @@ UDP 的主要特点:&lt;/p&gt;
         <pubDate>Mon, 16 Jun 2025 19:29:56 +0800</pubDate>
         
         <guid>https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</guid>
-        <description>&lt;h2 id=&#34;0-算法速览&#34;&gt;0 算法速览
+        <description>&lt;p&gt;&lt;img src=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/0.png&#34;
+	width=&#34;3840&#34;
+	height=&#34;2504&#34;
+	srcset=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/0_hu_5d0e7569d3cca06.png 480w, https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/0_hu_a7c0dda692cfb0d3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;机器学习&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;153&#34;
+		data-flex-basis=&#34;368px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;深度学习：它的核心是人工神经网络（Artificial Neural Networks, ANN），尤其是拥有多个隐藏层的“深度”神经网络，通过模拟人脑神经元的工作方式，能够自动从数据中学习出极其复杂和抽象的特征。&lt;/p&gt;
+&lt;p&gt;强化学习：它关注的是如何在一个环境中，让一个智能体（Agent）通过“试错”的方式学习，以采取一系列行动来最大化其获得的累积奖励。&lt;/p&gt;
+&lt;h2 id=&#34;0-算法速览&#34;&gt;0 算法速览
 &lt;/h2&gt;&lt;p&gt;监督学习算法：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;线性回归（Linear Regression）：用于回归任务，预测连续的数值。&lt;/li&gt;

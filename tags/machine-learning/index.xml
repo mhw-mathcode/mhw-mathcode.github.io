@@ -7,13 +7,29 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>mhw-mathcode</copyright>
-        <lastBuildDate>Tue, 26 Aug 2025 08:02:51 +0000</lastBuildDate><atom:link href="https://mhw-mathcode.github.io/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 02 Sep 2025 09:35:29 +0000</lastBuildDate><atom:link href="https://mhw-mathcode.github.io/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>学习笔记-机器学习</title>
         <link>https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</link>
         <pubDate>Mon, 16 Jun 2025 19:29:56 +0800</pubDate>
         
         <guid>https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</guid>
-        <description>&lt;h2 id=&#34;0-算法速览&#34;&gt;0 算法速览
+        <description>&lt;p&gt;&lt;img src=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/0.png&#34;
+	width=&#34;3840&#34;
+	height=&#34;2504&#34;
+	srcset=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/0_hu_5d0e7569d3cca06.png 480w, https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/0_hu_a7c0dda692cfb0d3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;机器学习&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;153&#34;
+		data-flex-basis=&#34;368px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;深度学习：它的核心是人工神经网络（Artificial Neural Networks, ANN），尤其是拥有多个隐藏层的“深度”神经网络，通过模拟人脑神经元的工作方式，能够自动从数据中学习出极其复杂和抽象的特征。&lt;/p&gt;
+&lt;p&gt;强化学习：它关注的是如何在一个环境中，让一个智能体（Agent）通过“试错”的方式学习，以采取一系列行动来最大化其获得的累积奖励。&lt;/p&gt;
+&lt;h2 id=&#34;0-算法速览&#34;&gt;0 算法速览
 &lt;/h2&gt;&lt;p&gt;监督学习算法：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;线性回归（Linear Regression）：用于回归任务，预测连续的数值。&lt;/li&gt;

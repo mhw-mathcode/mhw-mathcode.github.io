@@ -10,7 +10,7 @@
 <meta property='og:description' content="The process of studying machine learning">
 <meta property='og:url' content='https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/'>
 <meta property='og:site_name' content='mhw'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Machine learning' /><meta property='article:published_time' content='2025-06-16T19:29:56&#43;08:00'/><meta property='article:modified_time' content='2026-02-23T09:07:37&#43;00:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Machine learning' /><meta property='article:published_time' content='2025-06-16T19:29:56&#43;08:00'/><meta property='article:modified_time' content='2026-02-23T09:35:03&#43;00:00'/>
 <meta name="twitter:title" content="学习笔记-机器学习">
 <meta name="twitter:description" content="The process of studying machine learning">
     <link rel="shortcut icon" href="/favicon.ico" />
@@ -225,59 +225,53 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ul>
-    <li><a href="#0-算法速览">0 算法速览</a>
+    <li><a href="#0-前言">0. 前言</a>
       <ul>
-        <li><a href="#01-线性回归">0.1 线性回归</a>
-          <ul>
-            <li><a href="#求解方法-最小二乘法">求解方法-最小二乘法</a></li>
-            <li><a href="#求解方法-梯度下降法">求解方法-梯度下降法</a></li>
-          </ul>
-        </li>
-        <li><a href="#02-逻辑回归">0.2 逻辑回归</a>
-          <ul>
-            <li><a href="#求解方法-梯度下降法-1">求解方法-梯度下降法</a></li>
-          </ul>
-        </li>
-        <li><a href="#03-决策树">0.3 决策树</a>
-          <ul>
-            <li><a href="#求解方法-信息增益">求解方法-信息增益</a></li>
-            <li><a href="#求解方法-增益比">求解方法-增益比</a></li>
-            <li><a href="#求解方法-基尼指数">求解方法-基尼指数</a></li>
-          </ul>
-        </li>
-        <li><a href="#04-支持向量机">0.4 支持向量机</a>
-          <ul>
-            <li><a href="#求解方法-间隔最大化和支持向量">求解方法-间隔最大化和支持向量</a></li>
-          </ul>
-        </li>
-        <li><a href="#05-k近邻算法">0.5 K近邻算法</a>
-          <ul>
-            <li><a href="#求解方法">求解方法</a></li>
-          </ul>
-        </li>
-        <li><a href="#06-集成学习">0.6 集成学习</a></li>
-        <li><a href="#07-k-means-聚类">0.7 K-means 聚类</a>
-          <ul>
-            <li><a href="#求解方法-1">求解方法</a></li>
-            <li><a href="#k-means">K-means++</a></li>
-          </ul>
-        </li>
-        <li><a href="#08-主成分分析">0.8 主成分分析</a>
-          <ul>
-            <li><a href="#求解方法-2">求解方法</a></li>
-            <li><a href="#一些问题">一些问题</a></li>
-          </ul>
-        </li>
+        <li><a href="#监督学习">监督学习</a></li>
+        <li><a href="#无监督学习">无监督学习</a></li>
       </ul>
     </li>
-    <li><a href="#1-引言">1 引言</a>
+    <li><a href="#1-线性回归">1. 线性回归</a>
       <ul>
-        <li><a href="#11-什么是机器学习">1.1 什么是机器学习</a></li>
-        <li><a href="#12-监督学习">1.2 监督学习</a></li>
-        <li><a href="#13-无监督学习">1.3 无监督学习</a></li>
+        <li><a href="#求解方法-最小二乘法">求解方法-最小二乘法</a></li>
+        <li><a href="#求解方法-梯度下降法">求解方法-梯度下降法</a></li>
       </ul>
     </li>
-    <li><a href="#2-单变量线性回归-linear-regression-with-one-variable">2 单变量线性回归 (Linear Regression with One Variable)</a></li>
+    <li><a href="#2-逻辑回归">2. 逻辑回归</a>
+      <ul>
+        <li><a href="#求解方法-梯度下降法-1">求解方法-梯度下降法</a></li>
+      </ul>
+    </li>
+    <li><a href="#3-决策树">3. 决策树</a>
+      <ul>
+        <li><a href="#求解方法-信息增益">求解方法-信息增益</a></li>
+        <li><a href="#求解方法-增益比">求解方法-增益比</a></li>
+        <li><a href="#求解方法-基尼指数">求解方法-基尼指数</a></li>
+      </ul>
+    </li>
+    <li><a href="#4-支持向量机">4. 支持向量机</a>
+      <ul>
+        <li><a href="#求解方法-间隔最大化和支持向量">求解方法-间隔最大化和支持向量</a></li>
+      </ul>
+    </li>
+    <li><a href="#5-k近邻算法">5. K近邻算法</a>
+      <ul>
+        <li><a href="#求解方法">求解方法</a></li>
+      </ul>
+    </li>
+    <li><a href="#6-集成学习">6. 集成学习</a></li>
+    <li><a href="#7-k-means-聚类">7. K-means 聚类</a>
+      <ul>
+        <li><a href="#求解方法-1">求解方法</a></li>
+        <li><a href="#k-means">K-means++</a></li>
+      </ul>
+    </li>
+    <li><a href="#8-主成分分析">8. 主成分分析</a>
+      <ul>
+        <li><a href="#求解方法-2">求解方法</a></li>
+        <li><a href="#一些问题">一些问题</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
         </div>
@@ -347,7 +341,8 @@
     <section class="article-content">
     
     
-    <p><img src="/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/0.png"
+    <h2 id="0-前言">0. 前言
+</h2><p><img src="/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/0.png"
 	width="3840"
 	height="2504"
 	srcset="/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/0_hu_9019de8491154c05.png 480w, /p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/0_hu_eaecc3176fce9a83.png 1024w"
@@ -361,10 +356,14 @@
 		data-flex-basis="368px"
 	
 ></p>
+<p>机器学习：一个好的学习问题定义如下：一个程序被认为能从经验 E 中学习，解决任务 T ，达到性能度量值 P ，当且仅当，有了经验 E 后，经过 P 评判，程序在处理 T 时的性能有所提升。目前存在几种不同类型的学习算法，其中主要的两种类型被我们称之为：<strong>监督学习</strong>和<strong>无监督学习</strong>。</p>
 <p>深度学习：它的核心是人工神经网络（Artificial Neural Networks, ANN），尤其是拥有多个隐藏层的“深度”神经网络，通过模拟人脑神经元的工作方式，能够自动从数据中学习出极其复杂和抽象的特征。</p>
 <p>强化学习：它关注的是如何在一个环境中，让一个智能体（Agent）通过“试错”的方式学习，以采取一系列行动来最大化其获得的累积奖励。</p>
-<h2 id="0-算法速览">0 算法速览
-</h2><p>监督学习算法：</p>
+<h3 id="监督学习">监督学习
+</h3><p>监督学习：给定带有标签的数据，模型通过学习输入和标签之间的关系来做预测。</p>
+<p>回归 (regression) 问题：推测出这一系列连续值属性。</p>
+<p>分类 (classification) 问题：推测出离散的输出值。</p>
+<p>监督学习算法：</p>
 <ul>
 <li>线性回归（Linear Regression）：用于回归任务，预测连续的数值。</li>
 <li>逻辑回归（Logistic Regression）：用于二分类任务，预测类别。</li>
@@ -373,16 +372,20 @@
 <li>K近邻算法</li>
 <li>集成学习</li>
 </ul>
+<h3 id="无监督学习">无监督学习
+</h3><p>无监督学习：没有标签的数据，模型通过探索数据中的结构或模式来进行学习。</p>
+<p>聚类算法：将数据集划分成两个不同的簇。</p>
+<p>鸡尾酒算法：分离两种声音。（一个具体实例，仅仅只需要一行代码实现）</p>
 <p>无监督学习算法：</p>
 <ul>
 <li>K-means 聚类：通过聚类中心将数据分组。</li>
 <li>主成分分析（PCA）：用于降维，提取数据的主成分。</li>
 </ul>
-<h3 id="01-线性回归">0.1 线性回归
-</h3><p>线性回归 (Linear Regression) 是一种用于预测连续值的最基本的机器学习算法，它假设目标变量 y 和特征变量 x 之间存在线性关系，并试图找到一条最佳拟合直线来描述这种关系。</p>
+<h2 id="1-线性回归">1. 线性回归
+</h2><p>线性回归 (Linear Regression) 是一种用于预测连续值的最基本的机器学习算法，它假设目标变量 y 和特征变量 x 之间存在线性关系，并试图找到一条最佳拟合直线来描述这种关系。</p>
 <p>常用的误差函数是均方误差 (MSE) : $MSE = 1/n * Σ(y_i - y_{pred_i})^2$</p>
-<h4 id="求解方法-最小二乘法">求解方法-最小二乘法
-</h4><p>最小二乘法的目标是最小化残差平方和（RSS），其公式为：$RSS = \sum_{i=1}^n(y_i - \hat{y}_i)^2$</p>
+<h3 id="求解方法-最小二乘法">求解方法-最小二乘法
+</h3><p>最小二乘法的目标是最小化残差平方和（RSS），其公式为：$RSS = \sum_{i=1}^n(y_i - \hat{y}_i)^2$</p>
 <p><img src="/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/1.jpg"
 	width="1440"
 	height="1080"
@@ -400,8 +403,8 @@
 <p>得到最佳的 $w, b$</p>
 $$
 \begin{bmatrix} w \\ b \end{bmatrix} = \begin{bmatrix} \sum_{i=1}^n x_i^2 & \sum_{i=1}^n x_i \\ \sum_{i=1}^n x_i & n \end{bmatrix}^{-1} \begin{bmatrix} \sum_{i=1}^n x_i y_i \\ \sum_{i=1}^n y_i \end{bmatrix}
-$$<h4 id="求解方法-梯度下降法">求解方法-梯度下降法
-</h4><p>梯度下降法的目标是最小化损失函数 $J(w,b)$ 。对于线性回归问题，通常使用均方误差（MSE）作为损失函数：</p>
+$$<h3 id="求解方法-梯度下降法">求解方法-梯度下降法
+</h3><p>梯度下降法的目标是最小化损失函数 $J(w,b)$ 。对于线性回归问题，通常使用均方误差（MSE）作为损失函数：</p>
 $$ J(w, b) = \frac{1}{2m} \sum_{i=1}^{m} (y_i - \hat{y}_i)^2 $$<p>参数更新：</p>
 $$ w := w - \alpha \frac{\partial J}{\partial w} \quad b := b - \alpha \frac{\partial J}{\partial b} $$<p>梯度下降法的步骤</p>
 <ol>
@@ -411,8 +414,8 @@ $$ w := w - \alpha \frac{\partial J}{\partial w} \quad b := b - \alpha \frac{\pa
 <li>更新参数：根据梯度更新 w 和 b。</li>
 <li>重复迭代：重复步骤 2 到 4，直到损失函数收敛或达到最大迭代次数。</li>
 </ol>
-<h3 id="02-逻辑回归">0.2 逻辑回归
-</h3><p>逻辑回归（Logistic Regression）是一种广泛应用于分类问题的统计学习方法，尽管名字中带有&quot;回归&quot;，但它实际上是一种用于二分类或多分类问题的算法。</p>
+<h2 id="2-逻辑回归">2. 逻辑回归
+</h2><p>逻辑回归（Logistic Regression）是一种广泛应用于分类问题的统计学习方法，尽管名字中带有&quot;回归&quot;，但它实际上是一种用于二分类或多分类问题的算法。</p>
 <p>逻辑回归通过使用逻辑函数（也称为 Sigmoid 函数）将线性回归的输出映射到 0 和 1 之间，从而预测某个事件发生的概率。建立模型：</p>
 \[
 p(y = 1|X) = \sigma(w^T X + b)
@@ -433,8 +436,8 @@ p(y = 1|X) = \sigma(w^T X + b)
 \[ 
     L(\theta) = -ylog(p)-(1-y)log(1-p)
 \]<p>因此总体损失函数（也就是交叉熵损失函数）</p>
-\[ L(\theta) = -\frac{1}{m} \sum_{i=1}^{m} \left[ y^{(i)} \log(p^{(i)}) + (1 - y^{(i)}) \log(1 - p^{(i)}) \right] \]<h4 id="求解方法-梯度下降法-1">求解方法-梯度下降法
-</h4><p>对 \(w\) 的梯度：
+\[ L(\theta) = -\frac{1}{m} \sum_{i=1}^{m} \left[ y^{(i)} \log(p^{(i)}) + (1 - y^{(i)}) \log(1 - p^{(i)}) \right] \]<h3 id="求解方法-梯度下降法-1">求解方法-梯度下降法
+</h3><p>对 \(w\) 的梯度：
 </p>
 \[ \frac{\partial J(w, b)}{\partial w} = \frac{1}{m} \sum_{i=1}^{m} (h_\theta(x^{(i)}) - y^{(i)}) x^{(i)} \]<p>对 \(b\) 的梯度：
 </p>
@@ -452,8 +455,8 @@ p(y = 1|X) = \sigma(w^T X + b)
 		data-flex-basis="179px"
 	
 ></p>
-<h3 id="03-决策树">0.3 决策树
-</h3><p>决策树（Decision Tree），它是一种以树形数据结构来展示决策规则和分类结果的模型，作为一种归纳学习算法，其重点是将看似无序、杂乱的已知数据，通过某种技术手段将它们转化成可以预测未知数据的树状模型，每一条从根结点（对最终分类结果贡献最大的属性）到叶子结点（最终分类结果）的路径都代表一条决策的规则。</p>
+<h2 id="3-决策树">3. 决策树
+</h2><p>决策树（Decision Tree），它是一种以树形数据结构来展示决策规则和分类结果的模型，作为一种归纳学习算法，其重点是将看似无序、杂乱的已知数据，通过某种技术手段将它们转化成可以预测未知数据的树状模型，每一条从根结点（对最终分类结果贡献最大的属性）到叶子结点（最终分类结果）的路径都代表一条决策的规则。</p>
 <p><img src="/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/3.png"
 	width="754"
 	height="561"
@@ -469,8 +472,8 @@ p(y = 1|X) = \sigma(w^T X + b)
 	
 ></p>
 <p>在这个过程中，寻找最优划分属性是决策树过程中的重点，那么应该如何求解呢？</p>
-<h4 id="求解方法-信息增益">求解方法-信息增益
-</h4><p>首先引入信息熵的概念</p>
+<h3 id="求解方法-信息增益">求解方法-信息增益
+</h3><p>首先引入信息熵的概念</p>
 <blockquote>
 <p>信息熵：描述随机变量的不确定性（也就是混乱程度）。
 假设某随机变量的概率分布为：$P(X=x_i) = p_i, \quad i = 1, 2, \ldots, n$ ，则它的信息熵计算公式为：$H(X) = - \sum_{i=1}^{n} p_i \log p_i$</p>
@@ -493,12 +496,12 @@ p(y = 1|X) = \sigma(w^T X + b)
 <p>因此有</p>
 \[ H(D|A) = - \sum_{i=1}^{n} \frac{|D_i|}{|D|} \sum_{k=1}^{K} \frac{|D_{ik}|}{|D_i|} \log \frac{|D_{ik}|}{|D_i|} \]<p>特征 \( A \) 对训练数据集 \( D \) 的信息增益 \( gain(D, A) \) 定义为集合 \( D \) 的信息熵 \( H(D) \) 与特征 \( A \) 给定条件下 \( D \) 的信息条件熵 \( H(D|A) \) 之差，即公式为：</p>
 \[ gain(D, A) = H(D) - H(D|A) \]<p>信息增益表示得知特征 \( X \) 的信息而使得类 \( Y \) 的信息的不确定性减少的程度，因此信息增益最大的属性就是最优划分属性，标志性算法 $ID3$ 。</p>
-<h4 id="求解方法-增益比">求解方法-增益比
-</h4><p>信息增益虽然在理论上可以找到最优的划分属性，但在某些情况下会存在问题。信息增益比较偏好可取值较多的属性。因此为了矫正信息增益偏好的问题，使算法不偏向可取值较多的属性，引申出了增益比的思想。</p>
+<h3 id="求解方法-增益比">求解方法-增益比
+</h3><p>信息增益虽然在理论上可以找到最优的划分属性，但在某些情况下会存在问题。信息增益比较偏好可取值较多的属性。因此为了矫正信息增益偏好的问题，使算法不偏向可取值较多的属性，引申出了增益比的思想。</p>
 \[ Gain\_ratio(D, A) = \frac{Gain(D, A)}{H(A)} \]<p>可以看出，增益比就是信息增益除以属性 $A$ 的信息熵，当属性 $A$ 可取值增多的时候，$H(A)$ 一般也增大，因此在一定程度上能抑制信息增益偏好取值多的属性的特点，但是增益比偏好取值较少的属性。</p>
 <p>算法 $C4.5$ 是算法 $ID3$ 的改进版，它使用了信息增益和增益比两种选择算法，先选出信息增益高于平均水平的属性，然后再在这些属性中选择增益比最高的，作为最优划分属性。这样综合了信息增益和增益比的优点，可以取得较好的效果。</p>
-<h4 id="求解方法-基尼指数">求解方法-基尼指数
-</h4><p>基尼指数是在样本集中随机抽出两个样本不同类别的概率。当样本集越不纯的时候，这个概率也就越大，即基尼指数也越大。这个规律与信息熵的相同。</p>
+<h3 id="求解方法-基尼指数">求解方法-基尼指数
+</h3><p>基尼指数是在样本集中随机抽出两个样本不同类别的概率。当样本集越不纯的时候，这个概率也就越大，即基尼指数也越大。这个规律与信息熵的相同。</p>
 \[ Gini(D) = \sum_{k=1}^{n} \sum_{k' \neq k} p_k p_{k'} = 1 - \sum_{k=1}^{n} p_k^2 \]<p>使用基尼指数来选择最优划分属性也是对比不同属性划分后基尼指数的差值，选择使样本集基尼指数减小最多的属性。</p>
 \[ Gain(D, a) = Gini(D) - \sum_{i=1}^{n} \frac{|D^i|}{|D|} Gini(D^i) \]<p>著名的 $CART$ 决策树就是使用基尼指数来作为划分准则， $CART$ 决策树与 $ID3$ 和 $C4.5$ 的区别：</p>
 <ol>
@@ -509,8 +512,8 @@ p(y = 1|X) = \sigma(w^T X + b)
 <p>$ID3$ 和 $C4.5$ 划分时，一个节点可以划分为多个子结点，子结点数量根据属性可取值的数量决定。而 $CART$ 决策树是严格的二叉树结构，就是说 $1$ 个节点最多划分为 $2$ 子结点。</p>
 </li>
 </ol>
-<h3 id="04-支持向量机">0.4 支持向量机
-</h3><p>支持向量机（Support Vector Machine，简称 SVM）是一种监督学习算法，主要用于分类和回归问题。</p>
+<h2 id="4-支持向量机">4. 支持向量机
+</h2><p>支持向量机（Support Vector Machine，简称 SVM）是一种监督学习算法，主要用于分类和回归问题。</p>
 <p>SVM 的核心思想是找到一个最优的超平面，将不同类别的数据分开。这个超平面不仅要能够正确分类数据，还要使得两个类别之间的间隔（margin）最大化。</p>
 <blockquote>
 <p>支持向量：支持向量是离超平面最近的样本点。这些支持向量对于定义超平面至关重要。支持向量机通过最大化支持向量到超平面的距离（即最大化间隔）来选择最佳的超平面。</p>
@@ -518,13 +521,12 @@ p(y = 1|X) = \sigma(w^T X + b)
 <p>当训练样本<strong>线性可分</strong>时，通过<strong>硬间隔最大化</strong>，学习一个<strong>线性可分支持向量机</strong>；</p>
 <p>当训练样本<strong>近似线性可分</strong>时，通过<strong>软间隔最大化</strong>，学习一个<strong>线性支持向量机</strong>；</p>
 <p>当训练样本<strong>线性不可分</strong>时，通过<strong>核技巧和软间隔最大化</strong>，学习一个<strong>非线性支持向量机</strong>。</p>
-<h4 id="求解方法-间隔最大化和支持向量">求解方法-间隔最大化和支持向量
-</h4><p>好难……</p>
-<h3 id="05-k近邻算法">0.5 K近邻算法
-</h3><p>K 近邻算法（K-Nearest Neighbors，简称 KNN）是一种简单且常用的分类和回归算法。</p>
+<h3 id="求解方法-间隔最大化和支持向量">求解方法-间隔最大化和支持向量
+</h3><h2 id="5-k近邻算法">5. K近邻算法
+</h2><p>K 近邻算法（K-Nearest Neighbors，简称 KNN）是一种简单且常用的分类和回归算法。</p>
 <p>K 近邻算法属于监督学习的一种，核心思想是通过计算待分类样本与训练集中各个样本的距离，找到距离最近的 K 个样本，然后根据这 K 个样本的类别或值来预测待分类样本的类别或值。</p>
-<h4 id="求解方法">求解方法
-</h4><p>基本步骤：</p>
+<h3 id="求解方法">求解方法
+</h3><p>基本步骤：</p>
 <ol>
 <li>
 <p>计算距离：计算待分类样本与训练集中每个样本的距离。常用的距离度量方法有欧氏距离、曼哈顿距离等。</p>
@@ -536,11 +538,11 @@ p(y = 1|X) = \sigma(w^T X + b)
 <p>投票或平均：对于分类问题，K 个最近邻中出现次数最多的类别即为待分类样本的类别；对于回归问题，K 个最近邻的值的平均值即为待分类样本的值。</p>
 </li>
 </ol>
-<h3 id="06-集成学习">0.6 集成学习
-</h3><h3 id="07-k-means-聚类">0.7 K-means 聚类
-</h3><p>K-means 聚类是一种常用的基于距离的聚类算法，旨在将数据集划分为 K 个簇。算法的目标是最小化簇内的点到簇中心的距离总和。</p>
-<h4 id="求解方法-1">求解方法
-</h4><p>基本步骤：</p>
+<h2 id="6-集成学习">6. 集成学习
+</h2><h2 id="7-k-means-聚类">7. K-means 聚类
+</h2><p>K-means 聚类是一种常用的基于距离的聚类算法，旨在将数据集划分为 K 个簇。算法的目标是最小化簇内的点到簇中心的距离总和。</p>
+<h3 id="求解方法-1">求解方法
+</h3><p>基本步骤：</p>
 <ol>
 <li>
 <p>选择 $K$ 值：设定簇的数量 。</p>
@@ -574,8 +576,8 @@ p(y = 1|X) = \sigma(w^T X + b)
 <li>\( k \) 为簇的个数。</li>
 </ul>
 <p>理论上随着 $K$ 的增加， $SSE$ 会单调递减，当 $K$ 超过某一个数后，每个类簇的聚合程度不再获得显著提升，此时我们就可以认为已找到最佳 $K$ 的取值（肘部法）。</p>
-<h4 id="k-means">K-means++
-</h4><p>K-means++ 是一种改进的初始化方法，可以帮助选择更合理的初始中心，优先选择“距离最远”的点作为初始质心，减少陷入局部最优的风险。</p>
+<h3 id="k-means">K-means++
+</h3><p>K-means++ 是一种改进的初始化方法，可以帮助选择更合理的初始中心，优先选择“距离最远”的点作为初始质心，减少陷入局部最优的风险。</p>
 <p>基本步骤：</p>
 <ol>
 <li>
@@ -589,10 +591,10 @@ p(y = 1|X) = \sigma(w^T X + b)
 </li>
 </ol>
 <p>优势：避免随机初始化，加快收敛速度，聚类结果更加稳定。</p>
-<h3 id="08-主成分分析">0.8 主成分分析
-</h3><p>主成分分析（PCA）是一种无监督学习方法，旨在通过线性变换将原始的高维数据映射到一个低维空间，同时尽可能保留数据的方差（即信息量）。简单来说，PCA 的目标是找到一组新的坐标轴（称为主成分），这些坐标轴能够捕捉数据中最大的变异性，并用更少的维度来近似表示原始数据。</p>
-<h4 id="求解方法-2">求解方法
-</h4><ol>
+<h2 id="8-主成分分析">8. 主成分分析
+</h2><p>主成分分析（PCA）是一种无监督学习方法，旨在通过线性变换将原始的高维数据映射到一个低维空间，同时尽可能保留数据的方差（即信息量）。简单来说，PCA 的目标是找到一组新的坐标轴（称为主成分），这些坐标轴能够捕捉数据中最大的变异性，并用更少的维度来近似表示原始数据。</p>
+<h3 id="求解方法-2">求解方法
+</h3><ol>
 <li>数据中心化：首先将数据中心化，即让每个特征的均值变为 0。</li>
 <li>计算协方差矩阵：</li>
 </ol>
@@ -610,8 +612,8 @@ p(y = 1|X) = \sigma(w^T X + b)
 <p>投影数据：将中心化后的数据投影到第一个主成分上，得到降维后的结果。</p>
 </li>
 </ol>
-<h4 id="一些问题">一些问题
-</h4><ol>
+<h3 id="一些问题">一些问题
+</h3><ol>
 <li>为什么要计算协方差矩阵？</li>
 </ol>
 <p>PCA 的目标是找到一组新的坐标轴（称为主成分），使得数据在这些轴上的投影方差最大化，同时这些轴相互正交（不相关）。协方差矩阵正好量化了数据中的变异性和变量间的相关性，我们可以了解到哪些变量变化较大，哪些变量之间存在较强的关联，为找到这样的轴提供了基础。</p>
@@ -619,28 +621,7 @@ p(y = 1|X) = \sigma(w^T X + b)
 <li>为什么要进行特征值分解？</li>
 </ol>
 <p>特征值表示每个特征向量方向上的方差大小。特征值越大，说明该方向捕捉的变异性越多。通过特征值分解，我们可以将原始数据投影到这些特征向量上，从而实现降维，同时尽可能保留数据的信息。</p>
-<h2 id="1-引言">1 引言
-</h2><h3 id="11-什么是机器学习">1.1 什么是机器学习
-</h3><p>一个好的学习问题定义如下：一个程序被认为能从经验 E 中学习，解决任务 T ，达到性能度量值 P ，当且仅当，有了经验 E 后，经过 P 评判，程序在处理 T 时的性能有所提升。</p>
-<p>目前存在几种不同类型的学习算法，其中主要的两种类型被我们称之为：<strong>监督学习</strong>和<strong>无监督学习</strong>。</p>
-<h3 id="12-监督学习">1.2 监督学习
-</h3><p>监督学习：给定带有标签的数据，模型通过学习输入和标签之间的关系来做预测。</p>
-<p>回归 (regression) 问题：推测出这一系列连续值属性。</p>
-<p>分类 (classification) 问题：推测出离散的输出值。</p>
-<h3 id="13-无监督学习">1.3 无监督学习
-</h3><p>无监督学习：没有标签的数据，模型通过探索数据中的结构或模式来进行学习。</p>
-<p>聚类算法：将数据集划分成两个不同的簇。</p>
-<p>鸡尾酒算法：分离两种声音。（一个具体实例，仅仅只需要一行代码实现）</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="p">[</span><span class="n">W</span><span class="p">,</span><span class="n">s</span><span class="p">,</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="n">svd</span><span class="p">((</span><span class="n">repmat</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">x</span><span class="o">.*</span><span class="n">x</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="n">size</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="o">.*</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="n">x</span><span class="s1">&#39;);</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="2-单变量线性回归-linear-regression-with-one-variable">2 单变量线性回归 (Linear Regression with One Variable)
-</h2>
+
 </section>
 
 
@@ -663,7 +644,7 @@ p(y = 1|X) = \sigma(w^T X + b)
 
 
         <span>
-            最后更新于 2026-02-23 09:07 CST
+            最后更新于 2026-02-23 09:35 CST
         </span>
     </section></footer>
 
@@ -712,19 +693,6 @@ p(y = 1|X) = \sigma(w^T X + b)
 
         <div class="article-details">
             <h2 class="article-title">学习笔记-数学合集（高等数学、线性代数、概率论）</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="">
-    <a href="/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">学习笔记-数据库原理</h2>
         </div>
     </a>
 </article>

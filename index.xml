@@ -4093,11 +4093,13 @@ p(y = 1|X) = \sigma(w^T X + b)
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
         <guid>https://mhw-mathcode.github.io/%E5%85%B3%E4%BA%8E/</guid>
-        <description>&lt;h2 id=&#34;whats-this&#34;&gt;❔What&amp;rsquo;s this
+        <description>&lt;h2 id=&#34;what-is-this&#34;&gt;❔What is this
 &lt;/h2&gt;&lt;p&gt;这是一个记录 mhw 一系列想法的博客。&lt;/p&gt;
 &lt;h2 id=&#34;-about-me&#34;&gt;🔍 About me
 &lt;/h2&gt;&lt;h3 id=&#34;-教育经历&#34;&gt;🎓 教育经历
-&lt;/h3&gt;&lt;p&gt;天津大学 | 计算机科学与技术 | 本科（2022.09 – 至今）&lt;/p&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;天津大学 | 计算机科学与技术 | 本科（2022.09 – 至今）&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h3 id=&#34;-竞赛经历&#34;&gt;🏆 竞赛经历
 &lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;

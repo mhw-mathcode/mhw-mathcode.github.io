@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Principles of Compilation on mhw</title>
+        <link>https://mhw-mathcode.github.io/tags/principles-of-compilation/</link>
+        <description>Recent content in Principles of Compilation on mhw</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <copyright>mhw-mathcode</copyright>
+        <lastBuildDate>Mon, 23 Feb 2026 09:52:45 +0000</lastBuildDate><atom:link href="https://mhw-mathcode.github.io/tags/principles-of-compilation/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>学习笔记-编译原理</title>
+        <link>https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/</link>
+        <pubDate>Sun, 17 Aug 2025 09:57:00 +0800</pubDate>
+        
+        <guid>https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/</guid>
+        <description>&lt;h2 id=&#34;1-文法基础&#34;&gt;1. 文法基础
+&lt;/h2&gt;&lt;p&gt;C 语言编译过程：预处理(.i)、编译(.s)、汇编(.o)、连接(.exe)。
+高级语言程序执行：编译、汇编、运行。
+编译过程：词法分析、语法分析、语义分析和中间代码生成、优化、目标代码生成。&lt;/p&gt;
+&lt;p&gt;词法规则：词法规则规定了字母表中什么样的字符串是一个单词符号，是单词符号的形成规则，描述工具为有限自动机。
+语法规则：语言的语法规则规定了如何从单词符号形成更大的结构（即语法单位）换言之，语法规则是语法单位（语法范畴）的形成规则，描述工具为上下文无关文法。&lt;/p&gt;
+&lt;p&gt;文法 G 定义为四元组 $(V_N,V_T,P,S)$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;其中 $V_N$ 为非终结符号（或语法实体，或变量）集；&lt;/li&gt;
+&lt;li&gt;$V_T$ 为终结符号集；$V_N$ 和 $V_T$ 不含公共元素，即 $V_N\cap V_T=\emptyset$。通常 $V$ 表示 $V_N\cup V_T$，$V$ 称为文法 $G$ 的字母表；&lt;/li&gt;
+&lt;li&gt;$P$ 为产生式（也称规则）的集合；$V_N,V_T$ 和 $P$ 是非空有穷集；&lt;/li&gt;
+&lt;li&gt;$S$ 称作开始符号（识别符号），是一个非终结符 $(S\in V_N)$，至少要在一条规则中作为左部出现。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;假定 $G$ 是一个文法，$S$ 是它的开始符号。如果 $S→α$ ，则 $α$ 称是一个句型。仅含终结符号的句型是一个句子。文法 $G$ 所产生的句子的全体是一个语言，将它记为 $L(G)$。&lt;/p&gt;
+&lt;p&gt;文法二义性：对于文法 $G$，若一个句子存在多个不同的最左推导（或最右推导），那么这个文法是二义的。&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;文法类型&lt;/th&gt;
+          &lt;th&gt;定义描述&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;0型文法&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;每个产生式左侧至少有一个非终结符。&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;1型文法&lt;/strong&gt;（上下文有关文法）&lt;/td&gt;
+          &lt;td&gt;产生式满足：若 $α→β$，则 $|α|≤|β|$。（ $S→ε$ 除外）&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;2型文法&lt;/strong&gt;（上下文无关文法）☆&lt;/td&gt;
+          &lt;td&gt;每个产生式左侧都是一个非终结符。例如：$S → Ba$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;3型文法&lt;/strong&gt;（正则文法）&lt;/td&gt;
+          &lt;td&gt;每个产生式形式为：&lt;br&gt;$A → aB$ 或 $A → a$（右线性）&lt;br&gt; $A → Ba$ 或 $A → a$（左线性）&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;2-词法分析&#34;&gt;2. 词法分析
+&lt;/h2&gt;&lt;p&gt;词法单元：（词法单元名/单词种别，属性值）&lt;/p&gt;
+&lt;p&gt;正则表达式与正则集：
+&lt;img src=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/image/3.png&#34;
+	width=&#34;1087&#34;
+	height=&#34;422&#34;
+	srcset=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/image/3_hu_ac03c5025a31bfe2.png 480w, https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/image/3_hu_9d2a0625e9cfbf9c.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;正则表达式与正则集&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;257&#34;
+		data-flex-basis=&#34;618px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;确定有限自动机：一个 DFA（Deterministic Finite Automaton） 可表示为一个五元式 $M = (S,\ \Sigma,\ f,\ s_0,\ F)$&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;符号&lt;/th&gt;
+          &lt;th&gt;含义&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;\(S\)&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;有限状态集（有穷状态集合）&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;\(\Sigma\)&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;输入字母表（有穷符号集合）&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;\(f\)&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;状态转移函数，单值映射：\(f: S \times \Sigma \to S\)  &lt;br&gt;若 \(f(s, a) = s&#39;\)，表示当前状态为 \(s\)、输入字符为 \(a\) 时，转移到后继状态 \(s&#39;\)。&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;\(s_0 \in S\)&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;唯一的初始状态&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;\(F \subseteq S\)&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;接受状态集（终态集），可为空集&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;非确定有限自动机：一个 NFA（Nondeterministic Finite Automaton） 可表示为一个五元式 $M = (S,\ \Sigma,\ f,\ S_0,\ F)$&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;符号&lt;/th&gt;
+          &lt;th&gt;含义&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;\(S\)&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;有限状态集（有穷状态集合）&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;\(\Sigma\)&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;输入字母表（有穷符号集合）&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;\(f\)&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;状态转移函数，部分映射（非单值）：&lt;br&gt;\(f: S \times \Sigma \to 2^S\)（幂集），&lt;br&gt;即对于给定状态与输入字符，可转移到零个、一个或多个后继状态。&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;\(S_0 \subseteq S,\ S_0 \neq \varnothing\)&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;非空的初始状态集合&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;\(F \subseteq S\)&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;接受状态集（终态集），可为空&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;NFA 确定化：ε-闭包、a弧转化
+&lt;img src=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/image/1.png&#34;
+	width=&#34;1762&#34;
+	height=&#34;960&#34;
+	srcset=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/image/1_hu_41e6848a4d548af6.png 480w, https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/image/1_hu_dad8a82319a74254.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;NFA 确定化&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;183&#34;
+		data-flex-basis=&#34;440px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;DFA 最小化：
+&lt;img src=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/image/2.png&#34;
+	width=&#34;1682&#34;
+	height=&#34;903&#34;
+	srcset=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/image/2_hu_96974e800e31653d.png 480w, https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/image/2_hu_9869432885a65e8b.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;DFA 最小化&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;186&#34;
+		data-flex-basis=&#34;447px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;3-语法分析-自上而下&#34;&gt;3. 语法分析-自上而下
+&lt;/h2&gt;&lt;p&gt;LL(1) 意义：LL(1)中的第一个 “L” 意味着自左而右地扫描输入,第二个 “L” 意味着生成一个最左推导,并且 “1” 意味着为做出分析动作的决定，在每一步利用一个向前看符号。&lt;/p&gt;
+&lt;p&gt;分析条件：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;文法不含左递归和回溯&lt;/li&gt;
+&lt;li&gt;对于文法中每一个非终结符 $A$ 的各个产生式的候选首符集两两不相交。&lt;br&gt;
+即，若 $A → α₁ | α₂ | ⋯ | αₙ$ 则 $FIRST(αᵢ) ∩ FIRST(αⱼ) = ∅ (i ≠ j)$&lt;/li&gt;
+&lt;li&gt;对文法中的每个非终结符 $A$，若它存在某个候选首符集包含 $ε$，则 $FIRST(A) ∩ FOLLOW(A) = ∅$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;构造非终结符的 FIRST 集合：&lt;/p&gt;
+&lt;p&gt;对每一个文法符号 $X \in V_T \cup V_N$ 构造 $FIRST(X)$：&lt;br&gt;
+应用下列规则，直到每个集合 $FIRST$ 不再增大为止。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;如果 $X \in V_T$，则 $FIRST(X) = {X}$&lt;/li&gt;
+&lt;li&gt;如果 $X \in V_N$，且有产生式 $X \to a…$，则把 $a$ 加入到 $FIRST(X)$ 中；若 $X \to \varepsilon$ 也是一个产生式，则把 $\varepsilon$ 加入到 $FIRST(X)$ 中。&lt;/li&gt;
+&lt;li&gt;如果 $X \to Y…$ 是一个产生式且 $Y \in V_N$，则把 $FIRST(Y)\setminus{\varepsilon}$ 加到 $FIRST(X)$ 中；如果 $X \to Y_1 Y_2 \dots Y_k$ 是一个产生式，$Y_1, \dots, Y_{i-1} \in V_N$，而且对任何 $j \in [1, i-1]$，$\varepsilon \in FIRST(Y_j)$（即 $Y_1 Y_2 \dots Y_{i-1} \Rightarrow^* \varepsilon$），则把 $FIRST(Y_i)\setminus{\varepsilon}$ 加到 $FIRST(X)$ 中；特别的，若所有的 $FIRST(Y_j)$ 均含有 $\varepsilon$，$j = 1, 2, \dots, k$，则把 $\varepsilon$ 加到 $FIRST(X)$ 中。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;构造非终结符的 FOLLOW 集合：&lt;/p&gt;
+&lt;p&gt;对文法 $G$ 的每个非终结符 $A$ 构造 $FOLLOW(A)$ 的方法是：连续应用下列规则，直到每个后随符号集 $FOLLOW$ 不再增大为止。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;对于文法的开始符号 $S$，置 $#$ 于 $FOLLOW(S)$ 中；&lt;/li&gt;
+&lt;li&gt;若 $A \to \alpha B \beta$ 是一个产生式，则把 $FIRST(\beta)\setminus{\varepsilon}$ 加至 $FOLLOW(B)$ 中；&lt;/li&gt;
+&lt;li&gt;若 $A \to \alpha B$ 是一个产生式，或 $A \to \alpha B \beta$ 是一个产生式且 $\beta \Rightarrow^* \varepsilon$（即 $\varepsilon \in FIRST(\beta)$），则把 $FOLLOW(A)$ 加至 $FOLLOW(B)$ 中。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;3-语法分析-自下而上&#34;&gt;3. 语法分析-自下而上
+&lt;/h2&gt;&lt;p&gt;短语：任意一颗子树中，如果根结点经过若干步才推导出了叶子结点，则这些叶子结点组成的序列就是相对于这棵子树的短语。
+直接短语：属于短语，只不过不能经过若干步的推导了，必须一步就能推导出来叶子结点来，这些叶子结点组成的序列才是相对于这颗子树的直接短语。
+句柄：最左直接短语。
+素短语：至少含有一个终结符的短语，并且除自身外，不包含更小的素短语。
+最左素短语：句型中最左边的素短语。&lt;/p&gt;
+&lt;p&gt;算符优先级规则：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$a = b$：文法中有形如 $A \to a b$ 或 $A \to \dots a B b \dots$ 的产生式；&lt;/li&gt;
+&lt;li&gt;$a &amp;lt; b$：文法中有形如 $A \to \dots a B \dots$ 的产生式，而 $B = b \dots$ 或 $B = C b \dots$；&lt;/li&gt;
+&lt;li&gt;$a &amp;gt; b$：文法中有形如 $A \to \dots B b$ 的产生式，而 $B = a$ 或 $B = a C$。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;FIRSTVT 规则：
+构造集合 $FIRSTVT(P)$ 的两条规则如下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;若有产生式 $P \to a \dots$ 或 $P \to Q a \dots$，则 $a \in FIRSTVT(P)$；&lt;/li&gt;
+&lt;li&gt;若 $a \in FIRSTVT(Q)$，且有产生式 $P \to Q \dots$，则 $a \in FIRSTVT(P)$。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;LR(0)：求出拓广文法所有产生式的项目，构造 LR(0) 项目集规范族并得到 DFA，构造 ACTION 和 GOTO 表。&lt;/p&gt;
+&lt;p&gt;构造 LR 分析表的规则如下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;若项目 $A \to \alpha \cdot a\beta$ 属于 $I_k$，且 $GO(I_k,a)=I_j$，则置 $ACTION[k,a]$ 为 $S_j$ 表示把状态 $j$ 和符号 $a$ 移入栈。&lt;/li&gt;
+&lt;li&gt;若项目 $A \to \alpha \cdot$ 属于 $I_k$，则对任何终结符 $a$ 和 $#$，置 $ACTION[k,a]$ 和 $ACTION[k,#]$ 为 $r_i$（$i$ 为文法 $G&amp;rsquo;$ 中某产生式 $A \to \alpha$ 的序号）表示用产生式 $A \to \alpha$ 规约。&lt;/li&gt;
+&lt;li&gt;若项目 $S&amp;rsquo; \to S \cdot$ 属于 $I_k$，则置 $ACTION[k,#]$ 为 $acc$（接受）。&lt;/li&gt;
+&lt;li&gt;若 $GO(I_k,A)=I_j$，则置 $GOTO[k,A]$ 为 $j$。&lt;/li&gt;
+&lt;li&gt;凡不能用上述方法填入的元素，均填上“报错标志”或空白。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;SLR(1) 解决了一些移进-移进冲突和移进-规约冲突：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;若项目 $A \to \alpha \cdot$ 属于 $I_k$，则对任何终结符 $a\in FOLLOW(A)$，置 $ACTION[k,a]$ 为 $r_i$（$i$ 为文法 $G&amp;rsquo;$ 中某产生式 $A \to \alpha$ 的序号）。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

@@ -5,9 +5,9 @@
         <link>https://mhw-mathcode.github.io/tags/machine-learning/</link>
         <description>Recent content in Machine Learning on mhw</description>
         <generator>Hugo -- gohugo.io</generator>
-        <language>zh-cn</language>
+        <language>en-us</language>
         <copyright>mhw-mathcode</copyright>
-        <lastBuildDate>Tue, 02 Sep 2025 09:35:29 +0000</lastBuildDate><atom:link href="https://mhw-mathcode.github.io/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Mon, 23 Feb 2026 09:07:37 +0000</lastBuildDate><atom:link href="https://mhw-mathcode.github.io/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>学习笔记-机器学习</title>
         <link>https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</link>
         <pubDate>Mon, 16 Jun 2025 19:29:56 +0800</pubDate>
@@ -16,7 +16,7 @@
         <description>&lt;p&gt;&lt;img src=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/0.png&#34;
 	width=&#34;3840&#34;
 	height=&#34;2504&#34;
-	srcset=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/0_hu_5d0e7569d3cca06.png 480w, https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/0_hu_a7c0dda692cfb0d3.png 1024w&#34;
+	srcset=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/0_hu_9019de8491154c05.png 480w, https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/0_hu_eaecc3176fce9a83.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;机器学习&#34;
@@ -52,7 +52,7 @@
 &lt;p&gt;&lt;img src=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/1.jpg&#34;
 	width=&#34;1440&#34;
 	height=&#34;1080&#34;
-	srcset=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/1_hu_dc3fae64383c103d.jpg 480w, https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/1_hu_cb0bc3cbb612de23.jpg 1024w&#34;
+	srcset=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/1_hu_c6791b37882fbb7.jpg 480w, https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/1_hu_c078a4d9227894c.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;推导&#34;
@@ -107,7 +107,7 @@ p(y = 1|X) = \sigma(w^T X + b)
 \[ \frac{\partial J(w, b)}{\partial b} = \frac{1}{m} \sum_{i=1}^{m} (h_\theta(x^{(i)}) - y^{(i)}) \]&lt;p&gt;&lt;img src=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2.jpg&#34;
 	width=&#34;1279&#34;
 	height=&#34;1706&#34;
-	srcset=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2_hu_e9d3f2f7cdc08657.jpg 480w, https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2_hu_1c4e3fb87193097c.jpg 1024w&#34;
+	srcset=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2_hu_4b6f8be24d161739.jpg 480w, https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2_hu_6d46c1a1117b2d26.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;推导&#34;
@@ -123,7 +123,7 @@ p(y = 1|X) = \sigma(w^T X + b)
 &lt;p&gt;&lt;img src=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/3.png&#34;
 	width=&#34;754&#34;
 	height=&#34;561&#34;
-	srcset=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/3_hu_690baba9cb1d5aaf.png 480w, https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/3_hu_c7dbe716591b324a.png 1024w&#34;
+	srcset=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/3_hu_248f31389a440cfd.png 480w, https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/3_hu_9aefcca459a0cd4e.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;决策树构建过程&#34;
@@ -139,7 +139,8 @@ p(y = 1|X) = \sigma(w^T X + b)
 &lt;/h4&gt;&lt;p&gt;首先引入信息熵的概念&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;信息熵：描述随机变量的不确定性（也就是混乱程度）。
-假设某随机变量的概率分布为：$P(X=x_i) = p_i, \quad i = 1, 2, \ldots, n$ ，则它的信息熵计算公式为：$H(X) = - \sum_{i=1}^{n} p_i \log p_i$&lt;/p&gt;&lt;/blockquote&gt;
+假设某随机变量的概率分布为：$P(X=x_i) = p_i, \quad i = 1, 2, \ldots, n$ ，则它的信息熵计算公式为：$H(X) = - \sum_{i=1}^{n} p_i \log p_i$&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;在决策树中，信息熵&lt;/p&gt;
 \[ H(D) = - \sum_{k=1}^{K} \frac{|D_k|}{|D|} \log \frac{|D_k|}{|D|} \]&lt;p&gt;其中：&lt;/p&gt;
 &lt;ul&gt;
@@ -178,7 +179,8 @@ p(y = 1|X) = \sigma(w^T X + b)
 &lt;/h3&gt;&lt;p&gt;支持向量机（Support Vector Machine，简称 SVM）是一种监督学习算法，主要用于分类和回归问题。&lt;/p&gt;
 &lt;p&gt;SVM 的核心思想是找到一个最优的超平面，将不同类别的数据分开。这个超平面不仅要能够正确分类数据，还要使得两个类别之间的间隔（margin）最大化。&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;支持向量：支持向量是离超平面最近的样本点。这些支持向量对于定义超平面至关重要。支持向量机通过最大化支持向量到超平面的距离（即最大化间隔）来选择最佳的超平面。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;支持向量：支持向量是离超平面最近的样本点。这些支持向量对于定义超平面至关重要。支持向量机通过最大化支持向量到超平面的距离（即最大化间隔）来选择最佳的超平面。&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;当训练样本&lt;strong&gt;线性可分&lt;/strong&gt;时，通过&lt;strong&gt;硬间隔最大化&lt;/strong&gt;，学习一个&lt;strong&gt;线性可分支持向量机&lt;/strong&gt;；&lt;/p&gt;
 &lt;p&gt;当训练样本&lt;strong&gt;近似线性可分&lt;/strong&gt;时，通过&lt;strong&gt;软间隔最大化&lt;/strong&gt;，学习一个&lt;strong&gt;线性支持向量机&lt;/strong&gt;；&lt;/p&gt;
 &lt;p&gt;当训练样本&lt;strong&gt;线性不可分&lt;/strong&gt;时，通过&lt;strong&gt;核技巧和软间隔最大化&lt;/strong&gt;，学习一个&lt;strong&gt;非线性支持向量机&lt;/strong&gt;。&lt;/p&gt;
@@ -262,7 +264,8 @@ p(y = 1|X) = \sigma(w^T X + b)
 &lt;/ol&gt;
 \[ \text{Cov}(X, Y) = \frac{1}{n-1} \sum_{i=1}^{n} (X_i - \bar{X})(Y_i - \bar{Y}) \]&lt;p&gt;协方差为正时，说明X和Y是正相关关系；协方差为负时，说明X和Y是负相关关系；协方差为0时，说明X和Y是相互独立。&lt;/p&gt;
 &lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;特征值分解：对协方差矩阵进行特征值分解，得到主成分的方向（特征向量）和重要性（特征值）。令\( A \) 是协方差矩阵，\( \lambda \) 是特征值，\( I \) 是单位矩阵，求解 \[ \det(A - \lambda I) = 0 \]&lt;/li&gt;
+&lt;li&gt;特征值分解：对协方差矩阵进行特征值分解，得到主成分的方向（特征向量）和重要性（特征值）。令\( A \) 是协方差矩阵，\( \lambda \) 是特征值，\( I \) 是单位矩阵，求解
+\[ \det(A - \lambda I) = 0 \]&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;得到特征值 \( \lambda \) 以后代入 $(A - \lambda I)v_1 = 0$ 解得特征向量 $v_1$ 。&lt;/p&gt;
 &lt;ol start=&#34;4&#34;&gt;

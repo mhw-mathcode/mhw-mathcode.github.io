@@ -5,9 +5,9 @@
         <link>https://mhw-mathcode.github.io/tags/principles-of-database/</link>
         <description>Recent content in Principles of Database on mhw</description>
         <generator>Hugo -- gohugo.io</generator>
-        <language>zh-cn</language>
+        <language>en-us</language>
         <copyright>mhw-mathcode</copyright>
-        <lastBuildDate>Tue, 02 Sep 2025 09:35:29 +0000</lastBuildDate><atom:link href="https://mhw-mathcode.github.io/tags/principles-of-database/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Mon, 23 Feb 2026 09:07:37 +0000</lastBuildDate><atom:link href="https://mhw-mathcode.github.io/tags/principles-of-database/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>学习笔记-数据库原理</title>
         <link>https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86/</link>
         <pubDate>Fri, 11 Jul 2025 14:41:47 +0800</pubDate>
@@ -42,7 +42,7 @@
 &lt;img src=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86/1.png&#34;
 	width=&#34;960&#34;
 	height=&#34;585&#34;
-	srcset=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86/1_hu_8b3a7e31cfa6310a.png 480w, https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86/1_hu_5e02d34bf3f14d28.png 1024w&#34;
+	srcset=&#34;https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86/1_hu_ab3e5b2df1632b6b.png 480w, https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86/1_hu_13ad8c44567d4171.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;数据库系统结构&#34;
@@ -104,7 +104,8 @@
 &lt;li&gt;去除冗余依赖：检查函数依赖集中是否有冗余的依赖，即去掉某个依赖后，其他依赖是否可以推导出该依赖。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;blockquote&gt;
-&lt;p&gt;函数依赖集：它是一组函数依赖的集合，每个函数依赖表示一个属性集合能够唯一确定另一个属性集合。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;函数依赖集：它是一组函数依赖的集合，每个函数依赖表示一个属性集合能够唯一确定另一个属性集合。&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;第一范式 (1NF)：数据表中每个字段的值必须具有原子性，也就是说数据表中每个字段的值为不可再次拆分的最小数据单元。&lt;/p&gt;
 &lt;p&gt;第二范式 (2NF)：若 $R∈1NF$ ，所有非主键字段，都必须完全依赖主键，不能只依赖主键的一部分。&lt;/p&gt;
 &lt;p&gt;第三范式 (3NF)：若 $R∈2NF$ ，数据表中的所有非主键字段不能依赖于其他非主键字段。&lt;/p&gt;

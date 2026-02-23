@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="zh-cn" dir="ltr">
+<html lang="en-us" dir="ltr">
     <head><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Easy Medium [排序链表] 题意：对于一个链表，在 $O(nlogn)$ 时间复杂度和常数级空间复杂度下返回排序后的链表。\n做法：归并排序的思路，每次先要用快慢指针找到待排链表的中间结点，然后对于每次合并，用一个虚节点作为起始结点，依次向后面连接。\n">
 <title>LeetCode Hot100</title>
 
 <link rel='canonical' href='https://mhw-mathcode.github.io/p/leetcode-hot100/'>
 
-<link rel="stylesheet" href="/scss/style.min.105dce95dc14b9d77d38e8fff8fcdc39d6e977526467d96fa320b7a7de9fe674.css"><meta property='og:title' content="LeetCode Hot100">
+<link rel="stylesheet" href="/scss/style.min.3bf7f2abc6f1ada6a01f83d3a1d73f742699290aff3b88143715e9f5f816b380.css"><meta property='og:title' content="LeetCode Hot100">
 <meta property='og:description' content="Easy Medium [排序链表] 题意：对于一个链表，在 $O(nlogn)$ 时间复杂度和常数级空间复杂度下返回排序后的链表。\n做法：归并排序的思路，每次先要用快慢指针找到待排链表的中间结点，然后对于每次合并，用一个虚节点作为起始结点，依次向后面连接。\n">
 <meta property='og:url' content='https://mhw-mathcode.github.io/p/leetcode-hot100/'>
 <meta property='og:site_name' content='mhw'>
@@ -58,7 +58,7 @@
                     
                     
                         
-                        <img src="/img/avatar_hu_426a5d9126f2d650.png" width="300"
+                        <img src="/img/avatar_hu_98a12a3be8c5bae2.png" width="300"
                             height="300" class="site-logo" loading="lazy" alt="Avatar">
                     
                 
@@ -490,7 +490,7 @@
 </span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">preorder</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
 </span></span><span class="line"><span class="cl">        <span class="n">unordered_map</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">mp</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">        <span class="c1">// 每个点在中序遍历中的位置
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="n">mp</span><span class="p">[</span><span class="n">inorder</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="n">mp</span><span class="p">[</span><span class="n">inorder</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="k">auto</span> <span class="n">dfs</span> <span class="o">=</span> <span class="p">[</span><span class="o">&amp;</span><span class="p">](</span><span class="k">auto</span> <span class="n">self</span><span class="p">,</span> <span class="kt">int</span> <span class="n">pl</span><span class="p">,</span> <span class="kt">int</span> <span class="n">pr</span><span class="p">,</span> <span class="kt">int</span> <span class="n">il</span><span class="p">,</span> <span class="kt">int</span> <span class="n">ir</span><span class="p">)</span> <span class="o">-&gt;</span>  <span class="n">TreeNode</span><span class="o">*</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="n">pl</span> <span class="o">&gt;</span> <span class="n">pr</span><span class="p">)</span> <span class="k">return</span> <span class="k">nullptr</span><span class="p">;</span>
@@ -521,7 +521,7 @@
 <img src="/p/leetcode-hot100/1.png"
 	width="266"
 	height="171"
-	srcset="/p/leetcode-hot100/1_hu_4b2c83880d2e9c0a.png 480w, /p/leetcode-hot100/1_hu_cb282d2a2ae30cf1.png 1024w"
+	srcset="/p/leetcode-hot100/1_hu_84aba67b46e68a3a.png 480w, /p/leetcode-hot100/1_hu_4249d4d9b87c0716.png 1024w"
 	loading="lazy"
 	
 		alt="双指针"
@@ -574,12 +574,12 @@
 </span></span><span class="line"><span class="cl">        <span class="n">nums2</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">INT_MAX</span><span class="p">);</span>        
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="c1">// nums1 中前 i 个数与 nums2 中前 j 个数组成第一组，最大值为 max(nums1[i], nums2[j])
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// 剩余元素为第二组，最小值为 min(nums1[i + 1], nums2[j + 1])
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="p">(</span><span class="n">sum</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="cl">        <span class="c1">// 剩余元素为第二组，最小值为 min(nums1[i + 1], nums2[j + 1])
+</span></span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="p">(</span><span class="n">sum</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="c1">// 所以要求 nums1[i] &lt; nums2[j + 1] 并且 nums2[j] &lt; nums1[i + 1]
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// nums1[i + 1] &gt; nums2[j] 的同时 nums1[i] &lt; nums2[j + 1]
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">while</span> <span class="p">(</span><span class="n">nums1</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">nums2</span><span class="p">[</span><span class="n">j</span><span class="p">])</span> <span class="p">{</span>
+</span></span></span><span class="line"><span class="cl">        <span class="c1">// nums1[i + 1] &gt; nums2[j] 的同时 nums1[i] &lt; nums2[j + 1]
+</span></span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="p">(</span><span class="n">nums1</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">nums2</span><span class="p">[</span><span class="n">j</span><span class="p">])</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">            <span class="n">i</span><span class="o">++</span><span class="p">,</span> <span class="n">j</span><span class="o">--</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>
 </span></span><span class="line"><span class="cl">        
@@ -735,8 +735,8 @@
 <pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">MedianFinder</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
 </span></span><span class="line"><span class="cl">    <span class="n">priority_queue</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">greater</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span> <span class="n">qmax</span><span class="p">;</span> <span class="c1">// 小根堆，较大的一半
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">priority_queue</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">less</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span> <span class="n">qmin</span><span class="p">;</span> <span class="c1">// 大根堆，较小的一半
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">MedianFinder</span><span class="p">()</span> <span class="p">{</span> <span class="p">}</span>
+</span></span></span><span class="line"><span class="cl">    <span class="n">priority_queue</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">less</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span> <span class="n">qmin</span><span class="p">;</span> <span class="c1">// 大根堆，较小的一半
+</span></span></span><span class="line"><span class="cl">    <span class="n">MedianFinder</span><span class="p">()</span> <span class="p">{</span> <span class="p">}</span>
 </span></span><span class="line"><span class="cl">    
 </span></span><span class="line"><span class="cl">    <span class="kt">void</span> <span class="nf">addNum</span><span class="p">(</span><span class="kt">int</span> <span class="n">num</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">qmin</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
@@ -1186,7 +1186,7 @@
         
             2024 - 
         
-        2025 mhw-mathcode
+        2026 mhw-mathcode
     </section>
     
     <section class="powerby">

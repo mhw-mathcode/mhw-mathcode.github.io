@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="zh-cn" dir="ltr">
+<html lang="en-us" dir="ltr">
     <head><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="1. 文法基础 C 语言编译过程：预处理(.i)、编译(.s)、汇编(.o)、连接(.exe)。 高级语言程序执行：编译、汇编、运行。 编译过程：词法分析、语法分析、语义分析和中间代码生成、优化、目标代码生成。\n">
 <title>学习笔记-编译原理</title>
 
 <link rel='canonical' href='https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/'>
 
-<link rel="stylesheet" href="/scss/style.min.105dce95dc14b9d77d38e8fff8fcdc39d6e977526467d96fa320b7a7de9fe674.css"><meta property='og:title' content="学习笔记-编译原理">
+<link rel="stylesheet" href="/scss/style.min.3bf7f2abc6f1ada6a01f83d3a1d73f742699290aff3b88143715e9f5f816b380.css"><meta property='og:title' content="学习笔记-编译原理">
 <meta property='og:description' content="1. 文法基础 C 语言编译过程：预处理(.i)、编译(.s)、汇编(.o)、连接(.exe)。 高级语言程序执行：编译、汇编、运行。 编译过程：词法分析、语法分析、语义分析和中间代码生成、优化、目标代码生成。\n">
 <meta property='og:url' content='https://mhw-mathcode.github.io/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/'>
 <meta property='og:site_name' content='mhw'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-08-17T09:57:00&#43;08:00'/><meta property='article:modified_time' content='2025-09-02T09:35:29&#43;00:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-08-17T09:57:00&#43;08:00'/><meta property='article:modified_time' content='2026-02-23T09:07:37&#43;00:00'/>
 <meta name="twitter:title" content="学习笔记-编译原理">
 <meta name="twitter:description" content="1. 文法基础 C 语言编译过程：预处理(.i)、编译(.s)、汇编(.o)、连接(.exe)。 高级语言程序执行：编译、汇编、运行。 编译过程：词法分析、语法分析、语义分析和中间代码生成、优化、目标代码生成。\n">
     <link rel="shortcut icon" href="/favicon.ico" />
@@ -58,7 +58,7 @@
                     
                     
                         
-                        <img src="/img/avatar_hu_426a5d9126f2d650.png" width="300"
+                        <img src="/img/avatar_hu_98a12a3be8c5bae2.png" width="300"
                             height="300" class="site-logo" loading="lazy" alt="Avatar">
                     
                 
@@ -333,7 +333,7 @@
 <img src="/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/image/3.png"
 	width="1087"
 	height="422"
-	srcset="/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/image/3_hu_dccdadbcbfbc7839.png 480w, /p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/image/3_hu_c3eadc6ba2ed1c51.png 1024w"
+	srcset="/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/image/3_hu_ac03c5025a31bfe2.png 480w, /p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/image/3_hu_9d2a0625e9cfbf9c.png 1024w"
 	loading="lazy"
 	
 		alt="正则表达式与正则集"
@@ -410,7 +410,7 @@
 <img src="/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/image/1.png"
 	width="1762"
 	height="960"
-	srcset="/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/image/1_hu_7638413d803cbd4a.png 480w, /p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/image/1_hu_bb541dade3a71e9f.png 1024w"
+	srcset="/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/image/1_hu_41e6848a4d548af6.png 480w, /p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/image/1_hu_dad8a82319a74254.png 1024w"
 	loading="lazy"
 	
 		alt="NFA 确定化"
@@ -425,7 +425,7 @@
 <img src="/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/image/2.png"
 	width="1682"
 	height="903"
-	srcset="/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/image/2_hu_c873380651e80652.png 480w, /p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/image/2_hu_c5dddeb794b6851e.png 1024w"
+	srcset="/p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/image/2_hu_96974e800e31653d.png 480w, /p/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/image/2_hu_9869432885a65e8b.png 1024w"
 	loading="lazy"
 	
 		alt="DFA 最小化"
@@ -508,7 +508,7 @@
 
 
         <span>
-            最后更新于 2025-09-02 09:35 CST
+            最后更新于 2026-02-23 09:07 CST
         </span>
     </section></footer>
 
@@ -603,7 +603,7 @@
         
             2024 - 
         
-        2025 mhw-mathcode
+        2026 mhw-mathcode
     </section>
     
     <section class="powerby">
